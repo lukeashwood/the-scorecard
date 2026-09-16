@@ -85,6 +85,9 @@ def http_status(url):
     except urllib.error.URLError as e:
         if "CERTIFICATE_VERIFY_FAILED" not in str(e):
             return str(e)[:60]
+    except OSError:
+        # a slow or dropped connection says nothing about whether the page still exists
+        return "timeout"
     import subprocess
     out = subprocess.run(["curl", "-s", "-o", "/dev/null", "-w", "%{http_code}", "-L", "--max-time", "30",
                           "-A", UA, url], capture_output=True, text=True).stdout
@@ -1154,6 +1157,8 @@ def check_links(urls):
             log_check("sources", "link resolves", "pass", url)
         elif code in (0, 401, 403, 429):
             log_check("sources", "link resolves", "warn", f"{url} returned {code} to automated check (site blocks bots). Verify manually")
+        elif code == "timeout":
+            log_check("sources", "link resolves", "warn", f"{url} did not respond in time to the automated check. Verify manually")
         else:
             log_check("sources", "link resolves", "fail", f"{url} returned {code}")
 
