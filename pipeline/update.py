@@ -1183,10 +1183,23 @@ AOFM_EOFY_URL = ("https://www.aofm.gov.au/sites/default/files/2025-06-06/"
                  "portfolio_aggregate_-_executive_summary_-_dealt.xlsx")
 
 
-def enrich_gross_debt(m):
-    """Cross-check every actual year of gross debt against AOFM's register of securities on issue at 30 June,
-    and surface any newer 30 June position that the Budget papers haven't reported yet."""
-    grid = xlsx_sheet(AOFM_EOFY_URL, "aofm_eofy", "Portfolio")
+AOFM_SNAPSHOT = os.path.join(DATA_DIR, "aofm_eofy_snapshot.json")
+
+
+def aofm_eofy_positions(metric_id):
+    """AOFM securities on issue at each 30 June ($bn face value) and when they were retrieved.
+    AOFM's server often times out for cloud runners, so each good read is saved and reused
+    (with its real retrieval date) when only the download fails. Layout changes still raise."""
+    try:
+        grid = xlsx_sheet(AOFM_EOFY_URL, "aofm_eofy", "Portfolio")
+    except RuntimeError as e:
+        if "download failed" not in str(e) or not os.path.exists(AOFM_SNAPSHOT):
+            raise
+        with open(AOFM_SNAPSHOT) as f:
+            snap = json.load(f)
+        log_check(metric_id, "AOFM download", "warn",
+                  f"live download failed; using AOFM figures last retrieved {snap['retrieved_at'][:10]} ({e})")
+        return snap["positions"], snap["retrieved_at"]
     hdr_row = next(rn for rn, c in grid.items() if str(c.get("A", "")).strip().lower() == "liability / asset")
     tot_row = next(rn for rn, c in grid.items() if any(str(v).strip() == "Total AUD/Non-AUD LIABILITY" for v in c.values()))
     aofm = {}
@@ -1199,6 +1212,16 @@ def enrich_gross_debt(m):
             aofm[d.isoformat()] = abs(float(grid[tot_row][col])) / 1e9      # $ billion, face value
     if not aofm:
         raise RuntimeError("AOFM sheet layout changed: no 30 June columns found")
+    retrieved = NOW.isoformat(timespec="seconds")
+    with open(AOFM_SNAPSHOT, "w") as f:
+        json.dump({"source": AOFM_EOFY_URL, "retrieved_at": retrieved, "positions": aofm}, f, indent=1, sort_keys=True)
+    return aofm, retrieved
+
+
+def enrich_gross_debt(m):
+    """Cross-check every actual year of gross debt against AOFM's register of securities on issue at 30 June,
+    and surface any newer 30 June position that the Budget papers haven't reported yet."""
+    aofm, retrieved = aofm_eofy_positions(m["id"])
     est_from = m["chart"].get("estimateFrom", "9999")
     actual = [(d, v) for d, v in m["chart"]["series"][0]["points"] if d < est_from]
     bad = []
@@ -1233,7 +1256,7 @@ def enrich_gross_debt(m):
     m["sources"].append({"publisher": "Australian Office of Financial Management", "title": "Data Hub: End of Financial Year Positions – Executive Summary (automated daily cross-check)",
                          "url": "https://www.aofm.gov.au/data-hub", "data_url": AOFM_EOFY_URL,
                          "series": ["Total AUD/Non-AUD LIABILITY, face value at 30 June"],
-                         "retrieved_at": NOW.isoformat(timespec="seconds"), "automated": True})
+                         "retrieved_at": retrieved, "automated": True})
 
 
 ENRICH = {"aps_headcount": enrich_aps, "gross_debt": enrich_gross_debt}

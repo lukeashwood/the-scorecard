@@ -19,7 +19,7 @@ A standalone, non-partisan static website that rates the Australian Government's
 1. Downloads RBA statistical tables (G1, H1–H5, F1.1, F6, A2) and ABS Data API series (CPI, WPI, Labour Force, Labour Account, Building Activity, Total Value of Dwellings, population).
 2. Recomputes every headline, benchmark, rating and context sentence from the raw data. Nothing numeric is typed into the automated metrics.
 3. Runs checks:
-   - **Cross-source:** RBA vs ABS inflation, unemployment and wages; the Labour Account's public + private jobs must equal total jobs; the RBA's latest rate decision must match its cash rate series; every actual year of gross debt (2005–06 onward) must match the AOFM register of securities on issue.
+   - **Cross-source:** RBA vs ABS inflation, unemployment and wages; the Labour Account's public + private jobs must equal total jobs; the RBA's latest rate decision must match its cash rate series; every actual year of gross debt (2005–06 onward) must match the AOFM register of securities on issue. AOFM's server often times out for GitHub's runners, so each successful read is saved to `data/aofm_eofy_snapshot.json` and reused (with its real retrieval date, logged as a warning) when only the download fails.
    - **Range:** every value must be plausible.
    - **Freshness:** each source must still be updating.
    - **Revisions:** changes to already-published figures are logged.
