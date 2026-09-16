@@ -1,0 +1,48 @@
+name: Daily data verification
+
+on:
+  schedule:
+    # 02:45 UTC = 12:45pm AEST / 1:45pm AEDT: after the ABS's 11:30am release time
+    - cron: "45 2 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch official data, run checks, rebuild site data
+        id: pipeline
+        continue-on-error: true
+        run: python3 pipeline/update.py
+
+      - name: Publish updated data and audit log
+        run: |
+          git config user.name "scorecard-data-bot"
+          git config user.email "scorecard-data-bot@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "No data changes today."
+          else
+            git commit -m "Daily data verification $(date -u +%F)"
+            git push
+          fi
+
+      - name: Alert if a critical check failed
+        if: steps.pipeline.outcome == 'failure'
+        run: |
+          echo "::error::One or more critical data checks failed. The site is showing the last verified values with an 'under review' notice. See data/verification.json."
+          exit 1

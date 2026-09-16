@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Scorecard | How is the Albanese Government really performing?</title>
+  <meta name="description" content="An independent-data scorecard of the Albanese Government: inflation, real wages, housing, energy, jobs, productivity, debt and more, checked daily against official ABS, RBA and Treasury sources.">
+  <meta property="og:title" content="The Scorecard: how is the Albanese Government really performing?">
+  <meta property="og:description" content="Official figures from the ABS, RBA and Treasury, checked daily. See every source.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <rect width="36" height="36" rx="9" fill="#293086"/>
+          <rect x="9" y="20" width="4.5" height="7" rx="1.5" fill="#fff"/>
+          <rect x="15.75" y="15" width="4.5" height="12" rx="1.5" fill="#fff"/>
+          <rect x="22.5" y="9" width="4.5" height="18" rx="1.5" fill="#fff"/>
+        </svg>
+        <span class="brand-name">The Scorecard<small>Government performance</small></span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html" aria-current="page">Scorecard</a>
+        <a href="budget.html">Budget</a>
+        <a href="categories.html">Categories</a>
+        <a href="sources.html">Sources &amp; checks</a>
+        <a href="subscribe.html">Subscribe</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">The Albanese Government, measured</p>
+        <h1>Promises are words. <em>These are the numbers.</em></h1>
+        <p class="lede">Every figure on this site is taken directly from the Australian Bureau of Statistics, the Reserve Bank and Treasury. It is checked automatically every day, and each one links to its source. See for yourself.</p>
+        <div class="hero-actions">
+          <a class="btn btn-red" href="#report">See the scorecard</a>
+          <a class="btn btn-outline" href="sources.html">How we verify the data</a>
+          <a class="btn btn-outline" href="categories.html">Explore the categories</a>
+        </div>
+      </div>
+      <div class="tally" aria-live="polite">
+        <div class="tally-only" id="tally-only">Only</div>
+        <div class="tally-big"><span id="tally-on">–</span><span class="of"> of <span id="tally-total">–</span></span></div>
+        <div class="tally-label" id="tally-label">key measures are on track</div>
+        <div class="tally-bar" id="tally-bar"></div>
+        <div class="tally-legend" id="tally-legend"></div>
+        <div class="verified-line"><span><span class="pulse" aria-hidden="true" style="display:inline-block;margin-right:8px;vertical-align:1px"></span>Last verified <b id="verified-at">–</b> · <a href="sources.html#log" id="checks-passed">view checks</a></span></div>
+      </div>
+    </div>
+  </section>
+
+  <noscript><div class="wrap"><p class="noscript">This scorecard needs JavaScript to draw its charts. All data and sources are also listed on the <a href="sources.html">Sources page</a>.</p></div></noscript>
+
+  <section class="report wrap" id="report">
+    <p class="kicker">At a glance</p>
+    <h2>The report card</h2>
+    <p style="color:var(--body-grey);margin:0">Each measure is rated against a published benchmark: the government's own target, the Reserve Bank's target, the long-run average, or where things stood when the government took office. Every rating rule is shown under the metric. Tap any measure to jump to it.</p>
+    <div class="report-grid" id="report-grid"></div>
+    <div class="chips" id="chips"></div>
+  </section>
+
+  <main id="sections"></main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <svg class="brand-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+        <rect x="1" y="1" width="34" height="34" rx="9" stroke="#fff" stroke-opacity=".4" stroke-width="1.5"/>
+        <rect x="9" y="20" width="4.5" height="7" rx="1.5" fill="#fff"/>
+        <rect x="15.75" y="15" width="4.5" height="12" rx="1.5" fill="#fff"/>
+        <rect x="22.5" y="9" width="4.5" height="18" rx="1.5" fill="#fff"/>
+      </svg>
+      <div>
+        <p>Data: Australian Bureau of Statistics, Reserve Bank of Australia, Australian Treasury and other official sources as cited against each figure. ABS and RBA material is used under Creative Commons Attribution 4.0. Ratings and commentary are this site's independent assessment, based on the rules published with each measure.</p>
+        <p>Found an error? We fix mistakes fast. Email <span id="corrections"></span>. <a href="sources.html">Sources, methods &amp; daily checks</a> · <a href="categories.html">Explore the categories</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/config.js"></script>
+  <script src="data/metrics.js"></script>
+  <script src="assets/charts.js"></script>
+  <script src="assets/app.js"></script>
+  <script>document.getElementById("corrections").textContent = window.SITE_CONFIG.correctionsEmail;</script>
+</body>
+</html>

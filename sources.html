@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sources &amp; daily checks | The Scorecard</title>
+  <meta name="description" content="Every source behind The Scorecard, how each figure is calculated, and the public log of automated daily data checks.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <rect width="36" height="36" rx="9" fill="#293086"/>
+          <rect x="9" y="20" width="4.5" height="7" rx="1.5" fill="#fff"/>
+          <rect x="15.75" y="15" width="4.5" height="12" rx="1.5" fill="#fff"/>
+          <rect x="22.5" y="9" width="4.5" height="18" rx="1.5" fill="#fff"/>
+        </svg>
+        <span class="brand-name">The Scorecard<small>Government performance</small></span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html">Scorecard</a>
+        <a href="budget.html">Budget</a>
+        <a href="categories.html">Categories</a>
+        <a href="sources.html" aria-current="page">Sources &amp; checks</a>
+        <a href="subscribe.html">Subscribe</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Don't take our word for it</p>
+      <h1>Every number, every source.</h1>
+      <p>We don't make up numbers. Every figure on this site comes from an official publication you can open yourself, and our systems re-check the data every day.</p>
+    </div>
+  </section>
+
+  <main class="wrap section">
+    <div class="prose">
+      <h2>How the data is verified</h2>
+      <p>Most figures come straight from the machine-readable data services of the <b>Australian Bureau of Statistics</b> and the <b>Reserve Bank of Australia</b>. Nobody types them in. Every day an automated process:</p>
+      <ol>
+        <li><b>Downloads</b> the latest official data files directly from the ABS and RBA.</li>
+        <li><b>Recalculates</b> every figure, benchmark and rating from that raw data.</li>
+        <li><b>Cross-checks</b> key numbers against a second independent official source. For example, RBA and ABS inflation must agree, and the unemployment rate must match in both. If they don't agree, the figure isn't published.</li>
+        <li><b>Range-checks</b> every value, so a corrupted download can't produce an impossible number.</li>
+        <li><b>Checks freshness</b>, flagging any source that has stopped updating.</li>
+        <li><b>Tests every source link</b> cited on the site.</li>
+      </ol>
+      <p>If a check fails, the site keeps showing the last verified figure with a clear "under review" notice. It never shows a number it couldn't confirm.</p>
+      <p>Some figures, such as Budget papers, energy regulator decisions and public service headcounts, aren't published as data feeds. These are marked <span class="src-tag hand">Hand-verified</span> and show the date they were checked against the original document. Each one has a re-check date tied to the source's next release, and the daily process flags any that are overdue.</p>
+      <h2>How ratings work</h2>
+      <p>Each measure is rated <b>On track</b>, <b>Watch</b> or <b>Off track</b> against a benchmark stated on the card: the government's own target or promise, the Reserve Bank's target, the long-run average, or where things stood when the government took office in May 2022. The exact rule for each rating is published under every measure. Measures where more or less isn't clearly better are marked <b>Context</b> and not rated. We also show results that reflect well on the government.</p>
+      <h2>Corrections</h2>
+      <p>If you believe a figure is wrong, email <b id="corr"></b> with the measure and the source you're relying on. We will check it against the official source and correct any error promptly.</p>
+    </div>
+
+    <h2 id="log" style="margin-top:44px">Latest automated check</h2>
+    <div class="log-summary" id="log-summary"></div>
+    <div class="log-filter" role="group" aria-label="Filter checks">
+      <button class="btn btn-ghost" data-f="all" type="button">All</button>
+      <button class="btn btn-ghost" data-f="fail" type="button">Failed</button>
+      <button class="btn btn-ghost" data-f="warn" type="button">Warnings</button>
+      <button class="btn btn-ghost" data-f="pass" type="button">Passed</button>
+    </div>
+    <div class="table-scroll" style="max-height:520px">
+      <table class="log-table"><thead><tr><th>Result</th><th>Measure</th><th>Check</th><th>Detail</th></tr></thead><tbody id="log-body"></tbody></table>
+    </div>
+
+    <h2 style="margin-top:44px">All sources</h2>
+    <p style="color:var(--body-grey)">Grouped by publisher. Each links to the original publication.</p>
+    <div id="all-sources"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <svg class="brand-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+        <rect x="1" y="1" width="34" height="34" rx="9" stroke="#fff" stroke-opacity=".4" stroke-width="1.5"/>
+        <rect x="9" y="20" width="4.5" height="7" rx="1.5" fill="#fff"/>
+        <rect x="15.75" y="15" width="4.5" height="12" rx="1.5" fill="#fff"/>
+        <rect x="22.5" y="9" width="4.5" height="18" rx="1.5" fill="#fff"/>
+      </svg>
+      <div>
+        <p>ABS and RBA material is used under Creative Commons Attribution 4.0 International. Ratings and commentary are this site's independent assessment.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/config.js"></script>
+  <script src="data/metrics.js"></script>
+  <script src="data/verification.js"></script>
+  <script src="assets/charts.js"></script>
+  <script src="assets/app.js"></script>
+  <script>
+  (function () {
+    const { h } = window.Charts;
+    document.getElementById("corr").textContent = window.SITE_CONFIG.correctionsEmail;
+    const V = window.VERIFICATION && window.VERIFICATION.latest;
+    const D = window.SCORECARD;
+    if (V) {
+      const sum = document.getElementById("log-summary");
+      [[V.checks_passed, "checks passed"], [V.checks_warn, "warnings"], [V.checks_failed, "failed"], [window.Scorecard.fmtStamp(V.generated_at), "last run"]].forEach(([v, l]) => {
+        const s = h("div", "stat"); s.append(h("div", "v", String(v)), h("div", "l", l)); sum.appendChild(s);
+      });
+      const body = document.getElementById("log-body");
+      const label = { pass: "Passed", warn: "Warning", fail: "Failed" };
+      const titles = Object.fromEntries(D.metrics.map((m) => [m.id, m.title]));
+      function draw(f) {
+        body.replaceChildren();
+        V.checks.filter((c) => f === "all" || c.status === f).forEach((c) => {
+          const tr = h("tr");
+          const td = h("td"); td.appendChild(window.Scorecard.statusPill({ pass: "pass", warn: "warn", fail: "fail" }[c.status]));
+          td.firstChild.lastChild.textContent = label[c.status];
+          tr.append(td, h("td", null, titles[c.metric] || c.metric), h("td", null, c.check), h("td", null, c.detail));
+          body.appendChild(tr);
+        });
+      }
+      document.querySelectorAll("[data-f]").forEach((b) => b.addEventListener("click", () => draw(b.dataset.f)));
+      draw(V.checks_failed ? "fail" : "all");
+    }
+    // all sources, deduplicated by URL, grouped by publisher
+    const byUrl = new Map();
+    D.metrics.forEach((m) => m.sources.forEach((s) => {
+      const k = s.url + "|" + s.title;
+      if (!byUrl.has(k)) byUrl.set(k, { ...s, used: [] });
+      byUrl.get(k).used.push(m);
+    }));
+    (D.budget ? D.budget.years : []).forEach((y) => {
+      const k = y.url + "|" + y.document;
+      if (!byUrl.has(k)) byUrl.set(k, { publisher: "Australian Government (Treasury & Finance)", title: y.document, url: y.url, published: y.published, accessed: D.budget.verified_on, used: [{ id: "", title: "Budget page", href: "budget.html" }] });
+    });
+    const groups = {};
+    byUrl.forEach((s) => (groups[s.publisher] = groups[s.publisher] || []).push(s));
+    const box = document.getElementById("all-sources");
+    Object.keys(groups).sort().forEach((pub) => {
+      const card = h("article", "card");
+      card.style.marginBottom = "16px";
+      card.appendChild(h("h3", null, pub));
+      const ul = h("ul", "src-list");
+      groups[pub].forEach((s) => {
+        const li = window.Scorecard.sourceItem(s);
+        const used = h("div", "src-meta");
+        used.appendChild(document.createTextNode("Used in: "));
+        s.used.forEach((m, i) => {
+          const a = h("a", null, m.title);
+          a.href = m.href || "index.html#" + m.id;
+          used.appendChild(a);
+          if (i < s.used.length - 1) used.appendChild(document.createTextNode(", "));
+        });
+        li.appendChild(used);
+        ul.appendChild(li);
+      });
+      card.appendChild(ul);
+      box.appendChild(card);
+    });
+  })();
+  </script>
+</body>
+</html>

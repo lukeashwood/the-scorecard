@@ -1,0 +1,2077 @@
+{
+ "_readme": "Hand-verified figures that have no machine-readable feed. Every value must be read from the cited source. When a source updates: change the values, set verified_on to today, set recheck_by to the next expected release. The daily pipeline flags any metric whose recheck_by date has passed and checks every URL still resolves.",
+ "metrics": [
+  {
+   "id": "gross_debt",
+   "section": "budget",
+   "title": "Gross government debt",
+   "question": "Is the Commonwealth's debt going up or down?",
+   "headline": {
+    "value": 1051,
+    "unit": "$",
+    "decimals": 0,
+    "suffix": "bn",
+    "period": "Forecast at 30 June 2027 (2026–27 Budget)",
+    "caption": "gross debt: above $1 trillion for the first time"
+   },
+   "benchmark": {
+    "label": "When the government took office (30 June 2022)",
+    "text": "$895.3 billion"
+   },
+   "status": "fail",
+   "status_rule": "Off track if gross debt (in dollars) is forecast to be higher than at 30 June 2022.",
+   "context": [
+    "At 30 June 2006 gross debt was $54.1 billion (5.4% of GDP). It reached $257.4 billion in 2012–13, $542.0 billion in 2018–19 and $895.3 billion (38.3% of GDP) at 30 June 2022, when this government took office.",
+    "It was $928.6 billion at 30 June 2025, the latest audited actual. The Budget forecasts $1,051 billion by June 2027 and $1,249 billion by June 2030: above $1 trillion for the first time.",
+    "As a share of the economy, gross debt peaked at 39.1% of GDP in 2020–21 and fell to 33.4% in 2024–25. The Budget forecasts it rising again to peak at 35.8% in 2028–29.",
+    "Net debt is forecast to rise from $532.3 billion (2024–25) to $767.8 billion by 2029–30."
+   ],
+   "chart": {
+    "kind": "bar",
+    "unit": "$bn",
+    "decimals": 1,
+    "freq": "fy",
+    "estimateFrom": "2025-07-01",
+    "series": [
+     {
+      "name": "Gross debt at 30 June ($ billion)",
+      "role": "primary",
+      "points": [
+       [
+        "2006-06-30",
+        54.1
+       ],
+       [
+        "2007-06-30",
+        53.3
+       ],
+       [
+        "2008-06-30",
+        55.4
+       ],
+       [
+        "2009-06-30",
+        101.1
+       ],
+       [
+        "2010-06-30",
+        147.1
+       ],
+       [
+        "2011-06-30",
+        191.3
+       ],
+       [
+        "2012-06-30",
+        234.0
+       ],
+       [
+        "2013-06-30",
+        257.4
+       ],
+       [
+        "2014-06-30",
+        319.5
+       ],
+       [
+        "2015-06-30",
+        368.7
+       ],
+       [
+        "2016-06-30",
+        420.4
+       ],
+       [
+        "2017-06-30",
+        501.0
+       ],
+       [
+        "2018-06-30",
+        531.9
+       ],
+       [
+        "2019-06-30",
+        542.0
+       ],
+       [
+        "2020-06-30",
+        684.3
+       ],
+       [
+        "2021-06-30",
+        817.0
+       ],
+       [
+        "2022-06-30",
+        895.3
+       ],
+       [
+        "2023-06-30",
+        889.8
+       ],
+       [
+        "2024-06-30",
+        906.9
+       ],
+       [
+        "2025-06-30",
+        928.6
+       ],
+       [
+        "2026-06-30",
+        982.0
+       ],
+       [
+        "2027-06-30",
+        1051.0
+       ],
+       [
+        "2028-06-30",
+        1120.0
+       ],
+       [
+        "2029-06-30",
+        1193.0
+       ],
+       [
+        "2030-06-30",
+        1249.0
+       ]
+      ]
+     }
+    ],
+    "extra": [
+     {
+      "name": "% of GDP",
+      "unit": "%",
+      "decimals": 1,
+      "points": [
+       [
+        "2006-06-30",
+        5.4
+       ],
+       [
+        "2007-06-30",
+        4.9
+       ],
+       [
+        "2008-06-30",
+        4.7
+       ],
+       [
+        "2009-06-30",
+        8.0
+       ],
+       [
+        "2010-06-30",
+        11.2
+       ],
+       [
+        "2011-06-30",
+        13.4
+       ],
+       [
+        "2012-06-30",
+        15.5
+       ],
+       [
+        "2013-06-30",
+        16.7
+       ],
+       [
+        "2014-06-30",
+        19.9
+       ],
+       [
+        "2015-06-30",
+        22.6
+       ],
+       [
+        "2016-06-30",
+        25.3
+       ],
+       [
+        "2017-06-30",
+        28.4
+       ],
+       [
+        "2018-06-30",
+        28.8
+       ],
+       [
+        "2019-06-30",
+        27.7
+       ],
+       [
+        "2020-06-30",
+        34.4
+       ],
+       [
+        "2021-06-30",
+        39.1
+       ],
+       [
+        "2022-06-30",
+        38.3
+       ],
+       [
+        "2023-06-30",
+        34.5
+       ],
+       [
+        "2024-06-30",
+        33.8
+       ],
+       [
+        "2025-06-30",
+        33.4
+       ],
+       [
+        "2026-06-30",
+        33.1
+       ],
+       [
+        "2027-06-30",
+        34.0
+       ],
+       [
+        "2028-06-30",
+        35.2
+       ],
+       [
+        "2029-06-30",
+        35.8
+       ],
+       [
+        "2030-06-30",
+        35.6
+       ]
+      ]
+     }
+    ],
+    "note": "Face value of Australian Government Securities on issue at 30 June, 2005–06 to 2029–30. Lighter bars are 2026–27 Budget estimates (rounded to the nearest $1 billion). Hover a bar, or open the data table, for debt as a share of GDP."
+   },
+   "sources": [
+    {
+     "publisher": "Australian Government (Treasury & Finance)",
+     "title": "Budget Paper No. 1 2026–27, Statement 11: Historical Australian Government Data",
+     "table": "Table 11.5 (pp. 434–435): face value of AGS on issue, 'Total AGS on issue', $m and % of GDP, 2005–06 to 2029–30",
+     "url": "https://budget.gov.au/content/bp1/download/bp1_bs-11.pdf",
+     "published": "2026-05-12",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "Australian Government (Treasury & Finance)",
+     "title": "Budget Paper No. 1 2026–27, Statement 3: Fiscal Strategy and Outlook",
+     "table": "Table 3.1 note (c), p. 85: 'Gross debt measures the face value of Australian Government Securities (AGS) on issue'",
+     "url": "https://budget.gov.au/content/bp1/download/bp1_bs-3.pdf",
+     "published": "2026-05-12",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "Australian Government (Treasury & Finance)",
+     "title": "Final Budget Outcome 2024–25",
+     "table": "Table B.5 (pp. 105–106): Total AGS on issue, independent cross-check of 2005–06 to 2024–25",
+     "url": "https://archive.budget.gov.au/2024-25/fbo/download/00_fbo_2024-25.pdf",
+     "published": "2025-09-29",
+     "accessed": "2026-09-14"
+    }
+   ],
+   "method": "Face value of Australian Government Securities (AGS) on issue at 30 June ('Total AGS on issue' column, Budget Paper No. 1 2026–27 Table 11.5), which the Budget defines as gross debt. 2005–06 to 2024–25 are actuals, identical in the 2024–25 Final Budget Outcome. 2025–26 onward are Budget estimates rounded to the nearest $1 billion. Share of GDP uses the GDP figures in the 2026–27 Budget. Actual years are cross-checked automatically every day against the AOFM register of securities on issue.",
+   "explainer": {
+    "what": "Gross debt is the face value of all bonds and Treasury notes the Commonwealth has issued and not yet repaid: the amount it must pay back to investors when they mature. It is a snapshot at 30 June each year. Net debt, a separate measure, subtracts certain financial assets the government holds.",
+    "why": "Debt has to be serviced. Every dollar of interest is a dollar not spent on services or returned as tax cuts, and higher debt leaves less room to respond to the next crisis. The long view shows how debt has built up over two decades and where it is forecast to go."
+   },
+   "verified_on": "2026-09-14",
+   "recheck_by": "2026-10-01"
+  },
+  {
+   "id": "budget_balance",
+   "section": "budget",
+   "title": "Budget deficits",
+   "question": "Is the government living within its means?",
+   "headline": {
+    "value": -31.5,
+    "unit": "$",
+    "decimals": 1,
+    "suffix": "bn",
+    "signed": true,
+    "period": "2026–27 Budget estimate",
+    "caption": "underlying cash balance: a deficit"
+   },
+   "benchmark": {
+    "label": "Balanced budget",
+    "text": "$0 (surplus or balance)"
+   },
+   "status": "fail",
+   "status_rule": "Off track if the government's own Budget forecasts a deficit for the current financial year.",
+   "context": [
+    "The budget recorded surpluses in 2022–23 (+$22.1 billion) and 2023–24 (+$15.8 billion), then returned to deficit in 2024–25 (−$10.0 billion).",
+    "The 2026–27 Budget forecasts a deficit in every year of the forward estimates: −$28.3b, −$31.5b, −$31.0b, −$34.4b and −$25.3b from 2025–26 to 2029–30.",
+    "Tax receipts are forecast at 23.8% of GDP in 2026–27, up from 23.0% in 2021–22. The tax take is higher as a share of the economy, but payments have risen faster (see Government spending)."
+   ],
+   "chart": {
+    "kind": "bar",
+    "unit": "$bn",
+    "decimals": 1,
+    "freq": "fy",
+    "estimateFrom": "2025-07-01",
+    "series": [
+     {
+      "name": "Underlying cash balance ($ billion)",
+      "role": "primary",
+      "points": [
+       [
+        "2022-06-30",
+        -32.0
+       ],
+       [
+        "2023-06-30",
+        22.1
+       ],
+       [
+        "2024-06-30",
+        15.8
+       ],
+       [
+        "2025-06-30",
+        -10.0
+       ],
+       [
+        "2026-06-30",
+        -28.3
+       ],
+       [
+        "2027-06-30",
+        -31.5
+       ],
+       [
+        "2028-06-30",
+        -31.0
+       ],
+       [
+        "2029-06-30",
+        -34.4
+       ],
+       [
+        "2030-06-30",
+        -25.3
+       ]
+      ]
+     }
+    ],
+    "ref": [
+     {
+      "value": 0,
+      "label": ""
+     }
+    ],
+    "note": "Red = deficit. Lighter bars are Budget forecasts. 2021–22 was the final budget year of the previous government."
+   },
+   "sources": [
+    {
+     "publisher": "Australian Government (Treasury & Finance)",
+     "title": "Budget Paper No. 1 2026–27, Statement 11 (Table 11.1: underlying cash balance; Table 11.3: tax receipts)",
+     "url": "https://budget.gov.au/content/bp1/download/bp1_bs-11.pdf",
+     "published": "2026-05-12",
+     "accessed": "2026-09-14"
+    }
+   ],
+   "method": "Underlying cash balance (general government sector) as published in Budget Paper No. 1 2026–27, Table 11.1. Years to 2024–25 are actuals; later years are estimates.",
+   "explainer": {
+    "what": "The underlying cash balance is the Commonwealth's headline budget result: cash receipts minus cash payments, excluding the Future Fund's investment earnings. A negative number is a deficit.",
+    "why": "Deficits are funded by borrowing, which adds to debt and interest costs. Deficit spending also adds to demand at a time when the Reserve Bank is trying to bring inflation down."
+   },
+   "verified_on": "2026-09-14",
+   "recheck_by": "2026-10-01"
+  },
+  {
+   "id": "interest_costs",
+   "section": "budget",
+   "title": "Interest on government debt",
+   "question": "How much are taxpayers paying just to service the debt?",
+   "headline": {
+    "value": 29.6,
+    "unit": "$",
+    "decimals": 1,
+    "suffix": "bn",
+    "period": "2026–27 Budget estimate",
+    "caption": "interest payments in one year"
+   },
+   "benchmark": {
+    "label": "2021–22 (previous government's last year)",
+    "text": "$17.4 billion"
+   },
+   "status": "fail",
+   "status_rule": "Off track if annual interest payments are higher than in 2021–22.",
+   "context": [
+    "Interest payments are forecast to rise from $17.4 billion in 2021–22 to $29.6 billion in 2026–27 and $42.3 billion by 2029–30.",
+    "The Budget itself says interest payments are expected to peak at 1.6% of GDP in 2032–33.",
+    "In 2026–27 the government expects to spend more on public debt interest ($31.9 billion, accrual basis) than on transport and communication ($15.3 billion) and public order and safety ($9.7 billion) combined."
+   ],
+   "chart": {
+    "kind": "bar",
+    "unit": "$bn",
+    "decimals": 1,
+    "freq": "fy",
+    "estimateFrom": "2025-07-01",
+    "series": [
+     {
+      "name": "Interest payments ($ billion)",
+      "role": "accent",
+      "points": [
+       [
+        "2019-06-30",
+        19.0
+       ],
+       [
+        "2020-06-30",
+        16.5
+       ],
+       [
+        "2021-06-30",
+        17.1
+       ],
+       [
+        "2022-06-30",
+        17.4
+       ],
+       [
+        "2023-06-30",
+        18.9
+       ],
+       [
+        "2024-06-30",
+        22.8
+       ],
+       [
+        "2025-06-30",
+        24.3
+       ],
+       [
+        "2026-06-30",
+        27.1
+       ],
+       [
+        "2027-06-30",
+        29.6
+       ],
+       [
+        "2028-06-30",
+        36.4
+       ],
+       [
+        "2029-06-30",
+        38.0
+       ],
+       [
+        "2030-06-30",
+        42.3
+       ]
+      ]
+     }
+    ],
+    "note": "Cash interest payments, general government sector. Lighter bars are Budget forecasts."
+   },
+   "sources": [
+    {
+     "publisher": "Australian Government (Treasury & Finance)",
+     "title": "Budget Paper No. 1 2026–27, Statement 11 (Table 11.4: interest payments)",
+     "url": "https://budget.gov.au/content/bp1/download/bp1_bs-11.pdf",
+     "published": "2026-05-12",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "Australian Government (Treasury & Finance)",
+     "title": "Budget Paper No. 1 2026–27 (Table 6.3: expenses by function; Table 6.17: other purposes)",
+     "url": "https://budget.gov.au/content/bp1/download/bp1_2026-27.pdf",
+     "published": "2026-05-12",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "Australian Government (Treasury & Finance)",
+     "title": "Budget Paper No. 1 2026–27, Statement 3: Fiscal Strategy and Outlook",
+     "url": "https://budget.gov.au/content/bp1/download/bp1_bs-3.pdf",
+     "published": "2026-05-12",
+     "accessed": "2026-09-14"
+    }
+   ],
+   "method": "Interest payments (cash) from Budget Paper No. 1 Table 11.4. The comparison with other spending uses accrual expenses by function (Tables 6.3 and 6.17), which is why public debt interest expense ($31.9b) differs from cash interest payments ($29.6b).",
+   "explainer": {
+    "what": "The interest the Commonwealth pays each year to the investors who hold its bonds. It rises when debt grows and when interest rates on new borrowing are higher.",
+    "why": "Interest buys nothing: no hospitals, no defence, no tax relief. It is a direct cost of past and present deficits, and future taxpayers carry it."
+   },
+   "verified_on": "2026-09-14",
+   "recheck_by": "2026-10-01"
+  },
+  {
+   "id": "spending_gdp",
+   "section": "budget",
+   "title": "Government spending",
+   "question": "How big is Commonwealth spending compared with the economy?",
+   "headline": {
+    "value": 26.8,
+    "unit": "%",
+    "decimals": 1,
+    "period": "2026–27 Budget estimate",
+    "caption": "of GDP spent by the Commonwealth"
+   },
+   "benchmark": {
+    "label": "Pre-COVID (2018–19)",
+    "text": "24.5% of GDP"
+   },
+   "status": "fail",
+   "status_rule": "Off track if Commonwealth payments as a share of GDP are above the pre-COVID 2018–19 level.",
+   "context": [
+    "Payments are forecast at $829.6 billion in 2026–27, up from $616.3 billion in 2021–22.",
+    "Spending was 24.3% of GDP in 2022–23. It has risen every year since and is forecast at 26.8% in both 2026–27 and 2027–28.",
+    "The 2021–22 figure (26.4%) still included pandemic support. Before COVID, in 2018–19, spending was 24.5% of GDP."
+   ],
+   "chart": {
+    "kind": "line",
+    "unit": "%",
+    "decimals": 1,
+    "freq": "fy",
+    "series": [
+     {
+      "name": "Payments, % of GDP",
+      "role": "primary",
+      "points": [
+       [
+        "2019-06-30",
+        24.5
+       ],
+       [
+        "2020-06-30",
+        27.6
+       ],
+       [
+        "2021-06-30",
+        31.3
+       ],
+       [
+        "2022-06-30",
+        26.4
+       ],
+       [
+        "2023-06-30",
+        24.3
+       ],
+       [
+        "2024-06-30",
+        25.1
+       ],
+       [
+        "2025-06-30",
+        26.2
+       ],
+       [
+        "2026-06-30",
+        26.6
+       ],
+       [
+        "2027-06-30",
+        26.8
+       ],
+       [
+        "2028-06-30",
+        26.8
+       ],
+       [
+        "2029-06-30",
+        26.5
+       ],
+       [
+        "2030-06-30",
+        26.2
+       ]
+      ]
+     },
+     {
+      "name": "Tax receipts, % of GDP",
+      "role": "muted",
+      "points": [
+       [
+        "2019-06-30",
+        22.9
+       ],
+       [
+        "2020-06-30",
+        21.7
+       ],
+       [
+        "2021-06-30",
+        22.7
+       ],
+       [
+        "2022-06-30",
+        23.0
+       ],
+       [
+        "2023-06-30",
+        23.3
+       ],
+       [
+        "2024-06-30",
+        23.6
+       ],
+       [
+        "2025-06-30",
+        23.7
+       ],
+       [
+        "2026-06-30",
+        23.6
+       ],
+       [
+        "2027-06-30",
+        23.8
+       ],
+       [
+        "2028-06-30",
+        23.8
+       ],
+       [
+        "2029-06-30",
+        23.5
+       ],
+       [
+        "2030-06-30",
+        23.6
+       ]
+      ]
+     }
+    ],
+    "ref": [
+     {
+      "value": 24.5,
+      "label": "Pre-COVID 2018–19: 24.5%"
+     }
+    ],
+    "note": "2025–26 onward are Budget estimates. Financial years ending 30 June."
+   },
+   "sources": [
+    {
+     "publisher": "Australian Government (Treasury & Finance)",
+     "title": "Budget Paper No. 1 2026–27, Statement 11 (Tables 11.1 and 11.3)",
+     "url": "https://budget.gov.au/content/bp1/download/bp1_bs-11.pdf",
+     "published": "2026-05-12",
+     "accessed": "2026-09-14"
+    }
+   ],
+   "method": "General government sector cash payments and tax receipts as a percentage of GDP, Budget Paper No. 1 2026–27, Statement 11.",
+   "explainer": {
+    "what": "Total Commonwealth cash payments (welfare, health, defence, grants to the states, interest and so on) as a share of Australia's GDP. Tax receipts are shown for comparison.",
+    "why": "It shows the size of the federal government relative to the economy. When spending grows faster than the economy, it must be paid for with higher taxes, more debt, or both."
+   },
+   "verified_on": "2026-09-14",
+   "recheck_by": "2026-10-01"
+  },
+  {
+   "id": "aps_headcount",
+   "section": "budget",
+   "title": "Size of the public service",
+   "question": "How fast has the Canberra bureaucracy grown?",
+   "headline": {
+    "value": 24.7,
+    "unit": "%",
+    "decimals": 1,
+    "signed": true,
+    "period": "30 June 2022 → 30 June 2025",
+    "caption": "growth in Australian Public Service (APS) headcount"
+   },
+   "benchmark": {
+    "label": "Population growth, same period",
+    "text": "computed daily"
+   },
+   "status": "fail",
+   "status_rule": "Off track if APS headcount has grown more than twice as fast as Australia's population over the same period.",
+   "context": [
+    "The APS grew from 159,179 employees at 30 June 2022 to 198,529 at 30 June 2025: 39,350 more public servants.",
+    "The Budget estimates the APS Average Staffing Level at 217,256 in 2026–27.",
+    "The government says about 13,200 of the new roles replaced external contractors and consultants, around one-third of the increase in staffing since 2022."
+   ],
+   "chart": {
+    "kind": "bar",
+    "unit": "people",
+    "decimals": 0,
+    "freq": "fy",
+    "series": [
+     {
+      "name": "APS employees at 30 June",
+      "role": "primary",
+      "points": [
+       [
+        "2021-06-30",
+        153571
+       ],
+       [
+        "2022-06-30",
+        159179
+       ],
+       [
+        "2023-06-30",
+        170086
+       ],
+       [
+        "2024-06-30",
+        184858
+       ],
+       [
+        "2025-06-30",
+        198529
+       ]
+      ]
+     }
+    ],
+    "note": "Ongoing plus non-ongoing employees at 30 June each year."
+   },
+   "sources": [
+    {
+     "publisher": "Australian Public Service Commission",
+     "title": "State of the Service Report 2024–25: APS workforce size and location (Table 10)",
+     "url": "https://www.apsc.gov.au/initiatives-and-programs/workforce-information/research-analysis-and-publications/state-service/state-service-report-2024-25/aps-workforce/aps-workforce-size-and-location",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "Australian Public Service Commission",
+     "title": "APS Employment Data, 30 June 2022",
+     "url": "https://www.apsc.gov.au/employment-data/aps-employment-data-30-june-2022",
+     "published": "2022-08-29",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "Australian Government (Finance)",
+     "title": "Budget Paper No. 4 2026–27: Staffing of agencies",
+     "url": "https://budget.gov.au/content/bp4/download/bp4_10_staffing_of_agencies.pdf",
+     "published": "2026-05-12",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "Australian Government (Finance)",
+     "title": "Budget Paper No. 4 2026–27: Preface (external labour conversions)",
+     "url": "https://budget.gov.au/content/bp4/download/bp4_02_preface.pdf",
+     "published": "2026-05-12",
+     "accessed": "2026-09-14"
+    }
+   ],
+   "method": "APS headcount (ongoing + non-ongoing) from APSC data at 30 June. The population benchmark is the change in ABS estimated resident population between the June quarters of the same years, computed automatically from the ABS Data API.",
+   "explainer": {
+    "what": "The Australian Public Service is the federal bureaucracy: departments and agencies such as Services Australia, the ATO and Home Affairs. It does not include the military, state public servants, or staff of government businesses.",
+    "why": "Every public servant is paid by taxpayers. Growth can mean better services, or more administration, regulation and cost. We compare it with population growth to see whether the bureaucracy is growing faster than the country it serves."
+   },
+   "verified_on": "2026-09-14",
+   "recheck_by": "2026-10-15"
+  },
+  {
+   "id": "ndis",
+   "section": "budget",
+   "title": "NDIS cost growth",
+   "question": "Is the government meeting its own target to rein in NDIS cost growth?",
+   "headline": {
+    "value": 11.3,
+    "unit": "%",
+    "decimals": 1,
+    "period": "12 months to March 2026",
+    "caption": "annual growth in NDIS costs"
+   },
+   "benchmark": {
+    "label": "National Cabinet target",
+    "text": "no more than 8% by 1 July 2026"
+   },
+   "status": "fail",
+   "status_rule": "Off track if annual NDIS cost growth is above the 8% growth target agreed by National Cabinet.",
+   "context": [
+    "NDIS expenses rose from $28.6 billion in 2021–22 to $46.5 billion in 2024–25, and were $50.2 billion in the 12 months to March 2026.",
+    "The government's own impact analysis says the 8% target 'would not be met by July 2026'. A new target of 5–6% growth was set in January 2026.",
+    "The 2026–27 Budget puts NDIS expenses at $56.1 billion, including state contributions. The scheme supports 774,456 participants (March 2026)."
+   ],
+   "chart": {
+    "kind": "bar",
+    "unit": "$bn",
+    "decimals": 1,
+    "freq": "fy",
+    "series": [
+     {
+      "name": "NDIS scheme expenses ($ billion)",
+      "role": "primary",
+      "points": [
+       [
+        "2022-06-30",
+        28.6
+       ],
+       [
+        "2023-06-30",
+        35.2
+       ],
+       [
+        "2024-06-30",
+        41.9
+       ],
+       [
+        "2025-06-30",
+        46.5
+       ]
+      ]
+     }
+    ]
+   },
+   "sources": [
+    {
+     "publisher": "Department of Finance",
+     "title": "Estimates brief: NDIS expenses (FOI 25-26/146)",
+     "url": "https://www.finance.gov.au/sites/default/files/foi-25-26-146-document-01.pdf",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "Office of Impact Analysis (PM&C)",
+     "title": "NDIS Reforms Impact Analysis (1 July 2026 update)",
+     "url": "https://oia.pmc.gov.au/sites/default/files/posts/2026/07/Impact%20Analysis%20(01.07.26%20Update)_0.pdf",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "Australian Government (Treasury & Finance)",
+     "title": "Budget Paper No. 1 2026–27 (Table 6.9.2)",
+     "url": "https://budget.gov.au/content/bp1/download/bp1_2026-27.pdf",
+     "published": "2026-05-12",
+     "accessed": "2026-09-14"
+    }
+   ],
+   "method": "Scheme expenses by financial year from the Department of Finance estimates brief. Latest 12-month growth and participant numbers from the NDIS Reforms Impact Analysis.",
+   "explainer": {
+    "what": "The National Disability Insurance Scheme funds support for Australians with permanent and significant disability. It is jointly funded by the Commonwealth and the states and is now one of the largest items in the Budget.",
+    "why": "Governments agreed the scheme's cost growth must slow to be sustainable. Missing the target means a larger share of taxes goes to one program, and less to everything else."
+   },
+   "verified_on": "2026-09-14",
+   "recheck_by": "2026-11-01"
+  },
+  {
+   "id": "insolvencies",
+   "section": "jobs",
+   "title": "Business collapses",
+   "question": "Are more businesses going under?",
+   "headline": {
+    "value": 14722,
+    "unit": "",
+    "decimals": 0,
+    "period": "2024–25 financial year",
+    "caption": "companies entering external administration for the first time"
+   },
+   "benchmark": {
+    "label": "Pre-COVID (2018–19)",
+    "text": "8,105"
+   },
+   "status": "fail",
+   "status_rule": "Off track if company insolvencies are above the pre-COVID 2018–19 level.",
+   "context": [
+    "Insolvencies rose from 4,912 in 2021–22 to 7,942, then 11,053, then 14,722 in 2024–25, 82% above the pre-COVID level.",
+    "2020–21 and 2021–22 were unusually low because of temporary COVID insolvency relief, so we compare with 2018–19.",
+    "ASIC recorded 12,819 in the first 11 months of 2025–26 (to 31 May 2026)."
+   ],
+   "chart": {
+    "kind": "bar",
+    "unit": "people",
+    "decimals": 0,
+    "freq": "fy",
+    "series": [
+     {
+      "name": "Companies entering external administration",
+      "role": "accent",
+      "points": [
+       [
+        "2019-06-30",
+        8105
+       ],
+       [
+        "2020-06-30",
+        7362
+       ],
+       [
+        "2021-06-30",
+        4235
+       ],
+       [
+        "2022-06-30",
+        4912
+       ],
+       [
+        "2023-06-30",
+        7942
+       ],
+       [
+        "2024-06-30",
+        11053
+       ],
+       [
+        "2025-06-30",
+        14722
+       ]
+      ]
+     }
+    ],
+    "ref": [
+     {
+      "value": 8105,
+      "label": "Pre-COVID 2018–19"
+     }
+    ]
+   },
+   "sources": [
+    {
+     "publisher": "ASIC",
+     "title": "Insolvency statistics Series 1 (published 8 September 2022)",
+     "url": "https://download.asic.gov.au/media/250lwzrf/asic-insolvency-statistics-series-1-published-8-september-2022.pdf",
+     "published": "2022-09-08",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "ASIC",
+     "title": "Corporate Insolvency Update, Issue 37",
+     "url": "https://www.asic.gov.au/about-asic/corporate-publications/newsletters/asic-corporate-insolvency-update/asic-corporate-insolvency-update-issue-37",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "ASIC",
+     "title": "Corporate Insolvency Update, Issue 40 (June 2026)",
+     "url": "https://www.asic.gov.au/about-asic/corporate-publications/newsletters/asic-corporate-insolvency-update/asic-corporate-insolvency-update-issue-40-june-2026",
+     "accessed": "2026-09-14"
+    }
+   ],
+   "method": "ASIC Series 1: companies entering external administration or having a controller appointed for the first time, by financial year.",
+   "explainer": {
+    "what": "The number of companies entering formal insolvency (administration, liquidation or receivership) for the first time each year, as recorded by the corporate regulator ASIC.",
+    "why": "Business failures mean lost jobs, unpaid suppliers and owners losing their livelihoods. A sustained rise is a warning sign about costs, tax debts and the health of small business."
+   },
+   "verified_on": "2026-09-14",
+   "recheck_by": "2026-10-01"
+  },
+  {
+   "id": "power_bills",
+   "section": "energy",
+   "title": "Power bills: the $275 promise",
+   "question": "Did household power bills fall by $275 as promised?",
+   "headline": {
+    "value": 387,
+    "unit": "$",
+    "decimals": 0,
+    "signed": true,
+    "period": "2022–23 → 2026–27",
+    "caption": "a year: rise in the default power price for a typical NSW household (Ausgrid)"
+   },
+   "benchmark": {
+    "label": "Promise",
+    "text": "$275 a year lower by 2025"
+   },
+   "status": "fail",
+   "status_rule": "Off track if the regulated default electricity offer in each benchmark region is higher, not $275 lower, than when the promise was made.",
+   "context": [
+    "Default Market Offer, 2022–23 to 2026–27: NSW (Ausgrid) $1,512 → $1,899; South-East Queensland (Energex) $1,620 → $1,988; South Australia $1,840 → $2,334.",
+    "Victorian Default Offer: $1,403 → $1,591 over the same period.",
+    "The default offers are price caps on standing offers set by regulators for a typical household. Many households are on cheaper market offers, and the caps don't include government rebates."
+   ],
+   "promise": {
+    "quote": "It will cut power bills … by $275 a year for homes by 2025, compared to today.",
+    "attribution": "Labor's Powering Australia plan announcement, 3 December 2021. Source: RMIT ABC Fact Check and Labor media release."
+   },
+   "chart": {
+    "kind": "hbar",
+    "unit": "$",
+    "decimals": 0,
+    "bars": [
+     {
+      "name": "South Australia (SA Power Networks)",
+      "value": 494,
+      "role": "accent"
+     },
+     {
+      "name": "NSW (Ausgrid)",
+      "value": 387,
+      "role": "accent"
+     },
+     {
+      "name": "South-East Qld (Energex)",
+      "value": 368,
+      "role": "accent"
+     },
+     {
+      "name": "Victoria (Victorian Default Offer)",
+      "value": 188,
+      "role": "accent"
+     },
+     {
+      "name": "The promise",
+      "value": -275,
+      "role": "primary"
+     }
+    ],
+    "note": "Change in annual default electricity offer, 2022–23 to 2026–27 ($ a year, incl. GST), compared with the promised $275 cut."
+   },
+   "sources": [
+    {
+     "publisher": "Australian Energy Regulator",
+     "title": "Default Market Offer prices 2026–27: final determination",
+     "url": "https://www.aer.gov.au/system/files/2026-05/AER%20-%20Final%20determination%20-%20Default%20market%20offer%202026%E2%80%9327.pdf",
+     "published": "2026-05-26",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "Australian Energy Regulator",
+     "title": "Default Market Offer price determination 2022–23: final determination",
+     "url": "https://www.aer.gov.au/system/files/AER%20-%20Default%20Market%20Offer-%20Price%20determination%202022-23%20-%20Final%20Determination%20-%2026%20May%202022.pdf",
+     "published": "2022-05-26",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "Essential Services Commission (Vic)",
+     "title": "Victorian Default Offer 2026–27: final decision",
+     "url": "https://www.esc.vic.gov.au/sites/default/files/documents/Victorian%20Default%20Offer%202026%E2%80%9327%20Final%20Decision%20Paper.pdf",
+     "published": "2026-05-20",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "Essential Services Commission (Vic)",
+     "title": "Victorian Default Offer 2022–23: final decision",
+     "url": "https://www.esc.vic.gov.au/sites/default/files/documents/Victorian%20Default%20Offer%202022-23%20-%20Final%20decision_0.pdf",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "ABC News (RMIT ABC Fact Check)",
+     "title": "Promise check: cut power bills by $275",
+     "url": "https://www.abc.net.au/news/2023-05-19/promise-check-cut-power-bills-by-275-dollars/101791146",
+     "published": "2023-05-19",
+     "accessed": "2026-09-14"
+    }
+   ],
+   "method": "Annual bill at benchmark usage for residential customers on a flat tariff without controlled load (GST inclusive), from the regulators' final determinations. Change = 2026–27 minus 2022–23.",
+   "explainer": {
+    "what": "Each year energy regulators set a 'default offer', a maximum price for households on standard electricity contracts, based on typical usage in each region. It is the most consistent official yardstick for what a typical power bill costs.",
+    "why": "Before the 2022 election, Labor promised its energy plan would cut household power bills by $275 a year by 2025. The regulators' own numbers show whether that happened."
+   },
+   "verified_on": "2026-09-14",
+   "recheck_by": "2027-06-01"
+  },
+  {
+   "id": "wholesale_gas",
+   "section": "energy",
+   "title": "Wholesale gas prices",
+   "question": "Have east-coast wholesale gas prices come down from the 2022 crisis?",
+   "headline": {
+    "value": 9.08,
+    "unit": "$",
+    "decimals": 2,
+    "suffix": "/GJ",
+    "period": "June quarter 2026",
+    "caption": "average east-coast wholesale gas price"
+   },
+   "benchmark": {
+    "label": "June quarter 2022 (record high)",
+    "text": "$28.40/GJ"
+   },
+   "status": "pass",
+   "status_rule": "On track if the average east-coast wholesale gas price is below its June quarter 2022 level.",
+   "context": [
+    "Wholesale gas prices hit a record $28.40/GJ in the June quarter 2022 during the global energy crisis after Russia invaded Ukraine. They have since fallen to $9.08/GJ, the lowest since mid-2021.",
+    "A temporary $12/GJ emergency price cap was introduced from 23 December 2022.",
+    "The ACCC says long-term contract prices are around $13–15/GJ, which is what many businesses pay. Lower wholesale gas has not flowed through to lower electricity bills (see the $275 promise)."
+   ],
+   "chart": {
+    "kind": "bar",
+    "unit": "$",
+    "decimals": 2,
+    "freq": "q",
+    "series": [
+     {
+      "name": "Average east-coast wholesale gas price ($/GJ)",
+      "role": "primary",
+      "points": [
+       [
+        "2022-06-30",
+        28.4
+       ],
+       [
+        "2022-12-31",
+        17.79
+       ],
+       [
+        "2025-06-30",
+        12.36
+       ],
+       [
+        "2026-06-30",
+        9.08
+       ]
+      ]
+     }
+    ],
+    "note": "Selected quarters reported by AEMO Quarterly Energy Dynamics."
+   },
+   "sources": [
+    {
+     "publisher": "Australian Energy Market Operator",
+     "title": "Quarterly Energy Dynamics Q2 2026",
+     "url": "https://www.aemo.com.au/-/media/files/major-publications/qed/2026/qed-q2-2026.pdf",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "Australian Energy Market Operator",
+     "title": "Quarterly Energy Dynamics Q2 2022",
+     "url": "https://www.aemo.com.au/-/media/files/major-publications/qed/2022/qed-q2-2022.pdf",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "ACCC",
+     "title": "Storage vital to meeting winter demand across east coast gas market in Q3 2026",
+     "url": "https://www.accc.gov.au/media-release/storage-vital-to-meeting-winter-demand-across-east-coast-gas-market-in-q3-2026",
+     "published": "2026-04-01",
+     "accessed": "2026-09-14"
+    }
+   ],
+   "method": "Average east-coast wholesale gas price for the quarter as reported in AEMO's Quarterly Energy Dynamics.",
+   "explainer": {
+    "what": "The average price of gas traded in east-coast wholesale markets, in dollars per gigajoule. It is a key input cost for manufacturers, gas-fired power stations and household gas bills.",
+    "why": "We report the good news too. Wholesale gas has fallen sharply from its 2022 peak, but households haven't seen that in their electricity bills."
+   },
+   "verified_on": "2026-09-14",
+   "recheck_by": "2026-11-01"
+  },
+  {
+   "id": "emissions_target",
+   "section": "energy",
+   "title": "Emissions target",
+   "question": "Is Australia on track for the government's legislated 43% emissions cut by 2030?",
+   "headline": {
+    "value": 25.0,
+    "unit": "%",
+    "decimals": 1,
+    "period": "Year to March 2026",
+    "caption": "below 2005 emissions levels"
+   },
+   "benchmark": {
+    "label": "Legislated 2030 target",
+    "text": "43% below 2005"
+   },
+   "status": "fail",
+   "status_rule": "Off track if the government's own latest projections show the 2030 target will not be met.",
+   "context": [
+    "Emissions were 455.6 million tonnes CO2-e in the year to March 2026, 25.0% below 2005 levels.",
+    "The government's 2025 Annual Climate Change Statement projects a 42% reduction by 2030, short of the 43% target it legislated."
+   ],
+   "chart": {
+    "kind": "hbar",
+    "unit": "%",
+    "decimals": 0,
+    "bars": [
+     {
+      "name": "Achieved (year to Mar 2026)",
+      "value": 25,
+      "role": "primary"
+     },
+     {
+      "name": "Projected by 2030 (govt)",
+      "value": 42,
+      "role": "muted"
+     },
+     {
+      "name": "Legislated 2030 target",
+      "value": 43,
+      "role": "accent"
+     }
+    ],
+    "note": "Reduction below 2005 emissions levels. A land-sector recalculation in 2026 lowered reported reductions, so don't compare this with figures published earlier."
+   },
+   "sources": [
+    {
+     "publisher": "Department of Climate Change, Energy, the Environment and Water",
+     "title": "Quarterly Update of Australia's National Greenhouse Gas Inventory: March 2026",
+     "url": "https://www.dcceew.gov.au/sites/default/files/documents/quarterly-update-australias-national-greenhouse-gas-inventory-march-2026.pdf",
+     "published": "2026-08-28",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "Department of Climate Change, Energy, the Environment and Water",
+     "title": "Annual Climate Change Statement 2025",
+     "url": "https://www.dcceew.gov.au/sites/default/files/documents/annual-climate-change-statement-2025.pdf",
+     "accessed": "2026-09-14"
+    }
+   ],
+   "method": "National inventory emissions (year to March 2026) compared with 2005, and the government's published 2030 projection.",
+   "explainer": {
+    "what": "Australia's total greenhouse gas emissions compared with 2005 levels, from the official national inventory. The Climate Change Act 2022 sets a target of a 43% reduction by 2030.",
+    "why": "It is the government's own legislated target, and it has justified energy policy and spending decisions by it. Missing it on its own projections is a test of delivery."
+   },
+   "verified_on": "2026-09-14",
+   "recheck_by": "2026-12-01"
+  },
+  {
+   "id": "defence_spending",
+   "section": "governance",
+   "title": "Defence spending",
+   "question": "Is Australia spending enough on defence in a more dangerous region?",
+   "headline": {
+    "value": 2.02,
+    "unit": "%",
+    "decimals": 2,
+    "period": "2026–27 Budget",
+    "caption": "of GDP on defence (traditional budget measure)"
+   },
+   "benchmark": {
+    "label": "Level the US has asked Australia to reach",
+    "text": "3.5% of GDP"
+   },
+   "status": "fail",
+   "status_rule": "Off track if defence funding is below 3.5% of GDP, the level the US Defense Secretary asked Australia to reach 'as soon as possible' in 2025 and the core defence benchmark NATO allies adopted in 2025.",
+   "context": [
+    "On the traditional budget measure, defence funding was 1.98% of GDP in 2021–22, 2.03% in 2024–25, and is 2.02% in 2026–27 ($62.6 billion).",
+    "In April 2026 the government said defence spending would reach 3% of GDP by 2033 'under the NATO approach', which counts more items than the traditional measure.",
+    "In June 2025 the Pentagon said Australia should increase defence spending to 3.5% of GDP 'as soon as possible'."
+   ],
+   "chart": {
+    "kind": "bar",
+    "unit": "%",
+    "decimals": 2,
+    "freq": "fy",
+    "series": [
+     {
+      "name": "Defence funding, % of GDP",
+      "role": "primary",
+      "points": [
+       [
+        "2022-06-30",
+        1.98
+       ],
+       [
+        "2023-06-30",
+        1.93
+       ],
+       [
+        "2024-06-30",
+        1.99
+       ],
+       [
+        "2025-06-30",
+        2.03
+       ],
+       [
+        "2026-06-30",
+        2.13
+       ],
+       [
+        "2027-06-30",
+        2.02
+       ]
+      ]
+     }
+    ],
+    "ref": [
+     {
+      "value": 3.5,
+      "label": "US request: 3.5%"
+     },
+     {
+      "value": 2.0,
+      "label": "NATO 2% guideline"
+     }
+    ],
+    "note": "Budget-time figures as reported by defence analysts (2025–26 estimated actual; 2026–27 budget). Traditional appropriation measure."
+   },
+   "sources": [
+    {
+     "publisher": "Australian Defence Magazine",
+     "title": "2026 Defence budget released",
+     "url": "https://www.australiandefence.com.au/news/news/2026-defence-budget-released",
+     "published": "2026-05-12",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "Strategic Analysis Australia",
+     "title": "Defence budget 2026–27: the $14 billion disappearing act",
+     "url": "https://strategicanalysis.org/defence-budget-2026-27-the-14-billion-disappearing-act/",
+     "published": "2026-05-13",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "Australian Defence Magazine",
+     "title": "Defence budget inches upwards (2024–25)",
+     "url": "https://www.australiandefence.com.au/news/news/defence-budget-inches-upwards",
+     "published": "2025-03-25",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "Minister for Defence",
+     "title": "2026 National Defence Strategy and Integrated Investment Program",
+     "url": "https://www.minister.defence.gov.au/media-releases/2026-04-16/2026-national-defence-strategy-integrated-investment-program",
+     "published": "2026-04-16",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "Defense News",
+     "title": "Australia should surge defense spending to 3.5% of GDP, Pentagon says",
+     "url": "https://www.defensenews.com/pentagon/2025/06/02/australia-should-surge-defense-spending-to-35-of-gdp-pentagon-says/",
+     "published": "2025-06-02",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "NATO",
+     "title": "Funding NATO (defence spending benchmarks)",
+     "url": "https://www.nato.int/cps/en/natohq/topics_49198.htm",
+     "accessed": "2026-09-14"
+    }
+   ],
+   "method": "Defence funding as a share of GDP on the traditional budget appropriation measure, as calculated and reported by defence budget analysts at each Budget. Defence's own budget statements publish dollars only.",
+   "explainer": {
+    "what": "How much the Commonwealth spends on the Australian Defence Force and the Department of Defence, as a share of the economy. Figures vary by method: the 'NATO approach' counts extra items such as some veterans' and security spending.",
+    "why": "Allies and defence analysts have warned that Australia's strategic environment is the most dangerous in decades. Spending as a share of GDP is the standard way to compare commitment over time and across countries."
+   },
+   "verified_on": "2026-09-14",
+   "recheck_by": "2027-05-31"
+  },
+  {
+   "id": "legislation",
+   "section": "governance",
+   "title": "Laws passed",
+   "question": "How much legislation has Parliament passed under this government?",
+   "headline": {
+    "value": 354,
+    "unit": "",
+    "decimals": 0,
+    "period": "47th Parliament (2022–2025)",
+    "caption": "Acts of Parliament passed in the government's first term"
+   },
+   "benchmark": {
+    "label": "46th Parliament (2019–2022)",
+    "text": "407 Acts"
+   },
+   "status": "info",
+   "status_rule": "Context only: the number of laws passed is not in itself good or bad, so this measure is not rated.",
+   "context": [
+    "The 47th Parliament passed 354 Acts, against 407 in the 46th Parliament and 402 in the 45th.",
+    "Since the 48th Parliament opened on 22 July 2025, 133 Acts have received assent (to 11 September 2026)."
+   ],
+   "chart": {
+    "kind": "hbar",
+    "unit": "",
+    "decimals": 0,
+    "bars": [
+     {
+      "name": "45th Parliament (2016–19)",
+      "value": 402,
+      "role": "muted"
+     },
+     {
+      "name": "46th Parliament (2019–22)",
+      "value": 407,
+      "role": "muted"
+     },
+     {
+      "name": "47th Parliament (2022–25)",
+      "value": 354,
+      "role": "primary"
+     },
+     {
+      "name": "48th Parliament (to 11 Sep 2026)",
+      "value": 133,
+      "role": "primary"
+     }
+    ],
+    "note": "Acts assented, counted from the Federal Register of Legislation by assent date."
+   },
+   "sources": [
+    {
+     "publisher": "Federal Register of Legislation (Office of Parliamentary Counsel)",
+     "title": "Acts collection: search by year of assent",
+     "url": "https://www.legislation.gov.au/",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "Parliamentary Education Office",
+     "title": "47th Parliament statistics",
+     "url": "https://peo.gov.au/understand-our-parliament/how-parliament-works/parliament-at-work/parliamentary-statistics/47th-parliament",
+     "accessed": "2026-09-14"
+    }
+   ],
+   "method": "Count of Acts in the Federal Register of Legislation by assent date within each Parliament's term. Cross-checked against the Parliamentary Education Office's 47th Parliament statistics (355 bills passed both houses).",
+   "explainer": {
+    "what": "The number of Acts, laws passed by both houses of Parliament and given Royal Assent, in each term of Parliament.",
+    "why": "More laws aren't automatically better. This gives context on how busy the legislative agenda has been. Each new law typically needs public servants to administer it and imposes compliance obligations on the community."
+   },
+   "verified_on": "2026-09-14",
+   "recheck_by": "2026-10-14"
+  },
+  {
+   "id": "bulk_billing",
+   "section": "living",
+   "title": "GP bulk billing",
+   "question": "Can Australians see a GP without paying?",
+   "headline": {
+    "value": 84.1,
+    "unit": "%",
+    "decimals": 1,
+    "period": "June quarter 2026",
+    "caption": "of GP visits bulk billed"
+   },
+   "benchmark": {
+    "label": "Government promise",
+    "text": "9 in 10 GP visits (90%) by 2030"
+   },
+   "status": "warn",
+   "status_rule": "Watch if the GP bulk billing rate is below the government's promised 90%.",
+   "context": [
+    "The annual GP bulk billing rate fell from 88.3% in 2021–22 to 77.3% in 2023–24, then recovered to 80.9% in 2025–26. The 2021–22 rate was inflated by COVID-era mandatory bulk billing for some patients.",
+    "The average out-of-pocket cost for a GP visit that isn't bulk billed rose from $42.25 in 2021–22 to $55.25 in 2025–26.",
+    "The quarterly rate has recovered from a low of 75.6% in October 2023 to 84.1% in the June quarter 2026."
+   ],
+   "chart": {
+    "kind": "bar",
+    "unit": "%",
+    "decimals": 1,
+    "freq": "fy",
+    "series": [
+     {
+      "name": "GP bulk billing rate (annual)",
+      "role": "primary",
+      "points": [
+       [
+        "2022-06-30",
+        88.3
+       ],
+       [
+        "2023-06-30",
+        80.2
+       ],
+       [
+        "2024-06-30",
+        77.3
+       ],
+       [
+        "2025-06-30",
+        77.9
+       ],
+       [
+        "2026-06-30",
+        80.9
+       ]
+      ]
+     }
+    ],
+    "ref": [
+     {
+      "value": 90,
+      "label": "Promise: 90% by 2030"
+     }
+    ]
+   },
+   "sources": [
+    {
+     "publisher": "Department of Health, Disability and Ageing",
+     "title": "Medicare annual statistics: state and territory, 2009–10 to 2025–26",
+     "url": "https://www.health.gov.au/resources/publications/medicare-annual-statistics-state-and-territory-2009-10-to-2025-26",
+     "published": "2026-08-10",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "Minister for Health (Mark Butler)",
+     "title": "Strengthening Medicare: bulk billing on the up",
+     "url": "https://www.health.gov.au/ministers/the-hon-mark-butler-mp/media/strengthening-medicare-bulk-billing-on-the-up",
+     "published": "2026-08-10",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "Prime Minister of Australia",
+     "title": "Delivering bulk billing for all Australians",
+     "url": "https://www.pm.gov.au/media/delivering-bulk-billing-all-australians",
+     "published": "2025-11-02",
+     "accessed": "2026-09-14"
+    }
+   ],
+   "method": "Share of non-referred GP attendances that were bulk billed, by financial year (Medicare statistics). Latest quarterly rate from the Health Minister's release.",
+   "explainer": {
+    "what": "The share of GP visits where the doctor bills Medicare directly, so the patient pays nothing out of pocket.",
+    "why": "Cost is a barrier to seeing a doctor. When bulk billing falls, people delay care and end up in emergency departments. The government has promised 9 in 10 GP visits will be bulk billed by 2030."
+   },
+   "verified_on": "2026-09-14",
+   "recheck_by": "2026-11-15"
+  }
+ ],
+ "attachments": [
+  {
+   "metric": "electricity",
+   "promise": {
+    "quote": "It will cut power bills … by $275 a year for homes by 2025, compared to today.",
+    "attribution": "Labor's Powering Australia plan announcement, 3 December 2021."
+   },
+   "context": [
+    "ABS monthly CPI: electricity prices rose 21.1% in the 12 months to May 2026, or 3.9% excluding the effect of Commonwealth and state bill rebates, which were winding down."
+   ],
+   "sources": [
+    {
+     "publisher": "Australian Bureau of Statistics",
+     "title": "Consumer Price Index, Australia, May 2026",
+     "url": "https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/consumer-price-index-australia/may-2026",
+     "published": "2026-06-24",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "ABC News (RMIT ABC Fact Check)",
+     "title": "Promise check: cut power bills by $275",
+     "url": "https://www.abc.net.au/news/2023-05-19/promise-check-cut-power-bills-by-275-dollars/101791146",
+     "published": "2023-05-19",
+     "accessed": "2026-09-14"
+    }
+   ]
+  },
+  {
+   "metric": "housing_accord",
+   "context": [
+    "The government's own advisory body, the National Housing Supply and Affordability Council, counts 308,000 completions (about 26% of the target) after 7 of 20 quarters. It expects 1.2 million to be reached only in the December quarter 2030, 18 months after the Accord ends."
+   ],
+   "sources": [
+    {
+     "publisher": "National Housing Supply and Affordability Council",
+     "title": "Quarterly report, August 2026",
+     "url": "https://nhsac.gov.au/reports-and-submissions/quarterly-report-august-2026",
+     "published": "2026-08-21",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "The Treasury",
+     "title": "National Housing Accord",
+     "url": "https://treasury.gov.au/policy-topics/housing/accord",
+     "accessed": "2026-09-14"
+    }
+   ]
+  },
+  {
+   "metric": "migration",
+   "promise": {
+    "quote": "We expect net overseas migration to halve next year.",
+    "attribution": "Treasurer Jim Chalmers, 14 December 2023. MYEFO 2023–24 forecast 250,000 for 2024–25."
+   },
+   "context": [
+    "Net overseas migration was 538,341 in 2022–23 and 429,162 in 2023–24. In 2024–25 it was 302,184, about 52,000 above the 250,000 the government forecast in December 2023."
+   ],
+   "sources": [
+    {
+     "publisher": "Australian Bureau of Statistics",
+     "title": "Overseas Migration, 2024–25",
+     "url": "https://www.abs.gov.au/statistics/people/population/overseas-migration/latest-release",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "Australian Government (Treasury)",
+     "title": "Mid-Year Economic and Fiscal Outlook 2023–24",
+     "url": "https://archive.budget.gov.au/2023-24/myefo/download/myefo2023-24.pdf",
+     "accessed": "2026-09-14"
+    },
+    {
+     "publisher": "Treasurer (Jim Chalmers)",
+     "title": "Press conference, Canberra, 14 December 2023",
+     "url": "https://ministers.treasury.gov.au/ministers/jim-chalmers-2022/transcripts/press-conference-blue-room-canberra-14",
+     "published": "2023-12-14",
+     "accessed": "2026-09-14"
+    }
+   ]
+  },
+  {
+   "metric": "gdp_per_capita",
+   "context": [
+    "The ABS confirmed GDP per person fell for seven consecutive quarters before growing 0.1% in the December quarter 2024."
+   ],
+   "sources": [
+    {
+     "publisher": "Australian Bureau of Statistics",
+     "title": "Media release: Australian economy grew 0.6 per cent in December quarter (2024)",
+     "url": "https://www.abs.gov.au/media-centre/media-releases/australian-economy-grew-06-cent-december-quarter",
+     "published": "2025-03-05",
+     "accessed": "2026-09-14"
+    }
+   ]
+  },
+  {
+   "metric": "real_wages",
+   "context": [
+    "The Treasurer's own release on 19 August 2026 acknowledged real wages fell by 0.8% over the year (unrounded)."
+   ],
+   "sources": [
+    {
+     "publisher": "Treasurer (Jim Chalmers)",
+     "title": "Media release: wages continue to grow under Labor (19 August 2026)",
+     "url": "https://ministers.treasury.gov.au/ministers/jim-chalmers-2022/media-releases/wages-continue-grow-under-labor-0",
+     "published": "2026-08-19",
+     "accessed": "2026-09-14"
+    }
+   ]
+  },
+  {
+   "metric": "productivity",
+   "context": [
+    "Productivity Commission, June 2026: labour productivity fell 0.6% in the March quarter and grew only 0.3% over the year."
+   ],
+   "sources": [
+    {
+     "publisher": "Productivity Commission",
+     "title": "Quarterly productivity bulletin, June 2026",
+     "url": "https://www.pc.gov.au/ongoing/productivity-insights/bulletins/quarterly-bulletin-june-2026/",
+     "published": "2026-06-11",
+     "accessed": "2026-09-14"
+    }
+   ]
+  },
+  {
+   "metric": "jobs_by_sector",
+   "context": [
+    "The Reserve Bank reported in November 2024 that around three-quarters of employment growth over the preceding year was in the non-market parts of the economy."
+   ],
+   "sources": [
+    {
+     "publisher": "Reserve Bank of Australia",
+     "title": "Statement on Monetary Policy, November 2024, Box D",
+     "url": "https://www.rba.gov.au/publications/smp/2024/nov/box-d-annual-review-of-the-forecasts.html",
+     "accessed": "2026-09-14"
+    }
+   ]
+  }
+ ],
+ "budget": {
+  "verified_on": "2026-09-14",
+  "recheck_by": "2026-10-01",
+  "note": "Accrual figures for the Australian Government general government sector. Published line items don't always add exactly to published totals because of rounding. The next update is the 2025–26 Final Budget Outcome, due by 30 September 2026.",
+  "years": [
+   {
+    "label": "2026–27 Budget",
+    "year": "2026–27",
+    "type": "Budget estimate",
+    "document": "Budget Paper No. 1: Budget Strategy and Outlook 2026–27",
+    "url": "https://budget.gov.au/content/bp1/download/bp1_2026-27.pdf",
+    "published": "2026-05-12",
+    "revenue_table": "Table 5.10 (p. 211): Australian Government general government sector revenue, accrual",
+    "expense_table": "Table 6.3 (p. 225): expenses by function; Table 6.17 (p. 241): other purposes",
+    "revenue_total_m": 815328,
+    "expenses_total_m": 833262,
+    "ucb_m": -31542,
+    "gross_debt_bn": 1051.0,
+    "revenue": [
+     {
+      "name": "Personal income tax",
+      "value_m": 390900,
+      "detail": [
+       [
+        "Individuals and other withholding taxes",
+        390900
+       ]
+      ]
+     },
+     {
+      "name": "Company tax",
+      "value_m": 157000,
+      "detail": [
+       [
+        "Company tax",
+        157000
+       ]
+      ]
+     },
+     {
+      "name": "GST",
+      "value_m": 109150,
+      "detail": [
+       [
+        "Goods and services tax (passed on to the states)",
+        109150
+       ]
+      ]
+     },
+     {
+      "name": "Excise & customs duty",
+      "value_m": 40990,
+      "detail": [
+       [
+        "Excise and customs duty (fuel, tobacco, alcohol, imports)",
+        40990
+       ]
+      ]
+     },
+     {
+      "name": "Other taxes",
+      "value_m": 58242,
+      "detail": [
+       [
+        "Superannuation fund taxes",
+        31590
+       ],
+       [
+        "Fringe benefits tax",
+        5830
+       ],
+       [
+        "Petroleum resource rent tax",
+        1950
+       ],
+       [
+        "Wine equalisation tax",
+        1170
+       ],
+       [
+        "Luxury car tax",
+        1110
+       ],
+       [
+        "Other taxes (incl. visa charges, major bank levy, agricultural levies)",
+        16592
+       ]
+      ]
+     },
+     {
+      "name": "Non-tax revenue",
+      "value_m": 59045,
+      "detail": [
+       [
+        "Sales of goods and services",
+        23821
+       ],
+       [
+        "Interest and dividends",
+        19029
+       ],
+       [
+        "Other non-taxation revenue",
+        16195
+       ]
+      ]
+     }
+    ],
+    "expenses": [
+     {
+      "name": "Social security & welfare",
+      "value_m": 308737,
+      "detail": [
+       [
+        "Pensions, family payments, NDIS, aged care, unemployment and other welfare",
+        308737
+       ]
+      ]
+     },
+     {
+      "name": "Health",
+      "value_m": 136918,
+      "detail": [
+       [
+        "Medicare, hospitals funding, PBS and other health",
+        136918
+       ]
+      ]
+     },
+     {
+      "name": "Payments to states (mainly GST)",
+      "value_m": 111062,
+      "detail": [
+       [
+        "General purpose payments to state and local governments",
+        111062
+       ]
+      ]
+     },
+     {
+      "name": "Education",
+      "value_m": 57349,
+      "detail": [
+       [
+        "Schools, universities, vocational training",
+        57349
+       ]
+      ]
+     },
+     {
+      "name": "Defence",
+      "value_m": 52055,
+      "detail": [
+       [
+        "Defence",
+        52055
+       ]
+      ]
+     },
+     {
+      "name": "Interest on government debt",
+      "value_m": 31886,
+      "detail": [
+       [
+        "Public debt interest",
+        31886
+       ]
+      ]
+     },
+     {
+      "name": "Everything else",
+      "value_m": 135257,
+      "detail": [
+       [
+        "General public services",
+        32499
+       ],
+       [
+        "Nominal superannuation interest",
+        15884
+       ],
+       [
+        "Transport and communication",
+        15338
+       ],
+       [
+        "Fuel and energy",
+        15207
+       ],
+       [
+        "Other economic affairs",
+        13773
+       ],
+       [
+        "Housing and community amenities",
+        11454
+       ],
+       [
+        "Public order and safety",
+        9709
+       ],
+       [
+        "Recreation and culture",
+        6292
+       ],
+       [
+        "Mining, manufacturing and construction",
+        5563
+       ],
+       [
+        "Agriculture, forestry and fishing",
+        4748
+       ],
+       [
+        "Contingency reserve",
+        3925
+       ],
+       [
+        "Natural disaster relief",
+        865
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "label": "2024–25 actual",
+    "year": "2024–25",
+    "type": "Final Budget Outcome (actual)",
+    "document": "Final Budget Outcome 2024–25",
+    "url": "https://archive.budget.gov.au/2024-25/fbo/download/00_fbo_2024-25.pdf",
+    "published": "2025-09-29",
+    "revenue_table": "Table 1.4 (p. 10): general government sector revenue, accrual",
+    "expense_table": "Table A.1 (pp. 91–93): expenses by function",
+    "revenue_total_m": 733010,
+    "expenses_total_m": 770071,
+    "ucb_m": -9990,
+    "gross_debt_bn": 928.6,
+    "revenue": [
+     {
+      "name": "Personal income tax",
+      "value_m": 346399,
+      "detail": [
+       [
+        "Individuals and other withholding taxes",
+        346399
+       ]
+      ]
+     },
+     {
+      "name": "Company tax",
+      "value_m": 142159,
+      "detail": [
+       [
+        "Company tax",
+        142159
+       ]
+      ]
+     },
+     {
+      "name": "GST",
+      "value_m": 96543,
+      "detail": [
+       [
+        "Goods and services tax (passed on to the states)",
+        96543
+       ]
+      ]
+     },
+     {
+      "name": "Excise & customs duty",
+      "value_m": 42826,
+      "detail": [
+       [
+        "Excise and customs duty (fuel, tobacco, alcohol, imports)",
+        42826
+       ]
+      ]
+     },
+     {
+      "name": "Other taxes",
+      "value_m": 49258,
+      "detail": [
+       [
+        "Superannuation fund taxes",
+        26055
+       ],
+       [
+        "Fringe benefits tax",
+        5194
+       ],
+       [
+        "Petroleum resource rent tax",
+        1483
+       ],
+       [
+        "Wine equalisation tax",
+        1135
+       ],
+       [
+        "Luxury car tax",
+        1088
+       ],
+       [
+        "Other taxes (incl. visa charges, major bank levy, agricultural levies)",
+        14303
+       ]
+      ]
+     },
+     {
+      "name": "Non-tax revenue",
+      "value_m": 55824,
+      "detail": [
+       [
+        "Sales of goods and services",
+        20596
+       ],
+       [
+        "Interest and dividends",
+        19013
+       ],
+       [
+        "Other non-taxation revenue",
+        16215
+       ]
+      ]
+     }
+    ],
+    "expenses": [
+     {
+      "name": "Social security & welfare",
+      "value_m": 285479,
+      "detail": [
+       [
+        "Pensions, family payments, NDIS, aged care, unemployment and other welfare",
+        285479
+       ]
+      ]
+     },
+     {
+      "name": "Health",
+      "value_m": 132249,
+      "detail": [
+       [
+        "Medicare, hospitals funding, PBS and other health",
+        132249
+       ]
+      ]
+     },
+     {
+      "name": "Payments to states (mainly GST)",
+      "value_m": 99937,
+      "detail": [
+       [
+        "General purpose payments to state and local governments",
+        99937
+       ]
+      ]
+     },
+     {
+      "name": "Education",
+      "value_m": 50901,
+      "detail": [
+       [
+        "Schools, universities, vocational training",
+        50901
+       ]
+      ]
+     },
+     {
+      "name": "Defence",
+      "value_m": 47785,
+      "detail": [
+       [
+        "Defence",
+        47785
+       ]
+      ]
+     },
+     {
+      "name": "Interest on government debt",
+      "value_m": 23868,
+      "detail": [
+       [
+        "Public debt interest",
+        23868
+       ]
+      ]
+     },
+     {
+      "name": "Everything else",
+      "value_m": 129852,
+      "detail": [
+       [
+        "General public services",
+        32887
+       ],
+       [
+        "Transport and communication",
+        16244
+       ],
+       [
+        "Fuel and energy",
+        14954
+       ],
+       [
+        "Nominal superannuation interest",
+        14250
+       ],
+       [
+        "Other economic affairs",
+        12895
+       ],
+       [
+        "Public order and safety",
+        8517
+       ],
+       [
+        "Housing and community amenities",
+        8330
+       ],
+       [
+        "Natural disaster relief",
+        7071
+       ],
+       [
+        "Recreation and culture",
+        5966
+       ],
+       [
+        "Mining, manufacturing and construction",
+        4937
+       ],
+       [
+        "Agriculture, forestry and fishing",
+        3801
+       ]
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

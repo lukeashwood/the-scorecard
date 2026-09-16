@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Categories | The Scorecard, mapped</title>
+  <meta name="description" content="Every measure on the Scorecard, grouped into its category and drawn as a sphere sized by how much is tracked and coloured by how much is off track.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/categories.css">
+</head>
+<body class="catpage">
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <rect width="36" height="36" rx="9" fill="#293086"/>
+          <rect x="9" y="20" width="4.5" height="7" rx="1.5" fill="#fff"/>
+          <rect x="15.75" y="15" width="4.5" height="12" rx="1.5" fill="#fff"/>
+          <rect x="22.5" y="9" width="4.5" height="18" rx="1.5" fill="#fff"/>
+        </svg>
+        <span class="brand-name">The Scorecard<small>Government performance</small></span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html">Scorecard</a>
+        <a href="budget.html">Budget</a>
+        <a href="categories.html" aria-current="page">Categories</a>
+        <a href="sources.html">Sources &amp; checks</a>
+        <a href="subscribe.html">Subscribe</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="cat-stage" aria-label="Interactive 3D map of measurement categories">
+    <div id="stage"></div>
+    <div class="scanlines" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+    <div id="labels"></div>
+    <div id="reticle" hidden aria-hidden="true"></div>
+    <span class="corner tl" aria-hidden="true"></span><span class="corner tr" aria-hidden="true"></span><span class="corner bl" aria-hidden="true"></span><span class="corner br" aria-hidden="true"></span>
+
+    <div class="hud-title">
+      <div class="k">The Scorecard · Category Model</div>
+      <h1>Every measure, mapped</h1>
+      <p>Each sphere is a category of the Scorecard's measures. Its colour and glow show how many of them are off track. The small dots orbiting it are the individual measures. Click anything to open it.</p>
+    </div>
+
+    <div class="hud-controls">
+      <button class="btn-hud accent" id="btn-tour" type="button">▶ Guided tour</button>
+      <button class="btn-hud" id="btn-reset" type="button">Reset view</button>
+      <button class="btn-hud" id="btn-text" type="button">Text version</button>
+    </div>
+    <div class="hint">Drag to rotate · Scroll to zoom · Click a sphere</div>
+
+    <aside id="panel" hidden aria-live="polite"></aside>
+
+    <div class="tour" role="region" aria-label="Guided tour">
+      <div class="tour-say" id="tour-say"></div>
+      <div class="tour-ctl">
+        <button class="btn-hud" id="tour-prev" type="button" aria-label="Previous">◀</button>
+        <span id="tour-count">1 / 1</span>
+        <button class="btn-hud" id="tour-next" type="button" aria-label="Next">▶</button>
+        <button class="btn-hud" id="tour-exit" type="button">Exit</button>
+      </div>
+    </div>
+
+    <div class="ticker"><b>LIVE</b><span id="ticker">Scorecard data loading…</span></div>
+
+    <div id="boot">
+      <div class="boot-box">
+        <div class="boot-ring">
+          <svg viewBox="0 0 36 36" fill="none" aria-hidden="true">
+            <circle cx="18" cy="18" r="16" stroke="#5fd4ff" stroke-width="1.4" opacity=".5"/>
+            <circle cx="18" cy="18" r="4" fill="#5fd4ff"/>
+            <circle cx="30" cy="18" r="2.2" fill="#ff4d55"/>
+          </svg>
+        </div>
+        <div class="boot-line"><span>The Scorecard · Category Model</span><span>v1.0</span></div>
+        <div class="boot-line"><span>Loading measurement categories</span><span>OK</span></div>
+        <div class="boot-line"><span>Grouping individual measures</span><span>OK</span></div>
+        <div class="boot-line"><span>Linking live data</span><span>OK</span></div>
+        <div class="boot-line"><span>Rendering model</span><span>READY</span></div>
+        <div class="boot-skip">Click to skip</div>
+      </div>
+    </div>
+  </section>
+
+  <p id="no-webgl" class="noscript-box" hidden>Your browser can't display the 3D model. The full list of categories and measures is below.</p>
+  <noscript><p class="noscript-box">This page needs JavaScript for the 3D model. All figures are also on <a href="index.html">the Scorecard</a>.</p></noscript>
+
+  <section class="cat-about">
+    <div class="wrap">
+      <div>
+        <h2>What you're looking at</h2>
+        <p>The Scorecard's measures are grouped into eight categories — cost of living, energy, housing and so on. Here, each category is a sphere, sized to match the centre sphere: a sphere's colour and glow show how many of its measures are rated off track, on a scale from green (mostly on track) through amber to red (mostly off track). Each small dot orbiting a sphere is one individual measure, coloured the same way. The centre sphere is every measure combined.</p>
+        <p>Nothing here is opinion — every number is pulled directly from <a href="index.html">the Scorecard</a>, which sources and checks each figure daily against the ABS, the Reserve Bank and Treasury. Click "Open on the Scorecard" in any panel to see the full detail, sources and method for a measure.</p>
+        <div class="legend-row">
+          <span><i style="background:#3ecf6b"></i>Mostly on track</span>
+          <span><i style="background:#f5c04a"></i>Mixed / watch</span>
+          <span><i style="background:#ff4d55"></i>Mostly off track</span>
+        </div>
+      </div>
+      <div>
+        <h2>Go further</h2>
+        <p>See every measure with its full context and sources on <a href="index.html">the Scorecard</a>, or the government's revenue and spending on <a href="budget.html">the Budget page</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="text-version" hidden>
+    <div class="wrap">
+      <h2>The categories as text</h2>
+      <p style="color:var(--hud-grey)">Every category and the measures inside it.</p>
+      <div id="tv-body"></div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <svg class="brand-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+        <rect x="1" y="1" width="34" height="34" rx="9" stroke="#fff" stroke-opacity=".4" stroke-width="1.5"/>
+        <rect x="9" y="20" width="4.5" height="7" rx="1.5" fill="#fff"/>
+        <rect x="15.75" y="15" width="4.5" height="12" rx="1.5" fill="#fff"/>
+        <rect x="22.5" y="9" width="4.5" height="18" rx="1.5" fill="#fff"/>
+      </svg>
+      <div>
+        <p>Category groupings and figures come from the Scorecard's own daily-checked data. Colours are a simple on-track/off-track ramp computed from that data, not a separate judgement.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data/metrics.js"></script>
+  <script src="assets/charts.js"></script>
+  <script src="assets/three.min.js"></script>
+  <script>
+    // text version (also the no-WebGL fallback) — built from the same window.SCORECARD data as the 3D model
+    (function () {
+      const D = window.SCORECARD, root = document.getElementById("tv-body");
+      const el = (t, c, txt) => { const n = document.createElement(t); if (c) n.className = c; if (txt != null) n.textContent = txt; return n; };
+      const grid = el("div", "tv-grid");
+      D.sections.forEach((sec) => {
+        const ms = D.metrics.filter((m) => m.section === sec.id);
+        if (!ms.length) return;
+        const rated = ms.filter((m) => m.status !== "info");
+        const off = rated.filter((m) => m.status === "fail").length;
+        const box = el("div");
+        box.appendChild(el("h3", null, `${sec.title} — ${off} of ${rated.length} off track`));
+        box.appendChild(el("p", null, sec.blurb));
+        const ul = el("ul");
+        ms.forEach((m) => { const li = el("li"); li.appendChild(el("b", null, m.title + ": ")); li.appendChild(document.createTextNode(m.headline.caption)); ul.appendChild(li); });
+        box.appendChild(ul); grid.appendChild(box);
+      });
+      root.appendChild(grid);
+    })();
+  </script>
+  <script src="assets/categories.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Budget | Where your money comes from and where it goes | The Scorecard</title>
+  <meta name="description" content="Australian Government revenue and spending by category, side by side, from the official Budget papers and Final Budget Outcome.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <rect width="36" height="36" rx="9" fill="#293086"/>
+          <rect x="9" y="20" width="4.5" height="7" rx="1.5" fill="#fff"/>
+          <rect x="15.75" y="15" width="4.5" height="12" rx="1.5" fill="#fff"/>
+          <rect x="22.5" y="9" width="4.5" height="18" rx="1.5" fill="#fff"/>
+        </svg>
+        <span class="brand-name">The Scorecard<small>Government performance</small></span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html">Scorecard</a>
+        <a href="budget.html" aria-current="page">Budget</a>
+        <a href="categories.html">Categories</a>
+        <a href="sources.html">Sources &amp; checks</a>
+        <a href="subscribe.html">Subscribe</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">The nation's finances</p>
+      <h1>Where the money comes from. Where it goes.</h1>
+      <p>Every dollar the Commonwealth spends is raised from taxpayers or borrowed against the future. Here are the government's own numbers, side by side.</p>
+    </div>
+  </section>
+
+  <main class="wrap section">
+    <div class="section-head">
+      <div>
+        <p class="kicker" id="doc-type">–</p>
+        <h2 id="year-title">–</h2>
+        <p id="doc-line">–</p>
+      </div>
+      <div class="toggle" role="group" aria-label="Choose year" id="year-toggle"></div>
+    </div>
+
+    <div class="balance-strip" id="stats"></div>
+
+    <div class="pies">
+      <article class="card">
+        <div class="card-top"><h3>Revenue: where it comes from</h3></div>
+        <p class="question">Money the Australian Government collects, by category.</p>
+        <div class="pie-wrap" id="pie-revenue"></div>
+      </article>
+      <article class="card">
+        <div class="card-top"><h3>Expenses: where it goes</h3></div>
+        <p class="question">Money the Australian Government spends, by purpose.</p>
+        <div class="pie-wrap" id="pie-expenses"></div>
+      </article>
+    </div>
+
+    <article class="card" style="margin-top:20px">
+      <h3>Full breakdown</h3>
+      <p class="question">Every line item behind each slice, exactly as published.</p>
+      <div class="cards" id="detail-tables"></div>
+      <details class="sources" open>
+        <summary>Where does this data come from?</summary>
+        <ul class="src-list" id="budget-sources"></ul>
+        <p class="method" id="budget-note"></p>
+      </details>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <svg class="brand-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+        <rect x="1" y="1" width="34" height="34" rx="9" stroke="#fff" stroke-opacity=".4" stroke-width="1.5"/>
+        <rect x="9" y="20" width="4.5" height="7" rx="1.5" fill="#fff"/>
+        <rect x="15.75" y="15" width="4.5" height="12" rx="1.5" fill="#fff"/>
+        <rect x="22.5" y="9" width="4.5" height="18" rx="1.5" fill="#fff"/>
+      </svg>
+      <div>
+        <p>Figures: Australian Government Budget Paper No. 1 and Final Budget Outcome, as cited. Accrual basis, general government sector. Commentary is this site's independent analysis of the published figures.</p>
+        <p><a href="sources.html">Sources, methods &amp; daily checks</a> · <a href="categories.html">Explore the categories</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/config.js"></script>
+  <script src="data/metrics.js"></script>
+  <script src="assets/charts.js"></script>
+  <script src="assets/app.js"></script>
+  <script src="assets/budget.js"></script>
+</body>
+</html>
