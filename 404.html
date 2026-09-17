@@ -8,14 +8,14 @@
     (function () {
       var seg = location.pathname.split("/")[1];
       var root = /\.github\.io$/.test(location.hostname) && seg && seg.indexOf(".") < 0 ? "/" + seg + "/" : "/";
-      document.write('<base href="' + root + '">');
+      // assets are written after <base> (not as plain tags) so the browser can't pre-fetch them from the wrong folder
+      document.write('<base href="' + root + '"><link rel="stylesheet" href="assets/styles.css?v=20260917">');
     })();
   </script>
   <script>(function(d){d.className+=" js";var t;try{t=localStorage.getItem("scorecard_theme")}catch(e){}if(t!=="dark"&&t!=="light")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";d.setAttribute("data-theme",t)})(document.documentElement)</script>
   <title>Page not found | The Scorecard</title>
   <meta name="robots" content="noindex">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="assets/styles.css?v=20260917">
 </head>
 <body>
   <a class="skip-link" id="skip-link" href="#content">Skip to content</a>
@@ -83,10 +83,10 @@
     </div>
   </footer>
 
-  <script src="assets/config.js?v=20260917"></script>
-  <script src="data/metrics.js"></script>
-  <script src="assets/charts.js?v=20260917"></script>
-  <script src="assets/app.js?v=20260917"></script>
+  <script>
+    ["assets/config.js?v=20260917", "data/metrics.js", "assets/charts.js?v=20260917", "assets/app.js?v=20260917"]
+      .forEach(function (src) { document.write('<script src="' + src + '"><\/script>'); });
+  </script>
   <script>
   (function () {
     // with <base> set, "#content" would point at the home page, so anchor the skip link to this URL
@@ -119,6 +119,6 @@
     });
   })();
   </script>
-  <script src="assets/site.js?v=20260917"></script>
+  <script>document.write('<script src="assets/site.js?v=20260917"><\/script>');</script>
 </body>
 </html>
