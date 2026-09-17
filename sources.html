@@ -3,12 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>(function(d){d.className+=" js";var t;try{t=localStorage.getItem("scorecard_theme")}catch(e){}if(t!=="dark"&&t!=="light")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";d.setAttribute("data-theme",t)})(document.documentElement)</script>
   <title>Sources &amp; daily checks | The Scorecard</title>
   <meta name="description" content="Every source behind The Scorecard, how each figure is calculated, and the public log of automated daily data checks.">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/styles.css?v=20260917">
 </head>
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href="index.html">
@@ -30,7 +32,7 @@
     </div>
   </header>
 
-  <section class="page-hero">
+  <section class="page-hero" id="content" tabindex="-1">
     <div class="wrap">
       <p class="eyebrow">Don't take our word for it</p>
       <h1>Every number, every source.</h1>
@@ -57,6 +59,62 @@
       <h2>Corrections</h2>
       <p>If you believe a figure is wrong, email <b id="corr"></b> with the measure and the source you're relying on. We will check it against the official source and correct any error promptly.</p>
     </div>
+
+    <section class="prose" aria-labelledby="faq">
+      <h2 id="faq" style="margin-top:44px">Frequently asked questions</h2>
+      <div class="faq">
+        <details id="faq-sources">
+          <summary>Where do the numbers come from?</summary>
+          <div class="faq-body">
+            <p>From official publications: mainly the Australian Bureau of Statistics and the Reserve Bank of Australia, plus Treasury's Budget papers and other government agencies for figures that aren't published as data feeds. Every card lists its sources under "Where does this data come from?", and every source is listed further down this page.</p>
+          </div>
+        </details>
+        <details id="faq-updates">
+          <summary>How often is the data updated?</summary>
+          <div class="faq-body">
+            <p>An automated process runs every day in the early afternoon, Sydney time, after the ABS's 11:30am release window. It downloads the latest official files, recalculates every figure and rating, and runs the checks listed above. Each card shows when it was last checked.</p>
+            <p>A figure only changes when the agency publishes new data, so many figures stay the same for weeks or months at a time.</p>
+          </div>
+        </details>
+        <details id="faq-ratings">
+          <summary>How is each measure rated?</summary>
+          <div class="faq-body">
+            <p>Against a benchmark stated on the card: a government target or promise, the Reserve Bank's target, a long-run average, or where things stood in May 2022. The exact rule is published under each measure, under "How the rating is decided". Measures where more or less isn't clearly better are marked Context and not rated.</p>
+          </div>
+        </details>
+        <details id="faq-hand">
+          <summary>What does &ldquo;Hand-verified&rdquo; mean?</summary>
+          <div class="faq-body">
+            <p>Some figures, such as Budget papers, energy price determinations and public service headcounts, aren't released as machine-readable data. They are checked by a person against the original document and show the date that happened. Each has a re-check date tied to the source's next release, and the daily process flags any that are overdue.</p>
+          </div>
+        </details>
+        <details id="faq-fail">
+          <summary>What happens if a check fails?</summary>
+          <div class="faq-body">
+            <p>The site keeps showing the last verified figure with an "under review" notice. It never publishes a number it couldn't confirm. The full result of the latest run is in the automated check log below.</p>
+          </div>
+        </details>
+        <details id="faq-privacy">
+          <summary>Does this site use cookies or track me?</summary>
+          <div class="faq-body">
+            <p>No. There are no advertising or analytics cookies and no tracking scripts. Choices you make, such as light or dark theme, pinned categories, email preferences and suggestions, are saved only in your own browser. You can delete them at any time on the <a href="subscribe.html#your-data">Subscribe page</a>.</p>
+            <p>Links from this site to other websites carry a short tag (<code>utm_source=the-scorecard</code>) so those publishers can see visits came from here. It identifies this site, not you.</p>
+          </div>
+        </details>
+        <details id="faq-errors">
+          <summary>I think a figure is wrong. What should I do?</summary>
+          <div class="faq-body">
+            <p>Email <b id="faq-corr"></b> with the measure and the source you're relying on. It will be checked against the official source and any error corrected promptly. You can also <a href="subscribe.html#suggest">suggest a new measure</a>.</p>
+          </div>
+        </details>
+        <details id="faq-reuse">
+          <summary>Can I reuse these figures?</summary>
+          <div class="faq-body">
+            <p>ABS and RBA data are published under Creative Commons Attribution 4.0, so you can reuse them with attribution to the original agency. Use the "Copy citation" button on any card for a ready-made reference that names the source and links back to it.</p>
+          </div>
+        </details>
+      </div>
+    </section>
 
     <h2 id="log" style="margin-top:44px">Latest automated check</h2>
     <div class="log-summary" id="log-summary"></div>
@@ -89,15 +147,15 @@
     </div>
   </footer>
 
-  <script src="assets/config.js"></script>
+  <script src="assets/config.js?v=20260917"></script>
   <script src="data/metrics.js"></script>
   <script src="data/verification.js"></script>
-  <script src="assets/charts.js"></script>
-  <script src="assets/app.js"></script>
+  <script src="assets/charts.js?v=20260917"></script>
+  <script src="assets/app.js?v=20260917"></script>
   <script>
   (function () {
     const { h } = window.Charts;
-    document.getElementById("corr").textContent = window.SITE_CONFIG.correctionsEmail;
+    document.querySelectorAll("#corr, #faq-corr").forEach((n) => (n.textContent = window.SITE_CONFIG.correctionsEmail));
     const V = window.VERIFICATION && window.VERIFICATION.latest;
     const D = window.SCORECARD;
     if (V) {
@@ -158,5 +216,6 @@
     });
   })();
   </script>
+  <script src="assets/site.js?v=20260917"></script>
 </body>
 </html>

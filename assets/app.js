@@ -120,25 +120,57 @@
     return li;
   }
 
+  const CLOCK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
+  // drop any query string (e.g. someone else's campaign tags) from links people copy and share
+  const pageUrl = (id) => location.href.split(/[?#]/)[0] + "#" + id;
+
+  // A plain-text citation someone can paste into an email or article: figure, period, primary source, link back.
+  function citation(m) {
+    const hd = headlineText(m.headline);
+    const src = m.sources[0];
+    return `${m.title}: ${hd.num}${hd.unit} (${m.headline.caption}, ${m.headline.period}). ` +
+      `Source: ${src.publisher}, \u201c${src.title}\u201d, ${src.url}. Via The Scorecard: ${pageUrl(m.id)}`;
+  }
+
+  async function copy(text) {
+    if (window.Site) return window.Site.copy(text);
+    try { await navigator.clipboard.writeText(text); return true; } catch (e) { return false; }
+  }
+  function copyButton(label, getText, onFail) {
+    const b = h("button", "btn btn-ghost", label);
+    b.type = "button";
+    b.addEventListener("click", async () => {
+      b.textContent = (await copy(getText())) ? "Copied" : onFail();
+      clearTimeout(b._t);
+      b._t = setTimeout(() => (b.textContent = label), 2200);
+    });
+    return b;
+  }
+
   function card(m) {
     const c = h("article", "card" + (m.wide ? " wide" : ""));
     c.id = m.id;
     const top = h("div", "card-top");
     top.appendChild(statusPill(m.status));
-    const share = h("button", "btn btn-ghost", "Copy link");
-    share.type = "button";
-    share.addEventListener("click", async () => {
-      const url = location.href.split("#")[0] + "#" + m.id;
-      try { await navigator.clipboard.writeText(url); share.textContent = "Link copied"; } catch (e) { location.hash = m.id; share.textContent = "Link in address bar"; }
-      setTimeout(() => (share.textContent = "Copy link"), 2200);
-    });
-    top.appendChild(share);
+    const actions = h("div", "card-actions");
+    actions.append(
+      copyButton("Copy link", () => pageUrl(m.id), () => { location.hash = m.id; return "Link in address bar"; }),
+      copyButton("Copy citation", () => citation(m), () => "Copy failed")
+    );
+    top.appendChild(actions);
     c.appendChild(top);
 
     const h3 = h("h3", null, m.title);
     if (m.explainer) h3.appendChild(infoButton(m.title, m.explainer));
     c.appendChild(h3);
     c.appendChild(h("p", "question", m.question));
+    const checked = m.automated ? m.updated_at : m.verified_on;
+    if (checked) {
+      const up = h("p", "card-updated");
+      up.innerHTML = CLOCK;
+      up.appendChild(document.createTextNode((m.automated ? "Last checked " : "Last verified ") + fmtDate(checked)));
+      c.appendChild(up);
+    }
 
     if (m.stale) c.appendChild(h("div", "flag stale", "⚠ " + m.stale_reason));
     if (!m.automated) {
@@ -299,9 +331,27 @@
       main.appendChild(s);
     });
 
-    if (location.hash) { const t = document.getElementById(location.hash.slice(1)); if (t) setTimeout(() => t.scrollIntoView(), 50); }
+  }
+
+  // A link to a measure (from the report card, search or elsewhere) must still land even when the saved
+  // "default filter" preference has hidden that card: show everything, then scroll to it.
+  function reveal(id, instant) {
+    if (!id) return;
+    const D = window.SCORECARD;
+    let t = document.getElementById(id);
+    const known = D.metrics.some((m) => m.id === id) || D.sections.some((s) => "sec-" + s.id === id);
+    if (!t && known) {
+      render({ pinned: readPrefs().pinned, filter: "all" });
+      t = document.getElementById(id);
+    }
+    // arriving from another page, jump straight there rather than animating down a very long page
+    if (t) setTimeout(() => t.scrollIntoView(instant ? { behavior: "instant" } : undefined), 50);
   }
 
   window.Scorecard = { infoButton, sourceItem, fmtStamp, fmtDate, statusPill, ICON };
-  if (document.getElementById("sections")) render();
+  if (document.getElementById("sections") && window.SCORECARD) {
+    render();
+    reveal(decodeURIComponent(location.hash.slice(1)), true);
+    window.addEventListener("hashchange", () => reveal(decodeURIComponent(location.hash.slice(1))));
+  }
 })();

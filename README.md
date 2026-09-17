@@ -10,7 +10,14 @@ A standalone, non-partisan static website that rates the Australian Government's
 | `budget.html` | Revenue and expense pie charts side by side (2026–27 Budget / 2024–25 actual), with full line-item tables. |
 | `categories.html` | Interactive 3D model of the Scorecard's own 8 measurement categories, drawn as planets orbiting an Australian-flag sun: coloured and glowing by how many measures are off track, with each measure as a small orbiting "moon". No external content — every label and number comes straight from `data/metrics.js`. Uses a locally vendored three.js r128 (`assets/three.min.js`). A text version and no-WebGL fallback are built in. |
 | `sources.html` | How verification works, the latest automated check log, and every source grouped by publisher. |
-| `subscribe.html` | Email-update signup with per-measure alerts, "customise your view" preferences (pinned categories, default filter — applied by `index.html`), and a suggest-a-measure form. Front-end only for now: everything saves to the visitor's own browser (`localStorage`) until a form/email backend is connected. |
+| `subscribe.html` | Email-update signup with per-measure alerts, "customise your view" preferences (pinned categories, default filter — applied by `index.html`), a suggest-a-measure form, and a "your saved data" card (unsubscribe / delete everything, both behind a confirmation dialog). Front-end only for now: everything saves to the visitor's own browser (`localStorage`) until a form/email backend is connected. |
+| `404.html` | Served by GitHub Pages for any missing URL. Sets a `<base>` so it works at any depth, offers search and links to every page. |
+
+## Site-wide features (`assets/site.js`)
+
+Loaded last on every page. Light/dark theme toggle (follows the system setting until the visitor chooses; chart colours are CSS variables so they switch instantly), mobile menu (≤900px), full-site search (header button, <kbd>⌘/Ctrl K</kbd> or <kbd>/</kbd>; searches measures, categories, pages and FAQ), scroll progress bar, back-to-top and feedback buttons, a plain cookie notice (the site sets no cookies), footer email signup, reusable confirmation dialogs (`window.Site.confirm`), UTM tags on outbound links (`utm_source=the-scorecard`; data files and API hosts are skipped because they can reject unknown parameters), and opening source lists before printing. Every page also has a skip-to-content link and a print stylesheet. Each metric card shows when it was last checked and has "Copy link" / "Copy citation" buttons.
+
+Local CSS/JS references carry a `?v=` stamp: bump it in all six HTML files when those files change, so returning visitors don't mix new pages with cached old assets.
 
 ## How the data stays correct
 

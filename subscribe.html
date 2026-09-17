@@ -3,12 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>(function(d){d.className+=" js";var t;try{t=localStorage.getItem("scorecard_theme")}catch(e){}if(t!=="dark"&&t!=="light")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";d.setAttribute("data-theme",t)})(document.documentElement)</script>
   <title>Subscribe | The Scorecard</title>
   <meta name="description" content="Get email updates from The Scorecard, choose which measures you're alerted about, customise your view, and suggest a measure we should be tracking.">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/styles.css?v=20260917">
 </head>
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href="index.html">
@@ -30,7 +32,7 @@
     </div>
   </header>
 
-  <section class="page-hero">
+  <section class="page-hero" id="content" tabindex="-1">
     <div class="wrap">
       <p class="eyebrow">Make it yours</p>
       <h1>Get updates, your way.</h1>
@@ -62,7 +64,7 @@
           </div>
           <div class="form-actions">
             <button type="submit" class="btn btn-red">Subscribe</button>
-            <span class="form-success" id="subscribe-success"></span>
+            <span class="form-success" id="subscribe-success" role="status" aria-live="polite"></span>
           </div>
         </form>
       </article>
@@ -82,7 +84,7 @@
           </div>
           <div class="form-actions">
             <button type="submit" class="btn btn-red">Save preferences</button>
-            <span class="form-success" id="customise-success"></span>
+            <span class="form-success" id="customise-success" role="status" aria-live="polite"></span>
           </div>
         </form>
       </article>
@@ -105,9 +107,20 @@
           </div>
           <div class="form-actions">
             <button type="submit" class="btn btn-red">Send suggestion</button>
-            <span class="form-success" id="suggest-success"></span>
+            <span class="form-success" id="suggest-success" role="status" aria-live="polite"></span>
           </div>
         </form>
+      </article>
+
+      <article class="card" id="your-data">
+        <div class="card-top"><h3>Your saved data</h3></div>
+        <p class="question">Everything you choose on this page is kept in this browser only. You can remove it at any time.</p>
+        <p class="data-summary" id="data-summary">Nothing saved yet.</p>
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" id="unsubscribe-btn">Unsubscribe</button>
+          <button type="button" class="btn btn-red" id="clear-data-btn">Delete all my saved data</button>
+          <span class="form-success" id="data-success" role="status" aria-live="polite"></span>
+        </div>
       </article>
     </div>
   </main>
@@ -127,9 +140,10 @@
     </div>
   </footer>
 
-  <script src="assets/config.js"></script>
+  <script src="assets/config.js?v=20260917"></script>
   <script src="data/metrics.js"></script>
-  <script src="assets/charts.js"></script>
-  <script src="assets/subscribe.js"></script>
+  <script src="assets/charts.js?v=20260917"></script>
+  <script src="assets/subscribe.js?v=20260917"></script>
+  <script src="assets/site.js?v=20260917"></script>
 </body>
 </html>

@@ -1,13 +1,19 @@
 /* The Scorecard: dependency-free SVG charts (line, step, column, horizontal bar, pie). */
 (function () {
   const NS = "http://www.w3.org/2000/svg";
-  const ROLE = { primary: "#3f4bc0", accent: "#C82028", muted: "#A9ADBA", good: "#3f4bc0" };
-  const GRID = "#E6E8EE", AXIS_TXT = "#6E717E", INK = "#1A1C2E", TERM_FILL = "rgba(41,48,134,0.045)";
+  // Colours are CSS custom properties (styles.css) so charts follow the light/dark theme without redrawing.
+  const ROLE = { primary: "var(--series-primary)", accent: "var(--series-accent)", muted: "var(--series-muted)", good: "var(--series-primary)" };
+  const GRID = "var(--grid)", AXIS_TXT = "var(--axis-ink)", INK = "var(--ink)", TERM_FILL = "var(--term-fill)", SURFACE = "var(--surface)";
+  const SLICE_INK = "#1A1C2E";   // pie labels sit on the slice colour, not the page, so they never flip
   const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
   function el(tag, attrs, parent) {
     const n = document.createElementNS(NS, tag);
-    for (const k in attrs) n.setAttribute(k, attrs[k]);
+    for (const k in attrs) {
+      // presentation attributes can't resolve var(); the style property can
+      if ((k === "fill" || k === "stroke") && String(attrs[k]).startsWith("var(")) n.style.setProperty(k, attrs[k]);
+      else n.setAttribute(k, attrs[k]);
+    }
     if (parent) parent.appendChild(n);
     return n;
   }
@@ -148,14 +154,14 @@
       const sworn = freq === "fy" ? parseDate("2022-12-30") : parseDate(window.SCORECARD ? window.SCORECARD.sworn_in : "2022-05-23");
       if (sworn > x0 && sworn < x1) {
         el("rect", { x: X(sworn), y: m.t, width: m.l + iw - X(sworn), height: ih, fill: TERM_FILL }, svg);
-        el("line", { x1: X(sworn), x2: X(sworn), y1: m.t - 8, y2: m.t + ih, stroke: "#8C90B8", "stroke-width": 1 }, svg);
+        el("line", { x1: X(sworn), x2: X(sworn), y1: m.t - 8, y2: m.t + ih, stroke: "var(--term-line)", "stroke-width": 1 }, svg);
         const lblRight = X(sworn) < m.l + iw * 0.7;
-        const t = el("text", { x: X(sworn) + (lblRight ? 5 : -5), y: m.t - 10, "font-size": 11, fill: "#4A4F8C", "font-weight": 700, "text-anchor": lblRight ? "start" : "end" }, svg);
+        const t = el("text", { x: X(sworn) + (lblRight ? 5 : -5), y: m.t - 10, "font-size": 11, fill: "var(--term-ink)", "font-weight": 700, "text-anchor": lblRight ? "start" : "end" }, svg);
         t.textContent = "Albanese Government →";
       }
       // grid + y labels
       nt.ticks.forEach((v) => {
-        el("line", { x1: m.l, x2: m.l + iw, y1: Y(v), y2: Y(v), stroke: v === 0 && nt.lo < 0 ? "#C9CCD6" : GRID, "stroke-width": 1 }, svg);
+        el("line", { x1: m.l, x2: m.l + iw, y1: Y(v), y2: Y(v), stroke: v === 0 && nt.lo < 0 ? "var(--zero-line)" : GRID, "stroke-width": 1 }, svg);
         const t = el("text", { x: m.l - 8, y: Y(v) + 4, "text-anchor": "end", "font-size": 11.5, fill: AXIS_TXT }, svg);
         t.textContent = fmtNum(v, spec.unit === "index" || spec.unit === "homes" || spec.unit === "people" ? "" : spec.unit, nt.step < 1 ? (nt.step < 0.1 ? 2 : 1) : 0, { compact: Math.abs(v) >= 1e4 && spec.unit !== "$bn" });
       });
@@ -179,15 +185,15 @@
       });
       // band
       if (spec.band) {
-        el("rect", { x: m.l, width: iw, y: Y(spec.band.hi), height: Y(spec.band.lo) - Y(spec.band.hi), fill: "rgba(11,127,11,0.09)" }, svg);
-        const t = el("text", { x: m.l + 6, y: Y(spec.band.hi) - 4, "font-size": 11, fill: "#0B6B0B", "font-weight": 700 }, svg);
+        el("rect", { x: m.l, width: iw, y: Y(spec.band.hi), height: Y(spec.band.lo) - Y(spec.band.hi), fill: "var(--band-fill)" }, svg);
+        const t = el("text", { x: m.l + 6, y: Y(spec.band.hi) - 4, "font-size": 11, fill: "var(--band-ink)", "font-weight": 700 }, svg);
         t.textContent = spec.band.label;
       }
       // reference lines
       (spec.ref || []).forEach((r) => {
-        el("line", { x1: m.l, x2: m.l + iw, y1: Y(r.value), y2: Y(r.value), stroke: "#6E717E", "stroke-width": 1 }, svg);
+        el("line", { x1: m.l, x2: m.l + iw, y1: Y(r.value), y2: Y(r.value), stroke: AXIS_TXT, "stroke-width": 1 }, svg);
         if (r.label) {
-          const t = el("text", { x: m.l + 6, y: Y(r.value) - 5, "font-size": 11, fill: "#52555F", "font-weight": 600 }, svg);
+          const t = el("text", { x: m.l + 6, y: Y(r.value) - 5, "font-size": 11, fill: "var(--ref-ink)", "font-weight": 600 }, svg);
           t.textContent = r.label;
         }
       });
@@ -223,12 +229,12 @@
         // end dot + label for the lead series
         const lead = series[0];
         const lp = lead.pts[lead.pts.length - 1];
-        el("circle", { cx: X(lp[0]), cy: Y(lp[1]), r: 4.5, fill: ROLE[lead.role] || ROLE.primary, stroke: "#fff", "stroke-width": 2 }, svg);
+        el("circle", { cx: X(lp[0]), cy: Y(lp[1]), r: 4.5, fill: ROLE[lead.role] || ROLE.primary, stroke: SURFACE, "stroke-width": 2 }, svg);
       }
 
       // hover layer
       const cross = el("line", { y1: m.t, y2: m.t + ih, stroke: INK, "stroke-width": 1, opacity: 0 }, svg);
-      const dots = series.map((s) => el("circle", { r: 4.5, fill: ROLE[s.role] || ROLE.primary, stroke: "#fff", "stroke-width": 2, opacity: 0 }, svg));
+      const dots = series.map((s) => el("circle", { r: 4.5, fill: ROLE[s.role] || ROLE.primary, stroke: SURFACE, "stroke-width": 2, opacity: 0 }, svg));
       const hit = el("rect", { x: m.l, y: 0, width: iw, height: H, fill: "transparent", tabindex: 0, "aria-label": "Chart data: use left and right arrow keys" }, svg);
       const xs = series[0].pts.map((p) => p[0]);
       let idx = xs.length - 1;
@@ -343,12 +349,12 @@
       const [sx, sy] = p(a0), [ex, ey] = p(a1);
       const d = frac >= 0.9999 ? `M${cx - R},${cy} a${R},${R} 0 1,0 ${2 * R},0 a${R},${R} 0 1,0 ${-2 * R},0` : `M${cx},${cy} L${sx},${sy} A${R},${R} 0 ${large} 1 ${ex},${ey} Z`;
       const mid = (a0 + a1) / 2;
-      const path = el("path", { d, fill: s.color, stroke: "#fff", "stroke-width": 2, "stroke-linejoin": "round", tabindex: 0, "aria-label": `${s.name}: ${(frac * 100).toFixed(1)}%` }, svg);
+      const path = el("path", { d, fill: s.color, stroke: SURFACE, "stroke-width": 2, "stroke-linejoin": "round", tabindex: 0, "aria-label": `${s.name}: ${(frac * 100).toFixed(1)}%` }, svg);
       path.dataset.dx = Math.cos(mid) * 6; path.dataset.dy = Math.sin(mid) * 6;
       if (frac > 0.07) {
         const lr = R * 0.64;
         const lum = luminance(s.color);
-        const t = el("text", { x: cx + lr * Math.cos(mid), y: cy + lr * Math.sin(mid) + 5, "text-anchor": "middle", "font-size": 14, "font-weight": 800, fill: lum > 0.45 ? INK : "#fff", "pointer-events": "none" }, svg);
+        const t = el("text", { x: cx + lr * Math.cos(mid), y: cy + lr * Math.sin(mid) + 5, "text-anchor": "middle", "font-size": 14, "font-weight": 800, fill: lum > 0.45 ? SLICE_INK : "#fff", "pointer-events": "none" }, svg);
         t.textContent = Math.round(frac * 100) + "%";
       }
       paths.push(path);

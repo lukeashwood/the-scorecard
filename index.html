@@ -3,15 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>(function(d){d.className+=" js";var t;try{t=localStorage.getItem("scorecard_theme")}catch(e){}if(t!=="dark"&&t!=="light")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";d.setAttribute("data-theme",t)})(document.documentElement)</script>
   <title>The Scorecard | How is the Albanese Government really performing?</title>
   <meta name="description" content="An independent-data scorecard of the Albanese Government: inflation, real wages, housing, energy, jobs, productivity, debt and more, checked daily against official ABS, RBA and Treasury sources.">
   <meta property="og:title" content="The Scorecard: how is the Albanese Government really performing?">
   <meta property="og:description" content="Official figures from the ABS, RBA and Treasury, checked daily. See every source.">
   <meta property="og:type" content="website">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/styles.css?v=20260917">
 </head>
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href="index.html">
@@ -33,7 +35,7 @@
     </div>
   </header>
 
-  <section class="hero">
+  <section class="hero" id="content" tabindex="-1">
     <div class="wrap hero-grid">
       <div>
         <p class="eyebrow">The Albanese Government, measured</p>
@@ -62,11 +64,23 @@
     <p class="kicker">At a glance</p>
     <h2>The report card</h2>
     <p style="color:var(--body-grey);margin:0">Each measure is rated against a published benchmark: the government's own target, the Reserve Bank's target, the long-run average, or where things stood when the government took office. Every rating rule is shown under the metric. Tap any measure to jump to it.</p>
-    <div class="report-grid" id="report-grid"></div>
+    <div class="report-grid" id="report-grid">
+      <div class="sk sk-rc skeleton" aria-hidden="true"></div>
+      <div class="sk sk-rc skeleton" aria-hidden="true"></div>
+      <div class="sk sk-rc skeleton" aria-hidden="true"></div>
+      <div class="sk sk-rc skeleton" aria-hidden="true"></div>
+      <div class="sk sk-rc skeleton" aria-hidden="true"></div>
+      <div class="sk sk-rc skeleton" aria-hidden="true"></div>
+    </div>
     <div class="chips" id="chips"></div>
   </section>
 
-  <main id="sections"></main>
+  <main id="sections">
+    <div class="section wrap skeleton" aria-hidden="true">
+      <div class="sk sk-line"></div>
+      <div class="cards"><div class="sk sk-card"></div><div class="sk sk-card"></div></div>
+    </div>
+  </main>
 
   <footer class="site-footer">
     <div class="wrap">
@@ -83,10 +97,11 @@
     </div>
   </footer>
 
-  <script src="assets/config.js"></script>
+  <script src="assets/config.js?v=20260917"></script>
   <script src="data/metrics.js"></script>
-  <script src="assets/charts.js"></script>
-  <script src="assets/app.js"></script>
+  <script src="assets/charts.js?v=20260917"></script>
+  <script src="assets/app.js?v=20260917"></script>
   <script>document.getElementById("corrections").textContent = window.SITE_CONFIG.correctionsEmail;</script>
+  <script src="assets/site.js?v=20260917"></script>
 </body>
 </html>

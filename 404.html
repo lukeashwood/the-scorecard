@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    // GitHub Pages serves this file for a missing URL at any depth, so relative links must resolve from the site root.
+    (function () {
+      var seg = location.pathname.split("/")[1];
+      var root = /\.github\.io$/.test(location.hostname) && seg && seg.indexOf(".") < 0 ? "/" + seg + "/" : "/";
+      document.write('<base href="' + root + '">');
+    })();
+  </script>
+  <script>(function(d){d.className+=" js";var t;try{t=localStorage.getItem("scorecard_theme")}catch(e){}if(t!=="dark"&&t!=="light")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";d.setAttribute("data-theme",t)})(document.documentElement)</script>
+  <title>Page not found | The Scorecard</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/styles.css?v=20260917">
+</head>
+<body>
+  <a class="skip-link" id="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <rect width="36" height="36" rx="9" fill="#293086"/>
+          <rect x="9" y="20" width="4.5" height="7" rx="1.5" fill="#fff"/>
+          <rect x="15.75" y="15" width="4.5" height="12" rx="1.5" fill="#fff"/>
+          <rect x="22.5" y="9" width="4.5" height="18" rx="1.5" fill="#fff"/>
+        </svg>
+        <span class="brand-name">The Scorecard<small>Government performance</small></span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html">Scorecard</a>
+        <a href="budget.html">Budget</a>
+        <a href="categories.html">Categories</a>
+        <a href="sources.html">Sources &amp; checks</a>
+        <a href="subscribe.html">Subscribe</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero" id="content" tabindex="-1">
+    <div class="wrap">
+      <p class="eyebrow">Error 404 · Page not found</p>
+      <h1>That page isn't here.</h1>
+      <p>We couldn't find <span class="nf-path" id="nf-path">that address</span>. It may have moved, or the link may have a typo. Every figure is still on the site. Search for it, or pick a page below.</p>
+      <div class="nf-actions">
+        <button class="btn btn-red" type="button" id="nf-search" data-open-search="">Search the site</button>
+        <a class="btn btn-outline" href="index.html">Go to the Scorecard</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="wrap section">
+    <p class="kicker">Popular pages</p>
+    <h2 style="margin:0">Where would you like to go?</h2>
+    <div class="nf-grid">
+      <a href="index.html"><b>The Scorecard</b><span>Every measure, rated against a published benchmark.</span></a>
+      <a href="budget.html"><b>The Budget</b><span>Where the government's money comes from, and where it goes.</span></a>
+      <a href="categories.html"><b>Categories</b><span>All the measures as an interactive 3D map.</span></a>
+      <a href="sources.html"><b>Sources &amp; checks</b><span>Every source, the FAQ, and today's automated checks.</span></a>
+      <a href="subscribe.html"><b>Subscribe</b><span>Email updates, alerts and your view preferences.</span></a>
+    </div>
+
+    <p class="kicker" style="margin-top:40px">Latest figures</p>
+    <h2 style="margin:0">Some of the measures people check most</h2>
+    <div class="report-grid" id="nf-measures"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <svg class="brand-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+        <rect x="1" y="1" width="34" height="34" rx="9" stroke="#fff" stroke-opacity=".4" stroke-width="1.5"/>
+        <rect x="9" y="20" width="4.5" height="7" rx="1.5" fill="#fff"/>
+        <rect x="15.75" y="15" width="4.5" height="12" rx="1.5" fill="#fff"/>
+        <rect x="22.5" y="9" width="4.5" height="18" rx="1.5" fill="#fff"/>
+      </svg>
+      <div>
+        <p>Data: Australian Bureau of Statistics, Reserve Bank of Australia, Australian Treasury and other official sources as cited against each figure.</p>
+        <p><a href="sources.html">Sources, methods &amp; daily checks</a> · <a href="sources.html#faq">FAQ</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/config.js?v=20260917"></script>
+  <script src="data/metrics.js"></script>
+  <script src="assets/charts.js?v=20260917"></script>
+  <script src="assets/app.js?v=20260917"></script>
+  <script>
+  (function () {
+    // with <base> set, "#content" would point at the home page, so anchor the skip link to this URL
+    document.getElementById("skip-link").href = location.href.split("#")[0] + "#content";
+
+    const path = decodeURIComponent(location.pathname);
+    document.getElementById("nf-path").textContent = path;
+    const guess = (path.split("/").filter(Boolean).pop() || "").replace(/\.[a-z0-9]+$/i, "").replace(/[-_+]+/g, " ").trim();
+    if (guess && guess !== "404") document.getElementById("nf-search").setAttribute("data-open-search", guess);
+
+    const D = window.SCORECARD, S = window.Scorecard, C = window.Charts;
+    if (!D || !S || !C) return;
+    const LABEL = { fail: "Off track", warn: "Watch", pass: "On track", info: "Context" };
+    const grid = document.getElementById("nf-measures");
+    ["inflation", "electricity", "mortgage", "unemployment", "gross_debt", "migration"].forEach((id) => {
+      const m = D.metrics.find((x) => x.id === id);
+      if (!m) return;
+      const hd = m.headline;
+      const a = C.h("a", "rc-item");
+      a.href = "index.html#" + m.id;
+      const dot = C.h("span", "status-dot " + m.status);
+      dot.innerHTML = S.ICON[m.status];
+      dot.setAttribute("role", "img");
+      dot.setAttribute("aria-label", LABEL[m.status]);
+      const mid = C.h("div");
+      mid.append(C.h("div", "rc-title", m.title), C.h("div", "rc-sub", hd.period));
+      const val = C.fmtNum(hd.value, hd.unit === "$" ? "$" : "", hd.decimals, { signed: hd.signed, compact: Math.abs(hd.value) >= 1e5 }) + (hd.unit === "%" ? "%" : hd.suffix || "");
+      a.append(dot, mid, C.h("div", "rc-val", val));
+      grid.appendChild(a);
+    });
+  })();
+  </script>
+  <script src="assets/site.js?v=20260917"></script>
+</body>
+</html>
