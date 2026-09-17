@@ -147,6 +147,8 @@
       parts.push(`${((n) => `${n} pinned ${n === 1 ? "category" : "categories"}`)((p.pinned || []).length)}${p.filter && p.filter !== "all" ? ", default filter on" : ""}`);
     }
     if (sugg.length) parts.push(plural(sugg.length, "suggestion") + " saved");
+    const reports = readJSON("scorecard_corrections", []);
+    if (reports.length) parts.push(plural(reports.length, "error report") + " saved");
     let theme = null;
     try { theme = localStorage.getItem("scorecard_theme"); } catch (err) { theme = null; }
     if (theme) parts.push(`${theme} theme chosen`);
@@ -175,7 +177,7 @@
   clearBtn.addEventListener("click", async () => {
     const ok = await window.Site.confirm({
       title: "Delete all your saved data?",
-      body: "This permanently removes your email sign-up, alerts, pinned categories, default filter, saved suggestions and theme choice from this browser. It can't be undone.",
+      body: "This permanently removes your email sign-up, alerts, pinned categories, default filter, saved suggestions, error reports and theme choice from this browser. It can't be undone.",
       confirm: "Delete everything",
     });
     if (!ok) return;

@@ -318,10 +318,13 @@ details.table-view summary { cursor: pointer; color: var(--body-grey); font-weig
 .field:last-child { margin-bottom: 0; }
 .field > span { display: block; font-weight: 700; font-size: 14.5px; margin-bottom: 8px; }
 .field .hint { display: block; font-weight: 500; color: var(--body-grey); font-size: 13px; margin-top: 6px; }
-.field input[type="email"], .field input[type="text"], .field textarea {
+.field input[type="email"], .field input[type="text"], .field textarea, .field select {
   width: 100%; font: inherit; font-size: 15px; padding: 11px 14px; border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); color: var(--ink); transition: border-color .15s;
 }
-.field input:focus, .field textarea:focus { outline: none; border-color: var(--link); }
+.field input:focus, .field textarea:focus, .field select:focus { outline: none; border-color: var(--link); }
+.report-form { margin-top: 16px; }
+.report-link { font-size: 13.5px; color: var(--body-grey); margin-top: 10px; }
+.report-link:hover { color: var(--link); }
 .field textarea { resize: vertical; min-height: 90px; font-family: inherit; }
 .checkbox-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px; max-height: 280px; overflow-y: auto; padding: 10px; border: 1px solid var(--rule); border-radius: 10px; background: var(--panel); }
 .checkbox-grid .cb-group { grid-column: 1 / -1; font-size: 11.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--body-grey); margin: 8px 2px 0; }
@@ -487,7 +490,7 @@ details.table-view summary { cursor: pointer; color: var(--body-grey); font-weig
   .site-header .brand { color: #000; }
   .nav, .header-tools, .skip-link, .scroll-progress, .fab-stack, .cookie-notice, dialog, .hero-actions, .card-actions,
   .chips, .info-btn, .toggle, .log-filter, .footer-signup, .prefs-banner, details.table-view, .tooltip, .noscript,
-  .skeleton, .preview-note, form, #your-data, .nf-actions, .cat-stage, .site-footer .brand-mark { display: none !important; }
+  .skeleton, .preview-note, form, #your-data, .report-link, .nf-actions, .cat-stage, .site-footer .brand-mark { display: none !important; }
   .hero, .page-hero, .site-footer { background: none !important; color: #000 !important; padding-block: 8pt; margin-top: 0; }
   .hero *, .page-hero *, .site-footer * { color: #000 !important; }
   .hero::after { display: none; }

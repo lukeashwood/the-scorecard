@@ -7,7 +7,7 @@
   <title>Sources &amp; daily checks | The Scorecard</title>
   <meta name="description" content="Every source behind The Scorecard, how each figure is calculated, and the public log of automated daily data checks.">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="assets/styles.css?v=20260917">
+  <link rel="stylesheet" href="assets/styles.css?v=20260917b">
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
@@ -56,8 +56,33 @@
       <p>Some figures, such as Budget papers, energy regulator decisions and public service headcounts, aren't published as data feeds. These are marked <span class="src-tag hand">Hand-verified</span> and show the date they were checked against the original document. Each one has a re-check date tied to the source's next release, and the daily process flags any that are overdue.</p>
       <h2>How ratings work</h2>
       <p>Each measure is rated <b>On track</b>, <b>Watch</b> or <b>Off track</b> against a benchmark stated on the card: the government's own target or promise, the Reserve Bank's target, the long-run average, or where things stood when the government took office in May 2022. The exact rule for each rating is published under every measure. Measures where more or less isn't clearly better are marked <b>Context</b> and not rated. We also show results that reflect well on the government.</p>
-      <h2>Corrections</h2>
-      <p>If you believe a figure is wrong, email <b id="corr"></b> with the measure and the source you're relying on. We will check it against the official source and correct any error promptly.</p>
+      <h2 id="report-error">Report an error</h2>
+      <p>If you believe a figure is wrong, tell us which measure and what you think is wrong. It will be checked against the official source and any error corrected promptly.</p>
+      <form class="card report-form" id="report-form">
+        <label class="field">
+          <span>Which measure?</span>
+          <select id="report-measure" name="measure" required>
+            <option value="">Choose a measure&hellip;</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>What's wrong?</span>
+          <textarea id="report-detail" name="detail" required placeholder="e.g. The latest figure should be 3.4%, not 3.5%"></textarea>
+        </label>
+        <label class="field">
+          <span>Source you're relying on <span class="hint" style="display:inline">(optional)</span></span>
+          <input type="text" id="report-source" name="source" placeholder="A link or the name of the publication">
+        </label>
+        <label class="field">
+          <span>Your email <span class="hint" style="display:inline">(optional, if you'd like a reply)</span></span>
+          <input type="email" id="report-email" name="email" autocomplete="email" placeholder="you@example.com">
+        </label>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-red">Send report</button>
+          <span class="form-success" id="report-success" role="status" aria-live="polite"></span>
+        </div>
+        <p class="hint" style="margin:14px 0 0">This form isn't connected to our inbox yet. For now, reports are saved in this browser only.</p>
+      </form>
     </div>
 
     <section class="prose" aria-labelledby="faq">
@@ -104,7 +129,7 @@
         <details id="faq-errors">
           <summary>I think a figure is wrong. What should I do?</summary>
           <div class="faq-body">
-            <p>Email <b id="faq-corr"></b> with the measure and the source you're relying on. It will be checked against the official source and any error corrected promptly. You can also <a href="subscribe.html#suggest">suggest a new measure</a>.</p>
+            <p>Use the <a href="#report-error">report an error form</a>: tell us which measure is wrong and the source you're relying on. It will be checked against the official source and any error corrected promptly. Every card also has a &ldquo;Report an error&rdquo; link. You can also <a href="subscribe.html#suggest">suggest a new measure</a>.</p>
           </div>
         </details>
         <details id="faq-reuse">
@@ -147,17 +172,40 @@
     </div>
   </footer>
 
-  <script src="assets/config.js?v=20260917"></script>
+  <script src="assets/config.js?v=20260917b"></script>
   <script src="data/metrics.js"></script>
   <script src="data/verification.js"></script>
-  <script src="assets/charts.js?v=20260917"></script>
-  <script src="assets/app.js?v=20260917"></script>
+  <script src="assets/charts.js?v=20260917b"></script>
+  <script src="assets/app.js?v=20260917b"></script>
   <script>
   (function () {
     const { h } = window.Charts;
-    document.querySelectorAll("#corr, #faq-corr").forEach((n) => (n.textContent = window.SITE_CONFIG.correctionsEmail));
     const V = window.VERIFICATION && window.VERIFICATION.latest;
     const D = window.SCORECARD;
+    // report-an-error form: no backend yet, so reports are kept in this browser (see Subscribe › Your saved data)
+    const form = document.getElementById("report-form");
+    const pick = document.getElementById("report-measure");
+    D.sections.forEach((sec) => {
+      const group = document.createElement("optgroup");
+      group.label = sec.title;
+      D.metrics.filter((m) => m.section === sec.id).forEach((m) => group.appendChild(new Option(m.title, m.id)));
+      pick.appendChild(group);
+    });
+    pick.appendChild(new Option("Something else on the site", "other"));
+    const wanted = new URLSearchParams(location.search).get("measure");
+    if (wanted && D.metrics.some((m) => m.id === wanted)) pick.value = wanted;
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const val = (id) => document.getElementById(id).value.trim();
+      let reports = [];
+      try { reports = JSON.parse(localStorage.getItem("scorecard_corrections")) || []; } catch (err) { reports = []; }
+      reports.push({ measure: pick.value, detail: val("report-detail"), source: val("report-source"), email: val("report-email"), createdAt: new Date().toISOString() });
+      try { localStorage.setItem("scorecard_corrections", JSON.stringify(reports)); } catch (err) { /* storage blocked */ }
+      form.reset();
+      const done = document.getElementById("report-success");
+      done.textContent = "Thanks \u2014 your report is saved in this browser.";
+      done.classList.add("show");
+    });
     if (V) {
       const sum = document.getElementById("log-summary");
       [[V.checks_passed, "checks passed"], [V.checks_warn, "warnings"], [V.checks_failed, "failed"], [window.Scorecard.fmtStamp(V.generated_at), "last run"]].forEach(([v, l]) => {
@@ -216,6 +264,6 @@
     });
   })();
   </script>
-  <script src="assets/site.js?v=20260917"></script>
+  <script src="assets/site.js?v=20260917b"></script>
 </body>
 </html>

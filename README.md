@@ -9,7 +9,7 @@ A standalone, non-partisan static website that rates the Australian Government's
 | `index.html` | Hero tally, report card, and 30 metric cards in 8 sections. Each card has a status, benchmark, chart, context, (i) explainer and sources. |
 | `budget.html` | Revenue and expense pie charts side by side (2026–27 Budget / 2024–25 actual), with full line-item tables. |
 | `categories.html` | Interactive 3D model of the Scorecard's own 8 measurement categories, drawn as planets orbiting an Australian-flag sun: coloured and glowing by how many measures are off track, with each measure as a small orbiting "moon". No external content — every label and number comes straight from `data/metrics.js`. Uses a locally vendored three.js r128 (`assets/three.min.js`). A text version and no-WebGL fallback are built in. |
-| `sources.html` | How verification works, the latest automated check log, and every source grouped by publisher. |
+| `sources.html` | How verification works, the report-an-error form (`#report-error`; each card links to it with the measure pre-selected), the FAQ, the latest automated check log, and every source grouped by publisher. |
 | `subscribe.html` | Email-update signup with per-measure alerts, "customise your view" preferences (pinned categories, default filter — applied by `index.html`), a suggest-a-measure form, and a "your saved data" card (unsubscribe / delete everything, both behind a confirmation dialog). Front-end only for now: everything saves to the visitor's own browser (`localStorage`) until a form/email backend is connected. |
 | `404.html` | Served by GitHub Pages for any missing URL. Sets a `<base>` so it works at any depth, offers search and links to every page. |
 
@@ -58,10 +58,10 @@ Upcoming re-checks:
 
 ## Before going live: checklist
 
-- [ ] **Corrections email** in `assets/config.js` — currently a placeholder.
+- [ ] **Connect the forms to a form service** (e.g. Formspree): sign-ups, suggestions and error reports (`sources.html#report-error`) currently save only in the visitor's browser, so nothing reaches you yet.
 - [ ] **Human spot-check of every hand-verified figure** in `data/manual.json` against its source. These were researched and cross-checked but should get a second pair of eyes before launch.
 - [ ] Review the status rules and commentary wording for tone before publishing widely.
-- [ ] Deploy: push this folder to a GitHub repo and enable **Pages** (Settings → Pages → deploy from branch `main`, root). Or connect the repo to Netlify or Cloudflare Pages; there's no build step. Then run the workflow once manually (Actions → Daily data verification → Run workflow).
+- [x] Deploy: push this folder to a GitHub repo and enable **Pages** (Settings → Pages → deploy from branch `main`, root). Or connect the repo to Netlify or Cloudflare Pages; there's no build step. Then run the workflow once manually (Actions → Daily data verification → Run workflow).
 - [ ] Point a custom domain at it.
 
 ## Data licensing

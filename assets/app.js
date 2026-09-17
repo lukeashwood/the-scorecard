@@ -223,6 +223,9 @@
     det.appendChild(h("p", "method", "How the rating is decided: " + m.status_rule));
     if (m.updated_at) det.appendChild(h("p", "method", "Last automated check: " + fmtStamp(m.updated_at)));
     foot.appendChild(det);
+    const report = h("a", "report-link", "Report an error in this figure");
+    report.href = "sources.html?measure=" + encodeURIComponent(m.id) + "#report-error";
+    foot.appendChild(report);
     c.appendChild(foot);
     return c;
   }

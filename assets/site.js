@@ -8,7 +8,7 @@
   const isCat = body.classList.contains("catpage");
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const KEYS = { theme: "scorecard_theme", cookie: "scorecard_cookie_ack", sub: "scorecard_subscription",
-                 prefs: "scorecard_prefs", suggestions: "scorecard_suggestions" };
+                 prefs: "scorecard_prefs", suggestions: "scorecard_suggestions", corrections: "scorecard_corrections" };
 
   const store = {
     get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
@@ -158,6 +158,7 @@
     { title: "Sources & checks", url: "sources.html", kind: "Page", text: "sources verification daily automated checks log methods corrections publishers" },
     { title: "Subscribe", url: "subscribe.html", kind: "Page", text: "email updates alerts newsletter customise view preferences pin categories" },
     { title: "Suggest a measure", url: "subscribe.html#suggest", kind: "Page", text: "suggestion feedback contact missing metric" },
+    { title: "Report an error", url: "sources.html#report-error", kind: "Page", text: "correction corrections mistake wrong figure incorrect fix contact" },
     ...FAQ.map(([id, q]) => ({ title: q, url: "sources.html#" + id, kind: "FAQ", text: "faq question help" })),
   ];
   const norm = (s) => String(s || "").toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "").replace(/&/g, " and ");

@@ -9,7 +9,7 @@
       var seg = location.pathname.split("/")[1];
       var root = /\.github\.io$/.test(location.hostname) && seg && seg.indexOf(".") < 0 ? "/" + seg + "/" : "/";
       // assets are written after <base> (not as plain tags) so the browser can't pre-fetch them from the wrong folder
-      document.write('<base href="' + root + '"><link rel="stylesheet" href="assets/styles.css?v=20260917">');
+      document.write('<base href="' + root + '"><link rel="stylesheet" href="assets/styles.css?v=20260917b">');
     })();
   </script>
   <script>(function(d){d.className+=" js";var t;try{t=localStorage.getItem("scorecard_theme")}catch(e){}if(t!=="dark"&&t!=="light")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";d.setAttribute("data-theme",t)})(document.documentElement)</script>
@@ -78,13 +78,13 @@
       </svg>
       <div>
         <p>Data: Australian Bureau of Statistics, Reserve Bank of Australia, Australian Treasury and other official sources as cited against each figure.</p>
-        <p><a href="sources.html">Sources, methods &amp; daily checks</a> · <a href="sources.html#faq">FAQ</a></p>
+        <p><a href="sources.html">Sources, methods &amp; daily checks</a> · <a href="sources.html#faq">FAQ</a> · <a href="sources.html#report-error">Report an error</a></p>
       </div>
     </div>
   </footer>
 
   <script>
-    ["assets/config.js?v=20260917", "data/metrics.js", "assets/charts.js?v=20260917", "assets/app.js?v=20260917"]
+    ["assets/config.js?v=20260917b", "data/metrics.js", "assets/charts.js?v=20260917b", "assets/app.js?v=20260917b"]
       .forEach(function (src) { document.write('<script src="' + src + '"><\/script>'); });
   </script>
   <script>
@@ -119,6 +119,6 @@
     });
   })();
   </script>
-  <script>document.write('<script src="assets/site.js?v=20260917"><\/script>');</script>
+  <script>document.write('<script src="assets/site.js?v=20260917b"><\/script>');</script>
 </body>
 </html>
