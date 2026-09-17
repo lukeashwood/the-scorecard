@@ -1183,7 +1183,8 @@ def load_laws():
         if rb and rb < today:
             law["recheck_overdue"] = True
             log_check("laws", f"{lid}: re-verification due", "warn", f"recheck_by {rb} has passed: confirm status on aph.gov.au")
-        for u in [law.get("parliament_url"), law.get("legislation_url")] + [x.get("url") for x in (c or {}).get("sources", [])]:
+        pr = law.get("public_reaction") or {}
+        for u in [law.get("parliament_url"), law.get("legislation_url")] + [x.get("url") for x in (c or {}).get("sources", []) + pr.get("sources", [])]:
             if u:
                 urls.append(u)
     log_check("laws", "entries loaded", "pass", f"{len(data.get('laws', []))} laws, {len(urls)} cited links")

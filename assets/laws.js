@@ -27,7 +27,8 @@
     tiles.appendChild(t);
   });
   const contro = laws.filter((l) => l.controversy).length;
-  document.getElementById("law-count").textContent = `${laws.length} pieces of legislation since May 2022, ${contro} with documented controversy.`;
+  const pubN = laws.filter((l) => l.public_reaction).length;
+  document.getElementById("law-count").textContent = `${laws.length} pieces of legislation since May 2022: ${contro} with documented controversy, ${pubN} with evidence of public opinion.`;
   if (L.generated_at && window.Site) document.getElementById("law-checked").textContent = `Links re-checked ${window.Site.fmtStamp(L.generated_at)}.`;
 
   // filters
@@ -90,7 +91,17 @@
       box.appendChild(ul);
       c.appendChild(box);
     }
+    if (l.public_reaction) {
+      const pub = h("div", "law-public");
+      pub.appendChild(h("h4", null, "What the public said"));
+      pub.appendChild(h("p", null, l.public_reaction.summary));
+      const ul = h("ul", "law-sources");
+      l.public_reaction.sources.forEach((s) => { const li = h("li"); const sa = h("a", null, s.title + (s.date ? " (" + fmtDate(s.date) + ")" : "")); sa.href = s.url; sa.target = "_blank"; sa.rel = "noopener"; li.appendChild(sa); ul.appendChild(li); });
+      pub.appendChild(ul);
+      c.appendChild(pub);
+    }
     const foot = h("div", "law-links");
+    const say = h("a", "btn btn-ghost", "Have your say"); say.href = "subscribe.html?law=" + encodeURIComponent(l.title) + "#suggest"; foot.appendChild(say);
     const p = h("a", "btn btn-ghost", "Bill page: Parliament of Australia"); p.href = l.parliament_url; p.target = "_blank"; p.rel = "noopener"; foot.appendChild(p);
     if (l.legislation_url) { const g = h("a", "btn btn-ghost", "Act text: legislation.gov.au"); g.href = l.legislation_url; g.target = "_blank"; g.rel = "noopener"; foot.appendChild(g); }
     foot.appendChild(h("span", "law-verified", "Verified " + fmtDate(l.verified_on)));
@@ -103,7 +114,7 @@
     let rows = laws;
     if (state.status !== "all") rows = rows.filter((l) => l.status === state.status);
     if (state.contro) rows = rows.filter((l) => l.controversy && (state.category === "all" || l.controversy.category === state.category));
-    if (state.q) rows = rows.filter((l) => (l.title + " " + l.summary + " " + (l.controversy ? l.controversy.summary + " " + l.controversy.category : "")).toLowerCase().includes(state.q));
+    if (state.q) rows = rows.filter((l) => (l.title + " " + l.summary + " " + (l.controversy ? l.controversy.summary + " " + l.controversy.category : "") + " " + (l.public_reaction ? l.public_reaction.summary : "")).toLowerCase().includes(state.q));
     const head = document.getElementById("law-heading");
     head.textContent = state.status === "all" ? "All legislation, most recent first" : STATUS[state.status].label + ", most recent first";
     document.getElementById("law-blurb").textContent = state.status === "all" ? "" : STATUS[state.status].blurb;

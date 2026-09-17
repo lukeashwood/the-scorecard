@@ -140,7 +140,27 @@
     ]
    },
    "verified_on": "2026-09-18",
-   "recheck_by": "2027-03-31"
+   "recheck_by": "2027-03-31",
+   "public_reaction": {
+    "summary": "Australia Institute/YouGov polling (12–19 Mar 2026, n=1,502) found 77% of Australians support a ban on gambling advertising, with majorities among voters of every party (Labor 81%, Coalition 78%, Greens 88%, One Nation 66%); a follow-up YouGov poll in June 2026 (n=2,230) found 79% support a total ban across TV, radio and online. An Alliance for Gambling Reform petition demanding a full ad ban had 35,243 signatures by July 2024. The 2023 House inquiry received 161 submissions and held 13 hearings; the 2026 Senate inquiry into this bill received 97 submissions and held two hearings.",
+    "sources": [
+     {
+      "title": "Polling: banning gambling advertisements (The Australia Institute / YouGov, March 2026)",
+      "url": "https://australiainstitute.org.au/report/polling-banning-gambling-advertising/",
+      "date": "2026-05-11"
+     },
+     {
+      "title": "35,000 sign petition to end gambling ads (Alliance for Gambling Reform)",
+      "url": "https://newshub.medianet.com.au/2024/07/35000-sign-petition-to-end-gambling-ads-reflects-white-hot-community-anger-at-proliferation-of-gambling-ads/56941/",
+      "date": "2024-07-11"
+     },
+     {
+      "title": "Senate committee report on the Gambling Reform Bill 2026 (97 submissions, 2 hearings)",
+      "url": "https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Environment_and_Communications/GamblingReform48P/Report",
+      "date": "2026-08-17"
+     }
+    ]
+   }
   },
   {
    "id": "asio-amendment-no-2-act-2026",
@@ -169,7 +189,22 @@
     ]
    },
    "verified_on": "2026-09-18",
-   "recheck_by": "2027-03-31"
+   "recheck_by": "2027-03-31",
+   "public_reaction": {
+    "summary": "No opinion polling, e-petition, public petition or protest specifically on ASIO's compulsory questioning powers was found. The intelligence committee's review of the bill received only six submissions, two of them from individuals; the rest came from Home Affairs, ASIO, the Law Council and a joint submission from civil-liberties councils.",
+    "sources": [
+     {
+      "title": "Submissions to the PJCIS review of the ASIO Amendment Bill (No. 2) 2025 (6 items)",
+      "url": "https://www.aph.gov.au/Parliamentary_Business/Committees/Joint/Intelligence_and_Security/ASIOBill22025/Submissions",
+      "date": "2025-10"
+     },
+     {
+      "title": "Why some of ASIO's most controversial powers have been expanded (ABC News)",
+      "url": "https://www.abc.net.au/news/2026-08-27/why-some-asio-most-controversial-powers-have-been-expanded/107084866",
+      "date": "2026-08-27"
+     }
+    ]
+   }
   },
   {
    "id": "counter-terrorism-legislation-amendment-bill-2026",
@@ -326,7 +361,27 @@
     ]
    },
    "verified_on": "2026-09-18",
-   "recheck_by": "2027-03-31"
+   "recheck_by": "2027-03-31",
+   "public_reaction": {
+    "summary": "YouGov polling for the Australia Institute (6–11 June 2025, n=1,535) found 52% supported and 26% opposed reducing tax concessions on super balances over $3 million, with 22% unsure. A DemosAU poll (31 July 2025, n=1,079) found 45% support and 33% opposition: 59% of Labor voters, 33% of Coalition voters and 28% of One Nation voters in favour. Opposition mobilised through a petition against taxing unrealised gains launched by fund manager Geoff Wilson, which The Australian reported reached 7,600 signatures within two days in June 2025. The Senate inquiry into the original 2023 bill received 42 submissions, almost all from industry bodies and think tanks.",
+    "sources": [
+     {
+      "title": "Super changes popular, especially among voters the Liberals need to win back (The Australia Institute / YouGov)",
+      "url": "https://australiainstitute.org.au/post/super-changes-popular-especially-among-voters-the-liberals-need-to-win-back/",
+      "date": "2025-06-17"
+     },
+     {
+      "title": "Australians divided on proposed superannuation tax changes (DemosAU)",
+      "url": "https://demosau.com/news/superannuation-tax-changes/",
+      "date": "2025-09-03"
+     },
+     {
+      "title": "Rush to sign petition against ALP gains tax (The Australian, republished by Wilson Asset Management)",
+      "url": "https://wilsonassetmanagement.com.au/alp-gains-tax/",
+      "date": "2025-06-03"
+     }
+    ]
+   }
   },
   {
    "id": "migration-amendment-2026-measures-no-1-act-2026",
@@ -397,28 +452,88 @@
    "summary": "Amends the Criminal Code to create aggravated offences for preachers and leaders who advocate or threaten force or violence and for adults who seek to radicalise children, increase penalties for advocating or threatening violence, create a listing framework for prohibited hate groups, and strengthen prohibited symbols offences. It adds an aggravated sentencing factor for racially motivated conduct and inserts migration character grounds addressing hate-motivated conduct. The package followed the 14 December 2025 Bondi attack.",
    "controversy": {
     "category": "Civil liberties & detention",
-    "summary": "The Law Council of Australia (submission 15 Jan 2026; update 3 Feb 2026) said 'compressed timelines and limited consultation periods increase the risk of drafting errors, inconsistencies and unintended consequences' and that it had not been possible to review the draft in detail. The Greens (15 Jan 2026) said the bill should protect all communities, warned against laws being used 'to weaponise racism and hate', and criticised visa refusal powers based on predictions of future conduct and the lack of procedural fairness in proscribing organisations. The government said urgent action was needed after the Bondi attack.",
+    "summary": "Reaction split across the spectrum. The Law Council (15 Jan 2026) warned that 'compressed timelines and limited consultation periods increase the risk of drafting errors', and Human Rights Commission President Hugh de Kretser told the three-day inquiry it was 'insufficient' and that protections should also cover religion, sex, sexuality and disability. Jewish organisations were divided: the Executive Council of Australian Jewry called it 'a significant step in the right direction' while criticising its race-only scope, and the Zionist Federation welcomed the power to ban groups; the Jewish Council of Australia urged a pause, saying 'rushing through sweeping criminal laws is not going to make Jews safer'. Muslim organisations objected: the Australian National Imams Council said it was 'appalled and concerned' the Act could be applied unfairly to Muslims, and the Lebanese Muslim Association said it 'seems to be concentrated to protect one community and target another'. Civil-liberties councils argued 'the Federal Government cannot legislate its way to social cohesion'. The Coalition first called the draft 'pretty unsalvageable' (Sussan Ley) then, after a deal narrowing the hate-group definition and adding a two-yearly review, the Liberals voted for it; the Nationals abstained or voted no, wanting more time, and three of their frontbenchers quit over it. The Greens and Senator David Pocock voted against, citing chilling effects on protest and mandatory minimums. The government said urgent action was needed after the Bondi attack.",
     "raised_by": [
      "Law Council of Australia",
-     "Australian Greens"
+     "Australian Human Rights Commission",
+     "Executive Council of Australian Jewry",
+     "Jewish Council of Australia",
+     "Australian National Imams Council",
+     "Lebanese Muslim Association",
+     "NSW Council for Civil Liberties, Liberty Victoria and QCCL",
+     "Federal Coalition (Sussan Ley; the Nationals)",
+     "Australian Greens",
+     "Senator David Pocock",
+     "Amnesty International Australia"
     ],
     "sources": [
      {
-      "title": "Law Council - Combatting Antisemitism, Hate and Extremism Bill",
+      "title": "Law Council – Combatting Antisemitism, Hate and Extremism Bill",
       "url": "https://lawcouncil.au/media/news/combatting-antisemitism-hate-and-extremism-bill"
      },
      {
-      "title": "Law Council submission on the Combatting Antisemitism, Hate and Extremism Bill 2026 (Cth)",
-      "url": "https://lawcouncil.au/resources/submissions/combatting-antisemitism-hate-and-extremism-bill-2026-cth"
+      "title": "AHRC President's opening statement to the PJCIS inquiry (14 Jan 2026)",
+      "url": "https://humanrights.gov.au/about-us/media-centre/speeches/hugh-de-kretser/parliamentary-joint-committee-on-intelligence-and-security-inquiry-into-the-combatting-antisemitism,-hate-and-extremism-bill-2026-opening-statement"
      },
      {
-      "title": "Australian Greens - Combatting Antisemitism, Hate and Extremism Bill 2026",
-      "url": "https://greens.org.au/news/media-release/combatting-antisemitism-hate-and-extremism-bill-2026"
+      "title": "ECAJ: 'A significant step in the right direction' (13 Jan 2026)",
+      "url": "https://www.ecaj.org.au/a-significant-step-in-the-right-direction/"
+     },
+     {
+      "title": "Jewish Council of Australia urges pause on 'rushed and dangerous' bill (14 Jan 2026)",
+      "url": "https://www.jewishcouncil.com.au/2026/01/media-release-jewish-council-urges-pause-on-rushed-and-dangerous-hate-speech-bill"
+     },
+     {
+      "title": "ANIC statement on the legislation (21 Jan 2026)",
+      "url": "https://anic.org.au/anic-appalled-and-deeply-concerned-by-the-combating-antisemitism-hate-and-extremism-legislation/"
+     },
+     {
+      "title": "ABC: Muslim leaders say hate laws single out their community (16 Jan 2026)",
+      "url": "https://www.abc.net.au/news/2026-01-16/hate-speech-laws-labor-antisemitism-bondi/106231326"
+     },
+     {
+      "title": "Joint civil-liberties statement (13 Jan 2026)",
+      "url": "https://libertyvictoria.org.au/joint-media-statement-federal-governments-approach-to-building-community-harmony-will-do-real-harm-nsw-council-for-civil-liberties-liberty-victoria-and-queensland-council-for-civil-libert/"
+     },
+     {
+      "title": "ABC: Hate laws poised to pass after Labor–Liberal deal (20 Jan 2026)",
+      "url": "https://www.abc.net.au/news/2026-01-20/hate-laws-poised-to-pass-after-labor-liberal-deal/106248432"
+     },
+     {
+      "title": "SBS: Nationals trio break ranks in hate-speech vote (21 Jan 2026)",
+      "url": "https://www.sbs.com.au/news/article/leys-leadership-defied-after-nationals-trio-break-ranks-in-hate-speech-vote/ykhqi4lce"
+     },
+     {
+      "title": "Greens: will back gun reforms, will not support hate-speech bill (17 Jan 2026)",
+      "url": "https://greens.org.au/news/media-release/greens-will-back-gun-law-reforms-will-not-support-governments-hate-speech-and"
+     },
+     {
+      "title": "Senator Pocock: amendments on the hate speech and firearm bills",
+      "url": "https://www.davidpocock.com.au/amendments_on_hate_speech_and_firearm_bills"
+     },
+     {
+      "title": "Amnesty: rushed bill missed the opportunity for broader protections",
+      "url": "https://www.amnesty.org.au/rushed-hate-and-extremism-bill-missed-the-opportunity-for-more-comprehensive-protections-and-lacks-critical-safeguards/"
      }
     ]
    },
    "verified_on": "2026-09-18",
-   "recheck_by": "2027-03-31"
+   "recheck_by": "2027-03-31",
+   "public_reaction": {
+    "summary": "A Resolve poll for the SMH and Age (17–20 Dec 2025, n=1,010) found 66% supported stronger laws against hate speech based on religion and 76% backed tougher immigration screening for antisemitic views, though only 26% ranked 'tackling hate speech' among their top two priorities for government (49% chose preventing terrorism). The intelligence committee's review of the draft bill received submissions and correspondence 'numbering in the thousands', the majority from individuals raising concerns, 'a very large number' of them describing the hate-speech offences as censorship or fearing that legitimate protest would be criminalised. No major pollster asked directly about the bill itself.",
+    "sources": [
+     {
+      "title": "Labor and Albanese take a hit in post-Bondi Resolve poll (The Conversation)",
+      "url": "https://theconversation.com/labor-and-albanese-take-a-hit-in-post-bondi-resolve-poll-272266",
+      "date": "2026-01-05"
+     },
+     {
+      "title": "PJCIS report on the exposure draft, Chapter 1: what the public said in submissions",
+      "url": "https://www.aph.gov.au/Parliamentary_Business/Committees/Joint/Intelligence_and_Security/CASHEBILL26/Report/Chapter_1_-_Committee_report",
+      "date": "2026-01"
+     }
+    ]
+   }
   },
   {
    "id": "environment-protection-reform-act-2025",
@@ -449,7 +564,27 @@
     ]
    },
    "verified_on": "2026-09-18",
-   "recheck_by": "2027-03-31"
+   "recheck_by": "2027-03-31",
+   "public_reaction": {
+    "summary": "The Senate inquiry received 689 published submissions and held four public hearings. The Biodiversity Council's survey (Monash BehaviourWorks, more than 3,500 people, Nov–Dec 2024) found 75% of Australians support strengthening national environmental laws and 75% support national environmental standards with 4% opposed, across party lines (Greens 86%, Labor 82%, Liberal 70%, Nationals 64%). The Australian Conservation Foundation's running petition for strong nature laws and an independent regulator shows 543,576 signatures.",
+    "sources": [
+     {
+      "title": "Senate committee report on the Environment Protection Reform Bill 2025, Chapter 1",
+      "url": "https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Environment_and_Communications/EPRBill48P/Report/Chapter_1_-_Introduction_and_background",
+      "date": "2026-04"
+     },
+     {
+      "title": "An increasing majority of Australians back strengthening nature laws (Biodiversity Council)",
+      "url": "https://biodiversitycouncil.org.au/news/an-increasing-majority-of-australians-back-strengthening-nature-laws",
+      "date": "2025-01-31"
+     },
+     {
+      "title": "Petition for laws that actually protect nature (Australian Conservation Foundation)",
+      "url": "https://www.acf.org.au/environment-laws-petition",
+      "date": "2026-09"
+     }
+    ]
+   }
   },
   {
    "id": "fair-work-amendment-protecting-penalty-and-overtime-rates-act-2025",
@@ -500,7 +635,22 @@
     ]
    },
    "verified_on": "2026-09-18",
-   "recheck_by": "2027-03-31"
+   "recheck_by": "2027-03-31",
+   "public_reaction": {
+    "summary": "A Resolve poll for the SMH (Oct–Nov 2024, n=1,604) found 54% thought cutting student debts by 20% was a good idea and 27% a bad idea; 71% backed cutting university fees, rising to 77% among 18–34-year-olds. A Change.org petition on HECS indexation started by independent MP Monique Ryan in March 2024 closed with 288,004 supporters. The bill was not referred to a Senate committee, so there is no inquiry submission count.",
+    "sources": [
+     {
+      "title": "Voters back Labor's proposed HECS changes (SMH / Resolve)",
+      "url": "https://www.smh.com.au/politics/federal/voters-back-labor-s-proposed-hecs-changes-they-are-even-keener-for-an-overhaul-of-uni-fees-20241112-p5kpz0.html",
+      "date": "2024-11-12"
+     },
+     {
+      "title": "Petition: Make our HECS debts easier to pay off (Change.org, Dr Monique Ryan MP)",
+      "url": "https://www.change.org/p/make-our-hecs-debts-easier-to-pay-off",
+      "date": "2024-03-14"
+     }
+    ]
+   }
   },
   {
    "id": "treasury-laws-amendment-better-targeted-superannuation-concessions-bill-2023",
@@ -525,7 +675,27 @@
     ]
    },
    "verified_on": "2026-09-18",
-   "recheck_by": "2027-03-31"
+   "recheck_by": "2027-03-31",
+   "public_reaction": {
+    "summary": "YouGov polling for the Australia Institute (6–11 June 2025, n=1,535) found 52% supported and 26% opposed reducing tax concessions on super balances over $3 million, with 22% unsure. A DemosAU poll (31 July 2025, n=1,079) found 45% support and 33% opposition: 59% of Labor voters, 33% of Coalition voters and 28% of One Nation voters in favour. Opposition mobilised through a petition against taxing unrealised gains launched by fund manager Geoff Wilson, which The Australian reported reached 7,600 signatures within two days in June 2025. The Senate inquiry into the original 2023 bill received 42 submissions, almost all from industry bodies and think tanks.",
+    "sources": [
+     {
+      "title": "Super changes popular, especially among voters the Liberals need to win back (The Australia Institute / YouGov)",
+      "url": "https://australiainstitute.org.au/post/super-changes-popular-especially-among-voters-the-liberals-need-to-win-back/",
+      "date": "2025-06-17"
+     },
+     {
+      "title": "Australians divided on proposed superannuation tax changes (DemosAU)",
+      "url": "https://demosau.com/news/superannuation-tax-changes/",
+      "date": "2025-09-03"
+     },
+     {
+      "title": "Rush to sign petition against ALP gains tax (The Australian, republished by Wilson Asset Management)",
+      "url": "https://wilsonassetmanagement.com.au/alp-gains-tax/",
+      "date": "2025-06-03"
+     }
+    ]
+   }
   },
   {
    "id": "whistleblower-protection-authority-bill-2025",
@@ -582,7 +752,27 @@
     ]
    },
    "verified_on": "2026-09-18",
-   "recheck_by": "2027-03-31"
+   "recheck_by": "2027-03-31",
+   "public_reaction": {
+    "summary": "Australia Institute polling (Nov 2024, n=1,009) found 81% of Australians agreed major electoral law changes should first be reviewed by a multi-party committee, with majorities among voters of every party (83% Labor, 83% Coalition, 80% Greens, 66% One Nation), and the Institute's petition demanding an inquiry into the bill shows 35,130 signatures. No inquiry happened: on 19 November 2024 the Senate defeated a motion by Senators Pocock and Lambie to refer the bill to the electoral committee, 18 votes to 38, with Labor, Liberal and National senators all voting no.",
+    "sources": [
+     {
+      "title": "Polling: overwhelming opposition to rushing through political donation laws (The Australia Institute)",
+      "url": "https://australiainstitute.org.au/post/new-polling-reveals-overwhelming-opposition-to-rushing-through-political-donation-laws/",
+      "date": "2024-11-18"
+     },
+     {
+      "title": "Petition: demand a parliamentary inquiry into the Electoral Reform Bill (The Australia Institute)",
+      "url": "https://nb.australiainstitute.org.au/donations_bill_petition",
+      "date": "2024-11"
+     },
+     {
+      "title": "Senate vote on referring the bill to a committee, 19 Nov 2024 (They Vote For You)",
+      "url": "https://theyvoteforyou.org.au/divisions/senate/2024-11-19/3",
+      "date": "2024-11-19"
+     }
+    ]
+   }
   },
   {
    "id": "scams-prevention-framework-act-2025",
@@ -654,7 +844,17 @@
     ]
    },
    "verified_on": "2026-09-18",
-   "recheck_by": "2027-03-31"
+   "recheck_by": "2027-03-31",
+   "public_reaction": {
+    "summary": "No published poll, parliamentary e-petition or public petition specifically on this bill or its mandatory minimum sentences was found. The Senate inquiry received 40 submissions, almost all from organisations (including the Executive Council of Australian Jewry, the Human Rights Commission, the NSW Council for Civil Liberties, the Islamic Council of Victoria and the Australian Christian Lobby) with only a handful from individuals.",
+    "sources": [
+     {
+      "title": "Submissions to the Senate inquiry into the Hate Crimes Bill (40 items)",
+      "url": "https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Legal_and_Constitutional_Affairs/HateCrimes47/Submissions",
+      "date": "2025-02"
+     }
+    ]
+   }
   },
   {
    "id": "nature-positive-environment-protection-australia-bill-2024",
@@ -681,7 +881,27 @@
     ]
    },
    "verified_on": "2026-09-18",
-   "recheck_by": "2027-03-31"
+   "recheck_by": "2027-03-31",
+   "public_reaction": {
+    "summary": "The Senate inquiry published 209 submissions and received about 180 more plus over 3,670 campaign emails from individuals, with one public hearing (26 July 2024). YouGov polling for ACF and WWF-Australia (Aug 2024) found 86% of Australians support stronger national nature laws and seven in ten said the government needs to do more for nature. A RedBridge poll of more than 1,500 WA voters (Nov 2024) found 75% supported a federal environmental regulator independent of government.",
+    "sources": [
+     {
+      "title": "Senate committee report on the Nature Positive bills, Chapter 1",
+      "url": "https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Environment_and_Communications/NaturePositivebills/Report/Chapter_1_-_Introduction",
+      "date": "2024-09"
+     },
+     {
+      "title": "New polling shows overwhelming support for stronger nature laws (ACF / YouGov)",
+      "url": "https://www.acf.org.au/news/new-polling-shows-overwhelming-support-for-stronger-nature-laws",
+      "date": "2024-08-10"
+     },
+     {
+      "title": "WA poll on a federal EPA (Conservation Council of WA / RedBridge)",
+      "url": "https://www.ccwa.org.au/epbc_reform",
+      "date": "2024-11-27"
+     }
+    ]
+   }
   },
   {
    "id": "online-safety-amendment-social-media-minimum-age-act-2024",
@@ -711,7 +931,27 @@
     ]
    },
    "verified_on": "2026-09-18",
-   "recheck_by": "2027-03-31"
+   "recheck_by": "2027-03-31",
+   "public_reaction": {
+    "summary": "YouGov (15–21 Nov 2024, n=1,515) found 77% of Australians supported the under-16 ban and 23% opposed, up from 61% in August 2024. A Resolve poll for the SMH (Dec 2024) put support at 58% and opposition at 18%, with 62% of parents in favour, but 68% did not expect the ban to work. The one-day Senate inquiry received about 15,000 submissions, most of them variants of a template response after Elon Musk criticised the bill on X.",
+    "sources": [
+     {
+      "title": "Support for under-16 social media ban soars to 77% (YouGov)",
+      "url": "https://yougov.com/articles/51000-support-for-under-16-social-media-ban-soars-to-77-among-australians",
+      "date": "2024-11-26"
+     },
+     {
+      "title": "Australians like banning teens from social media. They just don't think it'll work (SMH / Resolve)",
+      "url": "https://www.smh.com.au/politics/federal/australians-like-banning-teens-from-social-media-they-just-don-t-think-it-ll-work-20241210-p5kx9l.html",
+      "date": "2024-12-10"
+     },
+     {
+      "title": "Inquiry flooded with 15,000 submissions after Elon Musk weighs in (ABC News)",
+      "url": "https://www.abc.net.au/news/2024-11-25/social-media-age-ban-inquiry-flooded-with-submissions/104644208",
+      "date": "2024-11-25"
+     }
+    ]
+   }
   },
   {
    "id": "privacy-and-other-legislation-amendment-act-2024",
@@ -787,7 +1027,17 @@
     ]
    },
    "verified_on": "2026-09-18",
-   "recheck_by": "2027-03-31"
+   "recheck_by": "2027-03-31",
+   "public_reaction": {
+    "summary": "No published poll, e-petition or public petition specifically on the Help to Buy shared-equity scheme was found. The Senate Economics inquiry received 14 submissions and held one public hearing (5 March 2024), almost all from industry and housing organisations rather than individuals.",
+    "sources": [
+     {
+      "title": "Senate Economics Legislation Committee report on the Help to Buy Bills",
+      "url": "https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Economics/HelptoBuyBills2023/Report",
+      "date": "2024-04"
+     }
+    ]
+   }
   },
   {
    "id": "migration-amendment-removal-and-other-measures-act-2024",
@@ -817,7 +1067,32 @@
     ]
    },
    "verified_on": "2026-09-18",
-   "recheck_by": "2027-03-31"
+   "recheck_by": "2027-03-31",
+   "public_reaction": {
+    "summary": "Essential Research polling (26 Feb 2024, n=1,145) found 59% agreed 'the government is moving too slowly to place former detainees back in detention' and 51% agreed 'the Albanese government is losing control of its borders' (21% disagreed). Opposition to the bills came mainly through submissions and petitions: the Senate inquiry into the Removal Bill lists 318 submissions (121 from organisations and a large volume from individuals), the three-day November 2024 inquiry into the Migration Amendment Bill received 114 submissions, and a Change.org movement page against the Removal Bill shows three petitions with 15,180 supporters combined. No poll specifically on the deportation or third-country powers was found.",
+    "sources": [
+     {
+      "title": "Attitudes to asylum seeker statements (Essential Report)",
+      "url": "https://essentialreport.com.au/questions/attitudes-to-asylum-seeker-statements",
+      "date": "2024-02-26"
+     },
+     {
+      "title": "Submissions to the Senate inquiry into the Removal and Other Measures Bill (318 items)",
+      "url": "https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Legal_and_Constitutional_Affairs/MigrationAmendment24/Submissions",
+      "date": "2024-05"
+     },
+     {
+      "title": "Senate committee report on the Migration Amendment Bill 2024, Chapter 1",
+      "url": "https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Legal_and_Constitutional_Affairs/MigrationAmendment47/Report/Chapter_1_-_Introduction",
+      "date": "2024-11-26"
+     },
+     {
+      "title": "Petitions against the Migration Amendment Bill 2024 (Change.org)",
+      "url": "https://www.change.org/m/the-migration-amendment-bill-2024",
+      "date": "2024"
+     }
+    ]
+   }
   },
   {
    "id": "migration-amendment-act-2024",
@@ -852,7 +1127,32 @@
     ]
    },
    "verified_on": "2026-09-18",
-   "recheck_by": "2027-03-31"
+   "recheck_by": "2027-03-31",
+   "public_reaction": {
+    "summary": "Essential Research polling (26 Feb 2024, n=1,145) found 59% agreed 'the government is moving too slowly to place former detainees back in detention' and 51% agreed 'the Albanese government is losing control of its borders' (21% disagreed). Opposition to the bills came mainly through submissions and petitions: the Senate inquiry into the Removal Bill lists 318 submissions (121 from organisations and a large volume from individuals), the three-day November 2024 inquiry into the Migration Amendment Bill received 114 submissions, and a Change.org movement page against the Removal Bill shows three petitions with 15,180 supporters combined. No poll specifically on the deportation or third-country powers was found.",
+    "sources": [
+     {
+      "title": "Attitudes to asylum seeker statements (Essential Report)",
+      "url": "https://essentialreport.com.au/questions/attitudes-to-asylum-seeker-statements",
+      "date": "2024-02-26"
+     },
+     {
+      "title": "Submissions to the Senate inquiry into the Removal and Other Measures Bill (318 items)",
+      "url": "https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Legal_and_Constitutional_Affairs/MigrationAmendment24/Submissions",
+      "date": "2024-05"
+     },
+     {
+      "title": "Senate committee report on the Migration Amendment Bill 2024, Chapter 1",
+      "url": "https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Legal_and_Constitutional_Affairs/MigrationAmendment47/Report/Chapter_1_-_Introduction",
+      "date": "2024-11-26"
+     },
+     {
+      "title": "Petitions against the Migration Amendment Bill 2024 (Change.org)",
+      "url": "https://www.change.org/m/the-migration-amendment-bill-2024",
+      "date": "2024"
+     }
+    ]
+   }
   },
   {
    "id": "aged-care-act-2024",
@@ -934,7 +1234,27 @@
     ]
    },
    "verified_on": "2026-09-18",
-   "recheck_by": "2027-03-31"
+   "recheck_by": "2027-03-31",
+   "public_reaction": {
+    "summary": "The 2023 consultation on the draft drew 2,418 public submissions plus about 20,000 short-form comments, more than 24,000 responses in total, with the department's published sample dominated by free-speech and censorship objections. The 2024 Senate inquiry published 105 submissions and also received more than 8,000 contributions from individuals and a further 22,000 through organised campaigns; a Change.org petition against the bill gathered 2,568 signatures. No poll from a major pollster on the bill was found.",
+    "sources": [
+     {
+      "title": "Consultation outcome: new ACMA powers to combat misinformation and disinformation (Department of Infrastructure and Communications)",
+      "url": "https://www.infrastructure.gov.au/have-your-say/new-acma-powers-combat-misinformation-and-disinformation",
+      "date": "2023-08"
+     },
+     {
+      "title": "Senate committee report, Chapter 1 (submission numbers)",
+      "url": "https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Environment_and_Communications/MisandDisinfobill/Report/Chapter_1_-_Introduction",
+      "date": "2024-11"
+     },
+     {
+      "title": "Petition: Stop the Misinformation and Disinformation Bill (Change.org)",
+      "url": "https://www.change.org/p/protect-australia-s-free-speech-stop-the-misinformation-and-disinformation-bill",
+      "date": "2024-09"
+     }
+    ]
+   }
   },
   {
    "id": "treasury-laws-amendment-cost-of-living-tax-cuts-act-2024",
@@ -959,7 +1279,27 @@
     ]
    },
    "verified_on": "2026-09-18",
-   "recheck_by": "2027-03-31"
+   "recheck_by": "2027-03-31",
+   "public_reaction": {
+    "summary": "Newspoll (31 Jan–3 Feb 2024, n=1,245) found 62% thought the government did the right thing by reworking the stage 3 tax cuts and 29% said it should have kept its promise. Guardian Essential polling (24–28 Jan 2024, n=1,201) had 47% backing the revised cuts, 22% wanting the original cuts kept, 19% preferring deferral for those earning over $200,000 and 13% cancellation. Australia Institute polling (23–29 Jan 2024, n=1,017) found 58% preferred restructuring the cuts and 65% said adapting economic policy matters more than keeping an election promise. Roy Morgan recorded a two-point fall in Labor's two-party vote in the week the promise was broken.",
+    "sources": [
+     {
+      "title": "Newspoll: 62% support stage three changes (The Conversation)",
+      "url": "https://theconversation.com/labors-newspoll-lead-unchanged-since-december-as-62-support-stage-three-changes-222257",
+      "date": "2024-02-05"
+     },
+     {
+      "title": "Polling: stage 3 tax cuts and election promises (The Australia Institute)",
+      "url": "https://australiainstitute.org.au/report/polling-stage-3-tax-cuts-and-election-promises/",
+      "date": "2024-01-31"
+     },
+     {
+      "title": "ALP support falls 2% after breaking promise on stage 3 tax cuts (Roy Morgan)",
+      "url": "https://www.roymorgan.com/findings/9449-federal-voting-intention-january-29-2024",
+      "date": "2024-01-29"
+     }
+    ]
+   }
   },
   {
    "id": "fair-work-legislation-amendment-closing-loopholes-no-2-act-2024",
@@ -1025,7 +1365,32 @@
     ]
    },
    "verified_on": "2026-09-18",
-   "recheck_by": "2027-03-31"
+   "recheck_by": "2027-03-31",
+   "public_reaction": {
+    "summary": "At the referendum on 14 October 2023, 60.06% voted No (9,452,792) and 39.94% Yes (6,286,894) on a turnout of 89.95%; no state returned a Yes majority (the ACT voted 61.29% Yes). Polling had shown Yes ahead 58–42 in Resolve in April 2023 before No led from June and reached 58–34 in the final Newspoll. The final YouGov poll found under-25s voting Yes 58–32 while over-65s voted No 67–29, and the ANU's post-referendum study found Yes support ranged from about 20% among people without Year 12 to about 60% among postgraduates. 'Walk for Yes' rallies on 16–17 September 2023 drew about 30,000 in Melbourne (police estimate) and tens of thousands in Sydney; the parliamentary inquiry into the bill received 269 submissions.",
+    "sources": [
+     {
+      "title": "2023 Referendum national results (Australian Electoral Commission)",
+      "url": "https://results.aec.gov.au/29581/Website/ReferendumNationalResults-29581.htm",
+      "date": "2023-10"
+     },
+     {
+      "title": "Final YouGov Voice referendum poll: No increases lead to 18 points",
+      "url": "https://yougov.com/articles/47566-final-yougov-voice-referendum-poll-no-increases-lead-to-18-points",
+      "date": "2023-10-12"
+     },
+     {
+      "title": "Tens of thousands hit the streets in support of the referendum (ABC News)",
+      "url": "https://www.abc.net.au/news/2023-09-17/yes-vote-voice-referendum-marches-australia/102862580",
+      "date": "2023-09-17"
+     },
+     {
+      "title": "Voters rejected Voice due to fears of division: ANU study",
+      "url": "https://www.anu.edu.au/news/all-news/voters-rejected-voice-due-to-fears-of-division-anu-study",
+      "date": "2023-11-28"
+     }
+    ]
+   }
   },
   {
    "id": "public-interest-disclosure-amendment-review-act-2023",

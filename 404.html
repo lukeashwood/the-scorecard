@@ -9,7 +9,7 @@
       var seg = location.pathname.split("/")[1];
       var root = /\.github\.io$/.test(location.hostname) && seg && seg.indexOf(".") < 0 ? "/" + seg + "/" : "/";
       // assets are written after <base> (not as plain tags) so the browser can't pre-fetch them from the wrong folder
-      document.write('<base href="' + root + '"><link rel="stylesheet" href="assets/styles.css?v=20260918">');
+      document.write('<base href="' + root + '"><link rel="stylesheet" href="assets/styles.css?v=20260918b">');
     })();
   </script>
   <script>(function(d){d.className+=" js";var t;try{t=localStorage.getItem("scorecard_theme")}catch(e){}if(t!=="dark"&&t!=="light")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";d.setAttribute("data-theme",t)})(document.documentElement)</script>
@@ -86,7 +86,7 @@
   </footer>
 
   <script>
-    ["assets/config.js?v=20260918", "data/metrics.js", "assets/charts.js?v=20260918", "assets/app.js?v=20260918"]
+    ["assets/config.js?v=20260918b", "data/metrics.js", "assets/charts.js?v=20260918b", "assets/app.js?v=20260918b"]
       .forEach(function (src) { document.write('<script src="' + src + '"><\/script>'); });
   </script>
   <script>
@@ -121,6 +121,6 @@
     });
   })();
   </script>
-  <script>document.write('<script src="assets/site.js?v=20260918"><\/script>');</script>
+  <script>document.write('<script src="assets/site.js?v=20260918b"><\/script>');</script>
 </body>
 </html>

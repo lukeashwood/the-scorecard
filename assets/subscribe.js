@@ -129,6 +129,11 @@
   });
 
   /* ---------- Suggest a measure ---------- */
+  const lawRef = new URLSearchParams(location.search).get("law");
+  if (lawRef) {
+    document.getElementById("suggest-topic").value = "My view on: " + lawRef;
+    document.getElementById("suggest-why").placeholder = "What do you think of this law, and why?";
+  }
   document.getElementById("suggest-form").addEventListener("submit", async (e) => {
     e.preventDefault();
     const form = e.target;

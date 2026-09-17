@@ -542,6 +542,9 @@ details.table-view summary { cursor: pointer; color: var(--body-grey); font-weig
 .law-contro h4 { margin: 0 0 6px; font-size: 12.5px; text-transform: uppercase; letter-spacing: .1em; color: var(--off); }
 .law-contro p { margin: 0 0 8px; }
 .law-raised { font-size: 14px; color: var(--body-grey); }
+.law-public { border-left: 4px solid var(--link); background: var(--info-tint); padding: 12px 16px; border-radius: 0 10px 10px 0; font-size: 15px; margin-bottom: 14px; }
+.law-public h4 { margin: 0 0 6px; font-size: 12.5px; text-transform: uppercase; letter-spacing: .1em; color: var(--link); }
+.law-public p { margin: 0 0 8px; }
 .law-sources { margin: 6px 0 0; padding-left: 18px; font-size: 14px; }
 .law-links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: auto; padding-top: 6px; }
 .law-verified { margin-left: auto; font-size: 13px; color: var(--body-grey); }
