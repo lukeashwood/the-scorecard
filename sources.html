@@ -7,7 +7,7 @@
   <title>Sources &amp; daily checks | The Scorecard</title>
   <meta name="description" content="Every source behind The Scorecard, how each figure is calculated, and the public log of automated daily data checks.">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="assets/styles.css?v=20260917b">
+  <link rel="stylesheet" href="assets/styles.css?v=20260917c">
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
@@ -58,7 +58,7 @@
       <p>Each measure is rated <b>On track</b>, <b>Watch</b> or <b>Off track</b> against a benchmark stated on the card: the government's own target or promise, the Reserve Bank's target, the long-run average, or where things stood when the government took office in May 2022. The exact rule for each rating is published under every measure. Measures where more or less isn't clearly better are marked <b>Context</b> and not rated. We also show results that reflect well on the government.</p>
       <h2 id="report-error">Report an error</h2>
       <p>If you believe a figure is wrong, tell us which measure and what you think is wrong. It will be checked against the official source and any error corrected promptly.</p>
-      <form class="card report-form" id="report-form">
+      <form class="card report-form" id="report-form" data-send>
         <label class="field">
           <span>Which measure?</span>
           <select id="report-measure" name="measure" required>
@@ -81,7 +81,6 @@
           <button type="submit" class="btn btn-red">Send report</button>
           <span class="form-success" id="report-success" role="status" aria-live="polite"></span>
         </div>
-        <p class="hint" style="margin:14px 0 0">This form isn't connected to our inbox yet. For now, reports are saved in this browser only.</p>
       </form>
     </div>
 
@@ -122,7 +121,8 @@
         <details id="faq-privacy">
           <summary>Does this site use cookies or track me?</summary>
           <div class="faq-body">
-            <p>No. There are no advertising or analytics cookies and no tracking scripts. Choices you make, such as light or dark theme, pinned categories, email preferences and suggestions, are saved only in your own browser. You can delete them at any time on the <a href="subscribe.html#your-data">Subscribe page</a>.</p>
+            <p>No. There are no advertising or analytics cookies and no tracking scripts. Display choices, such as light or dark theme and pinned categories, are saved only in your own browser. You can delete them at any time on the <a href="subscribe.html#your-data">Subscribe page</a>.</p>
+            <p>When you send a form (an email sign-up, a suggestion or an error report), what you type is sent to the site's team by email through <a href="https://formspree.io/legal/privacy-policy">Formspree</a>, a form-handling service. It's used only to send the updates you asked for and to reply to you.</p>
             <p>Links from this site to other websites carry a short tag (<code>utm_source=the-scorecard</code>) so those publishers can see visits came from here. It identifies this site, not you.</p>
           </div>
         </details>
@@ -172,17 +172,17 @@
     </div>
   </footer>
 
-  <script src="assets/config.js?v=20260917b"></script>
+  <script src="assets/config.js?v=20260917c"></script>
   <script src="data/metrics.js"></script>
   <script src="data/verification.js"></script>
-  <script src="assets/charts.js?v=20260917b"></script>
-  <script src="assets/app.js?v=20260917b"></script>
+  <script src="assets/charts.js?v=20260917c"></script>
+  <script src="assets/app.js?v=20260917c"></script>
   <script>
   (function () {
     const { h } = window.Charts;
     const V = window.VERIFICATION && window.VERIFICATION.latest;
     const D = window.SCORECARD;
-    // report-an-error form: no backend yet, so reports are kept in this browser (see Subscribe › Your saved data)
+    // report-an-error form: sent via window.Site.send (Formspree); a copy is kept in this browser (see Subscribe › Your saved data)
     const form = document.getElementById("report-form");
     const pick = document.getElementById("report-measure");
     D.sections.forEach((sec) => {
@@ -194,17 +194,24 @@
     pick.appendChild(new Option("Something else on the site", "other"));
     const wanted = new URLSearchParams(location.search).get("measure");
     if (wanted && D.metrics.some((m) => m.id === wanted)) pick.value = wanted;
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
       const val = (id) => document.getElementById(id).value.trim();
+      const done = document.getElementById("report-success");
+      const btn = form.querySelector('button[type="submit"]');
+      const measure = pick.options[pick.selectedIndex].text;
+      window.Site.busy(btn, true);
+      const res = await window.Site.send("Error report", { measure, what_is_wrong: val("report-detail"), source: val("report-source"), email: val("report-email") }, form);
+      window.Site.busy(btn, false);
+      done.classList.toggle("is-error", !res.ok);
+      done.classList.add("show");
+      if (!res.ok) { done.textContent = res.error; return; }
       let reports = [];
       try { reports = JSON.parse(localStorage.getItem("scorecard_corrections")) || []; } catch (err) { reports = []; }
       reports.push({ measure: pick.value, detail: val("report-detail"), source: val("report-source"), email: val("report-email"), createdAt: new Date().toISOString() });
       try { localStorage.setItem("scorecard_corrections", JSON.stringify(reports)); } catch (err) { /* storage blocked */ }
       form.reset();
-      const done = document.getElementById("report-success");
-      done.textContent = "Thanks \u2014 your report is saved in this browser.";
-      done.classList.add("show");
+      done.textContent = "Thanks \u2014 your report has been sent. We'll check it against the official source.";
     });
     if (V) {
       const sum = document.getElementById("log-summary");
@@ -264,6 +271,6 @@
     });
   })();
   </script>
-  <script src="assets/site.js?v=20260917b"></script>
+  <script src="assets/site.js?v=20260917c"></script>
 </body>
 </html>

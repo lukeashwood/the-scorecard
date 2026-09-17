@@ -1,4 +1,5 @@
-/* The Scorecard: subscribe page. No backend yet — everything here reads/writes localStorage on this device. */
+/* The Scorecard: subscribe page. Sign-ups, suggestions and unsubscribes are sent via window.Site.send (Formspree);
+   choices are also kept in localStorage so the page and the homepage remember them. */
 (function () {
   const { h } = window.Charts;
   const D = window.SCORECARD;
@@ -44,11 +45,12 @@
     });
   }
 
-  function showSuccess(el, message) {
+  function showSuccess(el, message, isError) {
     el.textContent = message;
+    el.classList.toggle("is-error", !!isError);
     el.classList.add("show");
     clearTimeout(el._hideTimer);
-    el._hideTimer = setTimeout(() => el.classList.remove("show"), 5000);
+    if (!isError) el._hideTimer = setTimeout(() => el.classList.remove("show"), 6000);
   }
 
   /* ---------- Email updates + per-measure alerts ---------- */
@@ -76,13 +78,26 @@
   const emailInput = document.getElementById("sub-email");
   if (existingSub && existingSub.email) emailInput.value = existingSub.email;
 
-  document.getElementById("subscribe-form").addEventListener("submit", (e) => {
+  const FREQ_NAME = { weekly: "Weekly digest", monthly: "Monthly digest", instant: "Alerts only" };
+  const titleOf = (id) => (D.metrics.find((m) => m.id === id) || {}).title || id;
+
+  document.getElementById("subscribe-form").addEventListener("submit", async (e) => {
     e.preventDefault();
+    const form = e.target;
     const email = emailInput.value.trim();
     if (!email) return;
     const alertMetrics = Array.from(alertGrid.querySelectorAll("input:checked")).map((cb) => cb.value);
+    const btn = form.querySelector('button[type="submit"]');
+    const out = document.getElementById("subscribe-success");
+    window.Site.busy(btn, true, "Subscribing\u2026");
+    const res = await window.Site.send("Email sign-up", {
+      email, frequency: FREQ_NAME[freqInput.value] || freqInput.value,
+      alerts: alertMetrics.length ? alertMetrics.map(titleOf).join(", ") : "None", signed_up_from: "Subscribe page",
+    }, form);
+    window.Site.busy(btn, false);
+    if (!res.ok) { showSuccess(out, res.error, true); return; }
     writeJSON(SUBSCRIPTION_KEY, { email, frequency: freqInput.value, alertMetrics, updatedAt: new Date().toISOString() });
-    showSuccess(document.getElementById("subscribe-success"), "Saved in this browser. Email delivery isn't switched on yet.");
+    showSuccess(out, "Thanks \u2014 you're signed up.");
     updateSummary();
   });
 
@@ -114,17 +129,24 @@
   });
 
   /* ---------- Suggest a measure ---------- */
-  document.getElementById("suggest-form").addEventListener("submit", (e) => {
+  document.getElementById("suggest-form").addEventListener("submit", async (e) => {
     e.preventDefault();
+    const form = e.target;
     const topic = document.getElementById("suggest-topic").value.trim();
     const why = document.getElementById("suggest-why").value.trim();
     const email = document.getElementById("suggest-email").value.trim();
     if (!topic || !why) return;
+    const btn = form.querySelector('button[type="submit"]');
+    const out = document.getElementById("suggest-success");
+    window.Site.busy(btn, true);
+    const res = await window.Site.send("Measure suggestion", { suggested_measure: topic, why_it_matters: why, email }, form);
+    window.Site.busy(btn, false);
+    if (!res.ok) { showSuccess(out, res.error, true); return; }
     const suggestions = readJSON(SUGGESTIONS_KEY, []);
     suggestions.push({ id: Date.now() + "-" + Math.random().toString(36).slice(2, 8), topic, why, email, createdAt: new Date().toISOString() });
     writeJSON(SUGGESTIONS_KEY, suggestions);
-    e.target.reset();
-    showSuccess(document.getElementById("suggest-success"), "Thanks — saved in this browser for now.");
+    form.reset();
+    showSuccess(out, "Thanks \u2014 your suggestion has been sent.");
     updateSummary();
   });
 
@@ -162,10 +184,12 @@
     if (!sub) return;
     const ok = await window.Site.confirm({
       title: "Unsubscribe from email updates?",
-      body: `This removes ${sub.email} and any measure alerts you picked. Your view preferences and suggestions are kept.`,
+      body: `This stops email updates to ${sub.email} and removes any measure alerts you picked. Your view preferences are kept.`,
       confirm: "Unsubscribe",
     });
     if (!ok) return;
+    const res = await window.Site.send("Unsubscribe request", { email: sub.email, unsubscribed_from: "Subscribe page" });
+    if (!res.ok) { showSuccess(document.getElementById("data-success"), res.error, true); return; }
     try { localStorage.removeItem(SUBSCRIPTION_KEY); } catch (err) { /* nothing stored */ }
     emailInput.value = "";
     alertGrid.querySelectorAll("input:checked").forEach((cb) => { cb.checked = false; });
@@ -177,10 +201,17 @@
   clearBtn.addEventListener("click", async () => {
     const ok = await window.Site.confirm({
       title: "Delete all your saved data?",
-      body: "This permanently removes your email sign-up, alerts, pinned categories, default filter, saved suggestions, error reports and theme choice from this browser. It can't be undone.",
+      body: "This unsubscribes you from email updates and permanently removes your alerts, pinned categories, default filter, saved suggestions and error reports, and theme choice from this browser. It can't be undone.",
       confirm: "Delete everything",
     });
     if (!ok) return;
+    const sub = readJSON(SUBSCRIPTION_KEY, null);
+    if (sub && sub.email) {
+      clearBtn.disabled = true;
+      const res = await window.Site.send("Unsubscribe request", { email: sub.email, unsubscribed_from: "Delete all my saved data" });
+      clearBtn.disabled = false;
+      if (!res.ok) { showSuccess(document.getElementById("data-success"), res.error + " Your data hasn't been deleted.", true); return; }
+    }
     Object.values(window.Site.keys).forEach((k) => { try { localStorage.removeItem(k); } catch (err) { /* nothing stored */ } });
     window.location.reload();
   });

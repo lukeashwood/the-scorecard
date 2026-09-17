@@ -7,7 +7,7 @@
   <title>Subscribe | The Scorecard</title>
   <meta name="description" content="Get email updates from The Scorecard, choose which measures you're alerted about, customise your view, and suggest a measure we should be tracking.">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="assets/styles.css?v=20260917b">
+  <link rel="stylesheet" href="assets/styles.css?v=20260917c">
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
@@ -41,13 +41,12 @@
   </section>
 
   <main class="wrap section">
-    <p class="preview-note">This page is a preview: choices you make below are saved on this device for now, so they'll be here next time you visit this browser. Email delivery isn't connected yet — once it is, subscriptions and suggestions will start reaching us directly instead.</p>
 
     <div class="stack">
       <article class="card" id="updates">
         <div class="card-top"><h3>Email updates</h3></div>
         <p class="question">Get a digest of what's changed, on your schedule — or skip the digest and only hear about the measures you care about, the moment their status changes.</p>
-        <form id="subscribe-form">
+        <form id="subscribe-form" data-send>
           <div class="field">
             <span>Email address</span>
             <input type="email" id="sub-email" name="email" placeholder="you@example.com" required>
@@ -92,7 +91,7 @@
       <article class="card" id="suggest">
         <div class="card-top"><h3>Suggest a measure</h3></div>
         <p class="question">Think we're missing something the government should be held to account for? Tell us and we'll look into adding it.</p>
-        <form id="suggest-form">
+        <form id="suggest-form" data-send>
           <div class="field">
             <span>What should we measure?</span>
             <input type="text" id="suggest-topic" name="topic" placeholder="e.g. Hospital waiting times" required>
@@ -114,7 +113,7 @@
 
       <article class="card" id="your-data">
         <div class="card-top"><h3>Your saved data</h3></div>
-        <p class="question">Everything you choose on this page is kept in this browser only. You can remove it at any time.</p>
+        <p class="question">Your choices on this page are remembered in this browser. You can remove them at any time; if you're signed up, this also unsubscribes you.</p>
         <p class="data-summary" id="data-summary">Nothing saved yet.</p>
         <div class="form-actions">
           <button type="button" class="btn btn-secondary" id="unsubscribe-btn">Unsubscribe</button>
@@ -134,16 +133,16 @@
         <rect x="22.5" y="9" width="4.5" height="18" rx="1.5" fill="#fff"/>
       </svg>
       <div>
-        <p>Your subscription, view preferences and suggestions are stored on this device only, and are never shared with any political party.</p>
+        <p>View preferences stay in your browser. Sign-ups, suggestions and error reports are sent to the site's team by email through Formspree, and used only to send updates and reply to you.</p>
         <p><a href="sources.html">Sources, methods &amp; daily checks</a> · <a href="categories.html">Explore the categories</a></p>
       </div>
     </div>
   </footer>
 
-  <script src="assets/config.js?v=20260917b"></script>
+  <script src="assets/config.js?v=20260917c"></script>
   <script src="data/metrics.js"></script>
-  <script src="assets/charts.js?v=20260917b"></script>
-  <script src="assets/subscribe.js?v=20260917b"></script>
-  <script src="assets/site.js?v=20260917b"></script>
+  <script src="assets/charts.js?v=20260917c"></script>
+  <script src="assets/subscribe.js?v=20260917c"></script>
+  <script src="assets/site.js?v=20260917c"></script>
 </body>
 </html>

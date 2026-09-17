@@ -61,6 +61,37 @@
     return ok;
   }
 
+  /* ---------- form sending (Formspree) ---------- */
+  const FORM_ENDPOINT = (window.SITE_CONFIG && window.SITE_CONFIG.formEndpoint) || "";
+  // an off-screen field people never see; bots that fill it get a fake success and nothing is sent
+  function addTrap(form) {
+    if (form.querySelector('input[name="_gotcha"]')) return;
+    form.append(el("input", { type: "text", name: "_gotcha", tabindex: "-1", autocomplete: "off", "aria-hidden": "true", className: "hp" }));
+  }
+  async function sendForm(type, fields, form) {
+    const trap = form && form.querySelector('input[name="_gotcha"]');
+    if (trap && trap.value) return { ok: true };
+    if (!FORM_ENDPOINT) return { ok: false, error: "Sorry, this form isn't available right now." };
+    const payload = { form_type: type, _subject: "The Scorecard: " + type, page: window.location.href.split(/[?#]/)[0] };
+    // drop blanks: Formspree rejects an empty "email" field
+    Object.entries(fields).forEach(([k, v]) => { if (v !== "" && v != null) payload[k] = v; });
+    try {
+      const res = await fetch(FORM_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(payload) });
+      if (res.ok) return { ok: true };
+      const data = await res.json().catch(() => ({}));
+      const detail = Array.isArray(data.errors) ? data.errors.map((x) => x.message).join(" ") : "";
+      return { ok: false, error: "Sorry, that didn't send" + (detail ? `: ${detail}` : ". Please try again.") };
+    } catch (e) {
+      return { ok: false, error: "Sorry, that didn't send. Check your connection and try again." };
+    }
+  }
+  function setBusy(button, busy, busyLabel) {
+    if (busy) { button.dataset.label = button.textContent; button.textContent = busyLabel || "Sending\u2026"; }
+    else if (button.dataset.label) button.textContent = button.dataset.label;
+    button.disabled = busy;
+  }
+  document.querySelectorAll("form[data-send]").forEach(addTrap);
+
   /* ---------- confirm dialog: resolves true only on an explicit confirm ---------- */
   let dlgSeq = 0;
   function confirmDialog(opts) {
@@ -295,7 +326,7 @@
   if (!store.get(KEYS.cookie)) {
     const got = el("button", { className: "btn btn-red", type: "button", text: "Got it" });
     const notice = el("div", { className: "cookie-notice", role: "region", "aria-label": "Cookie notice" },
-      el("p", {}, "This site doesn’t use tracking or advertising cookies. It only saves your own choices, like theme and pinned categories, in this browser. ",
+      el("p", {}, "This site doesn’t use tracking or advertising cookies. It only saves your own display choices, like theme and pinned categories, in this browser. ",
         el("a", { href: "sources.html#faq-privacy", text: "Privacy details" })),
       got);
     body.appendChild(notice);
@@ -323,19 +354,25 @@
     const msg = el("p", { className: "footer-signup-msg", role: "status", "aria-live": "polite" });
     const form = el("form", { className: "footer-signup" },
       el("label", { for: "footer-email", text: "Get Scorecard updates by email" }), row, msg);
+    addTrap(form);
     footerText.prepend(form);
     const showDone = (addr, fresh) => {
       row.hidden = true;
+      msg.classList.remove("is-error");
       msg.innerHTML = ICON.check;
-      msg.append(`${fresh ? "Saved" : "Signed up as " + addr} — kept in this browser; email delivery isn’t switched on yet. `,
-        el("a", { href: "subscribe.html#updates", text: "Manage" }));
+      msg.append(fresh ? "Thanks \u2014 you\u2019re signed up. " : `Signed up as ${addr}. `, el("a", { href: "subscribe.html#updates", text: "Manage" }));
     };
     const existing = store.json(KEYS.sub, null);
     if (existing && existing.email) showDone(existing.email, false);
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
       const addr = email.value.trim();
       if (!addr || !email.checkValidity()) { email.reportValidity(); return; }
+      const btn = row.querySelector("button");
+      setBusy(btn, true, "Signing up\u2026");
+      const res = await sendForm("Email sign-up", { email: addr, frequency: "Weekly digest", signed_up_from: "Footer" }, form);
+      setBusy(btn, false);
+      if (!res.ok) { msg.textContent = res.error; msg.classList.add("is-error"); return; }
       const prev = store.json(KEYS.sub, {}) || {};
       store.set(KEYS.sub, JSON.stringify({ frequency: "weekly", alertMetrics: [], ...prev, email: addr, updatedAt: new Date().toISOString() }));
       showDone(addr, true);
@@ -375,5 +412,5 @@
   });
   window.addEventListener("afterprint", () => { openedForPrint.splice(0).forEach((d) => { d.open = false; }); });
 
-  window.Site = { confirm: confirmDialog, copy: copyText, store, keys: KEYS, fmtDate, fmtStamp, openSearch, icon: ICON };
+  window.Site = { send: sendForm, busy: setBusy, confirm: confirmDialog, copy: copyText, store, keys: KEYS, fmtDate, fmtStamp, openSearch, icon: ICON };
 })();

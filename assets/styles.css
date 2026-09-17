@@ -335,6 +335,9 @@ details.table-view summary { cursor: pointer; color: var(--body-grey); font-weig
 .form-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 22px; }
 .form-success { display: none; align-items: center; gap: 8px; color: var(--on); font-weight: 700; font-size: 14.5px; }
 .form-success.show { display: flex; }
+.form-success.is-error, .site-footer .footer-signup-msg.is-error { color: var(--off); }
+.site-footer .footer-signup-msg.is-error { color: #FFB3B7; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; opacity: 0; }
 .prefs-banner { margin: 0 0 24px; }
 .prefs-banner-inner { display: flex; align-items: center; gap: 10px 16px; flex-wrap: wrap; background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 14px 18px; }
 .prefs-banner-inner p { margin: 0; flex: 1; min-width: 200px; color: var(--body-grey); font-size: 14.5px; }
