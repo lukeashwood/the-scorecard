@@ -244,6 +244,42 @@
    "recheck_by": "2026-10-16"
   },
   {
+   "id": "king-inland-rail-consolidated-2026",
+   "date": "2026-05-05",
+   "minister": "Catherine King",
+   "portfolio": "Minister for Infrastructure, Transport, Regional Development and Local Government",
+   "title": "Inland Rail cut back to Melbourne–Parkes; Queensland and Brisbane legs shelved with no date",
+   "category": "Decisions & judgement",
+   "summary": "On 5–6 May 2026, ahead of the Budget, Catherine King announced the government would 'consolidate' the Melbourne–Brisbane Inland Rail freight line by completing only the Beveridge (Vic) to Parkes (NSW) sections by the end of 2027. She cited cost-assurance work putting the full project above $45 billion, 'more than three times the current budget allocation', with no completion possible before 2036; works north of Parkes, including Queensland's Gowrie–Kagaru section, are limited to corridor preservation. The project had been estimated at $16.4 billion in 2020 and about $31 billion in the 2023 Schott review, after which King had already deferred the northern sections. Queensland Deputy Premier Jarrod Bleijie called the decision 'a real kick in the guts', the Queensland Farmers' Federation 'an incredibly disheartening outcome for regional Australia', regional mayors in Toowoomba, Goondiwindi and Parkes expressed dismay, and the Coalition launched a 'Rescue our Rail' petition, arguing funds were redirected to Melbourne's Suburban Rail Loop. A Toowoomba business that had planned around the line for 25 years called it a 'disaster'.",
+   "response": "King said the government was 'taking sensible decisions to realign the future of Inland Rail', blaming 'major deficiencies in the governance and delivery of Inland Rail by the Liberals and Nationals', and told the ABC the project had been 'underfunded and under-planned' and that continuing would 'actually hit the budget'.",
+   "outcome": "Scaled back rather than formally cancelled: the Parkes–Brisbane legs, including all of Queensland, are shelved with no completion date. No formal finding; the Coalition's petition and Queensland Government objections are ongoing.",
+   "status": "ongoing",
+   "sources": [
+    {
+     "title": "Record investment in the freight rail network and consolidating Inland Rail (Minister King media release)",
+     "url": "https://minister.infrastructure.gov.au/c-king/media-release/record-investment-freight-rail-network-and-consolidating-inland-rail",
+     "date": "2026-05-06"
+    },
+    {
+     "title": "Albanese government axes funding for $45 billion Inland Rail project (ABC News)",
+     "url": "https://www.abc.net.au/news/2026-05-05/albanese-government-slashes-funding-inland-rail-project/106644902",
+     "date": "2026-05-05"
+    },
+    {
+     "title": "Cancellation 'disaster' for business that expected Inland Rail for 25 years (ABC News)",
+     "url": "https://www.abc.net.au/news/2026-05-06/inland-rail-cancellation-reactions/106646490",
+     "date": "2026-05-06"
+    },
+    {
+     "title": "Getting Inland Rail back on track: the 2023 Schott review response (Minister King media release)",
+     "url": "https://minister.infrastructure.gov.au/c-king/media-release/getting-inland-rail-back-track",
+     "date": "2023-04-06"
+    }
+   ],
+   "verified_on": "2026-09-18",
+   "recheck_by": "2026-10-16"
+  },
+  {
    "id": "oneil-1-2-million-homes-target",
    "date": "2026-04-22",
    "minister": "Clare O'Neil",
