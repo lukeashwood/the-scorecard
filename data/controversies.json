@@ -47,6 +47,32 @@
    "recheck_by": "2026-10-16"
   },
   {
+   "id": "bowen-275-power-bill-promise-2026",
+   "date": "2026-07-05",
+   "minister": "Chris Bowen",
+   "portfolio": "Minister for Climate Change and Energy",
+   "title": "Bowen declines to address unmet $275 power-bill pledge as $22.7bn extra billing reported",
+   "category": "Misleading statements",
+   "summary": "Labor's 2022 election commitment, championed by Bowen, was to cut household power bills by $275 a year by 2025. In July 2026 Coalition analysis of energy regulator data put the additional amount paid by National Electricity Market consumers since 2022 at $22.7 billion. Bowen conceded bills were too high but did not address the $275 pledge, attributing prices to the international energy crisis and 'denial and delay' under the Coalition. At the 10 April 2025 National Press Club energy debate he had declined to give any dollar figure, saying only that 'energy prices will be cheaper under us than under Mr O'Brien'.",
+   "response": "Bowen blamed the Ukraine-driven energy shock and the previous government's record, and said Labor was making 'very good progress on the renewables rollout'.",
+   "outcome": "No formal finding; the pledge remains unmet and is regularly cited by the Opposition as a broken promise.",
+   "status": "no-finding",
+   "sources": [
+    {
+     "title": "Energy Minister Chris Bowen says huge energy bill blowout due to past 'denial and delay'",
+     "url": "https://thenightly.com.au/politics/energy-minister-chris-bowen-says-huge-energy-bill-blowout-due-to-past-denial-and-delay-c-22533146",
+     "date": "2026-07-05"
+    },
+    {
+     "title": "'Happy for Australia to go broke': Major parties face off over price of power bills",
+     "url": "https://www.sbs.com.au/news/article/bowen-and-obrien-face-off-over-price-of-power-bills/5nvt5s6v0",
+     "date": "2025-04-10"
+    }
+   ],
+   "verified_on": "2026-09-18",
+   "recheck_by": "2026-10-16"
+  },
+  {
    "id": "albanese-kylie-minogue-shag-marry-date",
    "date": "2026-07-03",
    "minister": "Anthony Albanese",
@@ -67,6 +93,63 @@
      "title": "Australia's PM Apologizes for 'Inappropriate' Comment About Kylie Minogue",
      "url": "https://time.com/article/2026/07/06/anthony-albanese-australia-prime-minister-apologizes-shag-kylie-minogue-controversy/",
      "date": "2026-07-06"
+    }
+   ],
+   "verified_on": "2026-09-18",
+   "recheck_by": "2026-10-16"
+  },
+  {
+   "id": "conroy-defence-procurement-hunter-frigates",
+   "date": "2026-07-01",
+   "minister": "Pat Conroy",
+   "portfolio": "Minister for Defence Industry",
+   "title": "Conroy grilled on $29bn in defence cost blowouts and $27bn Hunter frigate program",
+   "category": "Decisions & judgement",
+   "summary": "A government task force found $29 billion in cost overruns across defence procurement projects before contracts were even signed, with an average 38 per cent cost increase at pre-contract stage. On 7.30, Conroy said the system was 'broken' and that on the Hunter-class frigates '$500 million worth of changes were made to the design without talking to the people actually building the ship'. By September 2026 the ABC reported roughly $27 billion would be spent to deliver the first three Hunter frigates, with the program cut from nine ships to six and the first not due until 2032; analyst Marcus Hellyer questioned whether the design tried to do too much.",
+   "response": "Conroy attributed the failures to structural problems rather than individuals, announced 'the biggest reforms to the defence organisation in 50 years' including a single national armaments director, and said he made 'no apologies' for the frigates' advanced radar.",
+   "outcome": "Procurement reforms announced; program continues under scrutiny.",
+   "status": "ongoing",
+   "sources": [
+    {
+     "title": "Defence Industry Minister Pat Conroy defends defence spending",
+     "url": "https://www.abc.net.au/news/2026-07-01/defence-industry-minister-pat-conroy-defends-defence-spending/106867174",
+     "date": "2026-07-01"
+    },
+    {
+     "title": "Australia is spending $27 billion to build three warships. Will it be worth it?",
+     "url": "https://www.abc.net.au/news/2026-09-14/federal-politics-australia-billions-spent-on-three-warships/107132330",
+     "date": "2026-09-14"
+    }
+   ],
+   "verified_on": "2026-09-18",
+   "recheck_by": "2026-10-16"
+  },
+  {
+   "id": "rae-aged-care-assessment-algorithm",
+   "date": "2026-06-04",
+   "minister": "Sam Rae",
+   "portfolio": "Minister for Aged Care and Seniors",
+   "title": "Rae defends aged-care funding algorithm that assessors cannot override",
+   "category": "Decisions & judgement",
+   "summary": "The Integrated Assessment Tool uses an algorithm to set Support at Home funding levels, and human assessors lost the ability to overrule its classification; officials admitted there was no consultation with providers or advocates before that change. Following hundreds of complaints, 132 people had to be reassessed by June 2026 and more than 1,000 review requests were lodged in five months. Rae was grilled on radio and in Parliament, and the Coalition, Greens, crossbench and some Labor backbenchers pushed legislation to restore human override, which the government resisted. Shadow minister Anne Ruston called Rae's rapid review 'a damning admission that the tool is failing'.",
+   "response": "Rae said he was 'not satisfied with the prioritisation mechanism', ordered a three-month departmental review, and in July announced an escalation pathway for complex cases while ruling out reinstating human override. Health Minister Mark Butler said the tool delivered the 'predictability and consistency' the Royal Commission recommended.",
+   "outcome": "Departmental review and limited escalation pathway; calls to scrap the algorithm continue.",
+   "status": "ongoing",
+   "sources": [
+    {
+     "title": "Aged Care Minister Sam Rae grilled over human involvement in aged care assessments",
+     "url": "https://www.abc.net.au/news/2026-06-04/sam-rae-defends-aged-care-assessment-tool/106758892",
+     "date": "2026-06-04"
+    },
+    {
+     "title": "'Damning admission': Labor concession on controversial aged care tool fails to quell anger",
+     "url": "https://www.sbs.com.au/news/article/aged-care-integrated-assessment-tool-algorithm-labor-changes/sd68zwgnp",
+     "date": "2026-07-02"
+    },
+    {
+     "title": "Labor resists widespread calls to ditch 'cruel' aged care funding algorithm",
+     "url": "https://www.abc.net.au/news/2026-08-19/labor-stands-by-algorithm-aged-care-assessment-tool/107055252",
+     "date": "2026-08-19"
     }
    ],
    "verified_on": "2026-09-18",
@@ -161,6 +244,63 @@
    "recheck_by": "2026-10-16"
   },
   {
+   "id": "oneil-1-2-million-homes-target",
+   "date": "2026-04-22",
+   "minister": "Clare O'Neil",
+   "portfolio": "Minister for Housing and Homelessness",
+   "title": "O'Neil defends 1.2 million homes target as construction falls 77,000 behind",
+   "category": "Decisions & judgement",
+   "summary": "The National Housing Accord target of 1.2 million new homes over five years to mid-2029 was running 77,000 homes (30 per cent) behind the required pace by April 2026, with the Housing Industry Association forecasting only 986,000 homes and just 890 of 40,000 promised social and affordable homes completed. O'Neil conceded the target may not be achievable but defended it as deliberately 'bold and ambitious'. By August 2026 the government's own expert panel pushed the expected date for reaching 1.2 million homes to the end of 2030 and Master Builders projected a shortfall of about 204,000 homes.",
+   "response": "O'Neil said 'we want to be bold and ambitious about housing' and that the focus was to 'keep building, keep removing roadblocks'; the government has not conceded the target will be missed. Opposition spokesman Andrew Bragg said there was 'no chance' of meeting it.",
+   "outcome": "No formal finding; target on track to be missed.",
+   "status": "ongoing",
+   "sources": [
+    {
+     "title": "Clare O'Neil defends 'unachievable' 1.2 million housing target",
+     "url": "https://www.canberratimes.com.au/story/9230094/clare-oneil-defends-unachievable-12-million-housing-target/",
+     "date": "2026-04-22"
+    },
+    {
+     "title": "Outlook worsens for government to meet 1.2 million houses promise",
+     "url": "https://www.abc.net.au/news/2026-08-21/timeline-housing-accord-slips-further/107058404",
+     "date": "2026-08-21"
+    }
+   ],
+   "verified_on": "2026-09-18",
+   "recheck_by": "2026-10-16"
+  },
+  {
+   "id": "marles-wong-iran-strikes-legality",
+   "date": "2026-03-02",
+   "minister": "Richard Marles",
+   "portfolio": "Minister for Defence; Minister for Foreign Affairs",
+   "title": "Marles and Wong decline to say whether US-Israeli strikes on Iran were lawful",
+   "category": "Conduct & remarks",
+   "summary": "After the United States and Israel bombed Iran in early 2026, Marles and Wong repeatedly avoided questions on whether the strikes breached international law, with Marles saying 'the legality is a matter for both United States and Israel'. UN Special Rapporteur Ben Saul said international lawyers were 'united' that the strikes were unlawful and ANU's Don Rothwell noted pre-emptive self-defence has no accepted legal basis; Greens senator David Shoebridge asked why the Foreign Minister refused to discuss legality. On 20 March Australia was absent from a seven-nation allied statement on the Strait of Hormuz, prompting claims it was out of step.",
+   "response": "Marles said Australia supported the US 'in preventing Iran acquiring this capability'; Wong said the Iranian people must determine their future. Albanese denied Australia was out of step with allies and said Australian personnel were in purely defensive roles.",
+   "outcome": "No formal finding.",
+   "status": "no-finding",
+   "sources": [
+    {
+     "title": "Albanese government avoids questions on legality of US-Israeli strikes on Iran",
+     "url": "https://www.abc.net.au/news/2026-03-02/albanese-government-questions-on-legality-of-us-strikes-on-iran/106403944",
+     "date": "2026-03-02"
+    },
+    {
+     "title": "Iran war updates: Albanese denies Australia out of step with allies after release of joint statement",
+     "url": "https://www.abc.net.au/news/2026-03-20/iran-israel-us-war-live-updates/106475836",
+     "date": "2026-03-20"
+    },
+    {
+     "title": "During an illegal war in Iran, Albanese and Wong treat us like idiots",
+     "url": "https://www.crikey.com.au/2026/03/05/illegal-us-war-iran-albanese-and-wong-treat-australians-like-idiots/",
+     "date": "2026-03-05"
+    }
+   ],
+   "verified_on": "2026-09-18",
+   "recheck_by": "2027-03-31"
+  },
+  {
    "id": "albanese-grace-tame-difficult",
    "date": "2026-02-25",
    "minister": "Anthony Albanese",
@@ -185,6 +325,146 @@
    ],
    "verified_on": "2026-09-18",
    "recheck_by": "2027-03-31"
+  },
+  {
+   "id": "chalmers-philip-lowe-persistent-critic",
+   "date": "2026-02-18",
+   "minister": "Jim Chalmers",
+   "portfolio": "Treasurer",
+   "title": "Chalmers suggests ex-RBA governor's spending critique stems from not being reappointed",
+   "category": "Conduct & remarks",
+   "summary": "After former Reserve Bank governor Philip Lowe wrote in the AFR that government 'handouts' would keep interest rates higher, Chalmers said it was 'a matter of public record Phil Lowe would have liked to have been reappointed by the government' and that 'after he wasn't reappointed he's become a fairly persistent critic of the Labor government'. The Prime Minister joined in with a jibe asking which 'Phil Lowe' was meant. Economists Saul Eslake and Richard Holden criticised the Treasurer's response, with Eslake saying it 'demeans the dignity of his office' and Holden warning it could curtail future governors' independence.",
+   "response": "Chalmers rejected the claim that government spending was fuelling inflation and stood by his remarks.",
+   "outcome": "No formal finding.",
+   "status": "no-finding",
+   "sources": [
+    {
+     "title": "Chalmers suggests ex-RBA governor's spending critique is due to personal vendetta",
+     "url": "https://www.abc.net.au/news/2026-02-18/chalmers-dismisses-criticism-from-philip-lowe/106359398",
+     "date": "2026-02-18"
+    },
+    {
+     "title": "Aaron Patrick: This is what happens when you cross Treasurer Jim Chalmers",
+     "url": "https://thenightly.com.au/politics/aaron-patrick-this-is-what-happens-when-you-cross-treasurer-jim-chalmers-c-21687991",
+     "date": "2026-02-19"
+    }
+   ],
+   "verified_on": "2026-09-18",
+   "recheck_by": "2027-03-31"
+  },
+  {
+   "id": "albanese-herzog-invitation",
+   "date": "2026-02-07",
+   "minister": "Anthony Albanese",
+   "portfolio": "Prime Minister",
+   "title": "PM's invitation to Israeli President Herzog after Bondi attack draws calls to rescind",
+   "category": "Decisions & judgement",
+   "summary": "Albanese asked the Governor-General to invite Israeli President Isaac Herzog to visit Australia from 8 to 12 February 2026 as a show of support for the Jewish community after the Bondi terror attack. The Jewish Council of Australia released an open letter signed by more than 1,000 Jewish academics and community leaders urging the PM to rescind the invitation, saying it used 'Jewish grief as a political prop'; a UN Commission of Inquiry had earlier named Herzog among figures who 'incited the commission of genocide', and its Australian member Chris Sidoti said the invitation should be withdrawn. Large protests followed in Sydney and Melbourne.",
+   "response": "Albanese urged people to 'recognise the solemn nature' of the visit; Penny Wong said Jewish leaders had urged the government to issue the invitation; Tony Burke and Michelle Rowland backed the visit as solidarity with Jewish Australians.",
+   "outcome": "Visit proceeded; no formal finding.",
+   "status": "no-finding",
+   "sources": [
+    {
+     "title": "Albanese's invitation to Herzog is a shift in his approach to Israel",
+     "url": "https://www.abc.net.au/news/2026-02-07/isaac-herzog-visit-australia/106294858",
+     "date": "2026-02-07"
+    },
+    {
+     "title": "Who is Isaac Herzog, and why is his imminent Australian visit controversial?",
+     "url": "https://www.sbs.com.au/news/article/isaac-herzog-australia-visit-controversy-explained/8rsgnrmic",
+     "date": "2026-02-08"
+    }
+   ],
+   "verified_on": "2026-09-18",
+   "recheck_by": "2027-03-31"
+  },
+  {
+   "id": "marles-defence-estate-sell-off-victoria-barracks",
+   "date": "2026-02-05",
+   "minister": "Richard Marles",
+   "portfolio": "Minister for Defence",
+   "title": "Marles' plan to sell historic barracks and other Defence sites draws heritage backlash",
+   "category": "Decisions & judgement",
+   "summary": "In February 2026 Marles announced Defence would divest dozens of 'underutilised' properties nationally, later reported as up to 86 sites worth an estimated $3 billion, including Sydney's 176-year-old Victoria Barracks, HMAS Penguin, Melbourne's Victoria Barracks and Hobart's Anglesea Barracks. Marles said the test was 'the best opportunity for a return to the Commonwealth'. Former PM Paul Keating accused Defence of trying to 'vandalise the national estate', RSL national president Peter Tinley warned of heritage loss and displacement of about 2,600 cadets, and community housing groups criticised the absence of an affordable-housing mandate. More than 100 submissions were made to a Senate inquiry.",
+   "response": "Marles argued the public would gain better access to sites like HMAS Penguin; Assistant Defence Minister Peter Khalil said 'we are not going to bulldoze those heritage locations'.",
+   "outcome": "Divestment continuing; Senate inquiry under way.",
+   "status": "ongoing",
+   "sources": [
+    {
+     "title": "Golf courses, barracks and museums: what Defence is selling off in Victoria",
+     "url": "https://www.abc.net.au/news/2026-02-05/victoria-defence-assets-property-audit-divestment/106304518",
+     "date": "2026-02-05"
+    },
+    {
+     "title": "Victoria Barracks, HMAS Penguin part of controversial plan to sell national defence assets",
+     "url": "https://www.abc.net.au/news/2026-03-16/defence-sale-victoria-barracks-hmas-penguin-under-scrutiny/106460046",
+     "date": "2026-03-16"
+    },
+    {
+     "title": "What will become of the Victoria Barracks? Communities have their say",
+     "url": "https://www.abc.net.au/news/2026-05-07/victoria-barracks-defence-assets-sale-divest-community-responds/106625492",
+     "date": "2026-05-07"
+    }
+   ],
+   "verified_on": "2026-09-18",
+   "recheck_by": "2026-10-16"
+  },
+  {
+   "id": "rowland-hate-laws-israel-genocide-groups",
+   "date": "2026-01-20",
+   "minister": "Michelle Rowland",
+   "portfolio": "Attorney-General",
+   "title": "Rowland says groups accusing Israel of genocide could be banned if criteria met",
+   "category": "Conduct & remarks",
+   "summary": "As Parliament rushed through the Combatting Antisemitism, Hate and Extremism Bill 2026 after the Bondi attack, Rowland was asked on ABC 7.30 whether a group saying Israel was engaged in genocide, leaving Jewish Australians feeling harassed or intimidated, could be banned under the new hate-group listing regime. She replied: 'If those criteria are satisfied, then that is the case', while declining to rule specific conduct in or out. Constitutional lawyer Anne Twomey warned the laws gave ministers broad discretion and could chill legitimate political speech; the Greens said the laws risked silencing criticism of foreign governments, and a Senate amendment to protect criticism of Israel was defeated 43-12.",
+   "response": "Rowland said the laws targeted groups such as the National Socialist Network and Hizb ut-Tahrir and were 'not designed to prevent differences of views', with further factors including ASIO advice needed before any listing.",
+   "outcome": "Laws passed on 21 January 2026; no formal finding.",
+   "status": "no-finding",
+   "sources": [
+    {
+     "title": "Television interview – ABC 7:30 (transcript)",
+     "url": "https://ministers.ag.gov.au/media-centre/transcripts/television-interview-abc-730-20-01-2026",
+     "date": "2026-01-20"
+    },
+    {
+     "title": "New hate laws have passed parliament. What do they actually do?",
+     "url": "https://www.abc.net.au/news/2026-01-21/what-will-new-hate-laws-do/106253754",
+     "date": "2026-01-21"
+    },
+    {
+     "title": "Hate crime laws may have unintended consequences – including chilling free speech",
+     "url": "https://theconversation.com/hate-crime-laws-may-have-unintended-consequences-including-chilling-free-speech-274016",
+     "date": "2026-01-21"
+    }
+   ],
+   "verified_on": "2026-09-18",
+   "recheck_by": "2027-03-31"
+  },
+  {
+   "id": "albanese-bondi-vigil-booed-apology",
+   "date": "2025-12-21",
+   "minister": "Anthony Albanese",
+   "portfolio": "Prime Minister",
+   "title": "PM booed at Bondi vigil, apologises to Jewish community over handling of antisemitism",
+   "category": "Decisions & judgement",
+   "summary": "One week after the 14 December 2025 Bondi Beach terror attack that killed 15 people at a Hanukkah event, Albanese was booed and heckled when introduced at the community vigil, while NSW Premier Chris Minns and Opposition Leader Kellie Sloane received standing ovations. NSW Jewish Board of Deputies president David Ossip asked how the attack could occur 'after two years of escalating antisemitism and warnings from the Jewish community and ASIO', and community leaders and the Opposition called for a royal commission. The next day Albanese said 'I'm sorry for what the Jewish community and our nation as a whole has experienced', acknowledged some of the anger 'was directed towards me', and announced tougher hate-speech laws and an inquiry led by former ASIO chief Dennis Richardson rather than a royal commission.",
+   "response": "Albanese said the crowd was 'hurting and angry' and that he understood the anger directed at him; he defended a faster Richardson-led inquiry over a royal commission and announced new offences for hate preaching and radicalising children.",
+   "outcome": "Apology issued; Richardson inquiry and hate-law package announced.",
+   "status": "ongoing",
+   "sources": [
+    {
+     "title": "Jewish community gathers for Bondi Beach shooting vigil and commemoration",
+     "url": "https://www.abc.net.au/news/2025-12-21/nsw-bondi-massacre-vigil-commemoration-jewish-community/106168156",
+     "date": "2025-12-21"
+    },
+    {
+     "title": "Anthony Albanese apologises for what Jewish community experienced after Bondi attack",
+     "url": "https://www.abc.net.au/news/2025-12-22/government-proposes-offence-radicalising-children-bondi/106171326",
+     "date": "2025-12-22"
+    }
+   ],
+   "verified_on": "2026-09-18",
+   "recheck_by": "2026-10-16"
   },
   {
    "id": "rowland-perth-family-trip-repayment",
@@ -306,6 +586,317 @@
    "recheck_by": "2027-03-31"
   },
   {
+   "id": "chalmers-super-tax-unrealised-gains-retreat",
+   "date": "2025-10-13",
+   "minister": "Jim Chalmers",
+   "portfolio": "Treasurer",
+   "title": "Chalmers abandons tax on unrealised super gains after two-year fight",
+   "category": "Decisions & judgement",
+   "summary": "After defending for more than two years a plan to double the tax on superannuation earnings above $3 million, including taxing unrealised capital gains with an unindexed threshold, Chalmers announced on 13 October 2025 that the unrealised-gains element was dumped, the $3 million threshold would be indexed, a new $10 million tier at 40 per cent added, and the start date pushed to July 2026. Farmers, self-managed fund holders and former PM Paul Keating had campaigned against the original design. Shadow Treasurer Ted O'Brien said 'the treasurer has been chewed up and his tax plan has been chucked out'; the Greens said the policy had been 'further weakened'. The net budget cost of the changes was $4.2 billion over the forward estimates.",
+   "response": "Chalmers called the revisions 'practical and pragmatic' and denied being 'rolled' by the Prime Minister ('Of course not').",
+   "outcome": "Policy redesigned; no formal finding.",
+   "status": "resolved",
+   "sources": [
+    {
+     "title": "Jim Chalmers unveils major retreat on controversial superannuation changes",
+     "url": "https://theconversation.com/jim-chalmers-unveils-major-retreat-on-controversial-superannuation-changes-267220",
+     "date": "2025-10-13"
+    },
+    {
+     "title": "Was Chalmers taught a lesson in his fight over superannuation?",
+     "url": "https://www.abc.net.au/news/2025-10-15/was-chalmers-taught-a-lesson-in-his-fight-over-superannuation/105891400",
+     "date": "2025-10-15"
+    }
+   ],
+   "verified_on": "2026-09-18",
+   "recheck_by": "2027-03-31"
+  },
+  {
+   "id": "wells-optus-triple-zero-outage-handling",
+   "date": "2025-10-01",
+   "minister": "Anika Wells",
+   "portfolio": "Minister for Communications",
+   "title": "Wells criticised over handling of fatal Optus triple-zero outage",
+   "category": "Decisions & judgement",
+   "summary": "On 18 September 2025 an Optus firewall upgrade caused around 600 triple-zero calls to fail for about 13 hours across SA, WA and the NT, with four deaths linked to the outage. Wells drew criticism for saying 'that's a question you should put to the Optus CEO' when asked whether Australians could be confident it would not recur, for describing herself as 'still a new minister to the industry', and for travelling to New York while the crisis unfolded. Senate estimates later heard Optus's first notification emails went to an outdated departmental address that was checked only every few days, and that Wells had characterised the early emails as indicating a 'minor outage'.",
+   "response": "Wells said Optus had 'let Australians down' and that she had sought assurances and external oversight of its systems; the Prime Minister publicly backed her handling. Opposition Leader Sussan Ley said the minister was 'making excuses, saying she's only new'.",
+   "outcome": "No formal finding against the minister; regulatory action against Optus and inquiries continued.",
+   "status": "no-finding",
+   "sources": [
+    {
+     "title": "Communications Minister Anika Wells finds herself in the eye of Optus political storm",
+     "url": "https://www.abc.net.au/news/2025-10-01/anika-wells-optus-triple-0-calls-coalition/105836652",
+     "date": "2025-10-01"
+    },
+    {
+     "title": "Optus wears blame but government needs to explain how it handled early advice",
+     "url": "https://www.abc.net.au/news/2025-10-09/optus-triple-zero-communications-anika-wells-senate-estimates/105830532",
+     "date": "2025-10-09"
+    }
+   ],
+   "verified_on": "2026-09-18",
+   "recheck_by": "2027-03-31"
+  },
+  {
+   "id": "burke-nauru-408m-nzyq-deal",
+   "date": "2025-08-30",
+   "minister": "Tony Burke",
+   "portfolio": "Minister for Home Affairs and Immigration",
+   "title": "Burke signs $408m Nauru deal for NZYQ cohort on unannounced trip",
+   "category": "Decisions & judgement",
+   "summary": "On an unannounced visit to Nauru on 29 August 2025, Burke signed a memorandum of understanding under which Australia would pay $408 million up front plus about $70 million a year for Nauru to grant long-term visas to hundreds of non-citizens from the NZYQ cohort released from indefinite detention after the 2023 High Court ruling. The statement was not distributed through standard media channels. Greens senator David Shoebridge called it 'deeply immoral and unworkable', refugee groups described it as 'discriminatory, disgraceful and dangerous', and the Human Rights Law Centre said it offshored a problem the government had created. The Prime Minister later insisted the deal was 'hardly secret'.",
+   "response": "Burke said 'anyone who doesn't have a valid visa should leave the country' and that the arrangement was a fundamental element of a functioning visa system.",
+   "outcome": "Deal proceeded; no formal finding.",
+   "status": "no-finding",
+   "sources": [
+    {
+     "title": "Federal government inks $400m deal with Nauru to resettle people who have 'no legal right to stay in Australia'",
+     "url": "https://www.abc.net.au/news/2025-08-30/federal-government-inks-400m-deal-for-nauru/105716134",
+     "date": "2025-08-30"
+    },
+    {
+     "title": "Greens, refugee advocates criticise $400m deal with Nauru to deport former detainees",
+     "url": "https://www.sbs.com.au/news/article/australia-nauru-deal-immigration-detainees-nzyq/wk6i07qln",
+     "date": "2025-08-30"
+    }
+   ],
+   "verified_on": "2026-09-18",
+   "recheck_by": "2027-03-31"
+  },
+  {
+   "id": "albanese-palestine-recognition-netanyahu-weak",
+   "date": "2025-08-19",
+   "minister": "Anthony Albanese",
+   "portfolio": "Prime Minister",
+   "title": "Netanyahu brands Albanese 'weak' after Palestine recognition and Rothman visa refusal",
+   "category": "Decisions & judgement",
+   "summary": "After Albanese announced on 11 August 2025 that Australia would recognise a Palestinian state at the UN in September and the government cancelled the visa of Israeli MP Simcha Rothman, Israel revoked visas for Australia's representatives to the Palestinian Authority and Prime Minister Netanyahu posted that 'history will remember Albanese for what he is: a weak politician who betrayed Israel and abandoned Australia's Jews'. Opposition Leader Sussan Ley said the episode was a 'direct consequence' of Albanese 'mismanaging international relationships'; the Executive Council of Australian Jewry urged de-escalation, warning about $2 billion in trade and security cooperation. Australia formally recognised Palestine on 21 September 2025, which the Coalition called 'a chilling act of concession to Hamas terrorists'.",
+   "response": "Albanese said he would not take the comments personally and that 'I engage with people diplomatically'; Penny Wong called Israel's visa revocation 'unjustified' and said the Netanyahu government was 'isolating' Israel.",
+   "outcome": "No formal finding; recognition proceeded.",
+   "status": "no-finding",
+   "sources": [
+    {
+     "title": "Netanyahu calls Albanese a 'weak politician' who has 'betrayed' Israel",
+     "url": "https://www.abc.net.au/news/2025-08-19/netanyahu-says-anthony-albanese-has-betrayed-israel/105673924",
+     "date": "2025-08-19"
+    },
+    {
+     "title": "'A weak politician': Benjamin Netanyahu says Anthony Albanese has 'betrayed' Israel",
+     "url": "https://www.sbs.com.au/news/article/benjamin-netanyahu-says-anthony-albanese-has-betrayed-israel/8h1bt49v4",
+     "date": "2025-08-19"
+    },
+    {
+     "title": "Australia formally recognises state of Palestine as Anthony Albanese arrives in US",
+     "url": "https://www.abc.net.au/news/2025-09-21/australia-formally-recognises-state-of-palestine/105799238",
+     "date": "2025-09-21"
+    }
+   ],
+   "verified_on": "2026-09-18",
+   "recheck_by": "2027-03-31"
+  },
+  {
+   "id": "gallagher-pwc-contracts-ban-lifted",
+   "date": "2025-08-07",
+   "minister": "Katy Gallagher",
+   "portfolio": "Minister for Finance",
+   "title": "Gallagher distances herself as Finance clears PwC to bid for contracts again",
+   "category": "Appointments & process",
+   "summary": "In August 2025 the Department of Finance ended the arrangement under which PwC Australia had refrained from bidding for federal contracts since April 2024 following the tax-leaks scandal, concluding the firm now met ethical standards, while noting it already held three active government contracts worth $11.6 million. Greens senator Barbara Pocock called the decision 'gutless' and said the government had 'betrayed the Australian people'; Liberal senator Richard Colbeck and Labor senator Deborah O'Neill had also argued PwC should remain excluded, and parliamentary inquiry recommendations were yet to be enacted.",
+   "response": "Gallagher said 'ministers are not involved in procurement decisions. It is a matter for the department' and described the pause as 'a voluntary agreement' by PwC; she and the department initially declined to comment.",
+   "outcome": "PwC readmitted to bidding with monitoring until 2027; no formal finding.",
+   "status": "no-finding",
+   "sources": [
+    {
+     "title": "Govt labelled 'gutless' for lifting ban on PwC contracts",
+     "url": "https://www.canberratimes.com.au/story/9035760/pwc-allowed-to-bid-for-government-contracts-again-finance-says/",
+     "date": "2025-08-07"
+    },
+    {
+     "title": "Finance Minister Katy Gallagher addresses PwC contract controversy",
+     "url": "https://www.canberratimes.com.au/story/9058256/finance-minister-katy-gallagher-addresses-pwc-contract-controversy/",
+     "date": "2025-09-05"
+    }
+   ],
+   "verified_on": "2026-09-18",
+   "recheck_by": "2027-03-31"
+  },
+  {
+   "id": "collins-live-sheep-package-under-the-radar",
+   "date": "2025-07-15",
+   "minister": "Julie Collins",
+   "portfolio": "Minister for Agriculture, Fisheries and Forestry",
+   "title": "Collins accused of 'flying under the radar' with WA live-sheep transition announcement",
+   "category": "Conduct & remarks",
+   "summary": "Collins travelled to Muchea saleyards in WA on 15 July 2025 to announce details of the $139.7 million package supporting the phase-out of live sheep exports by sea, including $40 million for processing capacity and $30 million for farmers. Key WA industry bodies said they were not invited or notified, and journalists reported receiving no media invitations. WAFarmers chief executive Trevor Whittington said 'there was no detail today – we got more out of that leaked document', and industry figures accused the minister of trying to avoid producers angry at the ban.",
+   "response": "Collins denied dodging industry, saying 'the industry and the sector was also briefed about the details of the package prior to today's announcement' and pointing to 16 workshops with more than 300 participants.",
+   "outcome": "No formal finding.",
+   "status": "no-finding",
+   "sources": [
+    {
+     "title": "Agriculture Minister Julie Collins denies 'flying under the radar' with live export transition announcement",
+     "url": "https://www.abc.net.au/news/2025-07-15/live-sheep-export-ban-transition-julie-collins-announcement/105532880",
+     "date": "2025-07-15"
+    },
+    {
+     "title": "Backlash over sheep export transition plan in WA",
+     "url": "https://www.farmweekly.com.au/story/9017520/backlash-over-sheep-export-transition-plan-in-wa/",
+     "date": "2025-07-17"
+    }
+   ],
+   "verified_on": "2026-09-18",
+   "recheck_by": "2027-03-31"
+  },
+  {
+   "id": "clare-childcare-safety-should-have-been-fixed",
+   "date": "2025-07-03",
+   "minister": "Jason Clare",
+   "portfolio": "Minister for Education",
+   "title": "Clare concedes childcare safety reforms 'should have been fixed yesterday'",
+   "category": "Decisions & judgement",
+   "summary": "After Melbourne childcare worker Joshua Dale Brown was charged with more than 70 offences involving eight children, Clare faced questions about why a national Working with Children Check system recommended by the 2015 Royal Commission still did not exist and why centres had seven days to report incidents. On 7.30 he said 'why hasn't this been fixed yet? … The answer is it should have been fixed yesterday', and told reporters 'it's taken too long to do the work necessary'. Former royal commissioner Robert Fitzgerald called the delay 'shameful' and said the Commonwealth 'really didn't want to get involved' in coordinating a scheme.",
+   "response": "Clare said reforms 'can't happen soon enough', asked his department to draft laws allowing funding to be cut from centres failing safety standards, and put WWCC harmonisation on the attorneys-general agenda.",
+   "outcome": "Legislation and national reforms announced; no formal finding against the minister.",
+   "status": "no-finding",
+   "sources": [
+    {
+     "title": "Federal Education Minister Jason Clare says Working with Children Check reforms 'can't happen soon enough'",
+     "url": "https://www.abc.net.au/news/2025-07-03/minister-criticises-working-with-children-reforms/105485620",
+     "date": "2025-07-03"
+    },
+    {
+     "title": "Transcript – 7:30 with Sarah Ferguson",
+     "url": "https://ministers.education.gov.au/clare/transcript-730-sarah-ferguson",
+     "date": "2025-07-03"
+    },
+    {
+     "title": "Jason Clare responds to shocking childcare allegations",
+     "url": "https://www.abc.net.au/news/2025-07-03/jason-clare-responds-to-shocking-childcare/105492742",
+     "date": "2025-07-03"
+    }
+   ],
+   "verified_on": "2026-09-18",
+   "recheck_by": "2027-03-31"
+  },
+  {
+   "id": "watt-north-west-shelf-approval",
+   "date": "2025-05-28",
+   "minister": "Murray Watt",
+   "portfolio": "Minister for the Environment and Water",
+   "title": "Watt approves Woodside's North West Shelf extension to 2070, facing court challenges",
+   "category": "Decisions & judgement",
+   "summary": "Two weeks into the portfolio, Watt proposed approval on 28 May 2025 of Woodside's North West Shelf gas plant operating until 2070, subject to conditions on Murujuga rock art, and gave final approval in September 2025. Environment groups said the facility would produce an estimated 4 billion tonnes of emissions over its life, and traditional owner Raelene Cooper pursued Federal Court action over heritage. In October 2025 the Australian Conservation Foundation and Friends of Australian Rock Art launched Federal Court challenges arguing Watt wrongly considered economic benefits of the unapproved Browse project and failed to assess climate impacts; FARA said he had 'sided with industry over ancient cultural heritage'.",
+   "response": "Watt said his conditions 'were designed to prevent significant damage to the rock art which is the test required under the EPBC Act' and that the decision complied with the law; he declined further comment citing litigation.",
+   "outcome": "Approval stands; Federal Court challenges ongoing.",
+   "status": "ongoing",
+   "sources": [
+    {
+     "title": "Murray Watt flags Woodside's North West Shelf project extension response could be delayed",
+     "url": "https://www.abc.net.au/news/2025-06-12/woodside-north-west-shelf-gas-approval-response-delayed/105403522",
+     "date": "2025-06-12"
+    },
+    {
+     "title": "Woodside North West Shelf gas project extension challenged in Federal Court",
+     "url": "https://www.abc.net.au/news/2025-10-13/federal-court-appeals-over-woodside-north-west-shelf-extension/105884752",
+     "date": "2025-10-13"
+    },
+    {
+     "title": "Murray Watt fails first test with Woodside North West Shelf approval",
+     "url": "https://www.crikey.com.au/2025/05/29/murray-watt-woodside-north-west-shelf-approval-failure-environment/",
+     "date": "2025-05-29"
+    }
+   ],
+   "verified_on": "2026-09-18",
+   "recheck_by": "2026-10-16"
+  },
+  {
+   "id": "marles-factional-assassin-husic-dreyfus-dumped",
+   "date": "2025-05-11",
+   "minister": "Richard Marles",
+   "portfolio": "Deputy Prime Minister and Minister for Defence",
+   "title": "Husic calls Marles a 'factional assassin' after he and Dreyfus are dumped from cabinet",
+   "category": "Appointments & process",
+   "summary": "In the post-election factional carve-up, Industry Minister Ed Husic and Attorney-General Mark Dreyfus were removed from the frontbench while Victorian Right MPs Sam Rae, a Marles ally in his first term, and Daniel Mulino were promoted. On Insiders on 11 May 2025 Husic said 'people, when they look at a deputy prime minister, they expect to see a statesman, not a factional assassin', accused Marles of wielding 'a factional club to reshape the ministry', said the Prime Minister 'should have intervened' and suggested his advocacy on Gaza contributed to his removal. Dreyfus's removal left no Jewish MP on a federal frontbench for the first time in 15 years, drawing criticism from the Executive Council of Australian Jewry.",
+   "response": "Albanese said 'what I have done is to allocate portfolios. That is the system that is there' and described his conversation with Husic as 'constructive'. Marles did not publicly respond to the 'assassin' remark in the cited reports.",
+   "outcome": "New ministry sworn in 13 May 2025; no formal finding.",
+   "status": "no-finding",
+   "sources": [
+    {
+     "title": "Dumped cabinet minister says Richard Marles a 'factional assassin', and demotion partly due to outspoken views on Gaza",
+     "url": "https://www.abc.net.au/news/2025-05-11/ed-husic-dumped-minister-gaza-partly-to-blame-speaking-out/105278932",
+     "date": "2025-05-11"
+    },
+    {
+     "title": "Anthony Albanese unveils new-look frontbench after historic victory",
+     "url": "https://www.abc.net.au/news/2025-05-12/labor-anthony-albanese-unveils-new-ministry/105280774",
+     "date": "2025-05-12"
+    },
+    {
+     "title": "Dumped minister Ed Husic labels Deputy Prime Minister Richard Marles 'factional assassin'",
+     "url": "https://theconversation.com/dumped-minister-ed-husic-labels-deputy-prime-minister-richard-marles-factional-assassin-255962",
+     "date": "2025-05-11"
+    }
+   ],
+   "verified_on": "2026-09-18",
+   "recheck_by": "2027-03-31"
+  },
+  {
+   "id": "albanese-plibersek-salmon-epbc-amendment",
+   "date": "2025-03-25",
+   "minister": "Anthony Albanese",
+   "portfolio": "Prime Minister (bill bypassing Environment Minister Tanya Plibersek)",
+   "title": "PM rushes EPBC amendment to shield Tasmanian salmon farming from Plibersek review",
+   "category": "Decisions & judgement",
+   "summary": "With Environment Minister Tanya Plibersek yet to decide reconsideration requests over 2012 approvals for salmon farming in Macquarie Harbour, home of the endangered Maugean skate, Albanese introduced in his own name a bill removing the minister's power to reconsider approvals more than five years old that rely on state regulation. It passed the House on 25 March 2025 with Coalition support, days before the election was called. Coalition spokesman Jonathon Duniam said it was 'passing strange' the bill was not in the Environment Minister's name, Greens senator Sarah Hanson-Young called the process 'rushed' and Greenpeace's Glenn Walker said the PM who 'promised to end extinctions' was 'doing the opposite'. Legal scholars noted a Senate committee had unanimously recommended against similar legislation four months earlier.",
+   "response": "The government said the change protected jobs in Tasmania's north-west and pointed to funding for oxygenation trials and a captive-breeding program for the skate.",
+   "outcome": "Legislation passed; the Commonwealth reaffirmed the Macquarie Harbour decision in August 2025 and legal challenges were flagged.",
+   "status": "resolved",
+   "sources": [
+    {
+     "title": "Changes to laws pass lower house in attempt to protect salmon jobs",
+     "url": "https://www.abc.net.au/news/2025-03-25/pm-albanese-introduces-legislation-to-protect-salmon-farming/105088538",
+     "date": "2025-03-25"
+    },
+    {
+     "title": "Protecting salmon farming at the expense of the environment – another step backwards for Australia's nature laws",
+     "url": "https://theconversation.com/protecting-salmon-farming-at-the-expense-of-the-environment-another-step-backwards-for-australias-nature-laws-252814",
+     "date": "2025-03-26"
+    }
+   ],
+   "verified_on": "2026-09-18",
+   "recheck_by": "2027-03-31"
+  },
+  {
+   "id": "albanese-chinese-live-fire-notice-claim",
+   "date": "2025-02-21",
+   "minister": "Anthony Albanese",
+   "portfolio": "Prime Minister (with Defence Minister Richard Marles)",
+   "title": "PM's claim China gave notice of Tasman live-fire drill contradicted at Senate estimates",
+   "category": "Misleading statements",
+   "summary": "When Chinese warships conducted live-fire drills in the Tasman Sea on 21 February 2025, forcing 49 flight diversions, Albanese said the activity was 'consistent with international law' and indicated notice had been given. Senate estimates heard Airservices Australia learned of the danger at 9:58am only because a Virgin Australia pilot picked up the warship's broadcast on an emergency frequency, and Defence found out afterwards; Marles said Australia 'became aware of the issue during the course of the day'. Opposition leader Peter Dutton said the PM 'either wasn't briefed, that he's made up the facts, that he's got it wrong', and shadow defence minister Andrew Hastie called the response 'weak'.",
+   "response": "Albanese said there was 'no risk of danger to any Australian assets'; Marles said China's failure to give the customary 12-24 hours' notice was 'disconcerting'; the government lodged a protest with Beijing and Penny Wong raised it with Wang Yi.",
+   "outcome": "No formal finding.",
+   "status": "no-finding",
+   "sources": [
+    {
+     "title": "Chinese gave live fire warning with planes 'literally flying across the Tasman'",
+     "url": "https://www.abc.net.au/news/2025-02-21/chinese-warship-pilot-hazard-east-coast/104966826",
+     "date": "2025-02-21"
+    },
+    {
+     "title": "Virgin Airlines pilot first alerted authorities to Chinese live fire danger on Friday",
+     "url": "https://www.abc.net.au/news/2025-02-25/virgin-airlines-alerted-chinese-live-fire/104977032",
+     "date": "2025-02-25"
+    },
+    {
+     "title": "Grattan on Friday: Albanese falls victim to a Chinese burn",
+     "url": "https://theconversation.com/grattan-on-friday-albanese-falls-victim-to-a-chinese-burn-251029",
+     "date": "2025-02-27"
+    }
+   ],
+   "verified_on": "2026-09-18",
+   "recheck_by": "2027-03-31"
+  },
+  {
    "id": "albanese-qantas-upgrades-joyce-chairmans-lounge-book",
    "date": "2024-10-27",
    "minister": "Anthony Albanese",
@@ -383,6 +974,89 @@
      "title": "Chief of staff to Richard Marles launches legal action over claims she was forced out of job",
      "url": "https://www.abc.net.au/news/2024-11-25/chief-staff-tarnawsky-marles-legal-job-dismissal/104642438",
      "date": "2024-11-25"
+    }
+   ],
+   "verified_on": "2026-09-18",
+   "recheck_by": "2026-10-16"
+  },
+  {
+   "id": "albanese-burke-gaza-visas-asio-vetting-claim",
+   "date": "2024-09-03",
+   "minister": "Anthony Albanese",
+   "portfolio": "Prime Minister (with Home Affairs Minister Tony Burke)",
+   "title": "PM's claim ASIO vetted every Gaza visa applicant contradicted by ASIO chief",
+   "category": "Misleading statements",
+   "summary": "Between October 2023 and August 2024 Australia granted 2,922 visas to Palestinians from Gaza and refused 7,111. Albanese said ASIO had individually vetted each applicant; ASIO Director-General Mike Burgess clarified that applicants are checked against a watchlist and ASIO assesses only cases referred by Home Affairs, and that his August Insiders comments on 'rhetorical support' for Hamas had been 'distorted'. Peter Dutton demanded the PM apologise to Burgess for misrepresenting ASIO's role, and more than 70 Coalition MPs wrote to Burke demanding no visas for Hamas supporters. In October Burke defended the security process after reports a visa holder had hosted Hamas figures at an art institute in 2019.",
+   "response": "Albanese said 'I haven't undermined his authority. I've supported him' and accused Dutton of 'sowing division'; Burke said 'our security agencies work through the evidence that they have' and that no onshore visas had been cancelled.",
+   "outcome": "No formal finding.",
+   "status": "no-finding",
+   "sources": [
+    {
+     "title": "ASIO boss Mike Burgess says his comments over Gaza visas were 'distorted', sparking political storm",
+     "url": "https://www.abc.net.au/news/2024-09-03/mike-burgess-asio-boss-gaza-visas-comments-misrepresented/104301400",
+     "date": "2024-09-03"
+    },
+    {
+     "title": "ASIO's Mike Burgess clarifies his comments on visas for Palestinians fleeing Gaza",
+     "url": "https://www.sbs.com.au/news/article/asio-director-mike-burgess-says-his-views-on-visas-for-hamas-supporters-were-distorted/uw2imis3m",
+     "date": "2024-09-03"
+    },
+    {
+     "title": "Tony Burke defends security officials amid allegations a Palestinian visa holder has links to Hamas",
+     "url": "https://www.abc.net.au/news/2024-10-09/government-defends-asio-amid-coalition-palestinian-visa-concerns/104449122",
+     "date": "2024-10-09"
+    }
+   ],
+   "verified_on": "2026-09-18",
+   "recheck_by": "2027-03-31"
+  },
+  {
+   "id": "chalmers-rba-smashing-the-economy",
+   "date": "2024-09-02",
+   "minister": "Jim Chalmers",
+   "portfolio": "Treasurer",
+   "title": "Chalmers accused of 'warring with the RBA' over 'smashing the economy' remark",
+   "category": "Conduct & remarks",
+   "summary": "Ahead of weak national accounts, Chalmers said interest rate rises were 'smashing the economy', following earlier remarks that they were 'hammering' it. Shadow finance minister Jane Hume accused him of warring with the independent Reserve Bank and shifting blame, saying he had 'blamed overseas factors … then he blamed Philip Lowe, and now he's blaming his hand-picked replacement for Philip Lowe, Michele Bullock'. The Prime Minister acknowledged rate rises affected the economy but stopped short of endorsing the language; Governor Bullock declined to engage.",
+   "response": "Chalmers said 'it's a fact' that higher rates were slowing the economy and that he was 'telling it like it is', later saying his comments should 'of course' not be read as an attack on the RBA.",
+   "outcome": "No formal finding.",
+   "status": "no-finding",
+   "sources": [
+    {
+     "title": "Jim Chalmers blames interest rate rises for 'smashing' the economy, expects weak economic growth",
+     "url": "https://www.abc.net.au/news/2024-09-02/jim-chalmers-blames-interest-rate-rises-smashing-economy/104298162",
+     "date": "2024-09-02"
+    },
+    {
+     "title": "Treasurer Jim Chalmers says he's 'telling it like it is' on households, economy 'smashed' by RBA rate rises",
+     "url": "https://thenightly.com.au/politics/australia/treasurer-jim-chalmers-says-hes-telling-it-like-it-is-on-households-economy-smashed-by-rba-rate-rises-c-15911586",
+     "date": "2024-09-02"
+    }
+   ],
+   "verified_on": "2026-09-18",
+   "recheck_by": "2027-03-31"
+  },
+  {
+   "id": "rowland-gambling-ad-ban-shelved",
+   "date": "2024-08-13",
+   "minister": "Michelle Rowland",
+   "portfolio": "Minister for Communications",
+   "title": "Rowland shelves promised response to Murphy inquiry's gambling-ad ban",
+   "category": "Decisions & judgement",
+   "summary": "The bipartisan June 2023 Murphy inquiry recommended a phased three-year ban on all gambling advertising. In August 2024 Rowland's office briefed stakeholders under non-disclosure agreements on a watered-down cap of two ads per hour per channel before 10pm and a ban around live sport, prompting criticism from crossbenchers, health researchers and Peta Murphy's widower Rod Glover. Rowland had said the government would respond by the end of 2024 but the legislation did not eventuate before the 2025 election, with the delay attributed to industry lobbying and 'the complexity of advertising reform'.",
+   "response": "The Prime Minister cited 'unintended consequences' for regional broadcasters; Rowland said further consultation was needed.",
+   "outcome": "No legislation introduced; reforms shelved.",
+   "status": "ongoing",
+   "sources": [
+    {
+     "title": "Online gambling reform had rare bipartisan support thanks to a brave MP. So why has Labor put action on hold?",
+     "url": "https://www.abc.net.au/news/2024-08-13/peta-murphy-left-online-gambling-legacy-why-isn-t-labor-adopting/104217328",
+     "date": "2024-08-13"
+    },
+    {
+     "title": "Will the government's online gambling advertising legislation ever eventuate? Don't bet on it",
+     "url": "https://theconversation.com/will-the-governments-online-gambling-advertising-legislation-ever-eventuate-dont-bet-on-it-238084",
+     "date": "2025-02-20"
     }
    ],
    "verified_on": "2026-09-18",
@@ -471,6 +1145,32 @@
      "title": "Albanese plays down claims from rally organiser he lied about invitation to speak (ABC)",
      "url": "https://www.abc.net.au/news/2024-04-29/albanese-plays-down-claim-lied-women-rally-invitation-to-speak/103778800",
      "date": "2024-04-29"
+    }
+   ],
+   "verified_on": "2026-09-18",
+   "recheck_by": "2027-03-31"
+  },
+  {
+   "id": "albanese-stage-3-tax-cuts-broken-promise",
+   "date": "2024-01-25",
+   "minister": "Anthony Albanese",
+   "portfolio": "Prime Minister",
+   "title": "Albanese breaks 'my word is my bond' pledge on stage 3 tax cuts",
+   "category": "Misleading statements",
+   "summary": "Having repeatedly promised before and after the 2022 election to keep the legislated stage 3 tax cuts unchanged, declaring 'my word is my bond', Albanese announced in January 2024 that the cuts would be restructured to give larger relief to earners under $200,000 and less to high earners, redirecting about $28 billion over a decade. On Insiders on 4 February he faced questions about his integrity and said 'I'm an honest person. I am up-front', attributing the change to shifting economic circumstances. The Coalition labelled it a broken promise but voted for the revised package, which passed Parliament in February 2024.",
+   "response": "Albanese said he had 'listened to people' struggling with cost of living and that circumstances had changed since the promise was made.",
+   "outcome": "Revised tax cuts legislated; no formal finding.",
+   "status": "resolved",
+   "sources": [
+    {
+     "title": "Anthony Albanese rebuffs questions of integrity as he defends stage 3 tax cut changes",
+     "url": "https://www.abc.net.au/news/2024-02-04/anthony-albanese-insiders-stage-3-tax-cuts/103424808",
+     "date": "2024-02-04"
+    },
+    {
+     "title": "Stage 3 tax backflip saw Anthony Albanese's entry into the annals of one liners that were a good idea at the time",
+     "url": "https://www.abc.net.au/news/2024-02-08/stage-3-tax-cuts-my-word-is-my-bond/103443980",
+     "date": "2024-02-08"
     }
    ],
    "verified_on": "2026-09-18",
