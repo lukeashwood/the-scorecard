@@ -168,7 +168,7 @@
       if (e.key === "Escape" && header.classList.contains("nav-open")) { setMenu(false); menuBtn.focus(); }
     });
     document.addEventListener("click", (e) => { if (header.classList.contains("nav-open") && !e.composedPath().includes(header)) setMenu(false); });
-    window.matchMedia("(min-width: 901px)").addEventListener("change", (e) => { if (e.matches) setMenu(false); });
+    window.matchMedia("(min-width: 1001px)").addEventListener("change", (e) => { if (e.matches) setMenu(false); });
   }
 
   /* ---------- site search ---------- */
@@ -185,6 +185,7 @@
   const PAGES = [
     { title: "Scorecard", url: "index.html", kind: "Page", text: "home report card all measures ratings on track off track" },
     { title: "Budget", url: "budget.html", kind: "Page", text: "federal budget revenue expenses spending tax where the money comes from goes pie chart" },
+    { title: "Laws", url: "laws.html", kind: "Page", text: "legislation bills acts parliament passed failed repealed debated scheduled controversy controversial free speech privacy" },
     { title: "Categories", url: "categories.html", kind: "Page", text: "3d model map categories planets moons" },
     { title: "Sources & checks", url: "sources.html", kind: "Page", text: "sources verification daily automated checks log methods corrections publishers" },
     { title: "Subscribe", url: "subscribe.html", kind: "Page", text: "email updates alerts newsletter customise view preferences pin categories" },

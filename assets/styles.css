@@ -99,7 +99,7 @@ a { color: var(--link); }
 .brand-name { font-weight: 800; letter-spacing: .01em; line-height: 1.1; font-size: 18px; }
 .brand-name small { display: block; font-weight: 600; color: var(--body-grey); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
 .nav { display: flex; gap: 4px; margin-left: auto; flex-wrap: wrap; }
-.nav a { text-decoration: none; font-weight: 600; font-size: 15px; padding: 8px 12px; border-radius: 8px; color: var(--link); white-space: nowrap; transition: background .15s; }
+.nav a { text-decoration: none; font-weight: 600; font-size: 14.5px; padding: 8px 10px; border-radius: 8px; color: var(--link); white-space: nowrap; transition: background .15s; }
 .nav a:hover { background: var(--panel); }
 .nav a[aria-current="page"] { background: var(--panel); }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font: inherit; font-weight: 700; text-decoration: none; border-radius: 999px; padding: 10px 20px; border: 2px solid transparent; cursor: pointer; transition: transform .15s ease, box-shadow .15s ease, background .15s; white-space: nowrap; }
@@ -365,8 +365,8 @@ details.table-view summary { cursor: pointer; color: var(--body-grey); font-weig
 .menu-btn { display: none; }
 .menu-btn .i-close, .nav-open .menu-btn .i-open { display: none; }
 .nav-open .menu-btn .i-close { display: block; }
-@media (max-width: 1080px) { .search-btn .search-label, .search-btn kbd { display: none; } }
-@media (max-width: 900px) {
+@media (max-width: 1180px) { .search-btn .search-label, .search-btn kbd { display: none; } }
+@media (max-width: 1000px) {
   .js .site-header .wrap { flex-wrap: nowrap; }
   .js .menu-btn { display: inline-flex; }
   .js .header-tools { margin-left: auto; }
@@ -493,7 +493,7 @@ details.table-view summary { cursor: pointer; color: var(--body-grey); font-weig
   .site-header .brand { color: #000; }
   .nav, .header-tools, .skip-link, .scroll-progress, .fab-stack, .cookie-notice, dialog, .hero-actions, .card-actions,
   .chips, .info-btn, .toggle, .log-filter, .footer-signup, .prefs-banner, details.table-view, .tooltip, .noscript,
-  .skeleton, .preview-note, form, #your-data, .report-link, .nf-actions, .cat-stage, .site-footer .brand-mark { display: none !important; }
+  .skeleton, .preview-note, form, #your-data, .report-link, .law-controls, .law-tiles, .nf-actions, .cat-stage, .site-footer .brand-mark { display: none !important; }
   .hero, .page-hero, .site-footer { background: none !important; color: #000 !important; padding-block: 8pt; margin-top: 0; }
   .hero *, .page-hero *, .site-footer * { color: #000 !important; }
   .hero::after { display: none; }
@@ -512,3 +512,38 @@ details.table-view summary { cursor: pointer; color: var(--body-grey); font-weig
   body.catpage #text-version *, body.catpage .cat-about * { color: #000 !important; }
   body.catpage .cat-about { background: none !important; border: 0; }
 }
+
+/* ---------- laws page ---------- */
+.law-count-line { margin: 0 0 6px; color: var(--body-grey); font-size: 15px; }
+.law-checked { font-size: 13.5px; }
+.law-tiles { margin-top: 12px; }
+.law-tile { font: inherit; text-align: left; cursor: pointer; transition: border-color .15s, background .15s; color: var(--ink); }
+.law-tile:hover { border-color: var(--link); }
+.law-tile.active { border-color: var(--link); background: var(--info-tint); }
+.law-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-top: 18px; }
+.law-check { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14.5px; cursor: pointer; }
+.law-controls select, .law-controls input[type="search"] { font: inherit; font-size: 14.5px; padding: 8px 12px; border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); color: var(--ink); }
+.law-controls input[type="search"] { flex: 1 1 200px; min-width: 0; }
+.law-list { display: grid; gap: 18px; }
+.law-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+.law-status { display: inline-flex; align-items: center; font-weight: 800; font-size: 12.5px; letter-spacing: .04em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; white-space: nowrap; background: var(--info-tint); color: var(--link); }
+.law-status.passed { background: var(--on-tint); color: var(--on); }
+.law-status.failed, .law-status.repealed { background: var(--off-tint); color: var(--off); }
+.law-status.debated { background: var(--watch-tint); color: var(--watch-ink); }
+.law-flag { display: inline-flex; align-items: center; font-weight: 700; font-size: 12.5px; padding: 5px 10px; border-radius: 999px; background: var(--promise-bg); color: var(--off); border: 1px solid var(--off-tint); white-space: nowrap; }
+.law-recheck { display: inline-flex; align-items: center; font-weight: 700; font-size: 12.5px; padding: 5px 10px; border-radius: 999px; background: var(--watch-tint); color: var(--watch-ink); }
+.law-date { font-size: 14px; color: var(--body-grey); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.law-card h3 { font-size: 20px; }
+.law-card h3 a { color: var(--ink); text-decoration: none; }
+.law-card h3 a:hover { color: var(--link); text-decoration: underline; }
+.law-note { margin: 4px 0 12px; font-size: 13.5px; color: var(--body-grey); }
+.law-summary { margin: 0 0 14px; font-size: 15.5px; }
+.law-contro { border-left: 4px solid var(--brand-red); background: var(--promise-bg); padding: 12px 16px; border-radius: 0 10px 10px 0; font-size: 15px; margin-bottom: 14px; }
+.law-contro h4 { margin: 0 0 6px; font-size: 12.5px; text-transform: uppercase; letter-spacing: .1em; color: var(--off); }
+.law-contro p { margin: 0 0 8px; }
+.law-raised { font-size: 14px; color: var(--body-grey); }
+.law-sources { margin: 6px 0 0; padding-left: 18px; font-size: 14px; }
+.law-links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: auto; padding-top: 6px; }
+.law-verified { margin-left: auto; font-size: 13px; color: var(--body-grey); }
+.law-empty { color: var(--body-grey); }
+@media (max-width: 520px) { .law-verified { margin-left: 0; width: 100%; } }

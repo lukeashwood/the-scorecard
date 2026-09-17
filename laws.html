@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>(function(d){d.className+=" js";var t;try{t=localStorage.getItem("scorecard_theme")}catch(e){}if(t!=="dark"&&t!=="light")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";d.setAttribute("data-theme",t)})(document.documentElement)</script>
+  <title>Laws | The Scorecard</title>
+  <meta name="description" content="Federal legislation under the current government: scheduled, being debated, passed, failed and repealed, each linked to its Parliament of Australia page, with the controversies it raised and who raised them.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/styles.css?v=20260918">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <rect width="36" height="36" rx="9" fill="#293086"/>
+          <rect x="9" y="20" width="4.5" height="7" rx="1.5" fill="#fff"/>
+          <rect x="15.75" y="15" width="4.5" height="12" rx="1.5" fill="#fff"/>
+          <rect x="22.5" y="9" width="4.5" height="18" rx="1.5" fill="#fff"/>
+        </svg>
+        <span class="brand-name">The Scorecard<small>Government performance</small></span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html">Scorecard</a>
+        <a href="budget.html">Budget</a>
+        <a href="laws.html" aria-current="page">Laws</a>
+        <a href="categories.html">Categories</a>
+        <a href="sources.html">Sources &amp; checks</a>
+        <a href="subscribe.html">Subscribe</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero" id="content" tabindex="-1">
+    <div class="wrap">
+      <p class="eyebrow">Legislation under the current government</p>
+      <h1>What they've passed, and what they've tried to.</h1>
+      <p>Every significant federal bill since May 2022: scheduled, being debated, passed, failed and repealed. Each links to its official Parliament of Australia page. Where a law drew serious objections, we say who objected, what they argued, and what the government said in reply.</p>
+    </div>
+  </section>
+
+  <main class="wrap section">
+    <p class="law-count-line"><span id="law-count">Loading…</span> <span id="law-checked" class="law-checked"></span></p>
+    <div class="balance-strip law-tiles" id="law-tiles" role="group" aria-label="Filter by status"></div>
+
+    <div class="law-controls">
+      <div class="toggle" role="group" aria-label="Status" id="law-status"></div>
+      <label class="law-check"><input type="checkbox" id="law-contro"> Controversial only</label>
+      <span id="law-category-wrap" hidden><label class="sr-only" for="law-category">Controversy category</label><select id="law-category"><option value="all">All categories</option></select></span>
+      <input type="search" id="law-search" placeholder="Search laws" aria-label="Search laws">
+    </div>
+
+    <div class="section-head" style="margin-top:28px">
+      <div>
+        <h2 id="law-heading">All legislation, most recent first</h2>
+        <p id="law-blurb"></p>
+      </div>
+    </div>
+    <div class="law-list" id="law-list">
+      <div class="sk sk-card skeleton" aria-hidden="true"></div>
+      <div class="sk sk-card skeleton" aria-hidden="true"></div>
+    </div>
+    <noscript><p class="noscript">This page needs JavaScript to list the legislation. The full list is in <a href="data/laws.json">data/laws.json</a>.</p></noscript>
+
+    <div class="prose" style="margin-top:44px">
+      <h2>How this page works</h2>
+      <p>The list is compiled by hand from the Parliament of Australia's bill pages and legislation.gov.au, and each entry shows the date it was last verified. The daily automated check tests every link on this page and flags any entry whose status is due for re-checking. Summaries describe what a law does in plain English. A "controversy" note is included only where named organisations, parliamentarians or committees publicly objected; it reports their position, and the government's stated reason, with links to the original statements. It is not the site's own judgement. Think something is missing or wrong? <a href="sources.html#report-error">Report it</a> or <a href="subscribe.html#suggest">suggest an addition</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <svg class="brand-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+        <rect x="1" y="1" width="34" height="34" rx="9" stroke="#fff" stroke-opacity=".4" stroke-width="1.5"/>
+        <rect x="9" y="20" width="4.5" height="7" rx="1.5" fill="#fff"/>
+        <rect x="15.75" y="15" width="4.5" height="12" rx="1.5" fill="#fff"/>
+        <rect x="22.5" y="9" width="4.5" height="18" rx="1.5" fill="#fff"/>
+      </svg>
+      <div>
+        <p>Bill status, dates and titles: Parliament of Australia (aph.gov.au) and the Federal Register of Legislation, as linked on each entry. Controversy notes cite the organisations and parliamentarians quoted.</p>
+        <p><a href="sources.html">Sources, methods &amp; daily checks</a> · <a href="sources.html#report-error">Report an error</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/config.js?v=20260918"></script>
+  <script src="data/metrics.js"></script>
+  <script src="data/laws.js"></script>
+  <script src="assets/charts.js?v=20260918"></script>
+  <script src="assets/site.js?v=20260918"></script>
+  <script src="assets/laws.js?v=20260918"></script>
+</body>
+</html>

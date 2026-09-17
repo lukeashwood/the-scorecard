@@ -9,13 +9,14 @@ A standalone, non-partisan static website that rates the Australian Government's
 | `index.html` | Hero tally, report card, and 30 metric cards in 8 sections. Each card has a status, benchmark, chart, context, (i) explainer and sources. |
 | `budget.html` | Revenue and expense pie charts side by side (2026–27 Budget / 2024–25 actual), with full line-item tables. |
 | `categories.html` | Interactive 3D model of the Scorecard's own 8 measurement categories, drawn as planets orbiting an Australian-flag sun: coloured and glowing by how many measures are off track, with each measure as a small orbiting "moon". No external content — every label and number comes straight from `data/metrics.js`. Uses a locally vendored three.js r128 (`assets/three.min.js`). A text version and no-WebGL fallback are built in. |
+| `laws.html` | Federal legislation under the current government in five statuses (scheduled, debated, passed, failed, repealed), newest first, from hand-verified `data/laws.json`: official aph.gov.au link, plain summary, and where applicable an attributed controversy note (category, who objected, what they argued, the government's reply, sources). The pipeline validates the file, link-checks every URL, flags overdue re-checks and publishes `data/laws.js`. |
 | `sources.html` | How verification works, the report-an-error form (`#report-error`; each card links to it with the measure pre-selected), the FAQ, the latest automated check log, and every source grouped by publisher. |
 | `subscribe.html` | Email-update signup with per-measure alerts, "customise your view" preferences (pinned categories, default filter — applied by `index.html`), a suggest-a-measure form, and a "your saved data" card (unsubscribe / delete everything, both behind a confirmation dialog). Submissions go to Formspree; preferences are kept in the visitor's browser (`localStorage`). |
 | `404.html` | Served by GitHub Pages for any missing URL. Sets a `<base>` so it works at any depth, offers search and links to every page. |
 
 ## Site-wide features (`assets/site.js`)
 
-Loaded last on every page. Light/dark theme toggle (follows the system setting until the visitor chooses; chart colours are CSS variables so they switch instantly), mobile menu (≤900px), full-site search (header button, <kbd>⌘/Ctrl K</kbd> or <kbd>/</kbd>; searches measures, categories, pages and FAQ), scroll progress bar, back-to-top and feedback buttons, a plain cookie notice (the site sets no cookies), footer email signup, reusable confirmation dialogs (`window.Site.confirm`), UTM tags on outbound links (`utm_source=the-scorecard`; data files and API hosts are skipped because they can reject unknown parameters), and opening source lists before printing. Every page also has a skip-to-content link and a print stylesheet. Each metric card shows when it was last checked and has "Copy link" / "Copy citation" buttons.
+Loaded last on every page. Light/dark theme toggle (follows the system setting until the visitor chooses; chart colours are CSS variables so they switch instantly), mobile menu (≤1000px), full-site search (header button, <kbd>⌘/Ctrl K</kbd> or <kbd>/</kbd>; searches measures, categories, pages and FAQ), scroll progress bar, back-to-top and feedback buttons, a plain cookie notice (the site sets no cookies), footer email signup, reusable confirmation dialogs (`window.Site.confirm`), UTM tags on outbound links (`utm_source=the-scorecard`; data files and API hosts are skipped because they can reject unknown parameters), and opening source lists before printing. Every page also has a skip-to-content link and a print stylesheet. Each metric card shows when it was last checked and has "Copy link" / "Copy citation" buttons.
 
 Local CSS/JS references carry a `?v=` stamp: bump it in all six HTML files when those files change, so returning visitors don't mix new pages with cached old assets.
 
@@ -55,6 +56,7 @@ Some figures aren't published as data feeds: Budget papers, AER/ESC default offe
 Upcoming re-checks:
 - **2025–26 Final Budget Outcome** (due by 30 Sep 2026): update `gross_debt`, `budget_balance`, `interest_costs`, `spending_gdp` and the `budget` block. For `gross_debt`, replace the 2025–26 estimate ($982.0bn) with the actual, move `estimateFrom` to `2026-07-01`, and confirm it matches the AOFM 30 June 2026 figure the pipeline reports ($971.4bn as of 14 Sep 2026).
 - **APSC 30 June 2026 data:** update `aps_headcount`.
+- **Laws** (`data/laws.json`): bills marked scheduled/debated have a `recheck_by` a month out; confirm their status on aph.gov.au and update. Add new significant bills as they're introduced.
 
 ## Before going live: checklist
 

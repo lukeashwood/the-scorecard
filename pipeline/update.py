@@ -1149,6 +1149,47 @@ def load_manual():
     return man
 
 
+LAW_STATUSES = ("scheduled", "debated", "passed", "failed", "repealed")
+
+
+def load_laws():
+    """Hand-verified legislation list for laws.html. Validates the file, flags overdue re-checks and returns the
+    entries plus every URL they cite so the daily link check covers them."""
+    path = os.path.join(DATA_DIR, "laws.json")
+    if not os.path.exists(path):
+        return None, []
+    with open(path) as f:
+        data = json.load(f)
+    today = NOW.date().isoformat()
+    urls, seen = [], set()
+    for law in data.get("laws", []):
+        lid = law.get("id", "?")
+        problems = []
+        if law.get("status") not in LAW_STATUSES:
+            problems.append(f"status {law.get('status')!r}")
+        if not re.match(r"\d{4}-\d{2}-\d{2}$", law.get("status_date", "")):
+            problems.append("status_date")
+        if not str(law.get("parliament_url", "")).startswith("https://www.aph.gov.au/"):
+            problems.append("parliament_url must be an aph.gov.au page")
+        c = law.get("controversy")
+        if c and (c.get("category") not in data.get("categories", []) or not c.get("sources")):
+            problems.append("controversy needs a listed category and at least one source")
+        if seen.intersection({lid}):
+            problems.append("duplicate id")
+        seen.add(lid)
+        if problems:
+            log_check("laws", f"{lid}: entry valid", "fail", "; ".join(problems), critical=True)
+        rb = law.get("recheck_by")
+        if rb and rb < today:
+            law["recheck_overdue"] = True
+            log_check("laws", f"{lid}: re-verification due", "warn", f"recheck_by {rb} has passed: confirm status on aph.gov.au")
+        for u in [law.get("parliament_url"), law.get("legislation_url")] + [x.get("url") for x in (c or {}).get("sources", [])]:
+            if u:
+                urls.append(u)
+    log_check("laws", "entries loaded", "pass", f"{len(data.get('laws', []))} laws, {len(urls)} cited links")
+    return data, urls
+
+
 def check_links(urls):
     """Confirm every cited source page still resolves. 403s from bot-protection are warnings."""
     for url in sorted(set(urls)):
@@ -1331,6 +1372,9 @@ def main():
 
     urls = [s["url"] for m in results for s in m.get("sources", []) if s.get("url")]
     urls += [y["url"] for y in (budget or {}).get("years", [])]
+    laws, law_urls = load_laws()
+    urls += law_urls
+    critical = critical or any(c["metric"] == "laws" and c["status"] == "fail" for c in CHECKS)
     print("\n▶ source links")
     check_links(urls)
 
@@ -1354,6 +1398,10 @@ def main():
         json.dump(out, f, indent=1, ensure_ascii=False)
     with open(os.path.join(DATA_DIR, "metrics.js"), "w") as f:
         f.write("window.SCORECARD = " + json.dumps(out, ensure_ascii=False) + ";\n")
+    if laws is not None:
+        laws["generated_at"] = NOW.isoformat(timespec="seconds")
+        with open(os.path.join(DATA_DIR, "laws.js"), "w") as f:
+            f.write("window.LAWS = " + json.dumps(laws, ensure_ascii=False) + ";\n")
 
     vpath = os.path.join(DATA_DIR, "verification.json")
     history = []
