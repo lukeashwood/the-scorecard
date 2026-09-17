@@ -1191,6 +1191,46 @@ def load_laws():
     return data, urls
 
 
+CON_STATUSES = ("ongoing", "resolved", "no-finding")
+
+
+def load_controversies():
+    """Hand-verified ministerial-controversy list for controversies.html; validated, re-check-flagged, link-checked."""
+    path = os.path.join(DATA_DIR, "controversies.json")
+    if not os.path.exists(path):
+        return None, []
+    with open(path) as f:
+        data = json.load(f)
+    today = NOW.date().isoformat()
+    urls, seen = [], set()
+    for it in data.get("items", []):
+        cid = it.get("id", "?")
+        problems = []
+        if it.get("status") not in CON_STATUSES:
+            problems.append(f"status {it.get('status')!r}")
+        if it.get("category") not in data.get("categories", []):
+            problems.append("category not in list")
+        if not re.match(r"\d{4}-\d{2}-\d{2}$", it.get("date", "")):
+            problems.append("date")
+        if len(it.get("sources", [])) < 2:
+            problems.append("needs at least two sources")
+        for k in ("minister", "portfolio", "title", "summary", "response", "outcome"):
+            if not it.get(k):
+                problems.append(f"missing {k}")
+        if cid in seen:
+            problems.append("duplicate id")
+        seen.add(cid)
+        if problems:
+            log_check("controversies", f"{cid}: entry valid", "fail", "; ".join(problems), critical=True)
+        rb = it.get("recheck_by")
+        if rb and rb < today:
+            it["recheck_overdue"] = True
+            log_check("controversies", f"{cid}: re-verification due", "warn", f"recheck_by {rb} has passed: confirm outcome and status")
+        urls += [x.get("url") for x in it.get("sources", []) if x.get("url")]
+    log_check("controversies", "entries loaded", "pass", f"{len(data.get('items', []))} entries, {len(urls)} cited links")
+    return data, urls
+
+
 def check_links(urls):
     """Confirm every cited source page still resolves. 403s from bot-protection are warnings."""
     for url in sorted(set(urls)):
@@ -1375,7 +1415,9 @@ def main():
     urls += [y["url"] for y in (budget or {}).get("years", [])]
     laws, law_urls = load_laws()
     urls += law_urls
-    critical = critical or any(c["metric"] == "laws" and c["status"] == "fail" for c in CHECKS)
+    controversies, con_urls = load_controversies()
+    urls += con_urls
+    critical = critical or any(c["metric"] in ("laws", "controversies") and c["status"] == "fail" for c in CHECKS)
     print("\n▶ source links")
     check_links(urls)
 
@@ -1403,6 +1445,10 @@ def main():
         laws["generated_at"] = NOW.isoformat(timespec="seconds")
         with open(os.path.join(DATA_DIR, "laws.js"), "w") as f:
             f.write("window.LAWS = " + json.dumps(laws, ensure_ascii=False) + ";\n")
+    if controversies is not None:
+        controversies["generated_at"] = NOW.isoformat(timespec="seconds")
+        with open(os.path.join(DATA_DIR, "controversies.js"), "w") as f:
+            f.write("window.CONTROVERSIES = " + json.dumps(controversies, ensure_ascii=False) + ";\n")
 
     vpath = os.path.join(DATA_DIR, "verification.json")
     history = []

@@ -14,13 +14,13 @@ body.catpage .nav a:hover, body.catpage .nav a[aria-current="page"] { background
 body.catpage .icon-btn, body.catpage .fab:not(.fab-feedback) { background: rgba(4, 9, 24, .7); border-color: var(--hud-line); color: var(--hud); }
 body.catpage .icon-btn:hover, body.catpage .fab:not(.fab-feedback):hover { background: rgba(95, 212, 255, .1); border-color: var(--hud); box-shadow: 0 0 14px var(--hud-dim); }
 body.catpage .search-btn kbd { color: var(--hud-grey); border-color: var(--hud-line); }
-@media (max-width: 1000px) { .js body.catpage .site-header .nav { background: rgba(4, 9, 24, .97); border-bottom-color: var(--hud-line); } }
+@media (max-width: 1180px) { .js body.catpage .site-header .nav { background: rgba(4, 9, 24, .97); border-bottom-color: var(--hud-line); } }
 
 /* stage */
 .cat-stage { position: relative; isolation: isolate; height: calc(100vh - 68px); height: calc(100svh - 68px); min-height: 560px; overflow: hidden; background: radial-gradient(ellipse at 50% 80%, #0a1f45 0%, #040918 60%); }
 @media (max-width: 760px) { .cat-stage { min-height: 520px; } }
 /* without JS the mobile nav wraps onto a second row, so leave room for it */
-@media (max-width: 1000px) { html:not(.js) .cat-stage { height: calc(100vh - 110px); } }
+@media (max-width: 1180px) { html:not(.js) .cat-stage { height: calc(100vh - 110px); } }
 #stage { position: absolute; inset: 0; }
 #stage canvas { display: block; width: 100% !important; height: 100% !important; cursor: grab; }
 #stage canvas:active { cursor: grabbing; }

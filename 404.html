@@ -9,7 +9,7 @@
       var seg = location.pathname.split("/")[1];
       var root = /\.github\.io$/.test(location.hostname) && seg && seg.indexOf(".") < 0 ? "/" + seg + "/" : "/";
       // assets are written after <base> (not as plain tags) so the browser can't pre-fetch them from the wrong folder
-      document.write('<base href="' + root + '"><link rel="stylesheet" href="assets/styles.css?v=20260918b">');
+      document.write('<base href="' + root + '"><link rel="stylesheet" href="assets/styles.css?v=20260918c">');
     })();
   </script>
   <script>(function(d){d.className+=" js";var t;try{t=localStorage.getItem("scorecard_theme")}catch(e){}if(t!=="dark"&&t!=="light")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";d.setAttribute("data-theme",t)})(document.documentElement)</script>
@@ -34,6 +34,7 @@
         <a href="index.html">Scorecard</a>
         <a href="budget.html">Budget</a>
         <a href="laws.html">Laws</a>
+        <a href="controversies.html">Controversies</a>
         <a href="categories.html">Categories</a>
         <a href="sources.html">Sources &amp; checks</a>
         <a href="subscribe.html">Subscribe</a>
@@ -60,6 +61,7 @@
       <a href="index.html"><b>The Scorecard</b><span>Every measure, rated against a published benchmark.</span></a>
       <a href="budget.html"><b>The Budget</b><span>Where the government's money comes from, and where it goes.</span></a>
       <a href="laws.html"><b>Laws</b><span>What the government has passed, tried to pass, and repealed.</span></a>
+      <a href="controversies.html"><b>Controversies</b><span>Where a minister's conduct was called into question.</span></a>
       <a href="categories.html"><b>Categories</b><span>All the measures as an interactive 3D map.</span></a>
       <a href="sources.html"><b>Sources &amp; checks</b><span>Every source, the FAQ, and today's automated checks.</span></a>
       <a href="subscribe.html"><b>Subscribe</b><span>Email updates, alerts and your view preferences.</span></a>
@@ -86,7 +88,7 @@
   </footer>
 
   <script>
-    ["assets/config.js?v=20260918b", "data/metrics.js", "assets/charts.js?v=20260918b", "assets/app.js?v=20260918b"]
+    ["assets/config.js?v=20260918c", "data/metrics.js", "assets/charts.js?v=20260918c", "assets/app.js?v=20260918c"]
       .forEach(function (src) { document.write('<script src="' + src + '"><\/script>'); });
   </script>
   <script>
@@ -121,6 +123,6 @@
     });
   })();
   </script>
-  <script>document.write('<script src="assets/site.js?v=20260918b"><\/script>');</script>
+  <script>document.write('<script src="assets/site.js?v=20260918c"><\/script>');</script>
 </body>
 </html>

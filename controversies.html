@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>(function(d){d.className+=" js";var t;try{t=localStorage.getItem("scorecard_theme")}catch(e){}if(t!=="dark"&&t!=="light")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";d.setAttribute("data-theme",t)})(document.documentElement)</script>
+  <title>Controversies | The Scorecard</title>
+  <meta name="description" content="Documented controversies involving ministers of the current Australian Government: what happened, what the minister said, and any official finding, each linked to its sources.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/styles.css?v=20260918c">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <rect width="36" height="36" rx="9" fill="#293086"/>
+          <rect x="9" y="20" width="4.5" height="7" rx="1.5" fill="#fff"/>
+          <rect x="15.75" y="15" width="4.5" height="12" rx="1.5" fill="#fff"/>
+          <rect x="22.5" y="9" width="4.5" height="18" rx="1.5" fill="#fff"/>
+        </svg>
+        <span class="brand-name">The Scorecard<small>Government performance</small></span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html">Scorecard</a>
+        <a href="budget.html">Budget</a>
+        <a href="laws.html">Laws</a>
+        <a href="controversies.html" aria-current="page">Controversies</a>
+        <a href="categories.html">Categories</a>
+        <a href="sources.html">Sources &amp; checks</a>
+        <a href="subscribe.html">Subscribe</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero" id="content" tabindex="-1">
+    <div class="wrap">
+      <p class="eyebrow">Ministerial conduct under the current government</p>
+      <h1>Where a minister's conduct was called into question.</h1>
+      <p>Documented controversies involving ministers since May 2022: remarks, use of taxpayer money, conflicts of interest, misleading statements and judgement calls. Each entry says what happened, what the minister said in reply, and whether any official body made a finding, with links to the original reporting or records.</p>
+    </div>
+  </section>
+
+  <main class="wrap section">
+    <p class="law-count-line"><span id="con-count">Loading…</span> <span id="con-checked" class="law-checked"></span></p>
+    <div class="balance-strip law-tiles" id="con-tiles" role="group" aria-label="Filter by category"></div>
+
+    <div class="law-controls">
+      <label class="law-check sr-only" for="con-minister">Minister</label>
+      <select id="con-minister"><option value="all">All ministers</option></select>
+      <label class="law-check sr-only" for="con-status">Status</label>
+      <select id="con-status"><option value="all">Any outcome</option><option value="ongoing">Ongoing</option><option value="resolved">Resolved (finding, apology, repayment or resignation)</option><option value="no-finding">No formal finding</option></select>
+      <input type="search" id="con-search" placeholder="Search controversies" aria-label="Search controversies">
+    </div>
+
+    <div class="section-head" style="margin-top:28px">
+      <div>
+        <h2 id="con-heading">All controversies, most recent first</h2>
+        <p id="con-blurb"></p>
+      </div>
+    </div>
+    <div class="law-list" id="con-list">
+      <div class="sk sk-card skeleton" aria-hidden="true"></div>
+      <div class="sk sk-card skeleton" aria-hidden="true"></div>
+    </div>
+    <noscript><p class="noscript">This page needs JavaScript to list the entries. The full list is in <a href="data/controversies.json">data/controversies.json</a>.</p></noscript>
+
+    <div class="prose" style="margin-top:44px">
+      <h2>How this page works</h2>
+      <p>An entry is included only when a minister's own conduct was publicly questioned and the episode is documented in reputable reporting or official records: Hansard, Senate estimates, the Independent Parliamentary Expenses Authority, the National Anti-Corruption Commission, or established news organisations. Each entry gives the facts as reported, the minister's or government's response, and the outcome: an apology, repayment, resignation, referral, official finding, or none. Categories describe the kind of question raised, not a verdict. Rumours, satire and unverified social-media claims are not included. Entries show the date they were last verified, and the daily automated check tests every link. Know of something that should be here, or think an entry is wrong? <a href="subscribe.html#suggest">Suggest it</a> or <a href="sources.html#report-error">report it</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <svg class="brand-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+        <rect x="1" y="1" width="34" height="34" rx="9" stroke="#fff" stroke-opacity=".4" stroke-width="1.5"/>
+        <rect x="9" y="20" width="4.5" height="7" rx="1.5" fill="#fff"/>
+        <rect x="15.75" y="15" width="4.5" height="12" rx="1.5" fill="#fff"/>
+        <rect x="22.5" y="9" width="4.5" height="18" rx="1.5" fill="#fff"/>
+      </svg>
+      <div>
+        <p>Facts, responses and outcomes are drawn from the sources linked on each entry. Categories are descriptive labels, not findings by this site.</p>
+        <p><a href="sources.html">Sources, methods &amp; daily checks</a> · <a href="sources.html#report-error">Report an error</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/config.js?v=20260918c"></script>
+  <script src="data/metrics.js"></script>
+  <script src="data/controversies.js"></script>
+  <script src="assets/charts.js?v=20260918c"></script>
+  <script src="assets/site.js?v=20260918c"></script>
+  <script src="assets/controversies.js?v=20260918c"></script>
+</body>
+</html>
