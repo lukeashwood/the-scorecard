@@ -233,7 +233,11 @@ window.addEventListener("error", () => {
   }
   // Tax paid by everyone, using the ATO's count of people and total taxable income in each income band, with incomes
   // grown to the Budget year by wage growth. Each band is spread across five points so thresholds inside it are felt.
-  const POINTS = (() => {
+  // Tax rates, splitting and migration are extras: if one fails (e.g. a stale copy of the data), it is switched off and
+  // hidden while the core budget keeps working.
+  const safe = (f, fallback) => { try { return f(); } catch (e) { console.error(e); return fallback; } };
+  let taxOK = !!TX, migOK = !!MG;
+  const POINTS = safe(() => {
     if (!TX) return [];
     const g = TX.distribution.growth || 1, pts = [];
     TX.distribution.bands.forEach(([lo, hi, n, total]) => {
@@ -249,27 +253,28 @@ window.addEventListener("error", () => {
       xs.forEach((x) => pts.push([x * g, n / xs.length]));
     });
     return pts;
-  })();
+  }, []);
   const totalTax = (t) => POINTS.reduce((a, [x, n]) => a + n * personTax(x, t), 0);
-  const BASE_TOTAL = TX ? totalTax(baseRates) : 0;
+  const BASE_TOTAL = TX ? safe(() => totalTax(baseRates), 0) : 0;
+  if (!(BASE_TOTAL > 0)) taxOK = false;
   // Revenue under the visitor's rates: the Budget's own income tax figure, scaled by how much more or less tax the same
   // people would pay. Static: people's incomes and behaviour are assumed not to change.
   // Income splitting: each couple may be taxed as if each partner earned half their combined income. Costed on the ATO
   // sample of couples' incomes (TX.couples.cells: [own income, partner income, number of couples]); a couple only splits
   // if it lowers their tax.
-  const CP = TX && TX.couples ? TX.couples.cells.map(([a, b, n]) => [a * TX.couples.growth, b * TX.couples.growth, n]) : null;
+  const CP = taxOK && TX.couples && Array.isArray(TX.couples.cells) ? TX.couples.cells.map(([a, b, n]) => [a * TX.couples.growth, b * TX.couples.growth, n]) : null;
   const splitGain = (x, y, t) => Math.max(0, personTax(x, t) + personTax(y, t) - 2 * personTax((x + y) / 2, t));
   const splitCost = (t) => CP ? CP.reduce((a, [x, y, n]) => a + n * splitGain(x, y, t), 0) : 0;
   // Couples with children: the sample doesn't record children, so their share of the all-couples cost is set from the
   // PBO's costing of that design (TX.couples.pbo), computed at the tax rates the PBO costed it under.
-  const KIDS_SHARE = CP && TX.couples.pbo && Array.isArray(TX.couples.pbo.brackets) ? Math.min(1, TX.couples.pbo.cost_m * 1e6 / splitCost({ ...baseRates, br: TX.couples.pbo.brackets })) : 0;
+  const KIDS_SHARE = CP && TX.couples.pbo && Array.isArray(TX.couples.pbo.brackets) ? safe(() => Math.min(1, TX.couples.pbo.cost_m * 1e6 / splitCost({ ...baseRates, br: TX.couples.pbo.brackets })), 0) : 0;
   const splitCostFor = (t) => t.split === 1 ? splitCost(t) : t.split === 2 ? splitCost(t) * KIDS_SHARE : 0;   // $
   const pitFromRates = () => base.revenue[I.pit] * totalTax(rates) / BASE_TOTAL - splitCostFor(rates) / 1e6;
   const gstFromRates = () => base.revenue[I.gst] * rates.gst / baseRates.gst;
 
   const ratesBox = document.getElementById("bb-rates");
   const rateUI = {};
-  if (TX && ratesBox && I.pit >= 0 && I.gst >= 0) {
+  if (taxOK && ratesBox && I.pit >= 0 && I.gst >= 0) try {
     ratesBox.hidden = false;
     const num = (id, label, step, max) => {
       const i = h("input", "bb-num"); i.type = "number"; i.id = id; i.min = "0"; i.step = step; i.inputMode = "decimal";
@@ -327,7 +332,7 @@ window.addEventListener("error", () => {
       setLine("revenue", I.gst, base.revenue[I.gst]);
       setLine("revenue", I.pit, base.revenue[I.pit]);
     });
-  }
+  } catch (e) { console.error(e); taxOK = false; ratesBox.hidden = true; }
   const TYPICAL = [30000, 50000, 75000, 100000, 150000, 200000, 300000];
   function renderRates() {
     if (!rateUI.gst) return;
@@ -384,7 +389,7 @@ window.addEventListener("error", () => {
   const migUI = {};
   const fmtN = (v) => Math.round(v).toLocaleString("en-AU");
   const signedN = (v) => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(Math.round(v)).toLocaleString("en-AU");
-  if (MG && migBox) {
+  if (MG && migBox) try {
     migBox.hidden = false;
     const makeRow = (host, key, name, sub, baseVal, max) => {
       const row = h("div", "bb-row");
@@ -443,7 +448,7 @@ window.addEventListener("error", () => {
       d.appendChild(ul);
       ev.appendChild(d);
     });
-  }
+  } catch (e) { console.error(e); migOK = false; migBox.hidden = true; }
   function renderMig() {
     if (!MG || !migBox) return;
     const active = document.activeElement;
@@ -567,8 +572,8 @@ window.addEventListener("error", () => {
     const ul = document.getElementById("bb-impact");
     ul.replaceChildren(...pts.map((t) => { const li = h("li"); li.innerHTML = t; return li; }));
 
-    renderRates();
-    renderMig();
+    if (taxOK) try { renderRates(); } catch (e) { console.error(e); taxOK = false; document.getElementById("bb-rates").hidden = true; }
+    if (migOK) try { renderMig(); } catch (e) { console.error(e); migOK = false; document.getElementById("bb-mig").hidden = true; }
     pie("bb-pie-revenue", "revenue", REV_COLORS);
     pie("bb-pie-expenses", "expenses", EXP_COLORS);
   }
