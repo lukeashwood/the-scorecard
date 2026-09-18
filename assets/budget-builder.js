@@ -422,7 +422,21 @@ window.addEventListener("error", () => {
       } else makeRow(flows, c.id, c.name, c.sub, c.value, Math.max(c.value * 3, 100000));
     });
     const prog = document.getElementById("bb-mig-program");
-    MG.program.forEach((p) => makeRow(prog, p.id, p.name, `Lifetime budget effect per person: ${p.value < 0 ? "−" : "+"}${money(p.value)}`, p.places, Math.max(p.places * 3, 30000)));
+    MG.program.forEach((p) => makeRow(prog, p.id, p.name, `Lifetime budget effect per person, after welfare and services: ${p.value < 0 ? "−" : "+"}${money(p.value)}`, p.places, Math.max(p.places * 3, 30000)));
+    // welfare use by stream (ABS), shown beside the program
+    if (MG.welfare && MG.program.every((p) => p.welfare)) {
+      const wt = document.getElementById("bb-mig-welfare");
+      MG.program.forEach((p) => {
+        const tr = h("tr"), w = p.welfare;
+        tr.append(h("td", null, p.name.replace(" stream", "").replace(" program", "")), ...w.by_years.map((v) => h("td", "num", v.toFixed(1) + "%")), h("td", "num bb-strong", w.jobseeker_pct.toFixed(1) + "%"));
+        wt.appendChild(tr);
+      });
+      const tr = h("tr", "bb-ref"); tr.append(h("td", null, "All Australians aged 15–64"), h("td", "num", ""), h("td", "num", ""), h("td", "num", ""), h("td", "num bb-strong", MG.welfare.population_pct.toFixed(1) + "%"));
+      wt.appendChild(tr);
+      const src = document.getElementById("bb-mig-welfare-src");
+      src.innerHTML = `${MG.welfare.note} Source: <a href="${MG.welfare.url}">${MG.welfare.source}</a>.`;
+      document.getElementById("bb-mig-welfare-box").hidden = false;
+    }
     // temporary visa context table
     const tt = document.getElementById("bb-mig-temp");
     MG.temp_values.forEach((t) => {
@@ -483,6 +497,13 @@ window.addEventListener("error", () => {
     const dProg = MG.program.reduce((a, p) => a + mig[p.id] - p.places, 0);
     if (Math.abs(dProg) >= 1) {
       out.push(`<b>Permanent program:</b> ${fmtN(Math.abs(dProg))} ${dProg > 0 ? "more" : "fewer"} places. Over their lifetimes, one year's intake like this would be worth about <b>${lifetime >= 0 ? "+" : "−"}${bn(Math.abs(lifetime) / 1e6, 1)}</b> to federal and state budgets combined compared with the planned program (Treasury's estimate, in 2018–19 dollars).${cite("treasury")} Many permanent visas go to people already living here on temporary visas, so a change here does not change net migration one-for-one.`);
+    }
+    if (Math.abs(dProg) >= 1 && MG.welfare && MG.program.every((p) => p.welfare)) {
+      const onPay = MG.program.reduce((a, p) => a + (mig[p.id] - p.places) * p.welfare.jobseeker_pct / 100, 0);
+      const hum = MG.program.find((p) => p.id === "humanitarian");
+      out.push(`<b>Welfare:</b> at the rates the ABS measured for each stream, about <b>${fmtN(Math.round(Math.abs(onPay) / 10) * 10)} ${onPay >= 0 ? "more" : "fewer"} people</b> from one year's intake would be on unemployment payments at any given time once settled${cite("abswelfare")}. ` +
+        `Most new permanent residents must wait four years before they can claim, but humanitarian entrants are exempt${cite("narwp")}. ` +
+        `This cost is already counted in the lifetime figure above, which subtracts welfare, health and education, so it isn't taken off again.${hum && hum.welfare.same_transfers ? ` Treasury estimates that welfare use above the Australian average accounts for about ${money(hum.welfare.same_transfers)} of each humanitarian entrant's lifetime cost${cite("treasurywelfare")}.` : ""}`);
     }
     document.getElementById("bb-mig-effects").replaceChildren(...out.map((t) => { const li = h("li"); li.innerHTML = t; return li; }));
   }

@@ -4890,19 +4890,46 @@
      "id": "skill",
      "name": "Skill stream",
      "places": 132240,
-     "value": 198000
+     "value": 198000,
+     "welfare": {
+      "jobseeker_pct": 1.7,
+      "by_years": [
+       0.1,
+       1.0,
+       2.4
+      ],
+      "same_transfers": -25000
+     }
     },
     {
      "id": "family",
      "name": "Family stream",
      "places": 52460,
-     "value": -126000
+     "value": -126000,
+     "welfare": {
+      "jobseeker_pct": 4.9,
+      "by_years": [
+       0.5,
+       3.1,
+       7.2
+      ],
+      "same_transfers": -16000
+     }
     },
     {
      "id": "humanitarian",
      "name": "Humanitarian program",
      "places": 20000,
-     "value": -400000
+     "value": -400000,
+     "welfare": {
+      "jobseeker_pct": 20.1,
+      "by_years": [
+       41.7,
+       19.8,
+       15.3
+      ],
+      "same_transfers": 79000
+     }
     }
    ],
    "program_url": "https://immi.homeaffairs.gov.au/what-we-do/migration-program-planning-levels",
@@ -5074,8 +5101,48 @@
      "source": "Treasury, Intergenerational Report 2023",
      "url": "https://treasury.gov.au/sites/default/files/2023-08/p2023-435150.pdf",
      "finding": "Migrants are younger than the population on average (76% of new migrants in 2021–22 were aged 15–34, against 27% of the existing population), so migration slows population ageing. Treasury notes it offsets but does not resolve ageing, because migrants age too."
+    },
+    {
+     "key": "abswelfare",
+     "short": "ABS, 2025",
+     "topic": "Welfare",
+     "source": "ABS, Migrant settlement outcomes 2025, Table 3a",
+     "url": "https://www.abs.gov.au/statistics/people/people-and-communities/migrant-settlement-outcomes/latest-release",
+     "finding": "In 2022–23, 1.7% of working-age skilled migrants, 4.9% of family migrants and 20.1% of humanitarian migrants were receiving unemployment payments, against 6.4% of the whole working-age population. Humanitarian migrants' reliance falls with time in Australia: 41.7% in their first five years, 19.8% at five to ten years, and 15.3% after ten years. Skilled and family migrants' rates rise slowly after the waiting period ends but stay below the national rate."
+    },
+    {
+     "key": "bnla",
+     "short": "DSS, BNLA",
+     "topic": "Welfare",
+     "source": "Department of Social Services, Building a New Life in Australia, Wave 5 update",
+     "url": "https://www.dss.gov.au/system/files/resources/bnla-longitudinal-study-humanitarian-migrants-wave-5.pdf",
+     "finding": "Following humanitarian entrants who arrived in 2013, the share whose main income was government payments fell from 88.0% in the first year to 60.4% about five years later, while the share living mainly on wages rose from 10.2% to 36.1%."
+    },
+    {
+     "key": "narwp",
+     "short": "Services Australia",
+     "topic": "Welfare",
+     "source": "Services Australia, Newly arrived resident's waiting period",
+     "url": "https://www.servicesaustralia.gov.au/newly-arrived-residents-waiting-period?context=51411",
+     "finding": "Since 2019, most new permanent residents must wait four years before they can get JobSeeker, Youth Allowance, Parenting Payment and several other payments (shorter waits apply to some carer and family payments). Refugees and humanitarian entrants are exempt, which is part of why their payment use is higher early on."
+    },
+    {
+     "key": "treasurywelfare",
+     "short": "Treasury, 2021",
+     "topic": "Welfare",
+     "source": "Treasury, The lifetime fiscal impact of the Australian permanent migration program (2021), Tables 4 and 7",
+     "url": "https://treasury.gov.au/sites/default/files/2021-12/p2021-220773_1.pdf",
+     "finding": "Treasury's lifetime figures already subtract welfare payments, along with health, education and other costs. It estimates that if migrants used welfare at the same rate as the average Australian, skilled migrants would be about $25,000 each less positive and family migrants $16,000 less positive, while humanitarian entrants would be about $79,000 less costly. In other words, higher welfare use explains roughly a quarter of the humanitarian cost."
     }
-   ]
+   ],
+   "welfare": {
+    "year": "2022–23",
+    "population_pct": 6.4,
+    "all_migrants_pct": 4.3,
+    "url": "https://www.abs.gov.au/statistics/people/people-and-communities/migrant-settlement-outcomes/latest-release",
+    "source": "ABS, Migrant settlement outcomes 2025, Table 3a",
+    "note": "Share of permanent migrants aged 15–64 (arrived since 2000) receiving unemployment payments (JobSeeker or Newstart) in 2022–23, by years since arrival. Other payments, such as the Age Pension, Disability Support Pension and family payments, aren't in this measure."
+   }
   }
  }
 }
