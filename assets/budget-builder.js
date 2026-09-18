@@ -40,17 +40,17 @@
   /* ---------- state: always the Budget; a shared link is offered, never applied silently ---------- */
   /* tax rates: Y.tax_rates holds the rates in force for the Budget year and the ATO income distribution used to cost changes */
   const TX = Y.tax_rates || null;
-  const cloneRates = (t) => ({ gst: t.gst, ml: t.ml, br: t.br.map((b) => b.slice()), split: !!t.split });
-  const baseRates = TX ? { gst: TX.gst_rate, ml: TX.medicare_levy, br: TX.brackets.map((b) => b.slice()), split: false } : null;
+  const cloneRates = (t) => ({ gst: t.gst, ml: t.ml, br: t.br.map((b) => b.slice()), split: t.split | 0 });
+  const baseRates = TX ? { gst: TX.gst_rate, ml: TX.medicare_levy, br: TX.brackets.map((b) => b.slice()), split: 0 } : null;
   let rates = baseRates && cloneRates(baseRates);
-  const encRates = (t) => [t.gst, t.ml, ...t.br.map((b) => b[0] + ":" + b[1]), t.split ? "1" : "0"].join("_");
+  const encRates = (t) => [t.gst, t.ml, ...t.br.map((b) => b[0] + ":" + b[1]), String(t.split | 0)].join("_");
   function decRates(str) {
     if (!baseRates || !str) return null;
     const p = str.split("_");
     const n = baseRates.br.length;
     if (p.length !== 2 + n && p.length !== 3 + n) return null;
     const br = p.slice(2, 2 + n).map((x) => x.split(":").map(Number));
-    const t = { gst: Number(p[0]), ml: Number(p[1]), br, split: p[2 + n] === "1" };
+    const t = { gst: Number(p[0]), ml: Number(p[1]), br, split: [0, 1, 2].includes(Number(p[2 + n])) ? Number(p[2 + n]) : 0 };
     const nums = [t.gst, t.ml, ...br.flat()];
     if (nums.some((x) => !isFinite(x) || x < 0) || br.some((b) => b.length !== 2 || b[1] > 100)) return null;
     return t;
@@ -256,7 +256,11 @@
   const CP = TX && TX.couples ? TX.couples.cells.map(([a, b, n]) => [a * TX.couples.growth, b * TX.couples.growth, n]) : null;
   const splitGain = (x, y, t) => Math.max(0, personTax(x, t) + personTax(y, t) - 2 * personTax((x + y) / 2, t));
   const splitCost = (t) => CP ? CP.reduce((a, [x, y, n]) => a + n * splitGain(x, y, t), 0) : 0;
-  const pitFromRates = () => base.revenue[I.pit] * totalTax(rates) / BASE_TOTAL - (rates.split ? splitCost(rates) / 1e6 : 0);
+  // Couples with children: the sample doesn't record children, so their share of the all-couples cost is set from the
+  // PBO's costing of that design (TX.couples.pbo), computed at the tax rates the PBO costed it under.
+  const KIDS_SHARE = CP && TX.couples.pbo ? Math.min(1, TX.couples.pbo.cost_m * 1e6 / splitCost({ ...baseRates, br: TX.couples.pbo.brackets })) : 0;
+  const splitCostFor = (t) => t.split === 1 ? splitCost(t) : t.split === 2 ? splitCost(t) * KIDS_SHARE : 0;   // $
+  const pitFromRates = () => base.revenue[I.pit] * totalTax(rates) / BASE_TOTAL - splitCostFor(rates) / 1e6;
   const gstFromRates = () => base.revenue[I.gst] * rates.gst / baseRates.gst;
 
   const ratesBox = document.getElementById("bb-rates");
@@ -302,10 +306,12 @@
     document.getElementById("bb-ml-field").append(ml);
     rateUI.ml = ml;
     // income splitting for couples
-    const sw = document.getElementById("bb-split");
-    sw.disabled = !CP;
-    sw.addEventListener("change", () => { rates.split = sw.checked; applyPit(); });
-    rateUI.split = sw;
+    const sws = [...document.querySelectorAll('input[name="bb-split"]')];
+    sws.forEach((r) => {
+      if (!CP && r.value !== "0") r.disabled = true;
+      r.addEventListener("change", () => { if (r.checked) { rates.split = Number(r.value); applyPit(); } });
+    });
+    rateUI.split = sws;
     ["bb-couple-income", "bb-couple-share"].forEach((id) => document.getElementById(id).addEventListener("input", () => changed()));
     const dist = TX.distribution;
     document.getElementById("bb-rates-method").innerHTML =
@@ -349,13 +355,15 @@
     drift.textContent = `You've also changed ${pitGap && gstGap ? "income tax and GST" : pitGap ? "income tax" : "GST"} directly (or through an example or by paying for another change), so ${pitGap && gstGap ? "those dollar figures" : "that dollar figure"} no longer come${pitGap && gstGap ? "" : "s"} only from the rates here. Changing a rate resets it to what the rates raise.`;
     document.getElementById("bb-rates-reset").hidden = JSON.stringify(rates) === JSON.stringify(baseRates);
     // splitting: switch state, national cost, and the couple calculator
-    rateUI.split.checked = rates.split;
-    const cost = CP ? splitCost(rates) / 1e6 : null;   // $m
+    rateUI.split.forEach((r) => { r.checked = Number(r.value) === rates.split; });
+    const costAll = CP ? splitCost(rates) / 1e6 : null, costKids = costAll * KIDS_SHARE;   // $m
+    const which = JSON.stringify({ ...rates, split: 0 }) !== JSON.stringify(baseRates) ? "your" : "current";
+    const taken = (k) => rates.split === k ? " <i>(taken off your income tax line)</i>" : "";
     document.getElementById("bb-split-cost").innerHTML = !CP
-      ? "The national cost can't be estimated yet, so switching it on for everyone isn't available. The calculator below still works."
-      : `Letting every couple split would cost roughly <b>${bn(cost, 0)} a year</b> in income tax at ${JSON.stringify({ ...rates, split: false }) !== JSON.stringify(baseRates) ? "your" : "current"} rates${rates.split ? ", already taken off your income tax line" : ""}. ` +
-        `For comparison, the <a href="${TX.couples.pbo.url}">${TX.couples.pbo.source}</a> put the cost of splitting only for ${TX.couples.pbo.design} at ${bn(TX.couples.pbo.cost_m, 1)} in ${TX.couples.pbo.year}. ` +
-        `This estimate uses the <a href="${TX.couples.url}">ATO's ${TX.couples.income_year} sample of couples' incomes</a> (the latest with both partners' incomes), grown to today's wages and scaled to today's ${(TX.couples.count / 1e6).toFixed(1)} million couple families, and assumes nobody changes how much they work. Treat it as a rough guide.`;
+      ? "The national cost can't be estimated, so income splitting can't be switched on. The calculator below still works."
+      : `Estimated cost a year at ${which} rates: <b>all couples, roughly ${bn(costAll, 1)}</b>${taken(1)}; <b>couples with at least one child, roughly ${bn(costKids, 1)}</b>${taken(2)}. ` +
+        `The figure for couples with children is anchored to the <a href="${TX.couples.pbo.url}">${TX.couples.pbo.source}</a> costing of that design: ${bn(TX.couples.pbo.cost_m, 1)} in ${TX.couples.pbo.year}, ${TX.couples.pbo.timing}. The PBO assumed ${TX.couples.pbo.take_up}. The estimate here moves with your rates. ` +
+        `The all-couples figure uses the <a href="${TX.couples.url}">ATO's ${TX.couples.income_year} sample of couples' incomes</a> (the latest with both partners' incomes), grown to today's wages and scaled to today's ${(TX.couples.count / 1e6).toFixed(1)} million couple families, and assumes nobody changes how much they work. Treat it as a rough guide.`;
     const inc = Math.max(0, Number(document.getElementById("bb-couple-income").value) || 0);
     const share = Math.min(100, Math.max(50, Number(document.getElementById("bb-couple-share").value) || 50)) / 100;
     const a = inc * share, b = inc - a;

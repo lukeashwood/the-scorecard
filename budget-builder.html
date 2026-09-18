@@ -7,7 +7,7 @@
   <title>Build your own Federal Budget | The Scorecard</title>
   <meta name="description" content="Start from the government's own Budget and change any tax or spending line, tax rates or migration levels, and see what it does to the deficit, debt, interest and the economy.">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="assets/styles.css?v=20260918j">
+  <link rel="stylesheet" href="assets/styles.css?v=20260918l">
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
@@ -107,7 +107,12 @@
       <div class="bb-split">
         <h3 class="bb-sub">Income splitting for couples</h3>
         <p class="bb-help">Australia taxes each person on their own income. Under income splitting, a couple could add their incomes together and each be taxed on half. Couples with one high earner save the most. Couples who already earn similar amounts save little or nothing.</p>
-        <label class="bb-check" for="bb-split"><input type="checkbox" id="bb-split"> Let couples split their income for tax</label>
+        <fieldset class="bb-split-opts">
+          <legend class="bb-label">Allow income splitting for:</legend>
+          <label class="bb-check" for="bb-split-0"><input type="radio" name="bb-split" id="bb-split-0" value="0" checked> Nobody (current law)</label>
+          <label class="bb-check" for="bb-split-2"><input type="radio" name="bb-split" id="bb-split-2" value="2"> Couples with at least one dependent child</label>
+          <label class="bb-check" for="bb-split-1"><input type="radio" name="bb-split" id="bb-split-1" value="1"> All couples</label>
+        </fieldset>
         <p class="bb-help" id="bb-split-cost"></p>
         <div class="bb-fields bb-couple">
           <label class="bb-field" for="bb-couple-income"><span>Couple's combined income, $</span><input class="bb-num bb-wide" type="number" id="bb-couple-income" min="0" step="5000" value="150000" inputmode="numeric"></label>
@@ -214,10 +219,10 @@
     </div>
   </footer>
 
-  <script src="assets/config.js?v=20260918j"></script>
+  <script src="assets/config.js?v=20260918l"></script>
   <script src="data/metrics.js"></script>
-  <script src="assets/charts.js?v=20260918j"></script>
-  <script src="assets/site.js?v=20260918j"></script>
-  <script src="assets/budget-builder.js?v=20260918j"></script>
+  <script src="assets/charts.js?v=20260918l"></script>
+  <script src="assets/site.js?v=20260918l"></script>
+  <script src="assets/budget-builder.js?v=20260918l"></script>
 </body>
 </html>

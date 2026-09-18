@@ -8155,10 +8155,34 @@
       "url": "https://data.gov.au/data/dataset/25e81c18-2083-4abe-81b6-0f530053c63f/resource/38a7cded-b3d6-41ec-bf33-b320801331e5/download/variables-in-2013-14-sample-file.xlsx",
       "pbo": {
        "design": "couples with at least one dependent child",
-       "cost_m": 5900,
-       "year": "2026–27",
+       "cost_m": 6500,
+       "year": "2027–28",
        "url": "https://www.pbo.gov.au/publications-and-data/publications/costings/allow-income-splitting-couples-least-1-dependent-child",
-       "source": "Parliamentary Budget Office (March 2025)"
+       "source": "Parliamentary Budget Office (March 2025)",
+       "brackets": [
+        [
+         0,
+         0
+        ],
+        [
+         18200,
+         16
+        ],
+        [
+         45000,
+         30
+        ],
+        [
+         135000,
+         37
+        ],
+        [
+         190000,
+         45
+        ]
+       ],
+       "take_up": "around 26% of tax filers would split, with no change in how much people work",
+       "timing": "covering the 2026–27 income year, since refunds would be paid when couples lodge the following year"
       },
       "cells": [
        [
