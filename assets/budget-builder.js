@@ -1,6 +1,10 @@
 /* The Scorecard: Build your own budget. Always starts from the current Budget shown on the Budget page (data/metrics.js,
    budget.years[0]), so it follows each new Budget automatically; edits are never restored on reload.
    Everything here is arithmetic on those published figures, recalculated as the visitor edits; it is not an economic model. */
+window.addEventListener("error", () => {
+  const s = document.getElementById("bb-status");
+  if (s) s.textContent = "Part of this page didn't load properly. Please refresh the page (on a phone, pull down to reload).";
+});
 (function () {
   const { h, pieChart } = window.Charts;
   const B = window.SCORECARD && window.SCORECARD.budget;
@@ -258,7 +262,7 @@
   const splitCost = (t) => CP ? CP.reduce((a, [x, y, n]) => a + n * splitGain(x, y, t), 0) : 0;
   // Couples with children: the sample doesn't record children, so their share of the all-couples cost is set from the
   // PBO's costing of that design (TX.couples.pbo), computed at the tax rates the PBO costed it under.
-  const KIDS_SHARE = CP && TX.couples.pbo ? Math.min(1, TX.couples.pbo.cost_m * 1e6 / splitCost({ ...baseRates, br: TX.couples.pbo.brackets })) : 0;
+  const KIDS_SHARE = CP && TX.couples.pbo && Array.isArray(TX.couples.pbo.brackets) ? Math.min(1, TX.couples.pbo.cost_m * 1e6 / splitCost({ ...baseRates, br: TX.couples.pbo.brackets })) : 0;
   const splitCostFor = (t) => t.split === 1 ? splitCost(t) : t.split === 2 ? splitCost(t) * KIDS_SHARE : 0;   // $
   const pitFromRates = () => base.revenue[I.pit] * totalTax(rates) / BASE_TOTAL - splitCostFor(rates) / 1e6;
   const gstFromRates = () => base.revenue[I.gst] * rates.gst / baseRates.gst;
@@ -308,7 +312,7 @@
     // income splitting for couples
     const sws = [...document.querySelectorAll('input[name="bb-split"]')];
     sws.forEach((r) => {
-      if (!CP && r.value !== "0") r.disabled = true;
+      if ((!CP && r.value !== "0") || (!KIDS_SHARE && r.value === "2")) r.disabled = true;
       r.addEventListener("change", () => { if (r.checked) { rates.split = Number(r.value); applyPit(); } });
     });
     rateUI.split = sws;
