@@ -321,7 +321,7 @@ window.addEventListener("error", () => {
       r.addEventListener("change", () => { if (r.checked) { rates.split = Number(r.value); applyPit(); } });
     });
     rateUI.split = sws;
-    ["bb-couple-income", "bb-couple-share"].forEach((id) => document.getElementById(id).addEventListener("input", () => changed()));
+    ["bb-couple-a", "bb-couple-b"].forEach((id) => document.getElementById(id).addEventListener("input", () => changed()));
     const dist = TX.distribution;
     document.getElementById("bb-rates-method").innerHTML =
       `Costed on the ATO's count of ${Math.round(dist.bands.reduce((a, b) => a + b[2], 0) / 1e5) / 10} million resident taxpayers by income (<a href="${dist.url}">${dist.income_year} tax statistics</a>), with incomes grown to ${TX.income_year} by wage growth. ` +
@@ -373,9 +373,9 @@ window.addEventListener("error", () => {
       : `Estimated cost a year at ${which} rates: <b>all couples, roughly ${bn(costAll, 1)}</b>${taken(1)}; <b>couples with at least one child, roughly ${bn(costKids, 1)}</b>${taken(2)}. ` +
         `The figure for couples with children is anchored to the <a href="${TX.couples.pbo.url}">${TX.couples.pbo.source}</a> costing of that design: ${bn(TX.couples.pbo.cost_m, 1)} in ${TX.couples.pbo.year}, ${TX.couples.pbo.timing}. The PBO assumed ${TX.couples.pbo.take_up}. The estimate here moves with your rates. ` +
         `The all-couples figure uses the <a href="${TX.couples.url}">ATO's ${TX.couples.income_year} sample of couples' incomes</a> (the latest with both partners' incomes), grown to today's wages and scaled to today's ${(TX.couples.count / 1e6).toFixed(1)} million couple families, and assumes nobody changes how much they work. Treat it as a rough guide.`;
-    const inc = Math.max(0, Number(document.getElementById("bb-couple-income").value) || 0);
-    const share = Math.min(100, Math.max(50, Number(document.getElementById("bb-couple-share").value) || 50)) / 100;
-    const a = inc * share, b = inc - a;
+    const a = Math.max(0, Number(document.getElementById("bb-couple-a").value) || 0);
+    const b = Math.max(0, Number(document.getElementById("bb-couple-b").value) || 0);
+    const inc = a + b;
     const sep = personTax(a, rates) + personTax(b, rates), spl = 2 * personTax(inc / 2, rates);
     const gain = Math.max(0, sep - spl);
     document.getElementById("bb-couple-out").innerHTML =
