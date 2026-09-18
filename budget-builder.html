@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>(function(d){d.className+=" js";var t;try{t=localStorage.getItem("scorecard_theme")}catch(e){}if(t!=="dark"&&t!=="light")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";d.setAttribute("data-theme",t)})(document.documentElement)</script>
+  <title>Build your own budget | The Scorecard</title>
+  <meta name="description" content="Start from the government's own Budget and change any tax or spending line, in dollars or as a share of the economy, to see what it does to the deficit, debt and interest.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/styles.css?v=20260918f">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <rect width="36" height="36" rx="9" fill="#293086"/>
+          <rect x="9" y="20" width="4.5" height="7" rx="1.5" fill="#fff"/>
+          <rect x="15.75" y="15" width="4.5" height="12" rx="1.5" fill="#fff"/>
+          <rect x="22.5" y="9" width="4.5" height="18" rx="1.5" fill="#fff"/>
+        </svg>
+        <span class="brand-name">The Scorecard<small>Government performance</small></span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html">Scorecard</a>
+        <a href="budget.html" aria-current="page">Budget</a>
+        <a href="laws.html">Laws</a>
+        <a href="controversies.html">Controversies</a>
+        <a href="categories.html">Categories</a>
+        <a href="sources.html">Sources &amp; checks</a>
+        <a href="subscribe.html">Subscribe</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero" id="content" tabindex="-1">
+    <div class="wrap">
+      <p class="eyebrow"><a href="budget.html" class="bb-back">&larr; The Budget</a> &middot; Educational tool</p>
+      <h1>Build your own budget.</h1>
+      <p>You start with the government's current Budget, the same figures as the Budget page. Raise or lower any tax or spending line, in dollars or as a share of the economy, and see straight away what it does to the deficit, debt and interest.</p>
+    </div>
+  </section>
+
+  <main class="wrap section" id="bb-app">
+    <div class="bb-shared" id="bb-shared" hidden>
+      <p>You opened a link to someone's budget. You're looking at the government's Budget for now.</p>
+      <button type="button" class="btn btn-red" id="bb-load-shared">Load their budget</button>
+    </div>
+
+    <div class="bb-toolbar">
+      <div class="bb-group">
+        <span class="bb-label">When I change a line, pay for it by:</span>
+        <div class="toggle" role="group" aria-label="How changes are paid for" id="bb-mode"></div>
+        <p class="bb-help" id="bb-mode-help"></p>
+      </div>
+      <div class="bb-group">
+        <span class="bb-label">Try an example:</span>
+        <div class="bb-presets">
+          <button type="button" class="btn btn-ghost" data-preset="defence">Defence at 3.5% of GDP</button>
+          <button type="button" class="btn btn-ghost" data-preset="pit">Cut income tax 10%</button>
+          <button type="button" class="btn btn-ghost" data-preset="cuts">Balance it with spending cuts</button>
+          <button type="button" class="btn btn-ghost" data-preset="taxes">Balance it with tax rises</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="bb-sticky">
+      <div class="balance-strip bb-summary" id="bb-summary" aria-live="polite"></div>
+      <p class="bb-status" id="bb-status" role="status"></p>
+    </div>
+
+    <section class="card bb-rates" id="bb-rates" aria-labelledby="bb-rates-h" hidden>
+      <div class="bb-rates-top">
+        <div>
+          <h2 class="bb-h" id="bb-rates-h">Tax rates</h2>
+          <p class="bb-help" id="bb-rates-intro">Change the rates themselves and the revenue lines below update to match.</p>
+        </div>
+        <button type="button" class="btn btn-secondary bb-inline" id="bb-rates-reset" hidden>Put rates back to the Budget</button>
+      </div>
+      <div class="bb-rates-grid">
+        <div>
+          <h3 class="bb-sub">Personal income tax</h3>
+          <div class="bb-scroll">
+            <table class="bb-table">
+              <thead><tr><th scope="col">Income over</th><th scope="col"><span class="sr-only">Up to</span></th><th scope="col">Rate</th><th scope="col"><span class="sr-only">Budget setting</span></th></tr></thead>
+              <tbody id="bb-brackets"></tbody>
+            </table>
+          </div>
+          <div class="bb-fields bb-rate-row">
+            <label class="bb-field" id="bb-ml-field"><span>Medicare levy, %</span></label>
+            <label class="bb-field" id="bb-gst-field"><span>GST rate, %</span></label>
+          </div>
+          <p class="bb-note" id="bb-rates-drift" hidden></p>
+        </div>
+        <div>
+          <h3 class="bb-sub">Tax on a single income</h3>
+          <div class="bb-scroll">
+            <table class="bb-table">
+              <thead><tr><th scope="col">Taxable income</th><th scope="col" class="num">Budget rates</th><th scope="col" class="num">Your rates</th><th scope="col" class="num">Difference</th></tr></thead>
+              <tbody id="bb-typical"></tbody>
+            </table>
+          </div>
+          <p class="bb-help" id="bb-rates-method"></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="bb-cols">
+      <section class="card" aria-labelledby="bb-rev-h">
+        <h2 class="bb-h" id="bb-rev-h">Revenue: what comes in</h2>
+        <div id="bb-revenue"></div>
+      </section>
+      <section class="card" aria-labelledby="bb-exp-h">
+        <h2 class="bb-h" id="bb-exp-h">Spending: what goes out</h2>
+        <div id="bb-expenses"></div>
+      </section>
+    </div>
+
+    <section class="card bb-impact-card" aria-labelledby="bb-imp-h">
+      <h2 class="bb-h" id="bb-imp-h">What your budget means</h2>
+      <ul class="bb-impact" id="bb-impact"></ul>
+    </section>
+
+    <div class="pies">
+      <article class="card">
+        <div class="card-top"><h3>Your revenue</h3></div>
+        <div class="pie-wrap" id="bb-pie-revenue"></div>
+      </article>
+      <article class="card">
+        <div class="card-top"><h3>Your spending</h3></div>
+        <div class="pie-wrap" id="bb-pie-expenses"></div>
+      </article>
+    </div>
+
+    <div class="bb-actions">
+      <button type="button" class="btn btn-red" id="bb-share">Copy link to my budget</button>
+      <button type="button" class="btn btn-secondary" id="bb-reset-all">Start again from the Budget</button>
+    </div>
+
+    <div class="prose" style="margin-top:40px">
+      <h2>How this works</h2>
+      <p>Every starting figure is the government's own, from the current Budget on the <a href="budget.html">Budget page</a> (Budget Paper No. 1, accrual revenue and expenses by category). The bottom line here is revenue minus expenses, which is why it differs from the "underlying cash balance" the Budget headlines. Percentages are shares of the nominal GDP the Budget itself uses.</p>
+      <p>This is budget arithmetic, not an economic model. Real changes have knock-on effects it doesn't try to predict: a tax cut can change how much people work and spend, extra spending can add to inflation, and cuts or rises take years to legislate and phase in. Debt and interest effects are simple estimates: extra deficit adds to debt one-for-one, and interest uses the average rate implied by the Budget's own interest bill and debt. Use it to see the trade-offs and the scale of the numbers, not as a forecast.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <svg class="brand-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+        <rect x="1" y="1" width="34" height="34" rx="9" stroke="#fff" stroke-opacity=".4" stroke-width="1.5"/>
+        <rect x="9" y="20" width="4.5" height="7" rx="1.5" fill="#fff"/>
+        <rect x="15.75" y="15" width="4.5" height="12" rx="1.5" fill="#fff"/>
+        <rect x="22.5" y="9" width="4.5" height="18" rx="1.5" fill="#fff"/>
+      </svg>
+      <div>
+        <p>Starting figures: Australian Government Budget Paper No. 1, as shown on the Budget page. Everything else is calculated in your browser from those figures; nothing you enter is sent anywhere.</p>
+        <p><a href="budget.html">Back to the Budget</a> · <a href="sources.html">Sources, methods &amp; daily checks</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/config.js?v=20260918f"></script>
+  <script src="data/metrics.js"></script>
+  <script src="assets/charts.js?v=20260918f"></script>
+  <script src="assets/site.js?v=20260918f"></script>
+  <script src="assets/budget-builder.js?v=20260918f"></script>
+</body>
+</html>

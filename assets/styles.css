@@ -493,7 +493,7 @@ details.table-view summary { cursor: pointer; color: var(--body-grey); font-weig
   .site-header .brand { color: #000; }
   .nav, .header-tools, .skip-link, .scroll-progress, .fab-stack, .cookie-notice, dialog, .hero-actions, .card-actions,
   .chips, .info-btn, .toggle, .log-filter, .footer-signup, .prefs-banner, details.table-view, .tooltip, .noscript,
-  .skeleton, .preview-note, form, #your-data, .report-link, .law-controls, .law-tiles, .nf-actions, .cat-stage, .site-footer .brand-mark { display: none !important; }
+  .skeleton, .preview-note, form, #your-data, .report-link, .law-controls, .law-tiles, .bb-toolbar, .bb-actions, .bb-fields, .bb-row input[type="range"], .bb-shared, .bb-launch, .nf-actions, .cat-stage, .site-footer .brand-mark { display: none !important; }
   .hero, .page-hero, .site-footer { background: none !important; color: #000 !important; padding-block: 8pt; margin-top: 0; }
   .hero *, .page-hero *, .site-footer * { color: #000 !important; }
   .hero::after { display: none; }
@@ -512,6 +512,75 @@ details.table-view summary { cursor: pointer; color: var(--body-grey); font-weig
   body.catpage #text-version *, body.catpage .cat-about * { color: #000 !important; }
   body.catpage .cat-about { background: none !important; border: 0; }
 }
+
+/* ---------- budget builder ---------- */
+.bb-launch { margin-top: 22px; display: inline-flex; font-size: 17px; padding: 12px 24px; }
+.bb-back { color: #fff; text-decoration: none; }
+.bb-back:hover { text-decoration: underline; }
+.bb-shared { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; background: var(--info-tint); border: 1px solid var(--rule); border-radius: 12px; padding: 14px 18px; margin-bottom: 18px; }
+.bb-shared p { margin: 0; flex: 1 1 260px; }
+.bb-toolbar { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 28px; margin-bottom: 18px; }
+@media (max-width: 900px) { .bb-toolbar { grid-template-columns: 1fr; } }
+.bb-label { display: block; font-weight: 700; font-size: 14.5px; margin-bottom: 8px; }
+.bb-help { margin: 8px 0 0; font-size: 13.5px; color: var(--body-grey); }
+.bb-presets { display: flex; flex-wrap: wrap; gap: 8px; }
+.bb-sticky { position: sticky; top: calc(var(--header-h) + 4px); z-index: 20; background: var(--panel); padding-block: 8px; margin-inline: -4px; padding-inline: 4px; }
+.bb-summary { margin-top: 0; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 760px) { .bb-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); } .bb-summary .stat .v { font-size: 22px; } .bb-sticky { position: static; } }
+.bb-summary .bb-good .v { color: var(--on); }
+.bb-summary .bb-bad .v { color: var(--off); }
+.bb-status { margin: 6px 0 0; min-height: 1.2em; font-size: 14px; color: var(--body-grey); }
+.bb-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 12px; }
+@media (max-width: 980px) { .bb-cols { grid-template-columns: 1fr; } }
+.bb-h { font-size: 20px; margin: 0 0 6px; }
+.bb-row { padding: 14px 0; border-top: 1px solid var(--rule); }
+.bb-row:first-child { border-top: 0; }
+.bb-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.bb-name { font-weight: 700; display: flex; align-items: center; }
+.bb-meta { font-size: 13px; color: var(--body-grey); }
+.bb-row input[type="range"] { width: 100%; margin: 10px 0 8px; accent-color: var(--link); }
+.bb-fields { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.bb-field { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--body-grey); font-weight: 600; }
+.bb-num { width: 96px; font: inherit; font-size: 15px; font-variant-numeric: tabular-nums; padding: 6px 8px; border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); color: var(--ink); }
+.bb-num:focus { outline: none; border-color: var(--link); }
+.bb-delta { font-size: 13.5px; font-weight: 700; color: var(--body-grey); font-variant-numeric: tabular-nums; }
+.bb-delta.up { color: var(--link); }
+.bb-delta.down { color: var(--watch-ink); }
+.bb-reset { font: inherit; font-size: 13px; font-weight: 700; color: var(--link); background: none; border: 0; padding: 4px 6px; border-radius: 6px; cursor: pointer; margin-left: auto; }
+.bb-reset:hover { background: var(--info-tint); }
+.bb-note { margin: 10px 0 0; font-size: 13.5px; color: var(--body-grey); background: var(--panel); border-radius: 8px; padding: 8px 10px; }
+.bb-inline { padding: 4px 12px; font-size: 13px; margin-top: 6px; }
+.bb-impact-card { margin-top: 20px; }
+.bb-rates { margin-top: 12px; }
+.bb-rates-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 10px 20px; }
+.bb-rates-top .bb-help { margin-top: 0; }
+.bb-rates-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 36px; margin-top: 14px; }
+@media (max-width: 980px) { .bb-rates-grid { grid-template-columns: 1fr; } }
+.bb-rates .bb-sub { font-size: 16px; margin: 0 0 8px; }
+.bb-table tr.bb-changed .bb-num { border-color: var(--link); background: var(--info-tint); }
+@media (max-width: 560px) {
+  .bb-was { display: none; }
+  .bb-table .bb-num { width: 84px; }
+  #bb-brackets .bb-num[id^="bb-rt"] { width: 58px; }
+  .bb-upto { font-size: 12.5px; }
+  .bb-table { font-size: 13.5px; }
+}
+.bb-table { width: 100%; border-collapse: collapse; font-size: 14.5px; font-variant-numeric: tabular-nums; }
+.bb-table th { text-align: left; font-size: 12.5px; font-weight: 700; color: var(--body-grey); padding: 6px 8px 6px 0; border-bottom: 1px solid var(--rule); }
+.bb-table td { padding: 6px 8px 6px 0; border-bottom: 1px solid var(--rule); vertical-align: middle; }
+.bb-table .num { text-align: right; }
+.bb-table .bb-num { width: 104px; }
+#bb-brackets .bb-num[id^="bb-rt"] { width: 70px; }
+.bb-dollar, .bb-pct { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+.bb-upto { color: var(--body-grey); white-space: nowrap; font-size: 13.5px; }
+.bb-was { color: var(--body-grey); font-size: 12.5px; }
+.bb-num:disabled { opacity: .7; }
+.bb-rate-row { margin-top: 12px; }
+.bb-scroll { overflow-x: auto; }
+.bb-more { color: var(--off); font-weight: 700; }
+.bb-less { color: var(--on); font-weight: 700; }
+.bb-impact { margin: 6px 0 0; padding-left: 20px; display: grid; gap: 8px; font-size: 15.5px; }
+.bb-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
 
 /* ---------- laws page ---------- */
 .law-count-line { margin: 0 0 6px; color: var(--body-grey); font-size: 15px; }

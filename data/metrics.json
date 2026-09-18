@@ -7923,7 +7923,228 @@
        ]
       ]
      }
-    ]
+    ],
+    "gdp_m": 3093000,
+    "gdp_note": "Nominal GDP for 2026–27 as implied by Budget Paper No. 1, Statement 3, Table 3.1: each published dollar figure divided by its published share of GDP (receipts, tax, payments, gross and net debt) gives a range of $3,090.7bn to $3,095.7bn; the midpoint is used. Consistent with Table 1.1 nominal GDP growth forecasts.",
+    "population": 27921150,
+    "population_note": "ABS National, state and territory population, 31 March 2026 (released 17 September 2026).",
+    "population_url": "https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/latest-release",
+    "defence_funding_m": 62600,
+    "defence_funding_note": "Defence funding on the traditional (Defence portfolio) measure, 2.02% of GDP, as published in the Budget. Wider than the 'Defence' expense function above.",
+    "gross_debt_prior_bn": 982.0,
+    "tax_rates": {
+     "income_year": "2026–27",
+     "gst_rate": 10,
+     "brackets": [
+      [
+       0,
+       0
+      ],
+      [
+       18200,
+       15
+      ],
+      [
+       45000,
+       30
+      ],
+      [
+       135000,
+       37
+      ],
+      [
+       190000,
+       45
+      ]
+     ],
+     "brackets_url": "https://www.ato.gov.au/tax-rates-and-codes/tax-rates-australian-residents",
+     "brackets_note": "Resident tax rates from 1 July 2026, including the cut from 16% to 15% legislated by the Treasury Laws Amendment (More Cost of Living Relief) Act 2025.",
+     "medicare_levy": 2,
+     "medicare_low": 28011,
+     "medicare_low_note": "Low-income threshold for singles. The 2026–27 figure isn't published yet, so the 2025–26 threshold is used (provisional).",
+     "medicare_low_url": "https://www.ato.gov.au/individuals-and-families/medicare-and-private-health-insurance/medicare-levy/medicare-levy-reduction/medicare-levy-reduction-for-low-income-earners",
+     "lito": {
+      "max": 700,
+      "full_to": 37500,
+      "rate1": 0.05,
+      "mid_to": 45000,
+      "mid_value": 325,
+      "rate2": 0.015
+     },
+     "lito_url": "https://www.ato.gov.au/individuals-and-families/income-deductions-offsets-and-records/tax-offsets/low-income-tax-offset",
+     "distribution": {
+      "income_year": "2023–24",
+      "source": "ATO Taxation Statistics 2023–24, Individuals Table 12 (residents, taxable and non-taxable, by taxable income range; loss band excluded)",
+      "url": "https://data.gov.au/data/dataset/taxation-statistics-2023-24",
+      "growth": 1.0774,
+      "growth_note": "Incomes grown from 2023–24 to 2026–27 levels by the ABS Wage Price Index (all sectors): 2023–24 average 149.6 to June quarter 2026, 161.2.",
+      "check": "Applying 2023–24 rates to this table gives $311.8bn of tax on taxable income, against the ATO's published $311.88bn.",
+      "bands": [
+       [
+        0,
+        6000,
+        910387,
+        1695697418
+       ],
+       [
+        6001,
+        10000,
+        357709,
+        2870831469
+       ],
+       [
+        10001,
+        18200,
+        853879,
+        12259205666
+       ],
+       [
+        18201,
+        25000,
+        1052039,
+        22739041976
+       ],
+       [
+        25001,
+        30000,
+        766590,
+        21012987366
+       ],
+       [
+        30001,
+        37000,
+        976392,
+        32678886685
+       ],
+       [
+        37001,
+        41000,
+        546604,
+        21321559592
+       ],
+       [
+        41001,
+        45000,
+        572860,
+        24679871262
+       ],
+       [
+        45001,
+        48000,
+        428492,
+        19910421516
+       ],
+       [
+        48001,
+        50000,
+        277861,
+        13616331799
+       ],
+       [
+        50001,
+        55000,
+        687749,
+        36096912654
+       ],
+       [
+        55001,
+        60000,
+        683349,
+        39295305852
+       ],
+       [
+        60001,
+        66667,
+        870879,
+        55121229159
+       ],
+       [
+        66668,
+        70000,
+        406118,
+        27748192977
+       ],
+       [
+        70001,
+        80000,
+        1106142,
+        82830236054
+       ],
+       [
+        80001,
+        87000,
+        679880,
+        56723783105
+       ],
+       [
+        87001,
+        90000,
+        269461,
+        23846415958
+       ],
+       [
+        90001,
+        100000,
+        783774,
+        74333386591
+       ],
+       [
+        100001,
+        120000,
+        1235926,
+        135544394361
+       ],
+       [
+        120001,
+        125333,
+        264687,
+        32441588820
+       ],
+       [
+        125334,
+        150000,
+        852569,
+        116429250114
+       ],
+       [
+        150001,
+        180000,
+        630348,
+        103501794654
+       ],
+       [
+        180001,
+        200000,
+        258467,
+        48853821103
+       ],
+       [
+        200001,
+        250000,
+        322468,
+        71350883269
+       ],
+       [
+        250001,
+        500000,
+        315679,
+        103952519878
+       ],
+       [
+        500001,
+        1000000,
+        71213,
+        47379247450
+       ],
+       [
+        1000001,
+        null,
+        26069,
+        64267316110
+       ]
+      ]
+     }
+    }
    },
    {
     "label": "2024–25 actual",
