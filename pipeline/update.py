@@ -1412,7 +1412,18 @@ def main():
                 critical = critical or not ok
 
     urls = [s["url"] for m in results for s in m.get("sources", []) if s.get("url")]
-    urls += [y["url"] for y in (budget or {}).get("years", [])]
+    def _budget_urls(o):
+        # every source link inside the budget data: Budget papers, tax-rate sources, migration evidence
+        if isinstance(o, dict):
+            for k, v in o.items():
+                if isinstance(v, str) and (k == "url" or k.endswith("_url")) and v.startswith("http"):
+                    yield v
+                else:
+                    yield from _budget_urls(v)
+        elif isinstance(o, list):
+            for v in o:
+                yield from _budget_urls(v)
+    urls += sorted(set(_budget_urls(budget or {})))
     laws, law_urls = load_laws()
     urls += law_urls
     controversies, con_urls = load_controversies()

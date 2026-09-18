@@ -40,29 +40,44 @@
   /* ---------- state: always the Budget; a shared link is offered, never applied silently ---------- */
   /* tax rates: Y.tax_rates holds the rates in force for the Budget year and the ATO income distribution used to cost changes */
   const TX = Y.tax_rates || null;
-  const cloneRates = (t) => ({ gst: t.gst, ml: t.ml, br: t.br.map((b) => b.slice()) });
-  const baseRates = TX ? { gst: TX.gst_rate, ml: TX.medicare_levy, br: TX.brackets.map((b) => b.slice()) } : null;
+  const cloneRates = (t) => ({ gst: t.gst, ml: t.ml, br: t.br.map((b) => b.slice()), split: !!t.split });
+  const baseRates = TX ? { gst: TX.gst_rate, ml: TX.medicare_levy, br: TX.brackets.map((b) => b.slice()), split: false } : null;
   let rates = baseRates && cloneRates(baseRates);
-  const encRates = (t) => [t.gst, t.ml, ...t.br.map((b) => b[0] + ":" + b[1])].join("_");
+  const encRates = (t) => [t.gst, t.ml, ...t.br.map((b) => b[0] + ":" + b[1]), t.split ? "1" : "0"].join("_");
   function decRates(str) {
     if (!baseRates || !str) return null;
     const p = str.split("_");
-    if (p.length !== 2 + baseRates.br.length) return null;
-    const br = p.slice(2).map((x) => x.split(":").map(Number));
-    const t = { gst: Number(p[0]), ml: Number(p[1]), br };
+    const n = baseRates.br.length;
+    if (p.length !== 2 + n && p.length !== 3 + n) return null;
+    const br = p.slice(2, 2 + n).map((x) => x.split(":").map(Number));
+    const t = { gst: Number(p[0]), ml: Number(p[1]), br, split: p[2 + n] === "1" };
     const nums = [t.gst, t.ml, ...br.flat()];
     if (nums.some((x) => !isFinite(x) || x < 0) || br.some((b) => b.length !== 2 || b[1] > 100)) return null;
     return t;
   }
 
+  /* migration: B.migration holds the Budget's net overseas migration forecast, the planned permanent program, and the
+     published rules of thumb and evidence used to describe what a change would do. Kept separate from the budget lines. */
+  const MG = B.migration || null;
+  const MIG_KEYS = MG ? [...MG.components.filter((c) => !c.fixed).map((c) => c.id), ...MG.program.map((p) => p.id)] : [];
+  const baseMig = MG ? Object.fromEntries([...MG.components.filter((c) => !c.fixed).map((c) => [c.id, c.value]), ...MG.program.map((p) => [p.id, p.places])]) : null;
+  let mig = baseMig && { ...baseMig };
+  const encMig = (m) => MIG_KEYS.map((k) => Math.round(m[k])).join("_");
+  function decMig(str) {
+    if (!baseMig || !str) return null;
+    const v = str.split("_").map(Number);
+    if (v.length !== MIG_KEYS.length || v.some((x) => !isFinite(x) || x < 0 || x > 5e6)) return null;
+    return Object.fromEntries(MIG_KEYS.map((k, i) => [k, v[i]]));
+  }
+
   function decode(str) {
-    const m = /^v1:r=([\d,.]+);e=([\d,.]+)(?:;t=([\d.:_]+))?$/.exec(str || "");
+    const m = /^v1:r=([\d,.]+);e=([\d,.]+)(?:;t=([\d.:_]+))?(?:;m=([\d_]+))?$/.exec(str || "");
     if (!m) return null;
     const r = m[1].split(",").map(Number), e = m[2].split(",").map(Number);
     if (r.length !== base.revenue.length || e.length !== base.expenses.length || [...r, ...e].some((x) => !isFinite(x) || x < 0)) return null;
-    return { revenue: r, expenses: e, rates: decRates(m[3]) };
+    return { revenue: r, expenses: e, rates: decRates(m[3]), mig: decMig(m[4]) };
   }
-  const encode = (s) => `v1:r=${s.revenue.map(Math.round).join(",")};e=${s.expenses.map(Math.round).join(",")}` + (rates ? ";t=" + encRates(rates) : "");
+  const encode = (s) => `v1:r=${s.revenue.map(Math.round).join(",")};e=${s.expenses.map(Math.round).join(",")}` + (rates ? ";t=" + encRates(rates) : "") + (mig ? ";m=" + encMig(mig) : "");
   let cur = clone(base);
   let mode = "deficit";
   let note = "";
@@ -70,7 +85,7 @@
   if (shared) {
     const bar = document.getElementById("bb-shared");
     bar.hidden = false;
-    document.getElementById("bb-load-shared").addEventListener("click", () => { cur = clone(shared); if (shared.rates) rates = shared.rates; note = "Loaded the budget from the link you opened."; bar.hidden = true; changed(); });
+    document.getElementById("bb-load-shared").addEventListener("click", () => { cur = clone(shared); if (shared.rates) rates = shared.rates; if (shared.mig) mig = shared.mig; note = "Loaded the budget from the link you opened."; bar.hidden = true; changed(); });
   }
 
   /* ---------- editing ---------- */
@@ -184,7 +199,7 @@
   document.getElementById("bb-reset-all").addEventListener("click", async () => {
     const ok = window.Site ? await window.Site.confirm({ title: "Start again from the Budget?", body: `This puts every figure back to the government's ${Y.year} Budget. Your changes will be lost unless you've copied your link.`, confirm: "Start again" }) : true;
     if (!ok) return;
-    cur = clone(base); if (baseRates) rates = cloneRates(baseRates); note = ""; changed();
+    cur = clone(base); if (baseRates) rates = cloneRates(baseRates); if (baseMig) mig = { ...baseMig }; note = ""; changed();
   });
   document.getElementById("bb-share").addEventListener("click", async (e) => {
     const url = location.href.split("#")[0] + "#" + encodeURIComponent(encode(cur));
@@ -235,7 +250,13 @@
   const BASE_TOTAL = TX ? totalTax(baseRates) : 0;
   // Revenue under the visitor's rates: the Budget's own income tax figure, scaled by how much more or less tax the same
   // people would pay. Static: people's incomes and behaviour are assumed not to change.
-  const pitFromRates = () => base.revenue[I.pit] * totalTax(rates) / BASE_TOTAL;
+  // Income splitting: each couple may be taxed as if each partner earned half their combined income. Costed on the ATO
+  // sample of couples' incomes (TX.couples.cells: [own income, partner income, number of couples]); a couple only splits
+  // if it lowers their tax.
+  const CP = TX && TX.couples ? TX.couples.cells.map(([a, b, n]) => [a * TX.couples.growth, b * TX.couples.growth, n]) : null;
+  const splitGain = (x, y, t) => Math.max(0, personTax(x, t) + personTax(y, t) - 2 * personTax((x + y) / 2, t));
+  const splitCost = (t) => CP ? CP.reduce((a, [x, y, n]) => a + n * splitGain(x, y, t), 0) : 0;
+  const pitFromRates = () => base.revenue[I.pit] * (totalTax(rates) - (rates.split ? splitCost(rates) : 0)) / BASE_TOTAL;
   const gstFromRates = () => base.revenue[I.gst] * rates.gst / baseRates.gst;
 
   const ratesBox = document.getElementById("bb-rates");
@@ -280,6 +301,12 @@
     ml.addEventListener("input", () => { const v = Number(ml.value); if (ml.value !== "" && isFinite(v) && v >= 0 && v <= 10) { rates.ml = v; applyPit(); } });
     document.getElementById("bb-ml-field").append(ml);
     rateUI.ml = ml;
+    // income splitting for couples
+    const sw = document.getElementById("bb-split");
+    sw.disabled = !CP;
+    sw.addEventListener("change", () => { rates.split = sw.checked; applyPit(); });
+    rateUI.split = sw;
+    ["bb-couple-income", "bb-couple-share"].forEach((id) => document.getElementById(id).addEventListener("input", () => changed()));
     const dist = TX.distribution;
     document.getElementById("bb-rates-method").innerHTML =
       `Costed on the ATO's count of ${Math.round(dist.bands.reduce((a, b) => a + b[2], 0) / 1e5) / 10} million resident taxpayers by income (<a href="${dist.url}">${dist.income_year} tax statistics</a>), with incomes grown to ${TX.income_year} by wage growth. ` +
@@ -321,6 +348,124 @@
     drift.hidden = !(pitGap || gstGap);
     drift.textContent = `You've also changed ${pitGap && gstGap ? "income tax and GST" : pitGap ? "income tax" : "GST"} directly (or through an example or by paying for another change), so ${pitGap && gstGap ? "those dollar figures" : "that dollar figure"} no longer come${pitGap && gstGap ? "" : "s"} only from the rates here. Changing a rate resets it to what the rates raise.`;
     document.getElementById("bb-rates-reset").hidden = JSON.stringify(rates) === JSON.stringify(baseRates);
+    // splitting: switch state, national cost, and the couple calculator
+    rateUI.split.checked = rates.split;
+    const cost = CP ? splitCost(rates) * base.revenue[I.pit] / BASE_TOTAL : null;
+    document.getElementById("bb-split-cost").innerHTML = !CP
+      ? "The national cost can't be estimated yet, so switching it on for everyone isn't available. The calculator below still works."
+      : `Letting every couple split would cost about <b>${bn(cost / 1e6)} a year</b> in income tax at ${rates.split || JSON.stringify({ ...rates, split: false }) !== JSON.stringify(baseRates) ? "your" : "current"} rates${rates.split ? ", already taken off your income tax line" : ""}.`;
+    const inc = Math.max(0, Number(document.getElementById("bb-couple-income").value) || 0);
+    const share = Math.min(100, Math.max(50, Number(document.getElementById("bb-couple-share").value) || 50)) / 100;
+    const a = inc * share, b = inc - a;
+    const sep = personTax(a, rates) + personTax(b, rates), spl = 2 * personTax(inc / 2, rates);
+    const gain = Math.max(0, sep - spl);
+    document.getElementById("bb-couple-out").innerHTML =
+      `Earning ${money(a)} and ${money(b)}, this couple pays <b>${money(sep)}</b> taxed separately at your rates. ` +
+      (gain < 1 ? "Splitting wouldn't change their tax, because their incomes are already even enough." :
+        `Split evenly (${money(inc / 2)} each) they would pay <b>${money(spl)}</b>, saving <b>${money(gain)} a year</b>.`);
+  }
+
+  /* ---------- migration ---------- */
+  const migBox = document.getElementById("bb-mig");
+  const migUI = {};
+  const fmtN = (v) => Math.round(v).toLocaleString("en-AU");
+  const signedN = (v) => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(Math.round(v)).toLocaleString("en-AU");
+  if (MG && migBox) {
+    migBox.hidden = false;
+    const makeRow = (host, key, name, sub, baseVal, max) => {
+      const row = h("div", "bb-row");
+      const head = h("div", "bb-head");
+      head.append(h("div", "bb-name", name), h("div", "bb-meta", sub));
+      const slider = h("input"); slider.type = "range"; slider.min = "0"; slider.max = String(max); slider.step = "1000";
+      slider.id = "bb-mig-range-" + key; slider.setAttribute("aria-label", name + ", people a year");
+      const num = h("input", "bb-num"); num.type = "number"; num.min = "0"; num.step = "1000"; num.inputMode = "numeric"; num.id = "bb-mig-" + key;
+      num.setAttribute("aria-label", name + ", people a year");
+      const lab = h("label", "bb-field"); lab.append(h("span", null, "People a year"), num);
+      const delta = h("span", "bb-delta");
+      const reset = h("button", "bb-reset", "Reset"); reset.type = "button"; reset.setAttribute("aria-label", "Reset " + name + " to the Budget figure");
+      const fields = h("div", "bb-fields"); fields.append(lab, delta, reset);
+      row.append(head, slider, fields);
+      const set = (v) => { if (isFinite(v) && v >= 0) { mig[key] = Math.min(v, max); changed(); } };
+      slider.addEventListener("input", () => set(Number(slider.value)));
+      num.addEventListener("input", () => { if (num.value !== "") set(Number(num.value)); });
+      reset.addEventListener("click", () => set(baseVal));
+      host.appendChild(row);
+      migUI[key] = { slider, num, delta, reset, base: baseVal };
+    };
+    const flows = document.getElementById("bb-mig-flows");
+    MG.components.forEach((c) => {
+      if (c.fixed) {
+        const row = h("div", "bb-row bb-fixed");
+        const head = h("div", "bb-head");
+        head.append(h("div", "bb-name", c.name), h("div", "bb-meta", fmtN(c.value) + " a year, as forecast"));
+        row.append(head, h("p", "bb-note", c.note));
+        flows.appendChild(row);
+      } else makeRow(flows, c.id, c.name, c.sub, c.value, Math.max(c.value * 3, 100000));
+    });
+    const prog = document.getElementById("bb-mig-program");
+    MG.program.forEach((p) => makeRow(prog, p.id, p.name, `Lifetime budget effect per person: ${p.value < 0 ? "−" : "+"}${money(p.value)}`, p.places, Math.max(p.places * 3, 30000)));
+    // temporary visa context table
+    const tt = document.getElementById("bb-mig-temp");
+    MG.temp_values.forEach((t) => {
+      const tr = h("tr");
+      tr.append(h("td", null, t.name), h("td", "num", (t.value < 0 ? "−" : "+") + money(t.value)));
+      tt.appendChild(tr);
+    });
+    // evidence, grouped by topic
+    const ev = document.getElementById("bb-mig-evidence");
+    const topics = [...new Set(MG.evidence.map((e) => e.topic))];
+    topics.forEach((t, i) => {
+      const d = h("details", "bb-ev"); if (i === 0) d.open = true;
+      d.appendChild(h("summary", null, t));
+      const ul = h("ul");
+      MG.evidence.filter((e) => e.topic === t).forEach((e) => {
+        const li = h("li");
+        li.append(document.createTextNode(e.finding + " "));
+        const a = h("a", null, e.source); a.href = e.url; a.rel = "noopener";
+        const src = h("span", "bb-ev-src"); src.append("Source: ", a, ".");
+        li.appendChild(src);
+        ul.appendChild(li);
+      });
+      d.appendChild(ul);
+      ev.appendChild(d);
+    });
+  }
+  function renderMig() {
+    if (!MG || !migBox) return;
+    const active = document.activeElement;
+    Object.entries(migUI).forEach(([k, u]) => {
+      const v = mig[k], d = v - u.base;
+      u.slider.max = String(Math.max(Number(u.slider.max), v));
+      if (active !== u.slider) u.slider.value = String(v);
+      if (active !== u.num) u.num.value = String(Math.round(v));
+      u.delta.textContent = Math.abs(d) < 1 ? "As forecast" : signedN(d) + " a year";
+      u.delta.classList.toggle("up", d >= 1); u.delta.classList.toggle("down", d <= -1);
+      u.reset.hidden = Math.abs(d) < 1;
+    });
+    const R = MG.rules;
+    const dNom = MG.components.filter((c) => !c.fixed).reduce((a, c) => a + mig[c.id] - c.value, 0);
+    const nom = MG.nom_forecast + dNom;
+    const more = dNom > 0, n = Math.abs(dNom);
+    const out = [];
+    const cite = (e) => { const id = MG.evidence.findIndex((x) => x.key === e); return id >= 0 ? ` <a href="${MG.evidence[id].url}" rel="noopener">(${MG.evidence[id].short})</a>` : ""; };
+    out.push(`<b>Net overseas migration: ${fmtN(nom)}</b> in ${MG.year}, against the Budget forecast of ${fmtN(MG.nom_forecast)}${n >= 1 ? ` (${fmtN(n)} ${more ? "more" : "fewer"} people)` : ""}.`);
+    if (n >= 1) {
+      const gdpPct = n / 100000 * R.gdp_pct_per_100k;
+      out.push(`<b>Size of the economy:</b> about ${gdpPct.toFixed(2)}% ${more ? "larger" : "smaller"} over time, roughly ${bn(gdpPct / 100 * GDP)} a year at today's size, because there are ${more ? "more" : "fewer"} people working and spending.${cite("cfp")}`);
+      out.push(`<b>Economy per person:</b> little change either way. Official long-run modelling finds migration shifts GDP per person by well under 1%, because it grows the economy and the population together.${cite("igr")}`);
+      const b10 = dNom / R.pbo_step * (more ? R.pbo_up_m : R.pbo_down_m);
+      out.push(`<b>Federal budget:</b> about <b>${bn(Math.abs(b10), 0)} ${more ? "better" : "worse"}</b> over the ${R.pbo_period} if migration stays ${fmtN(n)} ${more ? "above" : "below"} forecast every year, mostly through income tax.${cite("pbo")} This covers the federal budget only: state budgets carry much of the cost of the extra schools, hospitals, housing and roads.${n > R.pbo_max ? ` <i>This change is larger than the ${fmtN(R.pbo_max)} a year the PBO modelled, so treat it as rough.</i>` : ""}`);
+      out.push(`<b>Rents:</b> about ${(n / R.rent_step * R.rent_pct).toFixed(1)}% ${more ? "higher" : "lower"} than otherwise, on the Reserve Bank's estimate that ${fmtN(R.rent_step)} extra people raise rents by about ${R.rent_pct}%.${cite("rba")}`);
+      out.push(`<b>Homes:</b> about ${fmtN(Math.round(n / R.persons_per_home / 100) * 100)} ${more ? "more" : "fewer"} homes needed (at ${R.persons_per_home} people per home). For scale, ${fmtN(R.completions)} homes were completed in ${R.completions_year}.${cite("nhsac")}`);
+    } else {
+      out.push("Change the numbers above to see what more or fewer people would mean for the economy, the budget, rents and housing.");
+    }
+    const lifetime = MG.program.reduce((a, p) => a + (mig[p.id] - p.places) * p.value, 0);
+    const dProg = MG.program.reduce((a, p) => a + mig[p.id] - p.places, 0);
+    if (Math.abs(dProg) >= 1) {
+      out.push(`<b>Permanent program:</b> ${fmtN(Math.abs(dProg))} ${dProg > 0 ? "more" : "fewer"} places. Over their lifetimes, one year's intake like this would be worth about <b>${lifetime >= 0 ? "+" : "−"}${bn(Math.abs(lifetime) / 1e6, 1)}</b> to federal and state budgets combined compared with the planned program (Treasury's estimate, in 2018–19 dollars).${cite("treasury")} Many permanent visas go to people already living here on temporary visas, so a change here does not change net migration one-for-one.`);
+    }
+    document.getElementById("bb-mig-effects").replaceChildren(...out.map((t) => { const li = h("li"); li.innerHTML = t; return li; }));
   }
 
   /* ---------- rendering ---------- */
@@ -409,6 +554,7 @@
     ul.replaceChildren(...pts.map((t) => { const li = h("li"); li.innerHTML = t; return li; }));
 
     renderRates();
+    renderMig();
     pie("bb-pie-revenue", "revenue", REV_COLORS);
     pie("bb-pie-expenses", "expenses", EXP_COLORS);
   }

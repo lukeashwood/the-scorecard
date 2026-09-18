@@ -185,7 +185,7 @@
   const PAGES = [
     { title: "Scorecard", url: "index.html", kind: "Page", text: "home report card all measures ratings on track off track" },
     { title: "Budget", url: "budget.html", kind: "Page", text: "federal budget revenue expenses spending tax where the money comes from goes pie chart" },
-    { title: "Build your own budget", url: "budget-builder.html", kind: "Page", text: "budget simulator calculator tax spending defence gdp deficit surplus debt interest education tool" },
+    { title: "Build your own Federal Budget", url: "budget-builder.html", kind: "Page", text: "budget simulator calculator tax spending defence gdp deficit surplus debt interest education tool" },
     { title: "Controversies", url: "controversies.html", kind: "Page", text: "minister ministerial conduct scandal expenses entitlements travel remarks integrity conflict of interest apology resignation" },
     { title: "Laws", url: "laws.html", kind: "Page", text: "legislation bills acts parliament passed failed repealed debated scheduled controversy controversial free speech privacy" },
     { title: "Categories", url: "categories.html", kind: "Page", text: "3d model map categories planets moons" },

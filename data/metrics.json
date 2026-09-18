@@ -8362,6 +8362,226 @@
      }
     ]
    }
-  ]
+  ],
+  "migration": {
+   "year": "2026–27",
+   "nom_forecast": 245000,
+   "nom_url": "https://budget.gov.au/content/bp1/download/bp1_2026-27.pdf",
+   "nom_note": "Budget Paper No. 1, Statement 2, Table 2.2 (p. 62): net overseas migration forecast of 245,000 in 2026–27.",
+   "split_note": "The Budget forecasts only the total. It is divided here in the same proportions as actual net migration by visa group in 2024–25 (ABS Overseas Migration, Table 4.1): temporary visa holders 215,160, permanent visa holders 69,580, New Zealand and Australian citizens 20,840, of a 305,570 total.",
+   "split_url": "https://www.abs.gov.au/statistics/people/population/overseas-migration/latest-release",
+   "components": [
+    {
+     "id": "temporary",
+     "name": "Temporary visa holders",
+     "sub": "Students, working holiday makers, temporary skilled workers, visitors",
+     "value": 172500
+    },
+    {
+     "id": "permanent",
+     "name": "Permanent visa holders",
+     "sub": "Arriving on a permanent visa, minus those leaving",
+     "value": 55800
+    },
+    {
+     "id": "other",
+     "name": "New Zealand and Australian citizens",
+     "value": 16700,
+     "fixed": true,
+     "note": "Not set by visa policy: New Zealanders can move here freely, and Australians come and go. Held at the forecast."
+    }
+   ],
+   "program": [
+    {
+     "id": "skill",
+     "name": "Skill stream",
+     "places": 132240,
+     "value": 198000
+    },
+    {
+     "id": "family",
+     "name": "Family stream",
+     "places": 52460,
+     "value": -126000
+    },
+    {
+     "id": "humanitarian",
+     "name": "Humanitarian program",
+     "places": 20000,
+     "value": -400000
+    }
+   ],
+   "program_url": "https://immi.homeaffairs.gov.au/what-we-do/migration-program-planning-levels",
+   "program_note": "2026–27 planning levels: Skill 132,240, Family 52,460 and Special Eligibility 300 (185,000 in total), plus a separate Humanitarian Program of 20,000. Per-person values are Treasury's central lifetime estimates (2018–19 dollars, federal and state budgets combined).",
+   "temp_values": [
+    {
+     "name": "Temporary skilled (TSS)",
+     "value": 38601
+    },
+    {
+     "name": "Graduate",
+     "value": 7806
+    },
+    {
+     "name": "Working holiday maker",
+     "value": 2137
+    },
+    {
+     "name": "Student (excluding fees)",
+     "value": 217
+    }
+   ],
+   "rules": {
+    "gdp_pct_per_100k": 0.4,
+    "pbo_step": 40000,
+    "pbo_up_m": 80600,
+    "pbo_down_m": 79100,
+    "pbo_max": 80000,
+    "pbo_period": "11 years to 2036–37",
+    "rent_step": 50000,
+    "rent_pct": 0.5,
+    "persons_per_home": 2.54,
+    "completions": 177000,
+    "completions_year": 2024
+   },
+   "evidence": [
+    {
+     "key": "pbo",
+     "short": "PBO, 2026",
+     "topic": "The federal budget",
+     "source": "Parliamentary Budget Office, 2026–27 Medium-Term Budget Outlook (2026), section 2.3",
+     "url": "https://www.pbo.gov.au/sites/default/files/2026-07/PBO%202026-27%20Medium-Term%20Budget%20Outlook.pdf",
+     "finding": "Net migration 40,000 a year higher than forecast would improve the federal budget by about $80.6 billion over the medium term to 2036–37; 40,000 lower would worsen it by about $79.1 billion. The gain comes mainly from income tax, partly offset by extra grants to the states for things like schools. The PBO notes state budgets face their own costs and gains from extra demand for health, education, housing and infrastructure."
+    },
+    {
+     "key": "pbo25",
+     "short": "PBO, 2025",
+     "topic": "The federal budget",
+     "source": "Parliamentary Budget Office, Election Commitments Report ECR-2025-2038 (2025)",
+     "url": "https://www.pbo.gov.au/sites/default/files/2025-05/PBO-ECR-2025-2038-Permanent%20migration%20program%20%E2%80%93%20reduction.pdf",
+     "finding": "Cutting the permanent program from 185,000 to 140,000 places (rising back to 160,000 by 2028–29) was costed at about $3.4 billion worse for the budget over four years and $23.6 billion to 2035–36, before interest. Lower income tax and visa charges outweigh savings on benefits and services."
+    },
+    {
+     "key": "treasury",
+     "short": "Treasury, 2021",
+     "topic": "The federal budget",
+     "source": "Treasury, The lifetime fiscal impact of the Australian permanent migration program (2021)",
+     "url": "https://treasury.gov.au/sites/default/files/2021-12/p2021-220773_1.pdf",
+     "finding": "Over their lifetimes, the average permanent migrant is about $127,000 more positive for federal and state budgets than the average Australian. It varies a lot by stream: skilled migrants about +$198,000 each, family migrants about −$126,000, humanitarian entrants about −$400,000. Parent visas cost about $391,000–$394,000 each. Temporary visa holders are positive over their stay, from about $200 (students, not counting their fees) to about $38,600 (temporary skilled workers). The results are sensitive to assumptions, so Treasury stresses the comparison between groups more than the absolute figures."
+    },
+    {
+     "key": "pc",
+     "short": "Productivity Commission, 2016",
+     "topic": "The federal budget",
+     "source": "Productivity Commission, Migrant Intake into Australia, Inquiry Report No. 77 (2016)",
+     "url": "https://www.pc.gov.au/inquiries/completed/migrant-intake/report",
+     "finding": "Across countries, migration's net effect on government budgets is usually within 2% of GDP either way. Skilled migrants are roughly on par with the existing population, family and humanitarian migrants contribute less, and temporary migrants contribute positively. It estimated each parent visa holder's net lifetime cost at $335,000–$410,000, with the visa charge covering only a fraction."
+    },
+    {
+     "key": "cfp",
+     "short": "Centre for Population, 2025",
+     "topic": "The size of the economy",
+     "source": "Centre for Population, 2025 Population Statement, Box 1",
+     "url": "https://population.gov.au/sites/population.gov.au/files/2026-03/population-statement-2025.pdf",
+     "finding": "A one-year fall in net migration of about 100,000 would cut the population aged 15 and over by about 0.4% and, over time, leave the economy (GDP) about 0.4% smaller, assuming productivity and participation don't change."
+    },
+    {
+     "key": "igr",
+     "short": "Intergenerational Report, 2023",
+     "topic": "Living standards per person",
+     "source": "Treasury, Intergenerational Report 2023, Appendix A4",
+     "url": "https://treasury.gov.au/sites/default/files/2023-08/p2023-435150.pdf",
+     "finding": "With net migration 50,000 a year higher from 2031–32 (combined with higher fertility), the economy would be about 7¾% larger by 2062–63, but real GDP per person would be almost unchanged: $131,900 against $131,800 in the baseline, or $131,500 with lower migration. Gross debt would be lower (25.4% of GDP against 32.1%). No productivity effect is modelled."
+    },
+    {
+     "key": "pcpc",
+     "short": "Productivity Commission, 2016",
+     "topic": "Living standards per person",
+     "source": "Productivity Commission, Migrant Intake into Australia (2016)",
+     "url": "https://www.pc.gov.au/inquiries/completed/migrant-intake/report",
+     "finding": "Its illustrative modelling found migration at the long-run average would leave GDP per person about 7% higher by 2060 than zero net migration, mainly because migrants are younger. It cautions that GDP per person is an incomplete measure of wellbeing, and that income kept by Australians can gain less than GDP."
+    },
+    {
+     "key": "breunig",
+     "short": "Breunig et al., 2017",
+     "topic": "Wages and jobs",
+     "source": "Breunig, Deutscher and To, Economic Record 93(301), 2017",
+     "url": "https://researchportalplus.anu.edu.au/en/publications/the-relationship-between-immigration-to-australia-and-the-labour-/",
+     "finding": "Studying 2001–2013, the authors found almost no evidence that immigration harmed the wages or employment of people born in Australia, once education and experience are taken into account."
+    },
+    {
+     "key": "dustmann",
+     "short": "Brell and Dustmann, 2019",
+     "topic": "Wages and jobs",
+     "source": "Brell and Dustmann, Reserve Bank of Australia Annual Conference (2019)",
+     "url": "https://www.rba.gov.au/publications/confs/2019/pdf/christian-dustmann.pdf",
+     "finding": "Reviewing the Australian research, they describe the evidence as sparse but generally not showing harm to average wages or to the wages of low-skilled Australians."
+    },
+    {
+     "key": "pcwages",
+     "short": "Productivity Commission, 2016",
+     "topic": "Wages and jobs",
+     "source": "Productivity Commission, Migrant Intake into Australia (2016)",
+     "url": "https://www.pc.gov.au/inquiries/completed/migrant-intake/report",
+     "finding": "Found recent migration had a negligible effect on the wages, employment and participation of existing workers overall, while noting earlier findings that specific groups of workers could face higher unemployment or slower wage growth."
+    },
+    {
+     "key": "review",
+     "short": "Migration Review, 2023",
+     "topic": "Wages and jobs",
+     "source": "Review of the Migration System, Final Report (2023)",
+     "url": "https://www.homeaffairs.gov.au/reports-and-pubs/files/review-migration-system-final-report.pdf",
+     "finding": "Found clear evidence of systemic exploitation of temporary migrant workers and warned of an emerging 'permanently temporary' group. Temporary migrant numbers had doubled since 2007 to about 1.8 million."
+    },
+    {
+     "key": "rba",
+     "short": "RBA, 2025",
+     "topic": "Housing and rents",
+     "source": "Reserve Bank of Australia, Bulletin, International Students and the Australian Economy (July 2025)",
+     "url": "https://www.rba.gov.au/publications/bulletin/2025/jul/international-students-and-the-australian-economy.html",
+     "finding": "The RBA's housing models suggest a 50,000 increase in population would raise private rents by about 0.5%. Newcomers add to demand for housing and goods sooner than they add to supply, though the two effects largely offset over the medium term."
+    },
+    {
+     "key": "rba19",
+     "short": "RBA, 2019",
+     "topic": "Housing and rents",
+     "source": "Saunders and Tulip, Reserve Bank Research Discussion Paper 2019-01",
+     "url": "https://www.rba.gov.au/publications/rdp/2019/2019-01/model-responses.html",
+     "finding": "The 2005–08 population surge (adult population growth rising from 1.5% to 2.4% a year) left real rents about 9% higher in 2018 than they would otherwise have been."
+    },
+    {
+     "key": "nhsac",
+     "short": "NHSAC, 2025",
+     "topic": "Housing and rents",
+     "source": "National Housing Supply and Affordability Council, State of the Housing System 2025",
+     "url": "https://nhsac.gov.au/sites/nhsac.gov.au/files/2025-05/ar-state-housing-system-2025.pdf",
+     "finding": "About 177,000 homes were completed in 2024, short of underlying demand of about 223,000. The average household was 2.54 people in September 2024."
+    },
+    {
+     "key": "pchousing",
+     "short": "Productivity Commission, 2016",
+     "topic": "Housing and rents",
+     "source": "Productivity Commission, Migrant Intake into Australia (2016)",
+     "url": "https://www.pc.gov.au/inquiries/completed/migrant-intake/report",
+     "finding": "Migration pushes up land and housing prices, which benefits existing owners but lowers living standards for people trying to enter the property market. It also adds to congestion in the major cities, and the Commission found governments had not planned infrastructure well."
+    },
+    {
+     "key": "abs",
+     "short": "ABS, 2025",
+     "topic": "Age and the workforce",
+     "source": "ABS, Overseas Migration, 2024–25",
+     "url": "https://www.abs.gov.au/statistics/people/population/overseas-migration/latest-release",
+     "finding": "Net overseas migration was 306,000 in 2024–25, down from 429,000 a year earlier. The median age of migrant arrivals was 26."
+    },
+    {
+     "key": "igrage",
+     "short": "Intergenerational Report, 2023",
+     "topic": "Age and the workforce",
+     "source": "Treasury, Intergenerational Report 2023",
+     "url": "https://treasury.gov.au/sites/default/files/2023-08/p2023-435150.pdf",
+     "finding": "Migrants are younger than the population on average (76% of new migrants in 2021–22 were aged 15–34, against 27% of the existing population), so migration slows population ageing. Treasury notes it offsets but does not resolve ageing, because migrants age too."
+    }
+   ]
+  }
  }
 }

@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>(function(d){d.className+=" js";var t;try{t=localStorage.getItem("scorecard_theme")}catch(e){}if(t!=="dark"&&t!=="light")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";d.setAttribute("data-theme",t)})(document.documentElement)</script>
-  <title>Build your own budget | The Scorecard</title>
-  <meta name="description" content="Start from the government's own Budget and change any tax or spending line, in dollars or as a share of the economy, to see what it does to the deficit, debt and interest.">
+  <title>Build your own Federal Budget | The Scorecard</title>
+  <meta name="description" content="Start from the government's own Budget and change any tax or spending line, tax rates or migration levels, and see what it does to the deficit, debt, interest and the economy.">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="assets/styles.css?v=20260918f">
+  <link rel="stylesheet" href="assets/styles.css?v=20260918h">
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
@@ -37,8 +37,8 @@
   <section class="page-hero" id="content" tabindex="-1">
     <div class="wrap">
       <p class="eyebrow"><a href="budget.html" class="bb-back">&larr; The Budget</a> &middot; Educational tool</p>
-      <h1>Build your own budget.</h1>
-      <p>You start with the government's current Budget, the same figures as the Budget page. Raise or lower any tax or spending line, in dollars or as a share of the economy, and see straight away what it does to the deficit, debt and interest.</p>
+      <h1>Build your own Federal Budget.</h1>
+      <p>You start with the government's current Budget, the same figures as the Budget page. Raise or lower any tax or spending line, in dollars or as a share of the economy, and see straight away what it does to the deficit, debt and interest. You can also change tax rates, let couples split their income, and see what the evidence says about higher or lower migration.</p>
     </div>
   </section>
 
@@ -104,6 +104,17 @@
           <p class="bb-help" id="bb-rates-method"></p>
         </div>
       </div>
+      <div class="bb-split">
+        <h3 class="bb-sub">Income splitting for couples</h3>
+        <p class="bb-help">Australia taxes each person on their own income. Under income splitting, a couple could add their incomes together and each be taxed on half. Couples with one high earner save the most. Couples who already earn similar amounts save little or nothing.</p>
+        <label class="bb-check" for="bb-split"><input type="checkbox" id="bb-split"> Let couples split their income for tax</label>
+        <p class="bb-help" id="bb-split-cost"></p>
+        <div class="bb-fields bb-couple">
+          <label class="bb-field" for="bb-couple-income"><span>Couple's combined income, $</span><input class="bb-num bb-wide" type="number" id="bb-couple-income" min="0" step="5000" value="150000" inputmode="numeric"></label>
+          <label class="bb-field" for="bb-couple-share"><span>Share earned by the higher earner, %</span><input class="bb-num" type="number" id="bb-couple-share" min="50" max="100" step="5" value="100" inputmode="numeric"></label>
+        </div>
+        <p class="bb-couple-out" id="bb-couple-out" aria-live="polite"></p>
+      </div>
     </section>
 
     <div class="bb-cols">
@@ -133,6 +144,49 @@
       </article>
     </div>
 
+    <section class="bb-mig" id="bb-mig" aria-labelledby="bb-mig-h" hidden>
+      <div class="section-head">
+        <div>
+          <p class="kicker">Migration</p>
+          <h2 id="bb-mig-h">What if more or fewer people came?</h2>
+          <p>Set net migration and the permanent program, and see what the published evidence says would change. These results sit alongside your budget above rather than changing its lines, because migration's effects build up over years, not within one Budget.</p>
+        </div>
+      </div>
+      <div class="bb-cols">
+        <div class="bb-stack">
+          <section class="card" aria-labelledby="bb-mig-flows-h">
+            <h3 class="bb-h" id="bb-mig-flows-h">Net overseas migration</h3>
+            <p class="bb-help">People arriving to stay a year or more, minus people leaving. This is what changes the population.</p>
+            <div id="bb-mig-flows"></div>
+          </section>
+          <section class="card" aria-labelledby="bb-mig-prog-h">
+            <h3 class="bb-h" id="bb-mig-prog-h">Permanent Migration Program</h3>
+            <p class="bb-help">Permanent visas granted each year. Many go to people already living here on temporary visas.</p>
+            <div id="bb-mig-program"></div>
+          </section>
+        </div>
+        <div class="bb-stack">
+          <section class="card bb-mig-out" aria-labelledby="bb-mig-out-h">
+            <h3 class="bb-h" id="bb-mig-out-h">What your settings would mean</h3>
+            <ul class="bb-impact" id="bb-mig-effects" aria-live="polite"></ul>
+          </section>
+          <section class="card" aria-labelledby="bb-mig-temp-h">
+            <h3 class="bb-h" id="bb-mig-temp-h">Temporary visas: budget effect per person</h3>
+            <p class="bb-help">Average net effect on federal and state budgets over each visa holder's stay, in 2018–19 dollars (Treasury, 2021). Student figures leave out the fees students pay to universities.</p>
+            <div class="bb-scroll">
+              <table class="bb-table"><thead><tr><th scope="col">Visa</th><th scope="col" class="num">Per visa holder</th></tr></thead><tbody id="bb-mig-temp"></tbody></table>
+            </div>
+          </section>
+        </div>
+      </div>
+      <section class="card bb-evidence" aria-labelledby="bb-mig-ev-h">
+        <h3 class="bb-h" id="bb-mig-ev-h">The evidence</h3>
+        <p class="bb-help">What official and peer-reviewed research has found, including where it cuts both ways. Open a topic to read the findings and follow each link to the source.</p>
+        <div id="bb-mig-evidence"></div>
+        <p class="bb-note">Limits: the budget figures cover government budgets only, not the wider costs and benefits to people. None of these studies put a dollar figure on congestion, pressure on services or productivity effects. Effects are scaled in a straight line from published scenarios, and the further a setting goes from the forecast, the rougher the estimate.</p>
+      </section>
+    </section>
+
     <div class="bb-actions">
       <button type="button" class="btn btn-red" id="bb-share">Copy link to my budget</button>
       <button type="button" class="btn btn-secondary" id="bb-reset-all">Start again from the Budget</button>
@@ -160,10 +214,10 @@
     </div>
   </footer>
 
-  <script src="assets/config.js?v=20260918f"></script>
+  <script src="assets/config.js?v=20260918h"></script>
   <script src="data/metrics.js"></script>
-  <script src="assets/charts.js?v=20260918f"></script>
-  <script src="assets/site.js?v=20260918f"></script>
-  <script src="assets/budget-builder.js?v=20260918f"></script>
+  <script src="assets/charts.js?v=20260918h"></script>
+  <script src="assets/site.js?v=20260918h"></script>
+  <script src="assets/budget-builder.js?v=20260918h"></script>
 </body>
 </html>
