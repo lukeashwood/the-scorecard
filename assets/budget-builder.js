@@ -256,7 +256,7 @@
   const CP = TX && TX.couples ? TX.couples.cells.map(([a, b, n]) => [a * TX.couples.growth, b * TX.couples.growth, n]) : null;
   const splitGain = (x, y, t) => Math.max(0, personTax(x, t) + personTax(y, t) - 2 * personTax((x + y) / 2, t));
   const splitCost = (t) => CP ? CP.reduce((a, [x, y, n]) => a + n * splitGain(x, y, t), 0) : 0;
-  const pitFromRates = () => base.revenue[I.pit] * (totalTax(rates) - (rates.split ? splitCost(rates) : 0)) / BASE_TOTAL;
+  const pitFromRates = () => base.revenue[I.pit] * totalTax(rates) / BASE_TOTAL - (rates.split ? splitCost(rates) / 1e6 : 0);
   const gstFromRates = () => base.revenue[I.gst] * rates.gst / baseRates.gst;
 
   const ratesBox = document.getElementById("bb-rates");
@@ -350,10 +350,12 @@
     document.getElementById("bb-rates-reset").hidden = JSON.stringify(rates) === JSON.stringify(baseRates);
     // splitting: switch state, national cost, and the couple calculator
     rateUI.split.checked = rates.split;
-    const cost = CP ? splitCost(rates) * base.revenue[I.pit] / BASE_TOTAL : null;
+    const cost = CP ? splitCost(rates) / 1e6 : null;   // $m
     document.getElementById("bb-split-cost").innerHTML = !CP
       ? "The national cost can't be estimated yet, so switching it on for everyone isn't available. The calculator below still works."
-      : `Letting every couple split would cost about <b>${bn(cost / 1e6)} a year</b> in income tax at ${rates.split || JSON.stringify({ ...rates, split: false }) !== JSON.stringify(baseRates) ? "your" : "current"} rates${rates.split ? ", already taken off your income tax line" : ""}.`;
+      : `Letting every couple split would cost roughly <b>${bn(cost, 0)} a year</b> in income tax at ${JSON.stringify({ ...rates, split: false }) !== JSON.stringify(baseRates) ? "your" : "current"} rates${rates.split ? ", already taken off your income tax line" : ""}. ` +
+        `For comparison, the <a href="${TX.couples.pbo.url}">${TX.couples.pbo.source}</a> put the cost of splitting only for ${TX.couples.pbo.design} at ${bn(TX.couples.pbo.cost_m, 1)} in ${TX.couples.pbo.year}. ` +
+        `This estimate uses the <a href="${TX.couples.url}">ATO's ${TX.couples.income_year} sample of couples' incomes</a> (the latest with both partners' incomes), grown to today's wages and scaled to today's ${(TX.couples.count / 1e6).toFixed(1)} million couple families, and assumes nobody changes how much they work. Treat it as a rough guide.`;
     const inc = Math.max(0, Number(document.getElementById("bb-couple-income").value) || 0);
     const share = Math.min(100, Math.max(50, Number(document.getElementById("bb-couple-share").value) || 50)) / 100;
     const a = inc * share, b = inc - a;
