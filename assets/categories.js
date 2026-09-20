@@ -360,7 +360,7 @@
     emissions_target: "Emissions", mortgage: "Mortgage costs", interest_rates: "Interest rates",
     housing_accord: "Housing Accord", home_prices: "Home prices", unemployment: "Unemployment",
     public_private_jobs: "Public/private jobs", jobs_by_sector: "Job creation", productivity: "Productivity",
-    insolvencies: "Insolvencies", consumer_confidence: "Confidence", gdp_per_capita: "GDP per person",
+    insolvencies: "Insolvencies", consumer_confidence: "Confidence", gdp_per_capita: "GDP per capita",
     household_income: "Household income", bulk_billing: "Bulk billing", government_size: "Govt size",
     gross_debt: "Gross debt", budget_balance: "Budget deficit", interest_costs: "Debt interest",
     spending_gdp: "Govt spending", aps_headcount: "Public service", ndis: "NDIS growth",

@@ -798,6 +798,8 @@ def labour_account():
 
 
 LA_SRC = "https://data.api.abs.gov.au/rest/data/ABS,LABOUR_ACCT_Q"
+ABS_PAGES["ANA_AGG"] = ("Australian National Accounts: National Income, Expenditure and Product",
+                       "https://www.abs.gov.au/statistics/economy/national-accounts/australian-national-accounts-national-income-expenditure-and-product/latest-release")
 ABS_PAGES["LABOUR_ACCT_Q"] = ("Labour Account Australia (quarterly)",
                               "https://www.abs.gov.au/statistics/labour/labour-accounts/labour-account-australia/latest-release")
 
@@ -927,34 +929,53 @@ def productivity():
 @metric
 def gdp_per_capita():
     mid = "gdp_per_capita"
-    s = rba_series("h1", "GGDPCVGDPFY", mid)
-    d, v = latest(s)
+    # Both LEVELS come straight from the ABS national accounts: total real GDP and real GDP per capita
+    # (chain volume, seasonally adjusted). The RBA's published growth rates are used as an independent cross-check.
+    g = abs_group(abs_api("ANA_AGG", "M1.GPM+GPM_PCA.20.AUS.Q", "2014-Q1", "abs_ana"), "DATA_ITEM")
+    total, pc = g["GPM"], g["GPM_PCA"]
+    d, _ = latest(pc)
     check_fresh(mid, d, "Q")
-    check_range(mid, "GDP per capita growth", v, -15, 15)
-    after = [x for dd, x in s if dd > BASE_Q]
-    pre = [x for dd, x in s if "2010-03-31" <= dd <= "2019-12-31"]
-    neg = sum(1 for x in after if x < 0)
+    if latest(total)[0] != d:
+        raise RuntimeError("GDP and GDP per capita end in different quarters")
+    ye = lambda s: pct(at(s, f"{int(d[:4]) - 1}{d[4:]}")[1], latest(s)[1])
+    rba_pc, rba_tot = latest(rba_series("h1", "GGDPCVGDPFY", mid)), latest(rba_series("h1", "GGDPCVGDPY", mid))
+    if rba_pc[0] == d:
+        check_cross(mid, "year-ended GDP per capita growth", ye(pc), rba_pc[1], 0.15, "ABS levels", "RBA Table H1")
+        check_cross(mid, "year-ended GDP growth", ye(total), rba_tot[1], 0.15, "ABS levels", "RBA Table H1")
+    pc_i, tot_i = rebase(pc, BASE_Q), rebase(total, BASE_Q)
+    pc_chg, tot_chg = latest(pc_i)[1] - 100, latest(tot_i)[1] - 100
+    check_range(mid, "GDP per capita change since June qtr 2022", pc_chg, -15, 25)
+    pop_chg = ((100 + tot_chg) / (100 + pc_chg) - 1) * 100
+    after = [x for x in pc if x[0] >= BASE_Q]
+    falls = sum(1 for a, b in zip(after, after[1:]) if b[1] < a[1])
     return {
-        "id": mid, "section": "living", "title": "GDP per person",
-        "question": "Is the economy growing for each Australian, or only because the population is growing?",
-        "headline": {"value": v, "unit": "%", "decimals": 1, "signed": True, "period": label(d, "Q"),
-                     "caption": "annual growth in real GDP per person"},
-        "benchmark": {"label": "2010–2019 average", "text": f"{signed(mean(pre))}% a year"},
-        "baseline": {"label": "June quarter 2022", "value": at(s, BASE_Q)[1], "unit": "%"},
-        "status": status_of(mean(after) < mean(pre)),
-        "status_rule": "Off track if average annual per-person GDP growth since the election is below the 2010–2019 average.",
+        "id": mid, "section": "living", "title": "GDP per capita vs total GDP",
+        "question": "Is the economy growing for each Australian, or only because there are more Australians?",
+        "headline": {"value": round(pc_chg, 1), "unit": "%", "decimals": 1, "signed": True,
+                     "period": f"{label(BASE_Q, 'Q')} → {label(d, 'Q')}",
+                     "caption": f"change in real GDP per person since the government took office, while total GDP grew {signed(tot_chg)}%"},
+        "benchmark": {"label": "Total GDP, same period", "text": f"{signed(tot_chg)}%"},
+        "baseline": {"label": "June quarter 2022", "value": 100, "unit": "index"},
+        "status": status_of(pc_chg < 0),
+        "status_rule": "Off track if real GDP per person is below its June quarter 2022 level.",
         "context": [
-            f"Average growth since the government took office: {signed(mean(after))}% a year, compared with {signed(mean(pre))}% in 2010–2019.",
-            f"Per-person GDP was lower than a year earlier in {neg} of the {len(after)} quarterly readings since the election.",
-            f"Total GDP grew {fmt(latest(rba_series('h1', 'GGDPCVGDPY', mid))[1])}% over the latest year. The gap is population growth.",
+            f"Since the June quarter 2022 the economy as a whole has grown {signed(tot_chg)}%, but output per person has changed by {signed(pc_chg)}%.",
+            f"The gap is population growth of about {fmt(pop_chg)}% over the same period: the economy is bigger mainly because there are more people in it.",
+            f"Over the latest year, total GDP grew {signed(ye(total))}% and GDP per person {signed(ye(pc))}%.",
+            f"GDP per person fell in {falls} of the {len(after) - 1} quarters since the government took office.",
+            f"Real GDP per person was ${latest(pc)[1]:,.0f} in the {label(d, 'Q')}, compared with ${at(pc, BASE_Q)[1]:,.0f} in the June quarter 2022 (chain volume dollars, per quarter).",
         ],
-        "chart": {"kind": "bar", "unit": "%", "decimals": 1,
-                  "series": [{"name": "Real GDP per capita, year-ended growth", "role": "primary", "points": rnd(since(s, "2015-01-01"), 1)}],
-                  "ref": [{"value": 0, "label": ""}]},
-        "sources": [src_rba("h1", ["GGDPCVGDPFY", "GGDPCVGDPY"])],
-        "method": "Year-ended growth in real (chain volume) GDP per capita, seasonally adjusted, ABS national accounts via RBA Table H1. Averages are simple means of quarterly year-ended readings.",
+        "chart": {"kind": "line", "unit": "index", "decimals": 1,
+                  "series": [{"name": "GDP per capita", "role": "primary", "points": since(pc_i, "2015-01-01")},
+                             {"name": "Total GDP", "role": "accent", "points": since(tot_i, "2015-01-01")}],
+                  "ref": [{"value": 100, "label": "June qtr 2022 = 100"}],
+                  "note": "Real (inflation-adjusted) GDP and real GDP per person, seasonally adjusted, each set to 100 in the June quarter 2022. When the total line rises faster than the per-person line, the difference is population growth."},
+        "sources": [src_abs("ANA_AGG", ["Gross domestic product: chain volume measures, seasonally adjusted (GPM)",
+                                        "GDP per capita: chain volume measures, seasonally adjusted (GPM_PCA)"],
+                            "https://data.api.abs.gov.au/rest/data/ABS,ANA_AGG/M1.GPM+GPM_PCA.20.AUS.Q"),
+                    src_rba("h1", ["GGDPCVGDPFY", "GGDPCVGDPY"])],
+        "method": "Real (chain volume) GDP and real GDP per capita, seasonally adjusted, from the ABS national accounts key aggregates, each rebased so the June quarter 2022 equals 100. Year-ended growth calculated from these levels is cross-checked against the rates the RBA publishes in Table H1.",
     }
-
 
 @metric
 def household_income():

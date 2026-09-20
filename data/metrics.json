@@ -5166,237 +5166,441 @@
   {
    "id": "gdp_per_capita",
    "section": "living",
-   "title": "GDP per person",
-   "question": "Is the economy growing for each Australian, or only because the population is growing?",
+   "title": "GDP per capita vs total GDP",
+   "question": "Is the economy growing for each Australian, or only because there are more Australians?",
    "headline": {
-    "value": 0.7,
+    "value": -0.2,
     "unit": "%",
     "decimals": 1,
     "signed": true,
-    "period": "June quarter 2026",
-    "caption": "annual growth in real GDP per person"
+    "period": "June quarter 2022 → June quarter 2026",
+    "caption": "change in real GDP per person since the government took office, while total GDP grew +7.4%"
    },
    "benchmark": {
-    "label": "2010–2019 average",
-    "text": "+1.0% a year"
+    "label": "Total GDP, same period",
+    "text": "+7.4%"
    },
    "baseline": {
     "label": "June quarter 2022",
-    "value": 2.5,
-    "unit": "%"
+    "value": 100,
+    "unit": "index"
    },
    "status": "fail",
-   "status_rule": "Off track if average annual per-person GDP growth since the election is below the 2010–2019 average.",
+   "status_rule": "Off track if real GDP per person is below its June quarter 2022 level.",
    "context": [
-    "Average growth since the government took office: +0.3% a year, compared with +1.0% in 2010–2019.",
-    "Per-person GDP was lower than a year earlier in 8 of the 16 quarterly readings since the election.",
-    "Total GDP grew 2.1% over the latest year. The gap is population growth.",
-    "The ABS confirmed GDP per person fell for seven consecutive quarters before growing 0.1% in the December quarter 2024."
+    "Since the June quarter 2022 the economy as a whole has grown +7.4%, but output per person has changed by −0.2%.",
+    "The gap is population growth of about 7.7% over the same period: the economy is bigger mainly because there are more people in it.",
+    "Over the latest year, total GDP grew +2.1% and GDP per person +0.7%.",
+    "GDP per person fell in 10 of the 16 quarters since the government took office.",
+    "Real GDP per person was $24,971 in the June quarter 2026, compared with $25,034 in the June quarter 2022 (chain volume dollars, per quarter)."
    ],
    "chart": {
-    "kind": "bar",
-    "unit": "%",
+    "kind": "line",
+    "unit": "index",
     "decimals": 1,
     "series": [
      {
-      "name": "Real GDP per capita, year-ended growth",
+      "name": "GDP per capita",
       "role": "primary",
       "points": [
        [
         "2015-03-31",
-        0.8
+        92.02
        ],
        [
         "2015-06-30",
-        0.4
+        91.79
        ],
        [
         "2015-09-30",
-        1.0
+        92.36
        ],
        [
         "2015-12-31",
-        1.2
+        92.57
        ],
        [
         "2016-03-31",
-        1.1
+        93.06
        ],
        [
         "2016-06-30",
-        1.6
+        93.27
        ],
        [
         "2016-09-30",
-        0.6
+        92.88
        ],
        [
         "2016-12-31",
-        1.1
+        93.56
        ],
        [
         "2017-03-31",
-        0.5
+        93.49
        ],
        [
         "2017-06-30",
-        0.4
+        93.65
        ],
        [
         "2017-09-30",
-        1.4
+        94.19
        ],
        [
         "2017-12-31",
-        0.7
+        94.24
        ],
        [
         "2018-03-31",
-        1.5
+        94.88
        ],
        [
         "2018-06-30",
-        1.6
+        95.17
        ],
        [
         "2018-09-30",
-        1.0
+        95.14
        ],
        [
         "2018-12-31",
-        0.8
+        95.03
        ],
        [
         "2019-03-31",
-        0.6
+        95.44
        ],
        [
         "2019-06-30",
-        0.2
+        95.35
        ],
        [
         "2019-09-30",
-        0.4
+        95.51
        ],
        [
         "2019-12-31",
-        0.7
+        95.72
        ],
        [
         "2020-03-31",
-        -0.2
+        95.29
        ],
        [
         "2020-06-30",
-        -7.0
+        88.67
        ],
        [
         "2020-09-30",
-        -3.9
+        91.77
        ],
        [
         "2020-12-31",
-        -0.9
+        94.89
        ],
        [
         "2021-03-31",
-        1.9
+        97.06
        ],
        [
         "2021-06-30",
-        10.1
+        97.59
        ],
        [
         "2021-09-30",
-        4.4
+        95.79
        ],
        [
         "2021-12-31",
-        4.3
+        99.02
        ],
        [
         "2022-03-31",
-        2.6
+        99.59
        ],
        [
         "2022-06-30",
-        2.5
+        100.0
        ],
        [
         "2022-09-30",
-        4.3
+        99.88
        ],
        [
         "2022-12-31",
-        1.1
+        100.12
        ],
        [
         "2023-03-31",
-        0.5
+        100.07
        ],
        [
         "2023-06-30",
-        -0.2
+        99.78
        ],
        [
         "2023-09-30",
-        -0.4
+        99.53
        ],
        [
         "2023-12-31",
-        -1.1
+        99.05
        ],
        [
         "2024-03-31",
-        -1.1
+        98.93
        ],
        [
         "2024-06-30",
-        -1.1
+        98.72
        ],
        [
         "2024-09-30",
-        -0.9
+        98.62
        ],
        [
         "2024-12-31",
-        -0.4
+        98.69
        ],
        [
         "2025-03-31",
-        -0.3
+        98.68
        ],
        [
         "2025-06-30",
-        0.4
+        99.07
        ],
        [
         "2025-09-30",
-        0.6
+        99.2
        ],
        [
         "2025-12-31",
-        1.1
+        99.76
        ],
        [
         "2026-03-31",
-        1.0
+        99.71
        ],
        [
         "2026-06-30",
-        0.7
+        99.75
+       ]
+      ]
+     },
+     {
+      "name": "Total GDP",
+      "role": "accent",
+      "points": [
+       [
+        "2015-03-31",
+        83.94
+       ],
+       [
+        "2015-06-30",
+        84.02
+       ],
+       [
+        "2015-09-30",
+        84.85
+       ],
+       [
+        "2015-12-31",
+        85.37
+       ],
+       [
+        "2016-03-31",
+        86.16
+       ],
+       [
+        "2016-06-30",
+        86.71
+       ],
+       [
+        "2016-09-30",
+        86.72
+       ],
+       [
+        "2016-12-31",
+        87.72
+       ],
+       [
+        "2017-03-31",
+        88.01
+       ],
+       [
+        "2017-06-30",
+        88.52
+       ],
+       [
+        "2017-09-30",
+        89.36
+       ],
+       [
+        "2017-12-31",
+        89.71
+       ],
+       [
+        "2018-03-31",
+        90.67
+       ],
+       [
+        "2018-06-30",
+        91.31
+       ],
+       [
+        "2018-09-30",
+        91.66
+       ],
+       [
+        "2018-12-31",
+        91.88
+       ],
+       [
+        "2019-03-31",
+        92.6
+       ],
+       [
+        "2019-06-30",
+        92.84
+       ],
+       [
+        "2019-09-30",
+        93.37
+       ],
+       [
+        "2019-12-31",
+        93.92
+       ],
+       [
+        "2020-03-31",
+        93.78
+       ],
+       [
+        "2020-06-30",
+        87.41
+       ],
+       [
+        "2020-09-30",
+        90.41
+       ],
+       [
+        "2020-12-31",
+        93.51
+       ],
+       [
+        "2021-03-31",
+        95.62
+       ],
+       [
+        "2021-06-30",
+        96.33
+       ],
+       [
+        "2021-09-30",
+        94.64
+       ],
+       [
+        "2021-12-31",
+        98.12
+       ],
+       [
+        "2022-03-31",
+        99.1
+       ],
+       [
+        "2022-06-30",
+        100.0
+       ],
+       [
+        "2022-09-30",
+        100.46
+       ],
+       [
+        "2022-12-31",
+        101.31
+       ],
+       [
+        "2023-03-31",
+        101.89
+       ],
+       [
+        "2023-06-30",
+        102.25
+       ],
+       [
+        "2023-09-30",
+        102.63
+       ],
+       [
+        "2023-12-31",
+        102.66
+       ],
+       [
+        "2024-03-31",
+        103.01
+       ],
+       [
+        "2024-06-30",
+        103.19
+       ],
+       [
+        "2024-09-30",
+        103.47
+       ],
+       [
+        "2024-12-31",
+        103.92
+       ],
+       [
+        "2025-03-31",
+        104.33
+       ],
+       [
+        "2025-06-30",
+        105.15
+       ],
+       [
+        "2025-09-30",
+        105.67
+       ],
+       [
+        "2025-12-31",
+        106.64
+       ],
+       [
+        "2026-03-31",
+        106.94
+       ],
+       [
+        "2026-06-30",
+        107.39
        ]
       ]
      }
     ],
     "ref": [
      {
-      "value": 0,
-      "label": ""
+      "value": 100,
+      "label": "June qtr 2022 = 100"
      }
-    ]
+    ],
+    "note": "Real (inflation-adjusted) GDP and real GDP per person, seasonally adjusted, each set to 100 in the June quarter 2022. When the total line rises faster than the per-person line, the difference is population growth."
    },
    "sources": [
+    {
+     "publisher": "Australian Bureau of Statistics",
+     "title": "Australian National Accounts: National Income, Expenditure and Product",
+     "url": "https://www.abs.gov.au/statistics/economy/national-accounts/australian-national-accounts-national-income-expenditure-and-product/latest-release",
+     "data_url": "https://data.api.abs.gov.au/rest/data/ABS,ANA_AGG/M1.GPM+GPM_PCA.20.AUS.Q",
+     "series": [
+      "Gross domestic product: chain volume measures, seasonally adjusted (GPM)",
+      "GDP per capita: chain volume measures, seasonally adjusted (GPM_PCA)"
+     ],
+     "retrieved_at": "2026-09-20T16:21:24+00:00",
+     "automated": true
+    },
     {
      "publisher": "Reserve Bank of Australia",
      "title": "Statistical Table H1 – Gross Domestic Product and Income",
@@ -5407,26 +5611,17 @@
       "GGDPCVGDPY"
      ],
      "published": "03-Sep-2026",
-     "retrieved_at": "2026-09-20T07:55:03+00:00",
+     "retrieved_at": "2026-09-20T16:21:24+00:00",
      "automated": true
-    },
-    {
-     "publisher": "Australian Bureau of Statistics",
-     "title": "Media release: Australian economy grew 0.6 per cent in December quarter (2024)",
-     "url": "https://www.abs.gov.au/media-centre/media-releases/australian-economy-grew-06-cent-december-quarter",
-     "published": "2025-03-05",
-     "accessed": "2026-09-14",
-     "automated": false
     }
    ],
-   "method": "Year-ended growth in real (chain volume) GDP per capita, seasonally adjusted, ABS national accounts via RBA Table H1. Averages are simple means of quarterly year-ended readings.",
+   "method": "Real (chain volume) GDP and real GDP per capita, seasonally adjusted, from the ABS national accounts key aggregates, each rebased so the June quarter 2022 equals 100. Year-ended growth calculated from these levels is cross-checked against the rates the RBA publishes in Table H1.",
    "automated": true,
-   "updated_at": "2026-09-20T07:55:03+00:00",
+   "updated_at": "2026-09-20T16:21:24+00:00",
    "explainer": {
-    "what": "Gross domestic product (the total value of everything the economy produces), adjusted for inflation and divided by the population. This figure is the change over the past year.",
-    "why": "Total GDP can grow just because the population grows. GDP per person shows whether the economy is growing for each Australian. When it falls for two quarters in a row, it is often called a 'per capita recession'."
-   },
-   "promise": null
+    "what": "GDP is the total value of everything the economy produces. GDP per capita divides that by the population, so it shows output per person. Both are adjusted for inflation.",
+    "why": "Total GDP can grow simply because the population grows. GDP per capita is the better guide to whether the average person's share of the economy, and so living standards, is rising or falling."
+   }
   },
   {
    "id": "household_income",
