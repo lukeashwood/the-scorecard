@@ -943,7 +943,8 @@ def gdp_per_capita():
         check_cross(mid, "year-ended GDP per capita growth", ye(pc), rba_pc[1], 0.15, "ABS levels", "RBA Table H1")
         check_cross(mid, "year-ended GDP growth", ye(total), rba_tot[1], 0.15, "ABS levels", "RBA Table H1")
     pc_i, tot_i = rebase(pc, BASE_Q), rebase(total, BASE_Q)
-    pc_chg, tot_chg = latest(pc_i)[1] - 100, latest(tot_i)[1] - 100
+    # Changes are taken from the unrounded ABS levels, not from the rounded index, so every page shows the same figure.
+    pc_chg, tot_chg = pct(at(pc, BASE_Q)[1], latest(pc)[1]), pct(at(total, BASE_Q)[1], latest(total)[1])
     check_range(mid, "GDP per capita change since June qtr 2022", pc_chg, -15, 25)
     pop_chg = ((100 + tot_chg) / (100 + pc_chg) - 1) * 100
     after = [x for x in pc if x[0] >= BASE_Q]

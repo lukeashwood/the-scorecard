@@ -5169,7 +5169,7 @@
    "title": "GDP per capita vs total GDP",
    "question": "Is the economy growing for each Australian, or only because there are more Australians?",
    "headline": {
-    "value": -0.2,
+    "value": -0.3,
     "unit": "%",
     "decimals": 1,
     "signed": true,
@@ -5188,7 +5188,7 @@
    "status": "fail",
    "status_rule": "Off track if real GDP per person is below its June quarter 2022 level.",
    "context": [
-    "Since the June quarter 2022 the economy as a whole has grown +7.4%, but output per person has changed by −0.2%.",
+    "Since the June quarter 2022 the economy as a whole has grown +7.4%, but output per person has changed by −0.3%.",
     "The gap is population growth of about 7.7% over the same period: the economy is bigger mainly because there are more people in it.",
     "Over the latest year, total GDP grew +2.1% and GDP per person +0.7%.",
     "GDP per person fell in 10 of the 16 quarters since the government took office.",
@@ -5598,7 +5598,7 @@
       "Gross domestic product: chain volume measures, seasonally adjusted (GPM)",
       "GDP per capita: chain volume measures, seasonally adjusted (GPM_PCA)"
      ],
-     "retrieved_at": "2026-09-20T16:21:24+00:00",
+     "retrieved_at": "2026-09-20T16:23:10+00:00",
      "automated": true
     },
     {
@@ -5611,13 +5611,13 @@
       "GGDPCVGDPY"
      ],
      "published": "03-Sep-2026",
-     "retrieved_at": "2026-09-20T16:21:24+00:00",
+     "retrieved_at": "2026-09-20T16:23:10+00:00",
      "automated": true
     }
    ],
    "method": "Real (chain volume) GDP and real GDP per capita, seasonally adjusted, from the ABS national accounts key aggregates, each rebased so the June quarter 2022 equals 100. Year-ended growth calculated from these levels is cross-checked against the rates the RBA publishes in Table H1.",
    "automated": true,
-   "updated_at": "2026-09-20T16:21:24+00:00",
+   "updated_at": "2026-09-20T16:23:10+00:00",
    "explainer": {
     "what": "GDP is the total value of everything the economy produces. GDP per capita divides that by the population, so it shows output per person. Both are adjusted for inflation.",
     "why": "Total GDP can grow simply because the population grows. GDP per capita is the better guide to whether the average person's share of the economy, and so living standards, is rising or falling."
