@@ -1,10 +1,10 @@
 {
  "latest": {
-  "generated_at": "2026-09-22T07:56:35+00:00",
+  "generated_at": "2026-09-23T07:57:21+00:00",
   "checks_total": 457,
-  "checks_passed": 410,
-  "checks_warn": 38,
-  "checks_failed": 9,
+  "checks_passed": 347,
+  "checks_warn": 96,
+  "checks_failed": 14,
   "metrics_total": 30,
   "metrics_off_track": 26,
   "metrics_watch": 2,
@@ -30,7 +30,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-07-31 (53 days old)"
+    "detail": "latest observation 2026-07-31 (54 days old)"
    },
    {
     "metric": "inflation",
@@ -51,7 +51,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-06-30 (84 days old)"
+    "detail": "latest observation 2026-06-30 (85 days old)"
    },
    {
     "metric": "prices_vs_wages",
@@ -121,7 +121,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-06-30 (84 days old)"
+    "detail": "latest observation 2026-06-30 (85 days old)"
    },
    {
     "metric": "real_wages",
@@ -156,7 +156,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-06-30 (84 days old)"
+    "detail": "latest observation 2026-06-30 (85 days old)"
    },
    {
     "metric": "electricity",
@@ -170,7 +170,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-07-31 (53 days old)"
+    "detail": "latest observation 2026-07-31 (54 days old)"
    },
    {
     "metric": "mortgage",
@@ -212,7 +212,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-07-31 (53 days old)"
+    "detail": "latest observation 2026-07-31 (54 days old)"
    },
    {
     "metric": "unemployment",
@@ -233,7 +233,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-06-30 (84 days old)"
+    "detail": "latest observation 2026-06-30 (85 days old)"
    },
    {
     "metric": "public_private_jobs",
@@ -261,7 +261,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-06-30 (84 days old)"
+    "detail": "latest observation 2026-06-30 (85 days old)"
    },
    {
     "metric": "jobs_by_sector",
@@ -282,7 +282,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-06-30 (84 days old)"
+    "detail": "latest observation 2026-06-30 (85 days old)"
    },
    {
     "metric": "productivity",
@@ -296,7 +296,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-06-30 (84 days old)"
+    "detail": "latest observation 2026-06-30 (85 days old)"
    },
    {
     "metric": "gdp_per_capita",
@@ -324,7 +324,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-03-31 (175 days old)"
+    "detail": "latest observation 2026-03-31 (176 days old)"
    },
    {
     "metric": "household_income",
@@ -338,7 +338,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-06-30 (84 days old)"
+    "detail": "latest observation 2026-06-30 (85 days old)"
    },
    {
     "metric": "government_size",
@@ -352,7 +352,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-03-31 (175 days old)"
+    "detail": "latest observation 2026-03-31 (176 days old)"
    },
    {
     "metric": "housing_accord",
@@ -366,7 +366,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-06-30 (84 days old)"
+    "detail": "latest observation 2026-06-30 (85 days old)"
    },
    {
     "metric": "home_prices",
@@ -380,7 +380,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-03-31 (175 days old)"
+    "detail": "latest observation 2026-03-31 (176 days old)"
    },
    {
     "metric": "migration",
@@ -567,9 +567,9 @@
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://anic.org.au/anic-appalled-and-deeply-concerned-by-the-combating-antisemitism-hate-and-extremism-legislation/"
+    "detail": "https://anic.org.au/anic-appalled-and-deeply-concerned-by-the-combating-antisemitism-hate-and-extremism-legislation/ returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
@@ -679,9 +679,9 @@
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "fail",
     "critical": false,
-    "detail": "https://demosau.com/news/superannuation-tax-changes/"
+    "detail": "https://demosau.com/news/superannuation-tax-changes/ returned 202"
    },
    {
     "metric": "sources",
@@ -812,9 +812,9 @@
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "fail",
     "critical": false,
-    "detail": "https://libertyvictoria.org.au/joint-media-statement-federal-governments-approach-to-building-community-harmony-will-do-real-harm-nsw-council-for-civil-liberties-liberty-victoria-and-queensland-council-for-civil-libert/"
+    "detail": "https://libertyvictoria.org.au/joint-media-statement-federal-governments-approach-to-building-community-harmony-will-do-real-harm-nsw-council-for-civil-liberties-liberty-victoria-and-queensland-council-for-civil-libert/ returned 202"
    },
    {
     "metric": "sources",
@@ -1106,16 +1106,16 @@
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "fail",
     "critical": false,
-    "detail": "https://transparency.org.au/joint-statement-on-the-national-anti-corruption-commission-bill-2022/"
+    "detail": "https://transparency.org.au/joint-statement-on-the-national-anti-corruption-commission-bill-2022/ returned 202"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "fail",
     "critical": false,
-    "detail": "https://transparency.org.au/joint-submission-whistle-blower-protections/"
+    "detail": "https://transparency.org.au/joint-submission-whistle-blower-protections/ returned 202"
    },
    {
     "metric": "sources",
@@ -1995,401 +1995,401 @@
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6885"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6885 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6887"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6887 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6917"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6917 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6941"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6941 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6958"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6958 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7019"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7019 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7048"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7048 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7123"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7123 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7126"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7126 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7133"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7133 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7134"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7134 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7140"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7140 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7179"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7179 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7192"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7192 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7219"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7219 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7238"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7238 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7239"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7239 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7240"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7240 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7249"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7249 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7275"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7275 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7276"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7276 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7279"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7279 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7280"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7280 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7284"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7284 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7301"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7301 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7316"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7316 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7335"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7335 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7339"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7339 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7342"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7342 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7371"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7371 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7398"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7398 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7422"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7422 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7437"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7437 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7447"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7447 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7448"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7448 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7454"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7454 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7459"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7459 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7467"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7467 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7487"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7487 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7493"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7493 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7496"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7496 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7501"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7501 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7512"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7512 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7520"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7520 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7527"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7527 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7528"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7528 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7536"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7536 returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Committees/Joint/Intelligence_and_Security/ASIOBill22025/Submissions"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Committees/Joint/Intelligence_and_Security/ASIOBill22025/Submissions returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Committees/Joint/Intelligence_and_Security/CASHEBILL26/Report/Chapter_1_-_Committee_report"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Committees/Joint/Intelligence_and_Security/CASHEBILL26/Report/Chapter_1_-_Committee_report returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Economics/HelptoBuyBills2023/Report"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Economics/HelptoBuyBills2023/Report returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Environment_and_Communications/EPRBill48P/Report/Chapter_1_-_Introduction_and_background"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Environment_and_Communications/EPRBill48P/Report/Chapter_1_-_Introduction_and_background returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Environment_and_Communications/GamblingReform48P/Report"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Environment_and_Communications/GamblingReform48P/Report returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Environment_and_Communications/MisandDisinfobill/Report/Chapter_1_-_Introduction"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Environment_and_Communications/MisandDisinfobill/Report/Chapter_1_-_Introduction returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Environment_and_Communications/NaturePositivebills/Report/Chapter_1_-_Introduction"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Environment_and_Communications/NaturePositivebills/Report/Chapter_1_-_Introduction returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Legal_and_Constitutional_Affairs/HateCrimes47/Submissions"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Legal_and_Constitutional_Affairs/HateCrimes47/Submissions returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Legal_and_Constitutional_Affairs/MigrationAmendment24/Submissions"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Legal_and_Constitutional_Affairs/MigrationAmendment24/Submissions returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "warn",
     "critical": false,
-    "detail": "https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Legal_and_Constitutional_Affairs/MigrationAmendment47/Report/Chapter_1_-_Introduction"
+    "detail": "https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Legal_and_Constitutional_Affairs/MigrationAmendment47/Report/Chapter_1_-_Introduction returned 403 to automated check (site blocks bots). Verify manually"
    },
    {
     "metric": "sources",
@@ -3045,9 +3045,9 @@
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "pass",
+    "status": "fail",
     "critical": false,
-    "detail": "https://www.refugeecouncil.org.au/new-bill-search-and-seizure-powers-immigration-detention/"
+    "detail": "https://www.refugeecouncil.org.au/new-bill-search-and-seizure-powers-immigration-detention/ returned 202"
    },
    {
     "metric": "sources",
@@ -3214,121 +3214,249 @@
   "sources": {
    "rba_g1": {
     "url": "https://www.rba.gov.au/statistics/tables/csv/g1-data.csv",
-    "retrieved_at": "2026-09-22T07:56:35+00:00",
+    "retrieved_at": "2026-09-23T07:57:21+00:00",
     "bytes": 39905,
     "published": "30-Jul-2026"
    },
    "abs_cpi_allgroups": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,CPI/1.10001.10.50.Q?startPeriod=2020-Q1&format=csv",
-    "retrieved_at": "2026-09-22T07:56:35+00:00",
+    "retrieved_at": "2026-09-23T07:57:21+00:00",
     "bytes": 1547
    },
    "abs_cpi_monthly": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,CPI/1+3.10001.10.50.M?startPeriod=2024-01&format=csv",
-    "retrieved_at": "2026-09-22T07:56:35+00:00",
+    "retrieved_at": "2026-09-23T07:57:21+00:00",
     "bytes": 2525
    },
    "abs_cpi_groups": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,CPI/1.40055+115528+115522+115498+20001+115486+115493+40081+10001.10.50.Q?startPeriod=2015-Q1&format=csv",
-    "retrieved_at": "2026-09-22T07:56:35+00:00",
+    "retrieved_at": "2026-09-23T07:57:21+00:00",
     "bytes": 23162
    },
    "abs_wpi": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,WPI/1.THRPEB.1+2+7.TOT.10.AUS.Q?startPeriod=2010-Q1&format=csv",
-    "retrieved_at": "2026-09-22T07:56:35+00:00",
+    "retrieved_at": "2026-09-23T07:57:21+00:00",
     "bytes": 11978
    },
    "rba_h4": {
     "url": "https://www.rba.gov.au/statistics/tables/csv/h4-data.csv",
-    "retrieved_at": "2026-09-22T07:56:35+00:00",
+    "retrieved_at": "2026-09-23T07:57:21+00:00",
     "bytes": 19176,
     "published": "20-Aug-2026"
    },
    "rba_f6": {
     "url": "https://www.rba.gov.au/statistics/tables/csv/f6-data.csv",
-    "retrieved_at": "2026-09-22T07:56:35+00:00",
+    "retrieved_at": "2026-09-23T07:57:21+00:00",
     "bytes": 37668,
     "published": "07-Sep-2026"
    },
    "rba_f1.1": {
     "url": "https://www.rba.gov.au/statistics/tables/csv/f1.1-data.csv",
-    "retrieved_at": "2026-09-22T07:56:35+00:00",
+    "retrieved_at": "2026-09-23T07:57:21+00:00",
     "bytes": 43807,
     "published": "01-Sep-2026"
    },
    "rba_a2": {
     "url": "https://www.rba.gov.au/statistics/tables/csv/a2-data.csv",
-    "retrieved_at": "2026-09-22T07:56:35+00:00",
+    "retrieved_at": "2026-09-23T07:57:21+00:00",
     "bytes": 5236,
     "published": "11-Aug-2026"
    },
    "rba_h3": {
     "url": "https://www.rba.gov.au/statistics/tables/csv/h3-data.csv",
-    "retrieved_at": "2026-09-22T07:56:35+00:00",
+    "retrieved_at": "2026-09-23T07:57:21+00:00",
     "bytes": 28751,
     "published": "2-Sep-26"
    },
    "rba_h5": {
     "url": "https://www.rba.gov.au/statistics/tables/csv/h5-data.csv",
-    "retrieved_at": "2026-09-22T07:56:35+00:00",
+    "retrieved_at": "2026-09-23T07:57:21+00:00",
     "bytes": 72962,
     "published": "21-Aug-2026"
    },
    "abs_lf_ur": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,LF/M13.3.1599.20.AUS.M?startPeriod=2025-01&format=csv",
-    "retrieved_at": "2026-09-22T07:56:35+00:00",
+    "retrieved_at": "2026-09-23T07:57:21+00:00",
     "bytes": 1336
    },
    "abs_labour_account": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,LABOUR_ACCT_Q/M12+M13+M14.AUS..20.Q?startPeriod=2015-Q1&format=csv",
-    "retrieved_at": "2026-09-22T07:56:35+00:00",
+    "retrieved_at": "2026-09-23T07:57:21+00:00",
     "bytes": 203949
    },
    "abs_ana": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,ANA_AGG/M1.GPM+GPM_PCA.20.AUS.Q?startPeriod=2014-Q1&format=csv",
-    "retrieved_at": "2026-09-22T07:56:35+00:00",
+    "retrieved_at": "2026-09-23T07:57:21+00:00",
     "bytes": 6164
    },
    "rba_h1": {
     "url": "https://www.rba.gov.au/statistics/tables/csv/h1-data.csv",
-    "retrieved_at": "2026-09-22T07:56:35+00:00",
+    "retrieved_at": "2026-09-23T07:57:21+00:00",
     "bytes": 29336,
     "published": "03-Sep-2026"
    },
    "rba_h2": {
     "url": "https://www.rba.gov.au/statistics/tables/csv/h2-data.csv",
-    "retrieved_at": "2026-09-22T07:56:35+00:00",
+    "retrieved_at": "2026-09-23T07:57:21+00:00",
     "bytes": 45273,
     "published": "03-Sep-2026"
    },
    "abs_erp": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,ERP_COMP_Q/10.AUS.Q?startPeriod=2014-Q1&format=csv",
-    "retrieved_at": "2026-09-22T07:56:35+00:00",
+    "retrieved_at": "2026-09-23T07:57:21+00:00",
     "bytes": 2832
    },
    "abs_building": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,BUILDING_ACTIVITY/M6+M7.AUS.CUR.1.9.100.10.Q?startPeriod=2015-Q1&format=csv",
-    "retrieved_at": "2026-09-22T07:56:35+00:00",
+    "retrieved_at": "2026-09-23T07:57:21+00:00",
     "bytes": 6989
    },
    "abs_dwell_price": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,RES_DWELL_ST/5.AUS.Q?startPeriod=2015-Q1&format=csv",
-    "retrieved_at": "2026-09-22T07:56:35+00:00",
+    "retrieved_at": "2026-09-23T07:57:21+00:00",
     "bytes": 2628
    },
    "abs_nom": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,ERP_COMP_Q/9+10.AUS.Q?startPeriod=2009-Q3&format=csv",
-    "retrieved_at": "2026-09-22T07:56:35+00:00",
+    "retrieved_at": "2026-09-23T07:57:21+00:00",
     "bytes": 7312
    },
    "abs_building_comp": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,BUILDING_ACTIVITY/M7.AUS.CUR.1.9.100.10.Q?startPeriod=2021-Q1&format=csv",
-    "retrieved_at": "2026-09-22T07:56:35+00:00",
+    "retrieved_at": "2026-09-23T07:57:21+00:00",
     "bytes": 1745
    }
   }
  },
  "history": [
+  {
+   "generated_at": "2026-09-23T07:57:21+00:00",
+   "checks_total": 457,
+   "checks_passed": 347,
+   "checks_warn": 96,
+   "checks_failed": 14,
+   "metrics_total": 30,
+   "metrics_off_track": 26,
+   "metrics_watch": 2,
+   "metrics_on_track": 1,
+   "metrics_rated": 29,
+   "sources": {
+    "rba_g1": {
+     "url": "https://www.rba.gov.au/statistics/tables/csv/g1-data.csv",
+     "retrieved_at": "2026-09-23T07:57:21+00:00",
+     "bytes": 39905,
+     "published": "30-Jul-2026"
+    },
+    "abs_cpi_allgroups": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,CPI/1.10001.10.50.Q?startPeriod=2020-Q1&format=csv",
+     "retrieved_at": "2026-09-23T07:57:21+00:00",
+     "bytes": 1547
+    },
+    "abs_cpi_monthly": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,CPI/1+3.10001.10.50.M?startPeriod=2024-01&format=csv",
+     "retrieved_at": "2026-09-23T07:57:21+00:00",
+     "bytes": 2525
+    },
+    "abs_cpi_groups": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,CPI/1.40055+115528+115522+115498+20001+115486+115493+40081+10001.10.50.Q?startPeriod=2015-Q1&format=csv",
+     "retrieved_at": "2026-09-23T07:57:21+00:00",
+     "bytes": 23162
+    },
+    "abs_wpi": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,WPI/1.THRPEB.1+2+7.TOT.10.AUS.Q?startPeriod=2010-Q1&format=csv",
+     "retrieved_at": "2026-09-23T07:57:21+00:00",
+     "bytes": 11978
+    },
+    "rba_h4": {
+     "url": "https://www.rba.gov.au/statistics/tables/csv/h4-data.csv",
+     "retrieved_at": "2026-09-23T07:57:21+00:00",
+     "bytes": 19176,
+     "published": "20-Aug-2026"
+    },
+    "rba_f6": {
+     "url": "https://www.rba.gov.au/statistics/tables/csv/f6-data.csv",
+     "retrieved_at": "2026-09-23T07:57:21+00:00",
+     "bytes": 37668,
+     "published": "07-Sep-2026"
+    },
+    "rba_f1.1": {
+     "url": "https://www.rba.gov.au/statistics/tables/csv/f1.1-data.csv",
+     "retrieved_at": "2026-09-23T07:57:21+00:00",
+     "bytes": 43807,
+     "published": "01-Sep-2026"
+    },
+    "rba_a2": {
+     "url": "https://www.rba.gov.au/statistics/tables/csv/a2-data.csv",
+     "retrieved_at": "2026-09-23T07:57:21+00:00",
+     "bytes": 5236,
+     "published": "11-Aug-2026"
+    },
+    "rba_h3": {
+     "url": "https://www.rba.gov.au/statistics/tables/csv/h3-data.csv",
+     "retrieved_at": "2026-09-23T07:57:21+00:00",
+     "bytes": 28751,
+     "published": "2-Sep-26"
+    },
+    "rba_h5": {
+     "url": "https://www.rba.gov.au/statistics/tables/csv/h5-data.csv",
+     "retrieved_at": "2026-09-23T07:57:21+00:00",
+     "bytes": 72962,
+     "published": "21-Aug-2026"
+    },
+    "abs_lf_ur": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,LF/M13.3.1599.20.AUS.M?startPeriod=2025-01&format=csv",
+     "retrieved_at": "2026-09-23T07:57:21+00:00",
+     "bytes": 1336
+    },
+    "abs_labour_account": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,LABOUR_ACCT_Q/M12+M13+M14.AUS..20.Q?startPeriod=2015-Q1&format=csv",
+     "retrieved_at": "2026-09-23T07:57:21+00:00",
+     "bytes": 203949
+    },
+    "abs_ana": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,ANA_AGG/M1.GPM+GPM_PCA.20.AUS.Q?startPeriod=2014-Q1&format=csv",
+     "retrieved_at": "2026-09-23T07:57:21+00:00",
+     "bytes": 6164
+    },
+    "rba_h1": {
+     "url": "https://www.rba.gov.au/statistics/tables/csv/h1-data.csv",
+     "retrieved_at": "2026-09-23T07:57:21+00:00",
+     "bytes": 29336,
+     "published": "03-Sep-2026"
+    },
+    "rba_h2": {
+     "url": "https://www.rba.gov.au/statistics/tables/csv/h2-data.csv",
+     "retrieved_at": "2026-09-23T07:57:21+00:00",
+     "bytes": 45273,
+     "published": "03-Sep-2026"
+    },
+    "abs_erp": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,ERP_COMP_Q/10.AUS.Q?startPeriod=2014-Q1&format=csv",
+     "retrieved_at": "2026-09-23T07:57:21+00:00",
+     "bytes": 2832
+    },
+    "abs_building": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,BUILDING_ACTIVITY/M6+M7.AUS.CUR.1.9.100.10.Q?startPeriod=2015-Q1&format=csv",
+     "retrieved_at": "2026-09-23T07:57:21+00:00",
+     "bytes": 6989
+    },
+    "abs_dwell_price": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,RES_DWELL_ST/5.AUS.Q?startPeriod=2015-Q1&format=csv",
+     "retrieved_at": "2026-09-23T07:57:21+00:00",
+     "bytes": 2628
+    },
+    "abs_nom": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,ERP_COMP_Q/9+10.AUS.Q?startPeriod=2009-Q3&format=csv",
+     "retrieved_at": "2026-09-23T07:57:21+00:00",
+     "bytes": 7312
+    },
+    "abs_building_comp": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,BUILDING_ACTIVITY/M7.AUS.CUR.1.9.100.10.Q?startPeriod=2021-Q1&format=csv",
+     "retrieved_at": "2026-09-23T07:57:21+00:00",
+     "bytes": 1745
+    }
+   }
+  },
   {
    "generated_at": "2026-09-22T07:56:35+00:00",
    "checks_total": 457,
