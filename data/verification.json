@@ -1,10 +1,10 @@
 {
  "latest": {
-  "generated_at": "2026-09-25T08:10:14+00:00",
+  "generated_at": "2026-09-26T07:59:14+00:00",
   "checks_total": 457,
-  "checks_passed": 404,
-  "checks_warn": 39,
-  "checks_failed": 14,
+  "checks_passed": 410,
+  "checks_warn": 38,
+  "checks_failed": 9,
   "metrics_total": 30,
   "metrics_off_track": 26,
   "metrics_watch": 2,
@@ -30,7 +30,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-07-31 (56 days old)"
+    "detail": "latest observation 2026-07-31 (57 days old)"
    },
    {
     "metric": "inflation",
@@ -51,7 +51,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-06-30 (87 days old)"
+    "detail": "latest observation 2026-06-30 (88 days old)"
    },
    {
     "metric": "prices_vs_wages",
@@ -121,7 +121,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-06-30 (87 days old)"
+    "detail": "latest observation 2026-06-30 (88 days old)"
    },
    {
     "metric": "real_wages",
@@ -156,7 +156,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-06-30 (87 days old)"
+    "detail": "latest observation 2026-06-30 (88 days old)"
    },
    {
     "metric": "electricity",
@@ -170,7 +170,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-07-31 (56 days old)"
+    "detail": "latest observation 2026-07-31 (57 days old)"
    },
    {
     "metric": "mortgage",
@@ -212,7 +212,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-08-31 (25 days old)"
+    "detail": "latest observation 2026-08-31 (26 days old)"
    },
    {
     "metric": "unemployment",
@@ -233,7 +233,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-06-30 (87 days old)"
+    "detail": "latest observation 2026-06-30 (88 days old)"
    },
    {
     "metric": "public_private_jobs",
@@ -261,7 +261,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-06-30 (87 days old)"
+    "detail": "latest observation 2026-06-30 (88 days old)"
    },
    {
     "metric": "jobs_by_sector",
@@ -282,7 +282,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-06-30 (87 days old)"
+    "detail": "latest observation 2026-06-30 (88 days old)"
    },
    {
     "metric": "productivity",
@@ -296,7 +296,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-06-30 (87 days old)"
+    "detail": "latest observation 2026-06-30 (88 days old)"
    },
    {
     "metric": "gdp_per_capita",
@@ -324,7 +324,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-03-31 (178 days old)"
+    "detail": "latest observation 2026-03-31 (179 days old)"
    },
    {
     "metric": "household_income",
@@ -338,7 +338,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-06-30 (87 days old)"
+    "detail": "latest observation 2026-06-30 (88 days old)"
    },
    {
     "metric": "government_size",
@@ -352,7 +352,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-03-31 (178 days old)"
+    "detail": "latest observation 2026-03-31 (179 days old)"
    },
    {
     "metric": "housing_accord",
@@ -366,7 +366,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-06-30 (87 days old)"
+    "detail": "latest observation 2026-06-30 (88 days old)"
    },
    {
     "metric": "home_prices",
@@ -380,7 +380,7 @@
     "check": "freshness",
     "status": "pass",
     "critical": false,
-    "detail": "latest observation 2026-03-31 (178 days old)"
+    "detail": "latest observation 2026-03-31 (179 days old)"
    },
    {
     "metric": "migration",
@@ -679,9 +679,9 @@
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "fail",
+    "status": "pass",
     "critical": false,
-    "detail": "https://demosau.com/news/superannuation-tax-changes/ returned 202"
+    "detail": "https://demosau.com/news/superannuation-tax-changes/"
    },
    {
     "metric": "sources",
@@ -812,9 +812,9 @@
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "fail",
+    "status": "pass",
     "critical": false,
-    "detail": "https://libertyvictoria.org.au/joint-media-statement-federal-governments-approach-to-building-community-harmony-will-do-real-harm-nsw-council-for-civil-liberties-liberty-victoria-and-queensland-council-for-civil-libert/ returned 202"
+    "detail": "https://libertyvictoria.org.au/joint-media-statement-federal-governments-approach-to-building-community-harmony-will-do-real-harm-nsw-council-for-civil-liberties-liberty-victoria-and-queensland-council-for-civil-libert/"
    },
    {
     "metric": "sources",
@@ -1106,16 +1106,16 @@
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "fail",
+    "status": "pass",
     "critical": false,
-    "detail": "https://transparency.org.au/joint-statement-on-the-national-anti-corruption-commission-bill-2022/ returned 202"
+    "detail": "https://transparency.org.au/joint-statement-on-the-national-anti-corruption-commission-bill-2022/"
    },
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "fail",
+    "status": "pass",
     "critical": false,
-    "detail": "https://transparency.org.au/joint-submission-whistle-blower-protections/ returned 202"
+    "detail": "https://transparency.org.au/joint-submission-whistle-blower-protections/"
    },
    {
     "metric": "sources",
@@ -2695,9 +2695,9 @@
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "warn",
+    "status": "pass",
     "critical": false,
-    "detail": "https://www.jewishcouncil.com.au/2026/01/media-release-jewish-council-urges-pause-on-rushed-and-dangerous-hate-speech-bill did not respond in time to the automated check. Verify manually"
+    "detail": "https://www.jewishcouncil.com.au/2026/01/media-release-jewish-council-urges-pause-on-rushed-and-dangerous-hate-speech-bill"
    },
    {
     "metric": "sources",
@@ -3045,9 +3045,9 @@
    {
     "metric": "sources",
     "check": "link resolves",
-    "status": "fail",
+    "status": "pass",
     "critical": false,
-    "detail": "https://www.refugeecouncil.org.au/new-bill-search-and-seizure-powers-immigration-detention/ returned 202"
+    "detail": "https://www.refugeecouncil.org.au/new-bill-search-and-seizure-powers-immigration-detention/"
    },
    {
     "metric": "sources",
@@ -3214,121 +3214,249 @@
   "sources": {
    "rba_g1": {
     "url": "https://www.rba.gov.au/statistics/tables/csv/g1-data.csv",
-    "retrieved_at": "2026-09-25T08:10:14+00:00",
+    "retrieved_at": "2026-09-26T07:59:14+00:00",
     "bytes": 39905,
     "published": "30-Jul-2026"
    },
    "abs_cpi_allgroups": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,CPI/1.10001.10.50.Q?startPeriod=2020-Q1&format=csv",
-    "retrieved_at": "2026-09-25T08:10:14+00:00",
+    "retrieved_at": "2026-09-26T07:59:14+00:00",
     "bytes": 1547
    },
    "abs_cpi_monthly": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,CPI/1+3.10001.10.50.M?startPeriod=2024-01&format=csv",
-    "retrieved_at": "2026-09-25T08:10:14+00:00",
+    "retrieved_at": "2026-09-26T07:59:14+00:00",
     "bytes": 2525
    },
    "abs_cpi_groups": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,CPI/1.40055+115528+115522+115498+20001+115486+115493+40081+10001.10.50.Q?startPeriod=2015-Q1&format=csv",
-    "retrieved_at": "2026-09-25T08:10:14+00:00",
+    "retrieved_at": "2026-09-26T07:59:14+00:00",
     "bytes": 23162
    },
    "abs_wpi": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,WPI/1.THRPEB.1+2+7.TOT.10.AUS.Q?startPeriod=2010-Q1&format=csv",
-    "retrieved_at": "2026-09-25T08:10:14+00:00",
+    "retrieved_at": "2026-09-26T07:59:14+00:00",
     "bytes": 11978
    },
    "rba_h4": {
     "url": "https://www.rba.gov.au/statistics/tables/csv/h4-data.csv",
-    "retrieved_at": "2026-09-25T08:10:14+00:00",
+    "retrieved_at": "2026-09-26T07:59:14+00:00",
     "bytes": 19176,
     "published": "20-Aug-2026"
    },
    "rba_f6": {
     "url": "https://www.rba.gov.au/statistics/tables/csv/f6-data.csv",
-    "retrieved_at": "2026-09-25T08:10:14+00:00",
+    "retrieved_at": "2026-09-26T07:59:14+00:00",
     "bytes": 37668,
     "published": "07-Sep-2026"
    },
    "rba_f1.1": {
     "url": "https://www.rba.gov.au/statistics/tables/csv/f1.1-data.csv",
-    "retrieved_at": "2026-09-25T08:10:14+00:00",
+    "retrieved_at": "2026-09-26T07:59:14+00:00",
     "bytes": 43807,
     "published": "01-Sep-2026"
    },
    "rba_a2": {
     "url": "https://www.rba.gov.au/statistics/tables/csv/a2-data.csv",
-    "retrieved_at": "2026-09-25T08:10:14+00:00",
+    "retrieved_at": "2026-09-26T07:59:14+00:00",
     "bytes": 5236,
     "published": "11-Aug-2026"
    },
    "rba_h3": {
     "url": "https://www.rba.gov.au/statistics/tables/csv/h3-data.csv",
-    "retrieved_at": "2026-09-25T08:10:14+00:00",
+    "retrieved_at": "2026-09-26T07:59:14+00:00",
     "bytes": 28751,
     "published": "2-Sep-26"
    },
    "rba_h5": {
     "url": "https://www.rba.gov.au/statistics/tables/csv/h5-data.csv",
-    "retrieved_at": "2026-09-25T08:10:14+00:00",
+    "retrieved_at": "2026-09-26T07:59:14+00:00",
     "bytes": 73064,
     "published": "25-Sep-2026"
    },
    "abs_lf_ur": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,LF/M13.3.1599.20.AUS.M?startPeriod=2025-01&format=csv",
-    "retrieved_at": "2026-09-25T08:10:14+00:00",
+    "retrieved_at": "2026-09-26T07:59:14+00:00",
     "bytes": 1400
    },
    "abs_labour_account": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,LABOUR_ACCT_Q/M12+M13+M14.AUS..20.Q?startPeriod=2015-Q1&format=csv",
-    "retrieved_at": "2026-09-25T08:10:14+00:00",
+    "retrieved_at": "2026-09-26T07:59:14+00:00",
     "bytes": 203949
    },
    "abs_ana": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,ANA_AGG/M1.GPM+GPM_PCA.20.AUS.Q?startPeriod=2014-Q1&format=csv",
-    "retrieved_at": "2026-09-25T08:10:14+00:00",
+    "retrieved_at": "2026-09-26T07:59:14+00:00",
     "bytes": 6164
    },
    "rba_h1": {
     "url": "https://www.rba.gov.au/statistics/tables/csv/h1-data.csv",
-    "retrieved_at": "2026-09-25T08:10:14+00:00",
+    "retrieved_at": "2026-09-26T07:59:14+00:00",
     "bytes": 29336,
     "published": "03-Sep-2026"
    },
    "rba_h2": {
     "url": "https://www.rba.gov.au/statistics/tables/csv/h2-data.csv",
-    "retrieved_at": "2026-09-25T08:10:14+00:00",
+    "retrieved_at": "2026-09-26T07:59:14+00:00",
     "bytes": 45273,
     "published": "03-Sep-2026"
    },
    "abs_erp": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,ERP_COMP_Q/10.AUS.Q?startPeriod=2014-Q1&format=csv",
-    "retrieved_at": "2026-09-25T08:10:14+00:00",
+    "retrieved_at": "2026-09-26T07:59:14+00:00",
     "bytes": 2832
    },
    "abs_building": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,BUILDING_ACTIVITY/M6+M7.AUS.CUR.1.9.100.10.Q?startPeriod=2015-Q1&format=csv",
-    "retrieved_at": "2026-09-25T08:10:14+00:00",
+    "retrieved_at": "2026-09-26T07:59:14+00:00",
     "bytes": 6989
    },
    "abs_dwell_price": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,RES_DWELL_ST/5.AUS.Q?startPeriod=2015-Q1&format=csv",
-    "retrieved_at": "2026-09-25T08:10:14+00:00",
+    "retrieved_at": "2026-09-26T07:59:14+00:00",
     "bytes": 2628
    },
    "abs_nom": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,ERP_COMP_Q/9+10.AUS.Q?startPeriod=2009-Q3&format=csv",
-    "retrieved_at": "2026-09-25T08:10:14+00:00",
+    "retrieved_at": "2026-09-26T07:59:14+00:00",
     "bytes": 7312
    },
    "abs_building_comp": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,BUILDING_ACTIVITY/M7.AUS.CUR.1.9.100.10.Q?startPeriod=2021-Q1&format=csv",
-    "retrieved_at": "2026-09-25T08:10:14+00:00",
+    "retrieved_at": "2026-09-26T07:59:14+00:00",
     "bytes": 1745
    }
   }
  },
  "history": [
+  {
+   "generated_at": "2026-09-26T07:59:14+00:00",
+   "checks_total": 457,
+   "checks_passed": 410,
+   "checks_warn": 38,
+   "checks_failed": 9,
+   "metrics_total": 30,
+   "metrics_off_track": 26,
+   "metrics_watch": 2,
+   "metrics_on_track": 1,
+   "metrics_rated": 29,
+   "sources": {
+    "rba_g1": {
+     "url": "https://www.rba.gov.au/statistics/tables/csv/g1-data.csv",
+     "retrieved_at": "2026-09-26T07:59:14+00:00",
+     "bytes": 39905,
+     "published": "30-Jul-2026"
+    },
+    "abs_cpi_allgroups": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,CPI/1.10001.10.50.Q?startPeriod=2020-Q1&format=csv",
+     "retrieved_at": "2026-09-26T07:59:14+00:00",
+     "bytes": 1547
+    },
+    "abs_cpi_monthly": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,CPI/1+3.10001.10.50.M?startPeriod=2024-01&format=csv",
+     "retrieved_at": "2026-09-26T07:59:14+00:00",
+     "bytes": 2525
+    },
+    "abs_cpi_groups": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,CPI/1.40055+115528+115522+115498+20001+115486+115493+40081+10001.10.50.Q?startPeriod=2015-Q1&format=csv",
+     "retrieved_at": "2026-09-26T07:59:14+00:00",
+     "bytes": 23162
+    },
+    "abs_wpi": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,WPI/1.THRPEB.1+2+7.TOT.10.AUS.Q?startPeriod=2010-Q1&format=csv",
+     "retrieved_at": "2026-09-26T07:59:14+00:00",
+     "bytes": 11978
+    },
+    "rba_h4": {
+     "url": "https://www.rba.gov.au/statistics/tables/csv/h4-data.csv",
+     "retrieved_at": "2026-09-26T07:59:14+00:00",
+     "bytes": 19176,
+     "published": "20-Aug-2026"
+    },
+    "rba_f6": {
+     "url": "https://www.rba.gov.au/statistics/tables/csv/f6-data.csv",
+     "retrieved_at": "2026-09-26T07:59:14+00:00",
+     "bytes": 37668,
+     "published": "07-Sep-2026"
+    },
+    "rba_f1.1": {
+     "url": "https://www.rba.gov.au/statistics/tables/csv/f1.1-data.csv",
+     "retrieved_at": "2026-09-26T07:59:14+00:00",
+     "bytes": 43807,
+     "published": "01-Sep-2026"
+    },
+    "rba_a2": {
+     "url": "https://www.rba.gov.au/statistics/tables/csv/a2-data.csv",
+     "retrieved_at": "2026-09-26T07:59:14+00:00",
+     "bytes": 5236,
+     "published": "11-Aug-2026"
+    },
+    "rba_h3": {
+     "url": "https://www.rba.gov.au/statistics/tables/csv/h3-data.csv",
+     "retrieved_at": "2026-09-26T07:59:14+00:00",
+     "bytes": 28751,
+     "published": "2-Sep-26"
+    },
+    "rba_h5": {
+     "url": "https://www.rba.gov.au/statistics/tables/csv/h5-data.csv",
+     "retrieved_at": "2026-09-26T07:59:14+00:00",
+     "bytes": 73064,
+     "published": "25-Sep-2026"
+    },
+    "abs_lf_ur": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,LF/M13.3.1599.20.AUS.M?startPeriod=2025-01&format=csv",
+     "retrieved_at": "2026-09-26T07:59:14+00:00",
+     "bytes": 1400
+    },
+    "abs_labour_account": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,LABOUR_ACCT_Q/M12+M13+M14.AUS..20.Q?startPeriod=2015-Q1&format=csv",
+     "retrieved_at": "2026-09-26T07:59:14+00:00",
+     "bytes": 203949
+    },
+    "abs_ana": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,ANA_AGG/M1.GPM+GPM_PCA.20.AUS.Q?startPeriod=2014-Q1&format=csv",
+     "retrieved_at": "2026-09-26T07:59:14+00:00",
+     "bytes": 6164
+    },
+    "rba_h1": {
+     "url": "https://www.rba.gov.au/statistics/tables/csv/h1-data.csv",
+     "retrieved_at": "2026-09-26T07:59:14+00:00",
+     "bytes": 29336,
+     "published": "03-Sep-2026"
+    },
+    "rba_h2": {
+     "url": "https://www.rba.gov.au/statistics/tables/csv/h2-data.csv",
+     "retrieved_at": "2026-09-26T07:59:14+00:00",
+     "bytes": 45273,
+     "published": "03-Sep-2026"
+    },
+    "abs_erp": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,ERP_COMP_Q/10.AUS.Q?startPeriod=2014-Q1&format=csv",
+     "retrieved_at": "2026-09-26T07:59:14+00:00",
+     "bytes": 2832
+    },
+    "abs_building": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,BUILDING_ACTIVITY/M6+M7.AUS.CUR.1.9.100.10.Q?startPeriod=2015-Q1&format=csv",
+     "retrieved_at": "2026-09-26T07:59:14+00:00",
+     "bytes": 6989
+    },
+    "abs_dwell_price": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,RES_DWELL_ST/5.AUS.Q?startPeriod=2015-Q1&format=csv",
+     "retrieved_at": "2026-09-26T07:59:14+00:00",
+     "bytes": 2628
+    },
+    "abs_nom": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,ERP_COMP_Q/9+10.AUS.Q?startPeriod=2009-Q3&format=csv",
+     "retrieved_at": "2026-09-26T07:59:14+00:00",
+     "bytes": 7312
+    },
+    "abs_building_comp": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,BUILDING_ACTIVITY/M7.AUS.CUR.1.9.100.10.Q?startPeriod=2021-Q1&format=csv",
+     "retrieved_at": "2026-09-26T07:59:14+00:00",
+     "bytes": 1745
+    }
+   }
+  },
   {
    "generated_at": "2026-09-25T08:10:14+00:00",
    "checks_total": 457,
