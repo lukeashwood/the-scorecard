@@ -45,6 +45,8 @@ UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML,
 SWORN_IN = "2022-05-23"          # Albanese Ministry sworn in
 BASE_Q = "2022-06-30"            # June quarter 2022: first quarter under this government
 BASE_M = "2022-05-31"            # May 2022: the month the government took office
+HIST = "2004-01-01"              # start of the long history kept in chart["long"] (20-year views)
+HIST_Q = "2003-Q1"               # ABS API start period for that history (a year early, for year-on-year changes)
 NOW = dt.datetime.now(dt.timezone.utc)
 
 CHECKS = []                      # the audit log for this run
@@ -446,7 +448,7 @@ def inflation():
             f"Inflation was already {fmt(base_v)}% in the June quarter 2022 when the government took office. The test is how quickly it has come back down, and whether it has stayed down.",
         ],
         "chart": {"kind": "line", "unit": "%", "decimals": 1,
-                  "series": [{"name": "Annual CPI inflation (quarterly)", "role": "primary", "points": rnd(since(yoy, "2015-01-01"), 1)},
+                  "series": [{"name": "Annual CPI inflation (quarterly)", "role": "primary", "points": rnd(since(yoy, HIST), 1)},
                              {"name": "Annual CPI inflation (new monthly CPI)", "role": "accent", "points": rnd(m_yoy, 1)}],
                   "band": {"lo": 2, "hi": 3, "label": "RBA target 2–3%"}},
         "sources": [src_abs("CPI", ["All groups CPI, weighted average of eight capital cities: monthly annual % change (headline) and index (cross-check); quarterly index (cross-check)"]),
@@ -464,14 +466,14 @@ _wpi = {}
 def wpi_index(sector="7"):
     """ABS WPI, total hourly rates excl. bonuses. Sector 7 = all, 1 = private, 2 = public."""
     if not _wpi:
-        rows = abs_api("WPI", "1.THRPEB.1+2+7.TOT.10.AUS.Q", "2010-Q1", "abs_wpi")
+        rows = abs_api("WPI", "1.THRPEB.1+2+7.TOT.10.AUS.Q", HIST_Q, "abs_wpi")
         _wpi.update(abs_group(rows, "SECTOR"))
     return _wpi[sector]
 
 
 def cpi_indexes():
     key = "+".join(c for c, _ in CPI_GROUPS)
-    return abs_group(abs_api("CPI", f"1.{key}.10.50.Q", "2015-Q1", "abs_cpi_groups"), "INDEX")
+    return abs_group(abs_api("CPI", f"1.{key}.10.50.Q", HIST_Q, "abs_cpi_groups"), "INDEX")
 
 
 @metric
@@ -522,7 +524,7 @@ def real_wages():
     common = min(latest(wpi)[0], latest(cpi)[0])
     check_fresh(mid, common, "Q")
     def real_of(w):
-        return rebase([(d, x / at(cpi, d)[1]) for d, x in w if "2015-03-31" <= d <= common], BASE_Q)
+        return rebase([(d, x / at(cpi, d)[1]) for d, x in w if max(HIST, cpi[0][0]) <= d <= common], BASE_Q)
     real = real_of(wpi)
     real_priv, real_pub = real_of(wpi_index("1")), real_of(wpi_index("2"))
     v = real[-1][1]
@@ -541,7 +543,7 @@ def real_wages():
     gap = [(d, round(x - at(inf, d)[1], 1)) for d, x in since(wg, "2015-01-01") if d <= latest(inf)[0]]
     neg = sum(1 for d, x in gap if d >= BASE_Q and x < 0)
     tot = sum(1 for d, _ in gap if d >= BASE_Q)
-    peak_real = max(x for d, x in real if d < BASE_Q)
+    peak_real = max(x for d, x in real if "2015-03-31" <= d < BASE_Q)   # the pre-election peak, same window as before
     li = latest(inf)[1]
     return {
         "id": mid, "section": "cost", "title": "Real wages: private vs public sector",
@@ -576,7 +578,7 @@ def electricity():
     e, a = g["40055"], g["10001"]
     d = min(latest(e)[0], latest(a)[0])
     check_fresh(mid, d, "Q")
-    er, ar = rebase(since(e, "2019-03-31"), BASE_Q), rebase(since(a, "2019-03-31"), BASE_Q)
+    er, ar = rebase(since(e, HIST), BASE_Q), rebase(since(a, HIST), BASE_Q)
     ch = at(er, d)[1] - 100
     check_range(mid, "electricity change", ch, -60, 200)
     return {
@@ -632,7 +634,7 @@ def mortgage():
         ],
         "chart": {"kind": "line", "unit": "%", "decimals": 2,
                   "series": [{"name": "Owner-occupier variable rate (outstanding loans)", "role": "primary", "points": rnd(rate)},
-                             {"name": "RBA cash rate target", "role": "muted", "points": rnd(since(cash, "2019-06-30"))}]},
+                             {"name": "RBA cash rate target", "role": "muted", "points": rnd(since(cash, HIST))}]},
         "sources": [src_rba("f6", ["FLRHOOVA"]), src_rba("f1.1", ["FIRMMCRT"])],
         "method": "Standard amortisation formula applied to a $600,000 30-year principal-and-interest loan, using the RBA's average rate on outstanding owner-occupier variable loans in May 2022 and the latest month.",
     }
@@ -673,10 +675,10 @@ def interest_rates():
     now = dec[-1][2]
     check_range(mid, "cash rate", now, 0, 20)
     step = []
-    prev = [x for x in dec if x[0] <= "2019-01-01"][-1][2]
-    step.append(["2019-01-01", prev])
+    prev = [x for x in dec if x[0] <= HIST][-1][2]
+    step.append([HIST, prev])
     for d, _, new in dec:
-        if d > "2019-01-01":
+        if d > HIST:
             step.append([d, new])
     step.append([NOW.date().isoformat(), now])
     return {
@@ -727,7 +729,7 @@ def consumer_confidence():
             f"In May 2022 the index was {fmt(at(s, BASE_M)[1])}. The 2010–2019 average was {fmt(pre)}.",
         ],
         "chart": {"kind": "line", "unit": "index", "decimals": 1,
-                  "series": [{"name": "Westpac–Melbourne Institute consumer sentiment", "role": "primary", "points": rnd(since(s, "2015-01-01"), 1)}],
+                  "series": [{"name": "Westpac–Melbourne Institute consumer sentiment", "role": "primary", "points": rnd(since(s, HIST), 1)}],
                   "ref": [{"value": 100, "label": "100 = neutral"}]},
         "sources": [dict(src_rba("h3", ["GICWMICS"]), note="Index compiled by Westpac Banking Corporation and the Melbourne Institute; republished by the RBA in Table H3.")],
         "method": "Westpac–Melbourne Institute Index of Consumer Sentiment, seasonally adjusted, as republished in RBA Table H3. An index above 100 means more consumers are optimistic than pessimistic.",
@@ -764,7 +766,7 @@ def unemployment():
             "Job growth has been concentrated in publicly funded sectors (see Who is creating the jobs?).",
         ],
         "chart": {"kind": "line", "unit": "%", "decimals": 1,
-                  "series": [{"name": "Unemployment rate (seasonally adjusted)", "role": "primary", "points": rnd(since(ur, "2015-01-01"), 1)}],
+                  "series": [{"name": "Unemployment rate (seasonally adjusted)", "role": "primary", "points": rnd(since(ur, HIST), 1)}],
                   "ref": [{"value": b, "label": f"May 2022: {fmt(b)}%"}]},
         "sources": [src_rba("h5", ["GLFSURSA", "GLFSUPSA"]),
                     src_abs("LF", ["Unemployment rate, persons, seasonally adjusted (independent cross-check)"])],
@@ -787,7 +789,7 @@ _la = {}
 def labour_account():
     """ABS Labour Account (quarterly, balanced, seasonally adjusted): filled jobs by sector and industry, '000."""
     if not _la:
-        rows = abs_api("LABOUR_ACCT_Q", "M12+M13+M14.AUS..20.Q", "2015-Q1", "abs_labour_account")
+        rows = abs_api("LABOUR_ACCT_Q", "M12+M13+M14.AUS..20.Q", HIST_Q, "abs_labour_account")
         for r in rows:
             if r["OBS_VALUE"]:
                 _la.setdefault((r["MEASURE"], r["LABOURACCT_IND"]), []).append(
@@ -834,8 +836,8 @@ def public_private_jobs():
             "Many jobs funded by government, such as NDIS disability support workers and aged-care workers, are counted as private-sector jobs. See 'Who is creating the jobs?' for the industry picture.",
         ],
         "chart": {"kind": "line", "unit": "index", "decimals": 1,
-                  "series": [{"name": "Public-sector jobs", "role": "accent", "points": rebase(since(pub, "2019-01-01"), BASE_Q)},
-                             {"name": "Private-sector jobs", "role": "primary", "points": rebase(since(priv, "2019-01-01"), BASE_Q)}],
+                  "series": [{"name": "Public-sector jobs", "role": "accent", "points": rebase(since(pub, HIST), BASE_Q)},
+                             {"name": "Private-sector jobs", "role": "primary", "points": rebase(since(priv, HIST), BASE_Q)}],
                   "ref": [{"value": 100, "label": "June qtr 2022 = 100"}]},
         "sources": [src_abs("LABOUR_ACCT_Q", ["Filled jobs – public sector (M14), private sector (M13) and total (M12); all industries; seasonally adjusted"], LA_SRC)],
         "method": "ABS Labour Account filled jobs by institutional sector (public = all levels of government and public corporations), seasonally adjusted. Growth measured from the June quarter 2022.",
@@ -919,7 +921,7 @@ def productivity():
             "Without productivity growth, real wages cannot rise sustainably.",
         ],
         "chart": {"kind": "line", "unit": "index", "decimals": 1,
-                  "series": [{"name": "Non-farm labour productivity per hour", "role": "primary", "points": rnd(since(idx, "2015-01-01"), 1)}],
+                  "series": [{"name": "Non-farm labour productivity per hour", "role": "primary", "points": rnd(since(idx, HIST), 1)}],
                   "ref": [{"value": b[1], "label": "June qtr 2022 level"}]},
         "sources": [src_rba("h4", ["GNFPROSQI", "GNFPROSQP"])],
         "method": "ABS national accounts non-farm GDP per hour worked (RBA Table H4). Annualised growth rates are compound averages between the quarters shown.",
@@ -931,7 +933,7 @@ def gdp_per_capita():
     mid = "gdp_per_capita"
     # Both LEVELS come straight from the ABS national accounts: total real GDP and real GDP per capita
     # (chain volume, seasonally adjusted). The RBA's published growth rates are used as an independent cross-check.
-    g = abs_group(abs_api("ANA_AGG", "M1.GPM+GPM_PCA.20.AUS.Q", "2014-Q1", "abs_ana"), "DATA_ITEM")
+    g = abs_group(abs_api("ANA_AGG", "M1.GPM+GPM_PCA.20.AUS.Q", HIST_Q, "abs_ana"), "DATA_ITEM")
     total, pc = g["GPM"], g["GPM_PCA"]
     d, _ = latest(pc)
     check_fresh(mid, d, "Q")
@@ -967,8 +969,8 @@ def gdp_per_capita():
             f"Real GDP per person was ${latest(pc)[1]:,.0f} in the {label(d, 'Q')}, compared with ${at(pc, BASE_Q)[1]:,.0f} in the June quarter 2022 (chain volume dollars, per quarter).",
         ],
         "chart": {"kind": "line", "unit": "index", "decimals": 1,
-                  "series": [{"name": "GDP per capita", "role": "primary", "points": since(pc_i, "2015-01-01")},
-                             {"name": "Total GDP", "role": "accent", "points": since(tot_i, "2015-01-01")}],
+                  "series": [{"name": "GDP per capita", "role": "primary", "points": since(pc_i, HIST)},
+                             {"name": "Total GDP", "role": "accent", "points": since(tot_i, HIST)}],
                   "ref": [{"value": 100, "label": "June qtr 2022 = 100"}],
                   "note": "Real (inflation-adjusted) GDP and real GDP per person, seasonally adjusted, each set to 100 in the June quarter 2022. When the total line rises faster than the per-person line, the difference is population growth."},
         "sources": [src_abs("ANA_AGG", ["Gross domestic product: chain volume measures, seasonally adjusted (GPM)",
@@ -982,10 +984,10 @@ def gdp_per_capita():
 def household_income():
     mid = "household_income"
     rhdi = rba_series("h2", "GGDPICHRDI", mid)
-    pop = abs_group(abs_api("ERP_COMP_Q", "10.AUS.Q", "2014-Q1", "abs_erp"), "MEASURE")["10"]
+    pop = abs_group(abs_api("ERP_COMP_Q", "10.AUS.Q", HIST_Q, "abs_erp"), "MEASURE")["10"]
     d = min(latest(rhdi)[0], latest(pop)[0])
     check_fresh(mid, d, "Q_LAG")
-    pc = [(dd, x * 1e6 / (at(pop, dd)[1] * 1e3) * 4) for dd, x in rhdi if "2015-03-31" <= dd <= d]
+    pc = [(dd, x * 1e6 / (at(pop, dd)[1] * 1e3) * 4) for dd, x in rhdi if max(HIST, pop[0][0]) <= dd <= d]
     v_now = at(pc, d)[1]
     check_range(mid, "real disposable income per person ($/yr)", v_now, 20000, 120000)
     idx = rebase(pc, BASE_Q)
@@ -1043,7 +1045,7 @@ def government_size():
 @metric
 def housing_accord():
     mid = "housing_accord"
-    rows = abs_api("BUILDING_ACTIVITY", "M6+M7.AUS.CUR.1.9.100.10.Q", "2015-Q1", "abs_building")
+    rows = abs_api("BUILDING_ACTIVITY", "M6+M7.AUS.CUR.1.9.100.10.Q", HIST_Q, "abs_building")
     g = abs_group(rows, "MEASURE")
     comp, comm = g["M7"], g["M6"]
     d = latest(comp)[0]
@@ -1070,7 +1072,7 @@ def housing_accord():
             f"Latest quarter: {fmt(latest(comp)[1], 0)} completions and {fmt(latest(comm)[1], 0)} commencements.",
         ],
         "chart": {"kind": "bar", "unit": "homes", "decimals": 0,
-                  "series": [{"name": "New dwellings completed per quarter", "role": "primary", "points": since(comp, "2019-01-01")}],
+                  "series": [{"name": "New dwellings completed per quarter", "role": "primary", "points": since(comp, HIST)}],
                   "ref": [{"value": 60000, "label": "Accord pace: 60,000/qtr"}]},
         "sources": [src_abs("BUILDING_ACTIVITY", ["Dwelling units completed, new residential, all sectors, Australia, original"])],
         "method": "Sum of ABS new residential dwelling completions (original series) from the September quarter 2024 (the Accord began 1 July 2024) to the latest quarter, compared with 1.2 million ÷ 20 quarters = 60,000 per quarter.",
@@ -1080,7 +1082,7 @@ def housing_accord():
 @metric
 def home_prices():
     mid = "home_prices"
-    price = abs_group(abs_api("RES_DWELL_ST", "5.AUS.Q", "2015-Q1", "abs_dwell_price"), "MEASURE")["5"]
+    price = abs_group(abs_api("RES_DWELL_ST", "5.AUS.Q", HIST_Q, "abs_dwell_price"), "MEASURE")["5"]
     wpi = wpi_index()
     d = latest(price)[0]
     check_fresh(mid, d, "Q")
@@ -1112,7 +1114,7 @@ def home_prices():
 @metric
 def migration():
     mid = "migration"
-    rows = abs_api("ERP_COMP_Q", "9+10.AUS.Q", "2009-Q3", "abs_nom")
+    rows = abs_api("ERP_COMP_Q", "9+10.AUS.Q", "2003-Q2", "abs_nom")
     g = abs_group(rows, "MEASURE")
     nom, pop = g["9"], g["10"]
     d = latest(nom)[0]
@@ -1140,7 +1142,7 @@ def migration():
             f"In the year to {label(cd, 'Q')} Australia's population grew by {fmt(pop_growth * 1000, 0)} while {fmt(homes, 0)} new homes were completed: {fmt(pop_growth * 1000 / homes, 1)} new residents for every new home.",
         ],
         "chart": {"kind": "line", "unit": "people", "decimals": 0,
-                  "series": [{"name": "Net overseas migration, rolling 12 months", "role": "primary", "points": [[dd, round(x * 1000)] for dd, x in since(roll, "2012-01-01")]}],
+                  "series": [{"name": "Net overseas migration, rolling 12 months", "role": "primary", "points": [[dd, round(x * 1000)] for dd, x in since(roll, HIST)]}],
                   "ref": [{"value": round(pre * 1000), "label": "Pre-COVID average"}]},
         "sources": [src_abs("ERP_COMP_Q", ["Net overseas migration, Australia, quarterly", "Estimated resident population"]),
                     src_abs("BUILDING_ACTIVITY", ["Dwelling units completed, new residential, all sectors, original"])],
@@ -1271,7 +1273,7 @@ def check_links(urls):
 
 def enrich_aps(m):
     """Compare APS growth (30 Jun 2022 → 30 Jun 2025) with ABS population growth over the same dates."""
-    pop = abs_group(abs_api("ERP_COMP_Q", "10.AUS.Q", "2014-Q1", "abs_erp"), "MEASURE")["10"]
+    pop = abs_group(abs_api("ERP_COMP_Q", "10.AUS.Q", HIST_Q, "abs_erp"), "MEASURE")["10"]
     p0, p1 = at(pop, "2022-06-30")[1], at(pop, "2025-06-30")[1]
     pg = pct(p0, p1)
     aps_g = m["headline"]["value"]
@@ -1368,13 +1370,137 @@ ENRICH = {"aps_headcount": enrich_aps, "gross_debt": enrich_gross_debt}
 
 # --------------------------------------------------------------------------- main
 
+# --------------------------------------------------------------------------- G20 comparisons
+# The 19 G20 member countries (the EU and the African Union are also members but are not countries, so they are left out).
+G20 = {"ARG": "Argentina", "AUS": "Australia", "BRA": "Brazil", "CAN": "Canada", "CHN": "China", "FRA": "France",
+       "DEU": "Germany", "IND": "India", "IDN": "Indonesia", "ITA": "Italy", "JPN": "Japan", "KOR": "South Korea",
+       "MEX": "Mexico", "RUS": "Russia", "SAU": "Saudi Arabia", "ZAF": "South Africa", "TUR": "Türkiye",
+       "GBR": "United Kingdom", "USA": "United States"}
+IMF_URL = "https://www.imf.org/external/datamapper/api/v1/{ind}/" + "/".join(G20)
+IMF_PAGE = "https://www.imf.org/external/datamapper/{ind}@WEO/OEMDC/ADVEC/WEOWORLD"
+WB_URL = ("https://api.worldbank.org/v2/country/" + ";".join(G20) +
+          "/indicator/{ind}?format=json&per_page=5000&date=2000:2030")
+WB_PAGE = "https://data.worldbank.org/indicator/{ind}"
+# Which site measures each comparison belongs to, and what it compares. "better": which direction is generally
+# preferred, or "none" where that is a matter of opinion. Only like-for-like official series are used.
+G20_INDICATORS = {
+    "inflation": {"src": "imf", "ind": "PCPIPCH", "title": "Inflation, average consumer prices", "unit": "%", "decimals": 1,
+                  "better": "lower", "measures": ["inflation"],
+                  "note": "Annual average change in consumer prices. IMF World Economic Outlook; the latest years include IMF estimates for some countries."},
+    "unemployment": {"src": "imf", "ind": "LUR", "title": "Unemployment rate", "unit": "%", "decimals": 1, "better": "lower",
+                     "measures": ["unemployment"],
+                     "note": "Share of the labour force out of work. National definitions differ a little between countries. IMF World Economic Outlook."},
+    "gov_debt": {"src": "imf", "ind": "GGXWDG_NGDP", "title": "General government gross debt, % of GDP", "unit": "%", "decimals": 1,
+                 "better": "lower", "measures": ["gross_debt"],
+                 "note": "All levels of government combined (federal, state and local), so it is higher than the Commonwealth-only figure on this site. IMF World Economic Outlook."},
+    "gov_balance": {"src": "imf", "ind": "GGXCNL_NGDP", "title": "General government budget balance, % of GDP", "unit": "%",
+                    "decimals": 1, "better": "higher", "measures": ["budget_balance"],
+                    "note": "Net lending (+) or borrowing (−) by all levels of government, as a share of GDP. IMF World Economic Outlook."},
+    "gov_spending": {"src": "imf", "ind": "G_X_G01_GDP_PT", "title": "General government spending, % of GDP", "unit": "%", "decimals": 1,
+                     "better": "none", "measures": ["spending_gdp", "government_size"],
+                     "note": "Total expenditure by all levels of government, as a share of GDP. IMF Fiscal Monitor / World Economic Outlook."},
+    "gdp_pc": {"src": "imf", "ind": "PPPPC", "title": "GDP per person (purchasing power, international dollars)", "unit": "$",
+               "decimals": 0, "better": "higher", "measures": ["gdp_per_capita", "household_income"],
+               "note": "GDP per person converted at purchasing power parity, so living costs are allowed for. Current prices. IMF World Economic Outlook."},
+    "growth": {"src": "imf", "ind": "NGDP_RPCH", "title": "Real GDP growth", "unit": "%", "decimals": 1, "better": "higher",
+               "measures": ["gdp_per_capita", "productivity"],
+               "note": "Annual change in real (inflation-adjusted) GDP. IMF World Economic Outlook."},
+    "defence": {"src": "wb", "ind": "MS.MIL.XPND.GD.ZS", "title": "Military spending, % of GDP", "unit": "%", "decimals": 2,
+                "better": "none", "measures": ["defence_spending"],
+                "note": "SIPRI military expenditure as a share of GDP, published by the World Bank. SIPRI's definition is broader than the Defence budget line."},
+}
+
+
+def _imf(ind):
+    data = json.loads(fetch(IMF_URL.format(ind=ind), f"imf_{ind}").decode("utf-8"))
+    vals = data.get("values", {}).get(ind, {})
+    return {c: sorted((int(y), float(v)) for y, v in vals.get(c, {}).items() if v is not None) for c in G20}
+
+
+def _wb(ind):
+    body = json.loads(fetch(WB_URL.format(ind=ind), f"wb_{ind}").decode("utf-8"))
+    rows = body[1] if isinstance(body, list) and len(body) > 1 and body[1] else []
+    out = {c: [] for c in G20}
+    for r in rows:
+        c = r.get("countryiso3code")
+        if c in out and r.get("value") is not None:
+            out[c].append((int(r["date"]), float(r["value"])))
+    return {c: sorted(v) for c, v in out.items()}
+
+
+def g20_block(prev):
+    """Cross-country comparisons for the new site's G20 view. Never critical: a failed download keeps the last copy."""
+    old = (prev or {}).get("indicators", {})
+    out = {"countries": G20, "generated_at": NOW.isoformat(timespec="seconds"), "indicators": {}}
+    this_year = NOW.year
+    for key, spec in G20_INDICATORS.items():
+        try:
+            series = _imf(spec["ind"]) if spec["src"] == "imf" else _wb(spec["ind"])
+            if not series.get("AUS"):
+                raise RuntimeError("no Australian figure")
+            have = sum(1 for c in G20 if series[c])
+            if have < 12:
+                raise RuntimeError(f"only {have} of {len(G20)} countries")
+            # Latest year shown: last full calendar year (the IMF also publishes forecasts, which are left out),
+            # stepped back until at least three quarters of the countries have a figure.
+            latest_year = this_year - 1
+            while latest_year > 2000 and sum(1 for c in G20 if any(y == latest_year for y, _ in series[c])) < 15:
+                latest_year -= 1
+            pts = {c: [[y, round(v, 3)] for y, v in series[c] if 2000 <= y <= latest_year] for c in G20 if series[c]}
+            url = (IMF_PAGE if spec["src"] == "imf" else WB_PAGE).format(ind=spec["ind"])
+            out["indicators"][key] = {k: spec[k] for k in ("title", "unit", "decimals", "better", "measures", "note")} | {
+                "latest_year": latest_year, "points": pts,
+                "source": {"publisher": "International Monetary Fund" if spec["src"] == "imf" else "World Bank (SIPRI data)",
+                           "url": url, "data_url": (IMF_URL if spec["src"] == "imf" else WB_URL).format(ind=spec["ind"]),
+                           "retrieved_at": NOW.isoformat(timespec="seconds")}}
+            log_check("g20", f"{key}: G20 comparison", "pass", f"{have} countries, latest year {latest_year}")
+        except Exception as e:  # noqa: BLE001
+            if key in old:
+                out["indicators"][key] = old[key]
+                log_check("g20", f"{key}: G20 comparison", "warn", f"download failed ({e}); kept the copy from {old[key].get('source', {}).get('retrieved_at', 'an earlier run')}")
+            else:
+                log_check("g20", f"{key}: G20 comparison", "warn", f"not available: {e}")
+    return out
+
+
+# The web pages drew these charts from these dates before the 20-year history was added. The full history now goes
+# in chart["long"] (read by the new site); chart["series"] keeps its old start so the original site is unchanged.
+DISPLAY_FROM = {
+    "inflation": "2015-01-01", "real_wages": "2015-03-31", "electricity": "2019-03-31", "mortgage": "2019-06-30",
+    "interest_rates": "2019-01-01", "consumer_confidence": "2015-01-01", "unemployment": "2015-01-01",
+    "public_private_jobs": "2019-01-01", "productivity": "2015-01-01", "gdp_per_capita": "2015-01-01",
+    "household_income": "2015-03-31", "housing_accord": "2019-01-01", "home_prices": "2015-01-01", "migration": "2012-01-01",
+}
+
+
+def split_history(m):
+    ch = m.get("chart") or {}
+    start = DISPLAY_FROM.get(m["id"])
+    if not start or not ch.get("series"):
+        return
+    ch["long"] = [dict(s, points=[list(p) for p in s["points"]]) for s in ch["series"]]
+    for s in ch["series"]:
+        pts = [list(p) for p in s["points"]]
+        kept = [p for p in pts if p[0] >= start]
+        if ch.get("kind") == "step":
+            before = [p for p in pts if p[0] < start]
+            if before and (not kept or kept[0][0] > start):
+                kept = [[start, before[-1][1]]] + kept
+        s["points"] = kept
+
+
 def main():
     os.makedirs(DATA_DIR, exist_ok=True)
     prev_path = os.path.join(DATA_DIR, "metrics.json")
-    prev = {}
+    prev, prev_g20 = {}, None
     if os.path.exists(prev_path):
         with open(prev_path) as f:
-            prev = {m["id"]: m for m in json.load(f).get("metrics", [])}
+            _prev = json.load(f)
+        prev = {m["id"]: m for m in _prev.get("metrics", [])}
+    g20_path = os.path.join(DATA_DIR, "g20.json")
+    if os.path.exists(g20_path):
+        with open(g20_path) as f:
+            prev_g20 = json.load(f)
 
     results, critical = [], False
     for fn in METRICS:
@@ -1384,6 +1510,7 @@ def main():
             m["automated"] = True
             m["updated_at"] = NOW.isoformat(timespec="seconds")
             m["explainer"] = EXPLAINERS.get(m["id"])
+            split_history(m)
             old = prev.get(m["id"])
             if old and old.get("headline", {}).get("period") == m["headline"]["period"] \
                     and old["headline"]["value"] != m["headline"]["value"]:
@@ -1454,6 +1581,9 @@ def main():
     print("\n▶ source links")
     check_links(urls)
 
+    print("\n▶ G20 comparisons")
+    g20 = g20_block(prev_g20)
+
     order = ["cost", "energy", "housing", "jobs", "living", "budget", "population", "governance"]
     results.sort(key=lambda m: order.index(m["section"]) if m["section"] in order else 99)
 
@@ -1472,6 +1602,9 @@ def main():
     out = {"summary": summary, "sworn_in": SWORN_IN, "sections": SECTIONS, "metrics": results, "budget": budget}
     with open(prev_path, "w") as f:
         json.dump(out, f, indent=1, ensure_ascii=False)
+    # G20 comparisons live in their own file: only the new site reads them.
+    with open(os.path.join(DATA_DIR, "g20.json"), "w") as f:
+        json.dump(g20, f, indent=1, ensure_ascii=False)
     with open(os.path.join(DATA_DIR, "metrics.js"), "w") as f:
         f.write("window.SCORECARD = " + json.dumps(out, ensure_ascii=False) + ";\n")
     if laws is not None:

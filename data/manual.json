@@ -507,14 +507,14 @@
   {
    "id": "spending_gdp",
    "section": "budget",
-   "title": "Government spending",
-   "question": "How big is Commonwealth spending compared with the economy?",
+   "title": "Government spending (share of GDP)",
+   "question": "How big is Commonwealth spending compared with the economy, and how does that compare with the past 55 years?",
    "headline": {
-    "value": 26.8,
+    "value": 26.9,
     "unit": "%",
     "decimals": 1,
-    "period": "2026–27 Budget estimate",
-    "caption": "of GDP spent by the Commonwealth"
+    "period": "2025-26 (Final Budget Outcome)",
+    "caption": "of GDP spent by the Commonwealth, the highest in 40 years outside the COVID years"
    },
    "benchmark": {
     "label": "Pre-COVID (2018–19)",
@@ -523,20 +523,214 @@
    "status": "fail",
    "status_rule": "Off track if Commonwealth payments as a share of GDP are above the pre-COVID 2018–19 level.",
    "context": [
-    "Payments are forecast at $829.6 billion in 2026–27, up from $616.3 billion in 2021–22.",
-    "Spending was 24.3% of GDP in 2022–23. It has risen every year since and is forecast at 26.8% in both 2026–27 and 2027–28.",
-    "The 2021–22 figure (26.4%) still included pandemic support. Before COVID, in 2018–19, spending was 24.5% of GDP."
+    "Commonwealth payments were $786.6 billion in 2025-26, or 26.9% of GDP (Final Budget Outcome, released 28 September 2026). The Budget had forecast 26.6%.",
+    "Outside the COVID years (2019-20 to 2021-22), that is the highest share since 1985-86. It is not an all-time high: spending peaked at 31.3% of GDP in 2020-21 and was 27.5% in 1984-85.",
+    "Spending was 24.3% of GDP in 2022-23 and has risen every year since. The Budget forecasts 26.8% in 2026-27 and 2027-28, easing to 26.2% by 2029-30.",
+    "Tax receipts were 24.1% of GDP in 2025-26. Before COVID, in 2018-19, spending was 24.5% of GDP."
    ],
    "chart": {
     "kind": "line",
     "unit": "%",
     "decimals": 1,
     "freq": "fy",
+    "estimateFrom": "2026-07-01",
     "series": [
      {
       "name": "Payments, % of GDP",
       "role": "primary",
       "points": [
+       [
+        "1971-06-30",
+        18.3
+       ],
+       [
+        "1972-06-30",
+        18.5
+       ],
+       [
+        "1973-06-30",
+        18.8
+       ],
+       [
+        "1974-06-30",
+        18.3
+       ],
+       [
+        "1975-06-30",
+        21.7
+       ],
+       [
+        "1976-06-30",
+        24.2
+       ],
+       [
+        "1977-06-30",
+        24.0
+       ],
+       [
+        "1978-06-30",
+        24.8
+       ],
+       [
+        "1979-06-30",
+        23.8
+       ],
+       [
+        "1980-06-30",
+        23.5
+       ],
+       [
+        "1981-06-30",
+        23.7
+       ],
+       [
+        "1982-06-30",
+        23.4
+       ],
+       [
+        "1983-06-30",
+        25.7
+       ],
+       [
+        "1984-06-30",
+        26.6
+       ],
+       [
+        "1985-06-30",
+        27.5
+       ],
+       [
+        "1986-06-30",
+        27.3
+       ],
+       [
+        "1987-06-30",
+        26.9
+       ],
+       [
+        "1988-06-30",
+        25.2
+       ],
+       [
+        "1989-06-30",
+        23.1
+       ],
+       [
+        "1990-06-30",
+        22.9
+       ],
+       [
+        "1991-06-30",
+        24.2
+       ],
+       [
+        "1992-06-30",
+        25.6
+       ],
+       [
+        "1993-06-30",
+        26.0
+       ],
+       [
+        "1994-06-30",
+        26.1
+       ],
+       [
+        "1995-06-30",
+        25.7
+       ],
+       [
+        "1996-06-30",
+        25.6
+       ],
+       [
+        "1997-06-30",
+        25.1
+       ],
+       [
+        "1998-06-30",
+        23.8
+       ],
+       [
+        "1999-06-30",
+        23.8
+       ],
+       [
+        "2000-06-30",
+        23.1
+       ],
+       [
+        "2001-06-30",
+        25.0
+       ],
+       [
+        "2002-06-30",
+        24.9
+       ],
+       [
+        "2003-06-30",
+        24.5
+       ],
+       [
+        "2004-06-30",
+        24.2
+       ],
+       [
+        "2005-06-30",
+        24.0
+       ],
+       [
+        "2006-06-30",
+        24.0
+       ],
+       [
+        "2007-06-30",
+        23.2
+       ],
+       [
+        "2008-06-30",
+        23.0
+       ],
+       [
+        "2009-06-30",
+        25.0
+       ],
+       [
+        "2010-06-30",
+        25.7
+       ],
+       [
+        "2011-06-30",
+        24.3
+       ],
+       [
+        "2012-06-30",
+        24.6
+       ],
+       [
+        "2013-06-30",
+        23.8
+       ],
+       [
+        "2014-06-30",
+        25.3
+       ],
+       [
+        "2015-06-30",
+        25.3
+       ],
+       [
+        "2016-06-30",
+        25.4
+       ],
+       [
+        "2017-06-30",
+        24.9
+       ],
+       [
+        "2018-06-30",
+        24.5
+       ],
        [
         "2019-06-30",
         24.5
@@ -567,7 +761,7 @@
        ],
        [
         "2026-06-30",
-        26.6
+        26.9
        ],
        [
         "2027-06-30",
@@ -591,6 +785,198 @@
       "name": "Tax receipts, % of GDP",
       "role": "muted",
       "points": [
+       [
+        "1971-06-30",
+        17.8
+       ],
+       [
+        "1972-06-30",
+        17.7
+       ],
+       [
+        "1973-06-30",
+        16.9
+       ],
+       [
+        "1974-06-30",
+        17.9
+       ],
+       [
+        "1975-06-30",
+        19.8
+       ],
+       [
+        "1976-06-30",
+        20.3
+       ],
+       [
+        "1977-06-30",
+        20.5
+       ],
+       [
+        "1978-06-30",
+        20.4
+       ],
+       [
+        "1979-06-30",
+        19.7
+       ],
+       [
+        "1980-06-30",
+        20.4
+       ],
+       [
+        "1981-06-30",
+        21.4
+       ],
+       [
+        "1982-06-30",
+        21.5
+       ],
+       [
+        "1983-06-30",
+        21.6
+       ],
+       [
+        "1984-06-30",
+        21.0
+       ],
+       [
+        "1985-06-30",
+        22.5
+       ],
+       [
+        "1986-06-30",
+        22.5
+       ],
+       [
+        "1987-06-30",
+        23.2
+       ],
+       [
+        "1988-06-30",
+        23.1
+       ],
+       [
+        "1989-06-30",
+        22.6
+       ],
+       [
+        "1990-06-30",
+        22.4
+       ],
+       [
+        "1991-06-30",
+        22.3
+       ],
+       [
+        "1992-06-30",
+        20.6
+       ],
+       [
+        "1993-06-30",
+        20.0
+       ],
+       [
+        "1994-06-30",
+        20.0
+       ],
+       [
+        "1995-06-30",
+        21.1
+       ],
+       [
+        "1996-06-30",
+        21.8
+       ],
+       [
+        "1997-06-30",
+        22.3
+       ],
+       [
+        "1998-06-30",
+        22.2
+       ],
+       [
+        "1999-06-30",
+        22.2
+       ],
+       [
+        "2000-06-30",
+        22.8
+       ],
+       [
+        "2001-06-30",
+        24.0
+       ],
+       [
+        "2002-06-30",
+        23.1
+       ],
+       [
+        "2003-06-30",
+        23.9
+       ],
+       [
+        "2004-06-30",
+        23.9
+       ],
+       [
+        "2005-06-30",
+        24.2
+       ],
+       [
+        "2006-06-30",
+        24.2
+       ],
+       [
+        "2007-06-30",
+        23.7
+       ],
+       [
+        "2008-06-30",
+        23.6
+       ],
+       [
+        "2009-06-30",
+        21.6
+       ],
+       [
+        "2010-06-30",
+        20.0
+       ],
+       [
+        "2011-06-30",
+        19.8
+       ],
+       [
+        "2012-06-30",
+        20.7
+       ],
+       [
+        "2013-06-30",
+        21.2
+       ],
+       [
+        "2014-06-30",
+        21.2
+       ],
+       [
+        "2015-06-30",
+        21.7
+       ],
+       [
+        "2016-06-30",
+        21.8
+       ],
+       [
+        "2017-06-30",
+        21.5
+       ],
+       [
+        "2018-06-30",
+        22.6
+       ],
        [
         "2019-06-30",
         22.9
@@ -621,7 +1007,7 @@
        ],
        [
         "2026-06-30",
-        23.6
+        24.1
        ],
        [
         "2027-06-30",
@@ -645,27 +1031,34 @@
     "ref": [
      {
       "value": 24.5,
-      "label": "Pre-COVID 2018–19: 24.5%"
+      "label": "Pre-COVID 2018-19: 24.5%"
      }
     ],
-    "note": "2025–26 onward are Budget estimates. Financial years ending 30 June."
+    "note": "Commonwealth general government cash payments and tax receipts, financial years ending 30 June, 1970-71 to 2029-30. 2025-26 is the Final Budget Outcome actual; 2026-27 onward are Budget estimates."
    },
    "sources": [
     {
      "publisher": "Australian Government (Treasury & Finance)",
-     "title": "Budget Paper No. 1 2026–27, Statement 11 (Tables 11.1 and 11.3)",
+     "title": "Final Budget Outcome 2025-26",
+     "url": "https://archive.budget.gov.au/2025-26/fbo/download/00_fbo_2025-26.pdf",
+     "published": "2026-09-28",
+     "accessed": "2026-10-01"
+    },
+    {
+     "publisher": "Australian Government (Treasury & Finance)",
+     "title": "Budget Paper No. 1 2026-27, Statement 11 (Tables 11.1 and 11.3)",
      "url": "https://budget.gov.au/content/bp1/download/bp1_bs-11.pdf",
      "published": "2026-05-12",
-     "accessed": "2026-09-14"
+     "accessed": "2026-10-01"
     }
    ],
-   "method": "General government sector cash payments and tax receipts as a percentage of GDP, Budget Paper No. 1 2026–27, Statement 11.",
+   "method": "General government sector cash payments and tax receipts as a percentage of GDP. 1970-71 to 2024-25 and forecasts from Budget Paper No. 1 2026-27, Statement 11 (Tables 11.1 and 11.3); 2025-26 actuals from the Final Budget Outcome 2025-26.",
    "explainer": {
     "what": "Total Commonwealth cash payments (welfare, health, defence, grants to the states, interest and so on) as a share of Australia's GDP. Tax receipts are shown for comparison.",
     "why": "It shows the size of the federal government relative to the economy. When spending grows faster than the economy, it must be paid for with higher taxes, more debt, or both."
    },
-   "verified_on": "2026-09-14",
-   "recheck_by": "2026-10-01"
+   "verified_on": "2026-10-01",
+   "recheck_by": "2026-12-31"
   },
   {
    "id": "aps_headcount",
