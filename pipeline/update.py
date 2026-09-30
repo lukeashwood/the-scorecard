@@ -62,18 +62,22 @@ def log_check(metric, check, status, detail, critical=False):
     print(f"  [{mark}] {metric}: {check}: {detail}")
 
 
-def _download(url):
+# The IMF's servers refuse browser-like user agents from scripts, so API calls identify themselves plainly.
+UA_API = "the-scorecard-data/1.0 (+https://github.com/lukeashwood/the-scorecard)"
+
+
+def _download(url, ua=None):
     """urllib first; if Python's certificate store can't validate the chain (common on macOS),
     fall back to the system curl, which still verifies TLS against the OS trust store."""
     try:
-        req = urllib.request.Request(url, headers={"User-Agent": UA})
+        req = urllib.request.Request(url, headers={"User-Agent": ua or UA})
         with urllib.request.urlopen(req, timeout=120) as r:
             return r.read()
     except urllib.error.URLError as e:
         if "CERTIFICATE_VERIFY_FAILED" not in str(e):
             raise
     import subprocess
-    return subprocess.run(["curl", "-sSfL", "--max-time", "120", "-A", UA, url],
+    return subprocess.run(["curl", "-sSfL", "--max-time", "120", "-A", ua or UA, url],
                           check=True, capture_output=True).stdout
 
 
@@ -96,7 +100,7 @@ def http_status(url):
     return int(out) if out.isdigit() else out
 
 
-def fetch(url, key):
+def fetch(url, key, ua=None):
     """Download with retries; optional local cache for development."""
     os.makedirs(CACHE_DIR, exist_ok=True)
     cache = os.path.join(CACHE_DIR, re.sub(r"[^A-Za-z0-9]+", "_", key))
@@ -107,7 +111,7 @@ def fetch(url, key):
         last = None
         for attempt in range(3):
             try:
-                body = _download(url)
+                body = _download(url, ua)
                 break
             except Exception as e:  # noqa: BLE001
                 last = e
@@ -667,7 +671,16 @@ def interest_rates():
     dec, pub = rba_decisions()
     cash = rba_series("f1.1", "FIRMMCRT", mid)
     # cross-check: latest decision target must equal latest monthly cash rate target
-    check_cross(mid, "cash rate target", dec[-1][2], latest(cash)[1], 0.001, "RBA A2 latest decision", "RBA F1.1 latest month")
+    # F1.1 is monthly and can lag a fresh decision by weeks. If the newest decision is recent and F1.1 still shows the
+    # rate it replaced, that is a publication lag, not a data error: log it and move on.
+    recent = (NOW.date() - dt.date.fromisoformat(dec[-1][0])).days <= 45
+    prev_rate = dec[-2][2] if len(dec) > 1 else None
+    if recent and abs(dec[-1][2] - latest(cash)[1]) > 0.001 and prev_rate is not None and abs(prev_rate - latest(cash)[1]) <= 0.001:
+        log_check(mid, "cross-source check: cash rate target", "warn",
+                  f"RBA A2 shows the {dec[-1][0]} decision ({dec[-1][2]}%); Table F1.1 still shows {latest(cash)[1]}% "
+                  f"for {latest(cash)[0]}. Expected lag after a new decision; the A2 decision is used.")
+    else:
+        check_cross(mid, "cash rate target", dec[-1][2], latest(cash)[1], 0.001, "RBA A2 latest decision", "RBA F1.1 latest month")
     at_swear = [x for x in dec if x[0] <= SWORN_IN][-1][2]
     after = [x for x in dec if x[0] > SWORN_IN]
     rises = [x for x in after if x[1] > 0]
@@ -1412,7 +1425,7 @@ G20_INDICATORS = {
 
 
 def _imf(ind):
-    data = json.loads(fetch(IMF_URL.format(ind=ind), f"imf_{ind}").decode("utf-8"))
+    data = json.loads(fetch(IMF_URL.format(ind=ind), f"imf_{ind}", ua=UA_API).decode("utf-8"))
     vals = data.get("values", {}).get(ind, {})
     return {c: sorted((int(y), float(v)) for y, v in vals.get(c, {}).items() if v is not None) for c in G20}
 
