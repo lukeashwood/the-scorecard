@@ -22,16 +22,16 @@
    "status_rule": "Off track if gross debt (in dollars) is forecast to be higher than at 30 June 2022.",
    "context": [
     "At 30 June 2006 gross debt was $54.1 billion (5.4% of GDP). It reached $257.4 billion in 2012–13, $542.0 billion in 2018–19 and $895.3 billion (38.3% of GDP) at 30 June 2022, when this government took office.",
-    "It was $928.6 billion at 30 June 2025, the latest audited actual. The Budget forecasts $1,051 billion by June 2027 and $1,249 billion by June 2030: above $1 trillion for the first time.",
-    "As a share of the economy, gross debt peaked at 39.1% of GDP in 2020–21 and fell to 33.4% in 2024–25. The Budget forecasts it rising again to peak at 35.8% in 2028–29.",
-    "Net debt is forecast to rise from $532.3 billion (2024–25) to $767.8 billion by 2029–30."
+    "It was $971.4 billion (33.2% of GDP) at 30 June 2026, the latest audited actual from the Final Budget Outcome, $10.6 billion below the Budget estimate. The Budget forecasts $1,051 billion by June 2027 and $1,249 billion by June 2030: above $1 trillion for the first time.",
+    "As a share of the economy, gross debt peaked at 39.1% of GDP in 2020-21 and fell to 33.2% in 2025-26. The Budget forecasts it rising again to peak at 35.8% in 2028-29.",
+    "Net debt was $550.0 billion (18.8% of GDP) at 30 June 2026, and is forecast to reach $767.8 billion by 2029-30."
    ],
    "chart": {
     "kind": "bar",
     "unit": "$bn",
     "decimals": 1,
     "freq": "fy",
-    "estimateFrom": "2025-07-01",
+    "estimateFrom": "2026-07-01",
     "series": [
      {
       "name": "Gross debt at 30 June ($ billion)",
@@ -119,7 +119,7 @@
        ],
        [
         "2026-06-30",
-        982.0
+        971.4
        ],
        [
         "2027-06-30",
@@ -228,7 +228,7 @@
        ],
        [
         "2026-06-30",
-        33.1
+        33.2
        ],
        [
         "2027-06-30",
@@ -249,9 +249,17 @@
       ]
      }
     ],
-    "note": "Face value of Australian Government Securities on issue at 30 June, 2005–06 to 2029–30. Lighter bars are 2026–27 Budget estimates (rounded to the nearest $1 billion). Hover a bar, or open the data table, for debt as a share of GDP."
+    "note": "Face value of Australian Government Securities on issue at 30 June, 2005-06 to 2029-30. 2025-26 is the Final Budget Outcome actual. Lighter bars are 2026-27 Budget estimates (rounded to the nearest $1 billion). Hover a bar, or open the data table, for debt as a share of GDP."
    },
    "sources": [
+    {
+     "publisher": "Australian Government (Treasury & Finance)",
+     "title": "Final Budget Outcome 2025-26",
+     "url": "https://archive.budget.gov.au/2025-26/fbo/download/00_fbo_2025-26.pdf",
+     "published": "2026-09-28",
+     "accessed": "2026-10-01",
+     "table": "Table 1.9: gross debt $971.4b (33.2% of GDP) and net debt $550.0b at 30 June 2026"
+    },
     {
      "publisher": "Australian Government (Treasury & Finance)",
      "title": "Budget Paper No. 1 2026–27, Statement 11: Historical Australian Government Data",
@@ -282,8 +290,8 @@
     "what": "Gross debt is the face value of all bonds and Treasury notes the Commonwealth has issued and not yet repaid: the amount it must pay back to investors when they mature. It is a snapshot at 30 June each year. Net debt, a separate measure, subtracts certain financial assets the government holds.",
     "why": "Debt has to be serviced. Every dollar of interest is a dollar not spent on services or returned as tax cuts, and higher debt leaves less room to respond to the next crisis. The long view shows how debt has built up over two decades and where it is forecast to go."
    },
-   "verified_on": "2026-09-14",
-   "recheck_by": "2026-10-01"
+   "verified_on": "2026-10-01",
+   "recheck_by": "2027-05-31"
   },
   {
    "id": "budget_balance",
@@ -306,8 +314,8 @@
    "status": "fail",
    "status_rule": "Off track if the government's own Budget forecasts a deficit for the current financial year.",
    "context": [
-    "The budget recorded surpluses in 2022–23 (+$22.1 billion) and 2023–24 (+$15.8 billion), then returned to deficit in 2024–25 (−$10.0 billion).",
-    "The 2026–27 Budget forecasts a deficit in every year of the forward estimates: −$28.3b, −$31.5b, −$31.0b, −$34.4b and −$25.3b from 2025–26 to 2029–30.",
+    "The budget recorded surpluses in 2022-23 (+$22.1 billion) and 2023-24 (+$15.8 billion), then returned to deficit in 2024-25 (-$10.0 billion) and 2025-26 (-$22.3 billion, 0.8% of GDP, per the Final Budget Outcome; the Budget had estimated -$28.3 billion).",
+    "The 2026-27 Budget forecasts a deficit in every remaining year of the forward estimates: -$31.5b, -$31.0b, -$34.4b and -$25.3b from 2026-27 to 2029-30.",
     "Tax receipts are forecast at 23.8% of GDP in 2026–27, up from 23.0% in 2021–22. The tax take is higher as a share of the economy, but payments have risen faster (see Government spending)."
    ],
    "chart": {
@@ -315,12 +323,216 @@
     "unit": "$bn",
     "decimals": 1,
     "freq": "fy",
-    "estimateFrom": "2025-07-01",
+    "estimateFrom": "2026-07-01",
     "series": [
      {
       "name": "Underlying cash balance ($ billion)",
       "role": "primary",
       "points": [
+       [
+        "1971-06-30",
+        0.9
+       ],
+       [
+        "1972-06-30",
+        0.9
+       ],
+       [
+        "1973-06-30",
+        0.3
+       ],
+       [
+        "1974-06-30",
+        1.1
+       ],
+       [
+        "1975-06-30",
+        0.2
+       ],
+       [
+        "1976-06-30",
+        -1.5
+       ],
+       [
+        "1977-06-30",
+        -1.3
+       ],
+       [
+        "1978-06-30",
+        -2.0
+       ],
+       [
+        "1979-06-30",
+        -2.1
+       ],
+       [
+        "1980-06-30",
+        -1.3
+       ],
+       [
+        "1981-06-30",
+        -0.2
+       ],
+       [
+        "1982-06-30",
+        0.3
+       ],
+       [
+        "1983-06-30",
+        -3.3
+       ],
+       [
+        "1984-06-30",
+        -7.0
+       ],
+       [
+        "1985-06-30",
+        -6.0
+       ],
+       [
+        "1986-06-30",
+        -5.1
+       ],
+       [
+        "1987-06-30",
+        -2.4
+       ],
+       [
+        "1988-06-30",
+        1.5
+       ],
+       [
+        "1989-06-30",
+        5.4
+       ],
+       [
+        "1990-06-30",
+        5.9
+       ],
+       [
+        "1991-06-30",
+        -0.4
+       ],
+       [
+        "1992-06-30",
+        -12.6
+       ],
+       [
+        "1993-06-30",
+        -18.1
+       ],
+       [
+        "1994-06-30",
+        -18.2
+       ],
+       [
+        "1995-06-30",
+        -14.2
+       ],
+       [
+        "1996-06-30",
+        -11.1
+       ],
+       [
+        "1997-06-30",
+        -6.1
+       ],
+       [
+        "1998-06-30",
+        0.1
+       ],
+       [
+        "1999-06-30",
+        3.9
+       ],
+       [
+        "2000-06-30",
+        13.0
+       ],
+       [
+        "2001-06-30",
+        5.9
+       ],
+       [
+        "2002-06-30",
+        -1.1
+       ],
+       [
+        "2003-06-30",
+        7.4
+       ],
+       [
+        "2004-06-30",
+        8.0
+       ],
+       [
+        "2005-06-30",
+        13.6
+       ],
+       [
+        "2006-06-30",
+        15.8
+       ],
+       [
+        "2007-06-30",
+        17.2
+       ],
+       [
+        "2008-06-30",
+        19.8
+       ],
+       [
+        "2009-06-30",
+        -27.0
+       ],
+       [
+        "2010-06-30",
+        -54.5
+       ],
+       [
+        "2011-06-30",
+        -47.5
+       ],
+       [
+        "2012-06-30",
+        -43.4
+       ],
+       [
+        "2013-06-30",
+        -18.8
+       ],
+       [
+        "2014-06-30",
+        -48.5
+       ],
+       [
+        "2015-06-30",
+        -37.9
+       ],
+       [
+        "2016-06-30",
+        -39.6
+       ],
+       [
+        "2017-06-30",
+        -33.2
+       ],
+       [
+        "2018-06-30",
+        -10.1
+       ],
+       [
+        "2019-06-30",
+        -0.7
+       ],
+       [
+        "2020-06-30",
+        -85.3
+       ],
+       [
+        "2021-06-30",
+        -134.2
+       ],
        [
         "2022-06-30",
         -32.0
@@ -339,7 +551,7 @@
        ],
        [
         "2026-06-30",
-        -28.3
+        -22.3
        ],
        [
         "2027-06-30",
@@ -366,24 +578,281 @@
       "label": ""
      }
     ],
-    "note": "Red = deficit. Lighter bars are Budget forecasts. 2021–22 was the final budget year of the previous government."
+    "note": "Underlying cash balance, 1970-71 to 2029-30. Bars below the line are deficits. 2025-26 is the Final Budget Outcome actual; lighter bars are Budget forecasts.",
+    "extra": [
+     {
+      "name": "% of GDP",
+      "unit": "%",
+      "decimals": 1,
+      "points": [
+       [
+        "1971-06-30",
+        2.2
+       ],
+       [
+        "1972-06-30",
+        2.0
+       ],
+       [
+        "1973-06-30",
+        0.7
+       ],
+       [
+        "1974-06-30",
+        1.9
+       ],
+       [
+        "1975-06-30",
+        0.3
+       ],
+       [
+        "1976-06-30",
+        -1.8
+       ],
+       [
+        "1977-06-30",
+        -1.3
+       ],
+       [
+        "1978-06-30",
+        -1.9
+       ],
+       [
+        "1979-06-30",
+        -1.8
+       ],
+       [
+        "1980-06-30",
+        -1.0
+       ],
+       [
+        "1981-06-30",
+        -0.1
+       ],
+       [
+        "1982-06-30",
+        0.2
+       ],
+       [
+        "1983-06-30",
+        -1.8
+       ],
+       [
+        "1984-06-30",
+        -3.3
+       ],
+       [
+        "1985-06-30",
+        -2.6
+       ],
+       [
+        "1986-06-30",
+        -2.0
+       ],
+       [
+        "1987-06-30",
+        -0.8
+       ],
+       [
+        "1988-06-30",
+        0.4
+       ],
+       [
+        "1989-06-30",
+        1.5
+       ],
+       [
+        "1990-06-30",
+        1.5
+       ],
+       [
+        "1991-06-30",
+        -0.1
+       ],
+       [
+        "1992-06-30",
+        -3.0
+       ],
+       [
+        "1993-06-30",
+        -4.1
+       ],
+       [
+        "1994-06-30",
+        -3.9
+       ],
+       [
+        "1995-06-30",
+        -2.9
+       ],
+       [
+        "1996-06-30",
+        -2.1
+       ],
+       [
+        "1997-06-30",
+        -1.1
+       ],
+       [
+        "1998-06-30",
+        0.0
+       ],
+       [
+        "1999-06-30",
+        0.6
+       ],
+       [
+        "2000-06-30",
+        2.0
+       ],
+       [
+        "2001-06-30",
+        0.8
+       ],
+       [
+        "2002-06-30",
+        -0.1
+       ],
+       [
+        "2003-06-30",
+        0.9
+       ],
+       [
+        "2004-06-30",
+        0.9
+       ],
+       [
+        "2005-06-30",
+        1.5
+       ],
+       [
+        "2006-06-30",
+        1.6
+       ],
+       [
+        "2007-06-30",
+        1.6
+       ],
+       [
+        "2008-06-30",
+        1.7
+       ],
+       [
+        "2009-06-30",
+        -2.1
+       ],
+       [
+        "2010-06-30",
+        -4.2
+       ],
+       [
+        "2011-06-30",
+        -3.3
+       ],
+       [
+        "2012-06-30",
+        -2.9
+       ],
+       [
+        "2013-06-30",
+        -1.2
+       ],
+       [
+        "2014-06-30",
+        -3.0
+       ],
+       [
+        "2015-06-30",
+        -2.3
+       ],
+       [
+        "2016-06-30",
+        -2.4
+       ],
+       [
+        "2017-06-30",
+        -1.9
+       ],
+       [
+        "2018-06-30",
+        -0.5
+       ],
+       [
+        "2019-06-30",
+        0.0
+       ],
+       [
+        "2020-06-30",
+        -4.3
+       ],
+       [
+        "2021-06-30",
+        -6.4
+       ],
+       [
+        "2022-06-30",
+        -1.4
+       ],
+       [
+        "2023-06-30",
+        0.9
+       ],
+       [
+        "2024-06-30",
+        0.6
+       ],
+       [
+        "2025-06-30",
+        -0.4
+       ],
+       [
+        "2026-06-30",
+        -0.8
+       ],
+       [
+        "2027-06-30",
+        -1.0
+       ],
+       [
+        "2028-06-30",
+        -1.0
+       ],
+       [
+        "2029-06-30",
+        -1.0
+       ],
+       [
+        "2030-06-30",
+        -0.7
+       ]
+      ]
+     }
+    ]
    },
    "sources": [
     {
      "publisher": "Australian Government (Treasury & Finance)",
-     "title": "Budget Paper No. 1 2026–27, Statement 11 (Table 11.1: underlying cash balance; Table 11.3: tax receipts)",
+     "title": "Final Budget Outcome 2025-26",
+     "url": "https://archive.budget.gov.au/2025-26/fbo/download/00_fbo_2025-26.pdf",
+     "published": "2026-09-28",
+     "accessed": "2026-10-01",
+     "table": "Table 2.3: underlying cash balance -$22,254m"
+    },
+    {
+     "publisher": "Australian Government (Treasury & Finance)",
+     "title": "Budget Paper No. 1 2026-27, Statement 11 (Table 11.1: underlying cash balance 1970-71 to 2029-30; Table 11.3: tax receipts)",
      "url": "https://budget.gov.au/content/bp1/download/bp1_bs-11.pdf",
      "published": "2026-05-12",
      "accessed": "2026-09-14"
     }
    ],
-   "method": "Underlying cash balance (general government sector) as published in Budget Paper No. 1 2026–27, Table 11.1. Years to 2024–25 are actuals; later years are estimates.",
+   "method": "Underlying cash balance (general government sector), Budget Paper No. 1 2026-27, Table 11.1, 1970-71 to 2029-30. 2025-26 is the actual from the Final Budget Outcome 2025-26; later years are estimates.",
    "explainer": {
     "what": "The underlying cash balance is the Commonwealth's headline budget result: cash receipts minus cash payments, excluding the Future Fund's investment earnings. A negative number is a deficit.",
     "why": "Deficits are funded by borrowing, which adds to debt and interest costs. Deficit spending also adds to demand at a time when the Reserve Bank is trying to bring inflation down."
    },
-   "verified_on": "2026-09-14",
-   "recheck_by": "2026-10-01"
+   "verified_on": "2026-10-01",
+   "recheck_by": "2027-05-31"
   },
   {
    "id": "interest_costs",
@@ -405,7 +874,7 @@
    "status": "fail",
    "status_rule": "Off track if annual interest payments are higher than in 2021–22.",
    "context": [
-    "Interest payments are forecast to rise from $17.4 billion in 2021–22 to $29.6 billion in 2026–27 and $42.3 billion by 2029–30.",
+    "Interest payments rose from $17.4 billion in 2021-22 to $27.0 billion in 2025-26 (Final Budget Outcome), and are forecast at $29.6 billion in 2026-27 and $42.3 billion by 2029-30.",
     "The Budget itself says interest payments are expected to peak at 1.6% of GDP in 2032–33.",
     "In 2026–27 the government expects to spend more on public debt interest ($31.9 billion, accrual basis) than on transport and communication ($15.3 billion) and public order and safety ($9.7 billion) combined."
    ],
@@ -414,12 +883,204 @@
     "unit": "$bn",
     "decimals": 1,
     "freq": "fy",
-    "estimateFrom": "2025-07-01",
+    "estimateFrom": "2026-07-01",
     "series": [
      {
       "name": "Interest payments ($ billion)",
       "role": "accent",
       "points": [
+       [
+        "1971-06-30",
+        0.6
+       ],
+       [
+        "1972-06-30",
+        0.6
+       ],
+       [
+        "1973-06-30",
+        0.7
+       ],
+       [
+        "1974-06-30",
+        0.7
+       ],
+       [
+        "1975-06-30",
+        0.9
+       ],
+       [
+        "1976-06-30",
+        1.0
+       ],
+       [
+        "1977-06-30",
+        1.5
+       ],
+       [
+        "1978-06-30",
+        1.7
+       ],
+       [
+        "1979-06-30",
+        2.1
+       ],
+       [
+        "1980-06-30",
+        2.4
+       ],
+       [
+        "1981-06-30",
+        2.7
+       ],
+       [
+        "1982-06-30",
+        3.1
+       ],
+       [
+        "1983-06-30",
+        3.6
+       ],
+       [
+        "1984-06-30",
+        4.6
+       ],
+       [
+        "1985-06-30",
+        6.0
+       ],
+       [
+        "1986-06-30",
+        7.4
+       ],
+       [
+        "1987-06-30",
+        8.3
+       ],
+       [
+        "1988-06-30",
+        8.1
+       ],
+       [
+        "1989-06-30",
+        8.2
+       ],
+       [
+        "1990-06-30",
+        8.1
+       ],
+       [
+        "1991-06-30",
+        7.0
+       ],
+       [
+        "1992-06-30",
+        6.8
+       ],
+       [
+        "1993-06-30",
+        6.5
+       ],
+       [
+        "1994-06-30",
+        7.7
+       ],
+       [
+        "1995-06-30",
+        9.1
+       ],
+       [
+        "1996-06-30",
+        10.3
+       ],
+       [
+        "1997-06-30",
+        10.7
+       ],
+       [
+        "1998-06-30",
+        9.5
+       ],
+       [
+        "1999-06-30",
+        9.3
+       ],
+       [
+        "2000-06-30",
+        8.5
+       ],
+       [
+        "2001-06-30",
+        7.3
+       ],
+       [
+        "2002-06-30",
+        6.3
+       ],
+       [
+        "2003-06-30",
+        4.7
+       ],
+       [
+        "2004-06-30",
+        4.1
+       ],
+       [
+        "2005-06-30",
+        3.9
+       ],
+       [
+        "2006-06-30",
+        4.6
+       ],
+       [
+        "2007-06-30",
+        4.0
+       ],
+       [
+        "2008-06-30",
+        3.8
+       ],
+       [
+        "2009-06-30",
+        4.0
+       ],
+       [
+        "2010-06-30",
+        6.4
+       ],
+       [
+        "2011-06-30",
+        9.6
+       ],
+       [
+        "2012-06-30",
+        10.9
+       ],
+       [
+        "2013-06-30",
+        11.8
+       ],
+       [
+        "2014-06-30",
+        14.0
+       ],
+       [
+        "2015-06-30",
+        13.9
+       ],
+       [
+        "2016-06-30",
+        15.0
+       ],
+       [
+        "2017-06-30",
+        15.3
+       ],
+       [
+        "2018-06-30",
+        16.6
+       ],
        [
         "2019-06-30",
         19.0
@@ -450,7 +1111,7 @@
        ],
        [
         "2026-06-30",
-        27.1
+        27.0
        ],
        [
         "2027-06-30",
@@ -471,12 +1132,269 @@
       ]
      }
     ],
-    "note": "Cash interest payments, general government sector. Lighter bars are Budget forecasts."
+    "note": "Cash interest paid on government debt, general government sector, 1970-71 to 2029-30. 2025-26 is the Final Budget Outcome actual; lighter bars are Budget forecasts.",
+    "extra": [
+     {
+      "name": "% of GDP",
+      "unit": "%",
+      "decimals": 1,
+      "points": [
+       [
+        "1971-06-30",
+        1.4
+       ],
+       [
+        "1972-06-30",
+        1.4
+       ],
+       [
+        "1973-06-30",
+        1.4
+       ],
+       [
+        "1974-06-30",
+        1.2
+       ],
+       [
+        "1975-06-30",
+        1.3
+       ],
+       [
+        "1976-06-30",
+        1.2
+       ],
+       [
+        "1977-06-30",
+        1.5
+       ],
+       [
+        "1978-06-30",
+        1.7
+       ],
+       [
+        "1979-06-30",
+        1.7
+       ],
+       [
+        "1980-06-30",
+        1.7
+       ],
+       [
+        "1981-06-30",
+        1.8
+       ],
+       [
+        "1982-06-30",
+        1.7
+       ],
+       [
+        "1983-06-30",
+        1.9
+       ],
+       [
+        "1984-06-30",
+        2.1
+       ],
+       [
+        "1985-06-30",
+        2.5
+       ],
+       [
+        "1986-06-30",
+        2.8
+       ],
+       [
+        "1987-06-30",
+        2.9
+       ],
+       [
+        "1988-06-30",
+        2.5
+       ],
+       [
+        "1989-06-30",
+        2.2
+       ],
+       [
+        "1990-06-30",
+        2.0
+       ],
+       [
+        "1991-06-30",
+        1.7
+       ],
+       [
+        "1992-06-30",
+        1.6
+       ],
+       [
+        "1993-06-30",
+        1.5
+       ],
+       [
+        "1994-06-30",
+        1.6
+       ],
+       [
+        "1995-06-30",
+        1.8
+       ],
+       [
+        "1996-06-30",
+        1.9
+       ],
+       [
+        "1997-06-30",
+        1.9
+       ],
+       [
+        "1998-06-30",
+        1.6
+       ],
+       [
+        "1999-06-30",
+        1.5
+       ],
+       [
+        "2000-06-30",
+        1.3
+       ],
+       [
+        "2001-06-30",
+        1.0
+       ],
+       [
+        "2002-06-30",
+        0.8
+       ],
+       [
+        "2003-06-30",
+        0.6
+       ],
+       [
+        "2004-06-30",
+        0.5
+       ],
+       [
+        "2005-06-30",
+        0.4
+       ],
+       [
+        "2006-06-30",
+        0.5
+       ],
+       [
+        "2007-06-30",
+        0.4
+       ],
+       [
+        "2008-06-30",
+        0.3
+       ],
+       [
+        "2009-06-30",
+        0.3
+       ],
+       [
+        "2010-06-30",
+        0.5
+       ],
+       [
+        "2011-06-30",
+        0.7
+       ],
+       [
+        "2012-06-30",
+        0.7
+       ],
+       [
+        "2013-06-30",
+        0.8
+       ],
+       [
+        "2014-06-30",
+        0.9
+       ],
+       [
+        "2015-06-30",
+        0.9
+       ],
+       [
+        "2016-06-30",
+        0.9
+       ],
+       [
+        "2017-06-30",
+        0.9
+       ],
+       [
+        "2018-06-30",
+        0.9
+       ],
+       [
+        "2019-06-30",
+        1.0
+       ],
+       [
+        "2020-06-30",
+        0.8
+       ],
+       [
+        "2021-06-30",
+        0.8
+       ],
+       [
+        "2022-06-30",
+        0.7
+       ],
+       [
+        "2023-06-30",
+        0.7
+       ],
+       [
+        "2024-06-30",
+        0.8
+       ],
+       [
+        "2025-06-30",
+        0.9
+       ],
+       [
+        "2026-06-30",
+        0.9
+       ],
+       [
+        "2027-06-30",
+        1.0
+       ],
+       [
+        "2028-06-30",
+        1.1
+       ],
+       [
+        "2029-06-30",
+        1.1
+       ],
+       [
+        "2030-06-30",
+        1.2
+       ]
+      ]
+     }
+    ]
    },
    "sources": [
     {
      "publisher": "Australian Government (Treasury & Finance)",
-     "title": "Budget Paper No. 1 2026–27, Statement 11 (Table 11.4: interest payments)",
+     "title": "Final Budget Outcome 2025-26",
+     "url": "https://archive.budget.gov.au/2025-26/fbo/download/00_fbo_2025-26.pdf",
+     "published": "2026-09-28",
+     "accessed": "2026-10-01",
+     "table": "Table 2.3: interest paid $26,971m in 2025-26"
+    },
+    {
+     "publisher": "Australian Government (Treasury & Finance)",
+     "title": "Budget Paper No. 1 2026-27, Statement 11 (Table 11.5: interest paid, 1970-71 to 2029-30)",
      "url": "https://budget.gov.au/content/bp1/download/bp1_bs-11.pdf",
      "published": "2026-05-12",
      "accessed": "2026-09-14"
@@ -496,13 +1414,13 @@
      "accessed": "2026-09-14"
     }
    ],
-   "method": "Interest payments (cash) from Budget Paper No. 1 Table 11.4. The comparison with other spending uses accrual expenses by function (Tables 6.3 and 6.17), which is why public debt interest expense ($31.9b) differs from cash interest payments ($29.6b).",
+   "method": "Interest paid (cash) from Budget Paper No. 1 2026-27, Statement 11, Table 11.5, with the 2025-26 actual from the Final Budget Outcome. The comparison with other spending uses accrual expenses by function (Tables 6.3 and 6.17), which is why public debt interest expense ($31.9b) differs from cash interest payments ($29.6b).",
    "explainer": {
     "what": "The interest the Commonwealth pays each year to the investors who hold its bonds. It rises when debt grows and when interest rates on new borrowing are higher.",
     "why": "Interest buys nothing: no hospitals, no defence, no tax relief. It is a direct cost of past and present deficits, and future taxpayers carry it."
    },
-   "verified_on": "2026-09-14",
-   "recheck_by": "2026-10-01"
+   "verified_on": "2026-10-01",
+   "recheck_by": "2027-05-31"
   },
   {
    "id": "spending_gdp",
