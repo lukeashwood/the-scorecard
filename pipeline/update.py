@@ -351,6 +351,10 @@ ABS_PAGES = {
                      "https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/total-value-dwellings/latest-release"),
     "ERP_COMP_Q": ("National, state and territory population",
                    "https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/latest-release"),
+    "ANA_HH": ("Australian National Accounts: National Income, Expenditure and Product",
+               "https://www.abs.gov.au/statistics/economy/national-accounts/australian-national-accounts-national-income-expenditure-and-product/latest-release"),
+    "AWE": ("Average Weekly Earnings, Australia",
+            "https://www.abs.gov.au/statistics/labour/earnings-and-working-conditions/average-weekly-earnings-australia/latest-release"),
 }
 
 
@@ -675,7 +679,7 @@ def interest_rates():
     # rate it replaced, that is a publication lag, not a data error: log it and move on.
     recent = (NOW.date() - dt.date.fromisoformat(dec[-1][0])).days <= 45
     prev_rate = dec[-2][2] if len(dec) > 1 else None
-    if recent and abs(dec[-1][2] - latest(cash)[1]) > 0.001 and prev_rate is not None and abs(prev_rate - latest(cash)[1]) <= 0.001:
+    if recent and abs(dec[-1][2] - latest(cash)[1]) > 0.001 and prev_rate is not None and abs(prev_rate - latest(cash)[1]) <= 0.05:  # F1.1 can differ from the target by a rounding basis point
         log_check(mid, "cross-source check: cash rate target", "warn",
                   f"RBA A2 shows the {dec[-1][0]} decision ({dec[-1][2]}%); Table F1.1 still shows {latest(cash)[1]}% "
                   f"for {latest(cash)[0]}. Expected lag after a new decision; the A2 decision is used.")
@@ -1163,6 +1167,343 @@ def migration():
     }
 
 
+# --------------------------------------------------------------------------- added October 2026: commentators' staple charts
+# Each figure below is computed from the fetched data. Wording is neutral: levels, changes and dates only.
+
+def _abs_latest_file(page, pattern, key):
+    """Find the link to an ABS time-series workbook on a 'latest release' page."""
+    html = fetch(page, key + "_page").decode("utf-8", errors="replace")
+    m = re.search(r'href="([^"]*' + pattern + r'[^"]*\.xlsx)"', html)
+    if not m:
+        raise RuntimeError(f"no {pattern} workbook linked from {page}")
+    href = m[1]
+    return href if href.startswith("http") else "https://www.abs.gov.au" + href
+
+
+def _find(series, *words, kind="Seasonally Adjusted"):
+    for s in series.values():
+        if all(w.lower() in s["description"].lower() for w in words) and s["type"] == kind:
+            return s["points"]
+    raise RuntimeError(f"series not found: {words} ({kind})")
+
+
+def _fy(date):
+    """Financial year label for a date: 2026-03-31 -> 2025-26."""
+    y, mth = int(date[:4]), int(date[5:7])
+    s = y if mth >= 7 else y - 1
+    return f"{s}-{str(s + 1)[2:]}"
+
+
+@metric
+def household_payments():
+    mid = "household_payments"
+    page = ABS_PAGES["ANA_HH"][1]
+    url = _abs_latest_file(page, "5206020", "abs_5206020")
+    ser = abs_timeseries_xlsx(url, "abs_5206020")
+    gross = _find(ser, "TOTAL GROSS INCOME")
+    mort = _find(ser, "Interest - Dwellings")
+    tax = _find(ser, "Secondary income payable - Income tax")
+    g = dict(gross)
+    m_sh = [[d, round(v / g[d] * 100, 2)] for d, v in mort if g.get(d)]
+    t_sh = [[d, round(v / g[d] * 100, 2)] for d, v in tax if g.get(d)]
+    d = latest(m_sh)[0]
+    check_fresh(mid, d, "Q_LAG")
+    mv, tv = latest(m_sh)[1], latest(t_sh)[1]
+    check_range(mid, "mortgage interest share of gross income (%)", mv, 1, 20)
+    check_range(mid, "income tax share of gross income (%)", tv, 5, 30)
+    m0, t0 = at(m_sh, BASE_Q)[1], at(t_sh, BASE_Q)[1]
+    both = mv + tv
+    both_hist = [(dd, a + b) for (dd, a), (_, b) in zip(m_sh, t_sh)]
+    prev_hi = [p for p in both_hist[:-1] if p[1] >= both]
+    hi_txt = (f"Together they take {fmt(both)}% of household gross income, the highest share since {label(prev_hi[-1][0], 'Q')}."
+              if prev_hi else f"Together they take {fmt(both)}% of household gross income, the highest share since the series began in {gross[0][0][:4]}.")
+    return {
+        "id": mid, "section": "cost", "title": "Mortgage interest and income tax",
+        "question": "How much of household income now goes on mortgage interest and income tax?",
+        "headline": {"value": round(mv, 1), "unit": "%", "decimals": 1, "period": label(d, "Q"),
+                     "caption": "of household gross income goes on mortgage interest"},
+        "benchmark": {"label": "Income tax", "text": f"{fmt(tv)}% of household gross income"},
+        "baseline": {"label": "June quarter 2022", "value": round(m0, 2), "unit": "%"},
+        "status": "info",
+        "status_rule": "Shown for context, with no verdict. Interest rates are set by the independent Reserve Bank.",
+        "context": [
+            f"Mortgage interest took {fmt(mv)}% of household gross income in the {label(d, 'Q')}, against {fmt(m0)}% in the June quarter 2022.",
+            f"Income tax took {fmt(tv)}%, against {fmt(t0)}% in the June quarter 2022.",
+            hi_txt,
+            "These are averages across all households. About 65% of households have no mortgage (Census 2021), so the share for a household with a mortgage is much higher.",
+        ],
+        "chart": {"kind": "line", "unit": "%", "decimals": 1,
+                  "series": [{"name": "Mortgage interest, % of household gross income", "role": "primary", "points": since(m_sh, "1980-01-01")},
+                             {"name": "Income tax, % of household gross income", "role": "accent", "points": since(t_sh, "1980-01-01")}]},
+        "sources": [{"publisher": "Australian Bureau of Statistics", "title": "Australian National Accounts: Table 20, Household income account",
+                     "url": page, "data_url": url, "series": ["Total gross income", "Property income payable: interest on dwellings", "Secondary income payable: income tax"],
+                     "retrieved_at": NOW.isoformat(timespec="seconds"), "automated": True}],
+        "method": "ABS household income account, seasonally adjusted, quarterly. Interest payable on dwellings and income tax payable, each divided by total household gross income. Averages across all households, with and without a mortgage.",
+    }
+
+
+@metric
+def people_per_home():
+    mid = "people_per_home"
+    pop = abs_group(abs_api("ERP_COMP_Q", "10.AUS.Q", "2001-Q1", "abs_erp_long"), "MEASURE")["10"]
+    comp = abs_group(abs_api("BUILDING_ACTIVITY", "M7.AUS.CUR.1.9.100.10.Q", "2001-Q1", "abs_building_comp_long"), "MEASURE")["M7"]
+    p, c = dict(pop), dict(comp)
+    dates = [d for d, _ in comp if d in p]
+    out = []
+    for i in range(4, len(dates)):
+        d, d4 = dates[i], dates[i - 4]
+        growth = (p[d] - p[d4]) * 1000
+        homes = sum(c[x] for x in dates[i - 3:i + 1])
+        out.append((d, growth, homes))
+    d, growth, homes = out[-1]
+    check_fresh(mid, d, "Q_LAG")
+    ratio = growth / homes
+    check_range(mid, "new residents per new home", ratio, 0, 6)
+    pts = [[dd, round(g / h, 2)] for dd, g, h in out if h]
+    avg = mean(v for dd, v in pts if "2003-06-30" <= dd <= "2019-12-31")
+    b = [x for x in out if x[0] <= BASE_Q][-1]
+    return {
+        "id": mid, "section": "housing", "title": "New residents per new home",
+        "question": "Is home building keeping up with population growth?",
+        "headline": {"value": round(ratio, 1), "unit": "", "decimals": 1, "period": f"12 months to {label(d, 'Q')}",
+                     "caption": "new residents for every new home completed"},
+        "benchmark": {"label": "Average, 2003 to 2019", "text": f"{fmt(avg)} new residents per new home"},
+        "baseline": {"label": "12 months to June quarter 2022", "value": round(b[1] / b[2], 2), "unit": ""},
+        "status": "info",
+        "status_rule": "Shown for context, with no verdict.",
+        "context": [
+            f"In the 12 months to the {label(d, 'Q')} Australia's population grew by {fmt(growth, 0)} and {fmt(homes, 0)} new homes were completed.",
+            f"That is {fmt(ratio)} new residents for every new home, against an average of {fmt(avg)} from 2003 to 2019.",
+            "The average Australian household has about 2.5 people (Census 2021).",
+            "Population growth includes births, deaths and net overseas migration. Homes completed are new dwellings only, before any demolitions.",
+        ],
+        "chart": {"kind": "line", "unit": "", "decimals": 1,
+                  "series": [{"name": "New residents per new home completed, past 12 months", "role": "primary", "points": pts}],
+                  "ref": [{"value": 2.5, "label": "Average household size (Census 2021)"}]},
+        "sources": [src_abs("ERP_COMP_Q", ["Estimated resident population, Australia"]),
+                    src_abs("BUILDING_ACTIVITY", ["Dwelling units completed, new residential, all sectors, Australia, original"])],
+        "method": "Change in ABS estimated resident population over the latest 4 quarters, divided by the number of new dwellings completed over the same 4 quarters.",
+    }
+
+
+@metric
+def rents_vs_wages():
+    mid = "rents_vs_wages"
+    rents = abs_group(abs_api("CPI", "1.115522.10.50.Q", HIST_Q, "abs_cpi_rents"), "INDEX")["115522"]
+    wpi = wpi_index()
+    d = min(latest(rents)[0], latest(wpi)[0])
+    check_fresh(mid, d, "Q")
+    r_ch = pct(at(rents, BASE_Q)[1], at(rents, d)[1])
+    w_ch = pct(at(wpi, BASE_Q)[1], at(wpi, d)[1])
+    check_range(mid, "rent rise since June qtr 2022 (%)", r_ch, -20, 80)
+    yr = f"{int(d[:4]) - 1}{d[4:]}"
+    r_yr, w_yr = pct(at(rents, yr)[1], at(rents, d)[1]), pct(at(wpi, yr)[1], at(wpi, d)[1])
+    return {
+        "id": mid, "section": "housing", "title": "Rents vs wages",
+        "question": "Have rents risen faster than wages?",
+        "headline": {"value": round(r_ch, 1), "unit": "%", "decimals": 1, "signed": True, "period": f"June quarter 2022 to {label(d, 'Q')}",
+                     "caption": "rise in rents, against " + f"{signed(w_ch)}% for wages"},
+        "benchmark": {"label": "Wages over the same period", "text": f"{signed(w_ch)}%"},
+        "baseline": {"label": "June quarter 2022", "value": 100, "unit": "index"},
+        "status": "info",
+        "status_rule": "Shown for context, with no verdict.",
+        "context": [
+            f"Rents in the CPI rose {fmt(r_ch)}% from the June quarter 2022 to the {label(d, 'Q')}, while the Wage Price Index rose {fmt(w_ch)}%.",
+            f"Over the past year rents rose {fmt(r_yr)}% and wages {fmt(w_yr)}%.",
+            "The CPI rent measure covers all existing leases, including public housing. New leases have risen faster: see the household figures on the home page.",
+        ],
+        "chart": {"kind": "line", "unit": "index", "decimals": 1,
+                  "series": [{"name": "Rents (CPI), June qtr 2022 = 100", "role": "primary", "points": rebase(since(rents, HIST), BASE_Q)},
+                             {"name": "Wages (WPI), June qtr 2022 = 100", "role": "muted", "points": rebase(since(wpi, HIST), BASE_Q)}],
+                  "ref": [{"value": 100, "label": "June quarter 2022"}]},
+        "sources": [src_abs("CPI", ["Rents (index 115522), weighted average of eight capital cities, original"]),
+                    src_abs("WPI", ["Total hourly rates of pay excluding bonuses, all sectors, original"])],
+        "method": "ABS CPI rents index and Wage Price Index, both rebased to June quarter 2022 = 100.",
+    }
+
+
+@metric
+def fuel_prices():
+    mid = "fuel_prices"
+    q = abs_group(abs_api("CPI", "1.40081+10001.10.50.Q", HIST_Q, "abs_cpi_fuel_q"), "INDEX")
+    fuel, cpi = q["40081"], q["10001"]
+    mo = abs_group(abs_api("CPI", "1.40081.10.50.M", "2023-01", "abs_cpi_fuel_m"), "INDEX")["40081"]
+    dm = latest(mo)[0]
+    check_fresh(mid, dm, "M")
+    yr = f"{int(dm[:4]) - 1}-{dm[5:7]}"
+    prev = [p for p in mo if p[0][:7] == yr]
+    if not prev:
+        raise RuntimeError("fuel_prices: no observation a year before the latest month")
+    ann = pct(prev[0][1], latest(mo)[1])
+    check_range(mid, "annual change in fuel prices (%)", ann, -60, 100)
+    dq = min(latest(fuel)[0], latest(cpi)[0])
+    f_ch, c_ch = pct(at(fuel, BASE_Q)[1], at(fuel, dq)[1]), pct(at(cpi, BASE_Q)[1], at(cpi, dq)[1])
+    return {
+        "id": mid, "section": "cost", "title": "Fuel prices",
+        "question": "How much have petrol and diesel prices changed?",
+        "headline": {"value": round(ann, 1), "unit": "%", "decimals": 1, "signed": True, "period": label(dm, "M"),
+                     "caption": "change in fuel prices over the past 12 months"},
+        "benchmark": {"label": f"Since the June quarter 2022 (to {label(dq, 'Q')})", "text": f"{signed(f_ch)}% for fuel, {signed(c_ch)}% for all prices"},
+        "baseline": {"label": "June quarter 2022", "value": 100, "unit": "index"},
+        "status": "info",
+        "status_rule": "Shown for context, with no verdict. Fuel prices follow world oil prices and the exchange rate.",
+        "context": [
+            f"Fuel prices in the monthly CPI were {fmt(abs(ann))}% {'higher' if ann >= 0 else 'lower'} than a year earlier in {label(dm, 'M')}.",
+            f"From the June quarter 2022 to the {label(dq, 'Q')}, fuel prices changed {signed(f_ch)}%, while all prices changed {signed(c_ch)}%.",
+            ("Fuel prices in the June quarter 2022 were the highest in the series up to that time." if at(fuel, BASE_Q)[1] >= max(x for dd, x in fuel if dd < BASE_Q)
+             else f"Fuel prices in the June quarter 2022 were {fmt(pct(max(x for dd, x in fuel if dd < BASE_Q), at(fuel, BASE_Q)[1]))}% from the previous high."),
+            "Fuel excise was halved from 30 March to 28 September 2022, then restored in full.",
+        ],
+        "chart": {"kind": "line", "unit": "index", "decimals": 1,
+                  "series": [{"name": "Fuel prices (CPI automotive fuel), June qtr 2022 = 100", "role": "primary", "points": rebase(since(fuel, HIST), BASE_Q)},
+                             {"name": "All prices (CPI), June qtr 2022 = 100", "role": "muted", "points": rebase(since(cpi, HIST), BASE_Q)}],
+                  "ref": [{"value": 100, "label": "June quarter 2022"}]},
+        "sources": [src_abs("CPI", ["Automotive fuel (index 40081) and All groups (10001), eight capital cities, quarterly and monthly, original"])],
+        "method": "ABS CPI automotive fuel index. Headline: latest month against the same month a year earlier (monthly CPI). Chart: quarterly index rebased to June quarter 2022 = 100, beside all groups CPI.",
+    }
+
+
+@metric
+def price_to_earnings():
+    mid = "price_to_earnings"
+    price = abs_group(abs_api("RES_DWELL_ST", "5.AUS.Q", "2011-Q1", "abs_dwell_price_long"), "MEASURE")["5"]
+    rows = abs_api("AWE", "2.1.3.7.TOT.10.AUS.S", "2011", "abs_awe_ft")
+    awe = []
+    for r in rows:
+        if r["OBS_VALUE"] == "":
+            continue
+        y, s = r["TIME_PERIOD"].split("-S")
+        awe.append((month_end(int(y), 5 if s == "1" else 11), float(r["OBS_VALUE"])))
+    awe.sort()
+    pts = []
+    for d, wk in awe:
+        qd = month_end(int(d[:4]), 6 if d[5:7] == "05" else 12)
+        pq = [p for p in price if p[0] == qd]
+        if pq:
+            pts.append([qd, round(pq[0][1] * 1000 / (wk * 52), 2)])
+    d, v = pts[-1]
+    check_fresh(mid, d, "Q_LAG", max_age=420)
+    check_range(mid, "price to earnings ratio", v, 3, 20)
+    v0 = [p for p in pts if p[0] <= BASE_Q][-1]
+    first = pts[0]
+    return {
+        "id": mid, "section": "housing", "title": "Home prices vs earnings",
+        "question": "How many years of full-time pay does an average home cost?",
+        "headline": {"value": round(v, 1), "unit": "", "decimals": 1, "suffix": " years", "period": label(d, "Q"),
+                     "caption": "of average full-time earnings to buy the average home"},
+        "benchmark": {"label": label(first[0], "Q"), "text": f"{fmt(first[1])} years"},
+        "baseline": {"label": label(v0[0], "Q"), "value": v0[1], "unit": ""},
+        "status": "info",
+        "status_rule": "Shown for context, with no verdict.",
+        "context": [
+            f"The average home cost {fmt(v)} times average full-time annual earnings in the {label(d, 'Q')}, against {fmt(v0[1])} times in the {label(v0[0], 'Q')} and {fmt(first[1])} times in the {label(first[0], 'Q')}.",
+            "This compares the average value of all homes with average full-time pay before tax. It does not include deposits, interest rates or the income of a second earner.",
+        ],
+        "chart": {"kind": "line", "unit": "", "decimals": 1,
+                  "series": [{"name": "Average home price ÷ average full-time annual earnings", "role": "primary", "points": pts}]},
+        "sources": [src_abs("RES_DWELL_ST", ["Mean price of residential dwellings, Australia"]),
+                    src_abs("AWE", ["Full-time adult average weekly total earnings, persons, all sectors, original"])],
+        "method": "ABS mean price of residential dwellings divided by ABS full-time adult average weekly total earnings × 52. Earnings are surveyed in May and November and matched with the June and December quarter prices.",
+    }
+
+
+@metric
+def tax_take():
+    mid = "tax_take"
+    url = "https://budget.gov.au/content/bp1/download/bp1_bs-11.docx"
+    z = zipfile.ZipFile(io.BytesIO(fetch(url, "budget_bp1_bs11")))
+    W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
+    doc = ET.fromstring(z.read("word/document.xml"))
+    pts, est = {}, None
+    for t in doc.iter(W + "tbl"):
+        rows = [["".join(n.text or "" for n in c.iter(W + "t")).strip() for c in r.iter(W + "tc")] for r in t.iter(W + "tr")]
+        head = " ".join(" ".join(r) for r in rows[:3])
+        if "Taxation receipts" not in head or "Non-taxation receipts" not in head:
+            continue
+        for r in rows:
+            m = re.match(r"(\d{4})-(\d{2})(\s*\(e\))?$", r[0]) if r else None
+            if not m or len(r) < 3:
+                continue
+            try:
+                v = float(r[2].replace(",", ""))
+            except ValueError:
+                continue
+            d = f"{int(m[1]) + 1}-06-30"
+            pts[d] = v
+            if m[3] and (est is None or d < est):
+                est = d
+    if not pts:
+        raise RuntimeError("tax_take: taxation receipts table not found")
+    series = sorted([[d, v] for d, v in pts.items()])
+    actual = [p for p in series if not est or p[0] < est]
+    d, v = actual[-1]
+    check_range(mid, "tax receipts % of GDP", v, 10, 35)
+    hi = [p for p in actual[:-1] if p[1] > v]
+    v0 = at(series, "2022-06-30")[1]
+    peak = max(actual, key=lambda p: p[1])
+    return {
+        "id": mid, "section": "budget", "title": "Tax take",
+        "question": "How much of the economy does the Commonwealth collect in tax?",
+        "headline": {"value": v, "unit": "%", "decimals": 1, "period": _fy(d),
+                     "caption": "of GDP collected in Commonwealth tax receipts"},
+        "benchmark": {"label": "2021-22", "text": f"{fmt(v0)}% of GDP"},
+        "baseline": {"label": "2021-22", "value": v0, "unit": "%"},
+        "status": "info",
+        "status_rule": "Shown for context, with no verdict. How much tax to collect is a political judgement.",
+        "context": [
+            f"Commonwealth tax receipts were {fmt(v)}% of GDP in {_fy(d)}, against {fmt(v0)}% in 2021-22.",
+            (f"That is the highest share since {_fy(hi[-1][0])}." if hi else f"That is the highest share since the series began in {_fy(actual[0][0])}.")
+            if not hi or hi[-1][0] <= f"{int(d[:4]) - 3}-06-30" else f"The highest share on record was {fmt(peak[1])}% in {_fy(peak[0])}.",
+            "These are Commonwealth taxes only. State taxes such as stamp duty and payroll tax are not included.",
+            "Bracket creep, where pay rises push more income into higher tax brackets, lifts the share over time unless tax rates are cut.",
+        ],
+        "chart": {"kind": "bar", "unit": "%", "decimals": 1, "freq": "fy", "estimateFrom": est,
+                  "series": [{"name": "Commonwealth tax receipts, % of GDP", "role": "primary", "points": series}]},
+        "sources": [{"publisher": "Australian Government (Treasury)", "title": "Budget Paper No. 1, Statement 11: Historical Australian Government data",
+                     "url": "https://budget.gov.au/content/bp1/index.htm", "data_url": url,
+                     "series": ["Taxation receipts, per cent of GDP, 1970-71 onwards"], "retrieved_at": NOW.isoformat(timespec="seconds"), "automated": True}],
+        "method": "Australian Government general government sector taxation receipts as a share of nominal GDP, from the historical tables in the latest Budget. Years marked as estimates in the Budget are shown as estimates.",
+    }
+
+
+@metric
+def living_standards_decades():
+    mid = "living_standards_decades"
+    s = abs_group(abs_api("ANA_AGG", "M1.NNDI_PCA.20.AUS.Q", "1959-Q1", "abs_nndi_pc"), "DATA_ITEM")["NNDI_PCA"]
+    d = latest(s)[0]
+    check_fresh(mid, d, "Q_LAG")
+    v = dict(s)
+    yoy = [(dd, pct(v[f"{int(dd[:4]) - 1}{dd[4:]}"], x)) for dd, x in s if f"{int(dd[:4]) - 1}{dd[4:]}" in v]
+    bars = []
+    for dec in range(1970, 2030, 10):
+        xs = [g for dd, g in yoy if dec <= int(dd[:4]) < dec + 10]
+        if len(xs) >= 4:
+            first = min(dd for dd, _ in yoy if dec <= int(dd[:4]) < dec + 10)
+            name = f"{dec}s" + (f" (from {first[:4]})" if int(first[:4]) > dec else "") + (" (so far)" if dec == 2020 else "")
+            bars.append({"name": name, "value": round(mean(xs), 1), "role": "primary" if dec == 2020 else "muted"})
+    since_el = pct(at(s, BASE_Q)[1], v[d])
+    check_range(mid, "2020s average growth (%)", bars[-1]["value"], -5, 8)
+    return {
+        "id": mid, "section": "living", "title": "Living standards by decade",
+        "question": "How fast are living standards growing, compared with past decades?",
+        "headline": {"value": bars[-1]["value"], "unit": "%", "decimals": 1, "signed": True, "period": f"2020 to {label(d, 'Q')}",
+                     "caption": "average yearly growth in real national income per person in the 2020s so far"},
+        "benchmark": {"label": "Since the June quarter 2022", "text": f"{signed(since_el)}% in total"},
+        "status": "info",
+        "status_rule": "Shown for context, with no verdict.",
+        "context": [
+            "Average yearly growth in real net national disposable income per person, by decade: " + "; ".join(f"{b['name']} {signed(b['value'])}%" for b in bars) + ".",
+            f"From the June quarter 2022 to the {label(d, 'Q')} it changed {signed(since_el)}% in total.",
+            "Real net national disposable income per person is the measure the Treasury and Reserve Bank use for living standards: national income after depreciation and payments to foreign owners, adjusted for prices and population.",
+        ],
+        "chart": {"kind": "hbar", "unit": "%", "decimals": 1, "bars": bars},
+        "sources": [{"publisher": "Australian Bureau of Statistics", "title": "Australian National Accounts: Key aggregates", "url": ABS_PAGES["ANA_HH"][1],
+                     "data_url": "https://data.api.abs.gov.au/rest/data/ABS,ANA_AGG/M1.NNDI_PCA.20.AUS.Q",
+                     "series": ["Real net national disposable income per capita, chain volume, seasonally adjusted"], "retrieved_at": NOW.isoformat(timespec="seconds"), "automated": True}],
+        "method": "Year-on-year growth in ABS real net national disposable income per capita (chain volume, seasonally adjusted, quarterly), averaged over each calendar decade. The 1970s average starts in the year the series begins.",
+    }
+
+
 # --------------------------------------------------------------------------- manual (hand-verified) metrics
 
 def load_manual():
@@ -1647,6 +1988,34 @@ def main():
 
 # Plain-English explainers shown behind each metric's (i) icon.
 EXPLAINERS = {
+    "household_payments": {
+        "what": "The share of all household income, before tax, that goes on interest on home loans, and the share that goes on income tax. The ABS measures both in the national accounts every quarter, back to 1959.",
+        "why": "Mortgage interest and income tax are the 2 biggest calls on household income before anything is spent. When either share rises, there is less left for everything else.",
+    },
+    "people_per_home": {
+        "what": "How much Australia's population grew over the past year, divided by the number of new homes finished in the same year.",
+        "why": "The average household has about 2.5 people. When population grows by more than that for every new home, the shortage of homes gets worse and rents and prices tend to rise.",
+    },
+    "rents_vs_wages": {
+        "what": "Rents from the Consumer Price Index and pay from the Wage Price Index, both set to 100 in the June quarter 2022, so you can see which has risen faster since.",
+        "why": "Rent is the biggest regular cost for about a third of households. When rents rise faster than pay, renters have less left for everything else.",
+    },
+    "fuel_prices": {
+        "what": "Petrol and diesel prices as measured in the Consumer Price Index. The headline compares the latest month with the same month a year earlier.",
+        "why": "Fuel is a large weekly cost for most households and businesses, and it feeds into the price of almost everything that is transported.",
+    },
+    "price_to_earnings": {
+        "what": "The average value of a home in Australia divided by average full-time annual pay before tax. The answer is how many years of full pay the average home costs.",
+        "why": "It is a simple test of how far homes have moved out of reach of people who rely on wages to buy one.",
+    },
+    "tax_take": {
+        "what": "All tax collected by the Commonwealth (income tax, company tax, GST and the rest) as a share of the whole economy, from the historical tables published with each Budget.",
+        "why": "It shows how much of the economy passes through the federal government in tax. Bracket creep, rising company profits and policy decisions all move it.",
+    },
+    "living_standards_decades": {
+        "what": "The average yearly growth in real national income per person in each decade since the 1970s. Real means after inflation; per person means it allows for population growth.",
+        "why": "It puts the current period in a long view. Faster growth means each person's share of the nation's income rises faster.",
+    },
     "inflation": {
         "what": "Inflation is how fast prices are rising across a typical basket of goods and services: food, rent, petrol, power, insurance and more. The ABS measures it with the Consumer Price Index (CPI), and this figure compares prices with the same quarter a year earlier.",
         "why": "When inflation runs above wage growth, household budgets shrink. The Reserve Bank aims to keep inflation between 2% and 3% on average. Inflation above that band usually means higher interest rates.",
