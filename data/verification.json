@@ -1,6 +1,6 @@
 {
  "latest": {
-  "generated_at": "2026-10-07T06:06:21+00:00",
+  "generated_at": "2026-10-07T06:42:26+00:00",
   "checks_total": 486,
   "checks_passed": 478,
   "checks_warn": 6,
@@ -3417,236 +3417,479 @@
   "sources": {
    "rba_g1": {
     "url": "https://www.rba.gov.au/statistics/tables/csv/g1-data.csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 39905,
     "published": "30-Jul-2026"
    },
    "abs_cpi_allgroups": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,CPI/1.10001.10.50.Q?startPeriod=2020-Q1&format=csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 1547
    },
    "abs_cpi_monthly": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,CPI/1+3.10001.10.50.M?startPeriod=2024-01&format=csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 2632
    },
    "abs_cpi_groups": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,CPI/1.40055+115528+115522+115498+20001+115486+115493+40081+10001.10.50.Q?startPeriod=2003-Q1&format=csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 47105
    },
    "abs_wpi": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,WPI/1.THRPEB.1+2+7.TOT.10.AUS.Q?startPeriod=2003-Q1&format=csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 16930
    },
    "rba_h4": {
     "url": "https://www.rba.gov.au/statistics/tables/csv/h4-data.csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 19176,
     "published": "20-Aug-2026"
    },
    "rba_f6": {
     "url": "https://www.rba.gov.au/statistics/tables/csv/f6-data.csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 37668,
     "published": "07-Sep-2026"
    },
    "rba_f1.1": {
     "url": "https://www.rba.gov.au/statistics/tables/csv/f1.1-data.csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 43862,
     "published": "01-Oct-2026"
    },
    "rba_a2": {
     "url": "https://www.rba.gov.au/statistics/tables/csv/a2-data.csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 5280,
     "published": "29-Sep-2026"
    },
    "rba_h3": {
     "url": "https://www.rba.gov.au/statistics/tables/csv/h3-data.csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 28790,
     "published": "01-Oct-2026"
    },
    "rba_h5": {
     "url": "https://www.rba.gov.au/statistics/tables/csv/h5-data.csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 73080,
     "published": "25-Sep-2026"
    },
    "abs_lf_ur": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,LF/M13.3.1599.20.AUS.M?startPeriod=2025-01&format=csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 1400
    },
    "abs_labour_account": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,LABOUR_ACCT_Q/M12+M13+M14.AUS..20.Q?startPeriod=2003-Q1&format=csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 399170
    },
    "abs_ana": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,ANA_AGG/M1.GPM+GPM_PCA.20.AUS.Q?startPeriod=2003-Q1&format=csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 11488
    },
    "rba_h1": {
     "url": "https://www.rba.gov.au/statistics/tables/csv/h1-data.csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 29336,
     "published": "03-Sep-2026"
    },
    "rba_h2": {
     "url": "https://www.rba.gov.au/statistics/tables/csv/h2-data.csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 45273,
     "published": "03-Sep-2026"
    },
    "abs_erp": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,ERP_COMP_Q/10.AUS.Q?startPeriod=2003-Q1&format=csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 5284
    },
    "abs_building": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,BUILDING_ACTIVITY/M6+M7.AUS.CUR.1.9.100.10.Q?startPeriod=2003-Q1&format=csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 14438
    },
    "abs_dwell_price": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,RES_DWELL_ST/5.AUS.Q?startPeriod=2003-Q1&format=csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 3398
    },
    "abs_nom": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,ERP_COMP_Q/9+10.AUS.Q?startPeriod=2003-Q2&format=csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 9998
    },
    "abs_building_comp": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,BUILDING_ACTIVITY/M7.AUS.CUR.1.9.100.10.Q?startPeriod=2021-Q1&format=csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 1821
    },
    "abs_5206020_page": {
     "url": "https://www.abs.gov.au/statistics/economy/national-accounts/australian-national-accounts-national-income-expenditure-and-product/latest-release",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 540770
    },
    "abs_5206020": {
     "url": "https://www.abs.gov.au/statistics/economy/national-accounts/australian-national-accounts-national-income-expenditure-and-product/jun-2026/5206020_Household_Income.xlsx",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 270125
    },
    "abs_erp_long": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,ERP_COMP_Q/10.AUS.Q?startPeriod=2001-Q1&format=csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 5732
    },
    "abs_building_comp_long": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,BUILDING_ACTIVITY/M7.AUS.CUR.1.9.100.10.Q?startPeriod=2001-Q1&format=csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 7901
    },
    "abs_cpi_rents": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,CPI/1.115522.10.50.Q?startPeriod=2003-Q1&format=csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 5372
    },
    "abs_cpi_fuel_q": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,CPI/1.40081+10001.10.50.Q?startPeriod=2003-Q1&format=csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 10450
    },
    "abs_cpi_fuel_m": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,CPI/1.40081.10.50.M?startPeriod=2023-01&format=csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 2561
    },
    "abs_dwell_price_long": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,RES_DWELL_ST/5.AUS.Q?startPeriod=2011-Q1&format=csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 3398
    },
    "abs_awe_ft": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,AWE/2.1.3.7.TOT.10.AUS.S?startPeriod=2011&format=csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 1914
    },
    "budget_bp1_bs11": {
     "url": "https://budget.gov.au/content/bp1/download/bp1_bs-11.docx",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 338294
    },
    "abs_nndi_pc": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,ANA_AGG/M1.NNDI_PCA.20.AUS.Q?startPeriod=1959-Q1&format=csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 13417
    },
    "abs_lf_emp": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,LF/M3.3.1599.20.AUS.M?startPeriod=1978-02&format=csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 38758
    },
    "abs_lf_part_sex": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,LF/M12.1+2.1599.20.AUS.M?startPeriod=1978-02&format=csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 75794
    },
    "abs_awe_ote_sex": {
     "url": "https://data.api.abs.gov.au/rest/data/ABS,AWE/3.1.1+2.7.TOT.10.AUS.S?startPeriod=1994&format=csv",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 7481
    },
    "aofm_eofy": {
     "url": "https://www.aofm.gov.au/sites/default/files/2025-06-06/portfolio_aggregate_-_executive_summary_-_dealt.xlsx",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 31718
    },
    "imf_PCPIPCH": {
     "url": "https://www.imf.org/external/datamapper/api/v1/PCPIPCH/ARG/AUS/BRA/CAN/CHN/FRA/DEU/IND/IDN/ITA/JPN/KOR/MEX/RUS/SAU/ZAF/TUR/GBR/USA",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 120999
    },
    "imf_LUR": {
     "url": "https://www.imf.org/external/datamapper/api/v1/LUR/ARG/AUS/BRA/CAN/CHN/FRA/DEU/IND/IDN/ITA/JPN/KOR/MEX/RUS/SAU/ZAF/TUR/GBR/USA",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 58066
    },
    "imf_GGXWDG_NGDP": {
     "url": "https://www.imf.org/external/datamapper/api/v1/GGXWDG_NGDP/ARG/AUS/BRA/CAN/CHN/FRA/DEU/IND/IDN/ITA/JPN/KOR/MEX/RUS/SAU/ZAF/TUR/GBR/USA",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 98046
    },
    "imf_GGXCNL_NGDP": {
     "url": "https://www.imf.org/external/datamapper/api/v1/GGXCNL_NGDP/ARG/AUS/BRA/CAN/CHN/FRA/DEU/IND/IDN/ITA/JPN/KOR/MEX/RUS/SAU/ZAF/TUR/GBR/USA",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 104901
    },
    "imf_G_X_G01_GDP_PT": {
     "url": "https://www.imf.org/external/datamapper/api/v1/G_X_G01_GDP_PT/ARG/AUS/BRA/CAN/CHN/FRA/DEU/IND/IDN/ITA/JPN/KOR/MEX/RUS/SAU/ZAF/TUR/GBR/USA",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 184133
    },
    "imf_PPPPC": {
     "url": "https://www.imf.org/external/datamapper/api/v1/PPPPC/ARG/AUS/BRA/CAN/CHN/FRA/DEU/IND/IDN/ITA/JPN/KOR/MEX/RUS/SAU/ZAF/TUR/GBR/USA",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 179847
    },
    "imf_NGDP_RPCH": {
     "url": "https://www.imf.org/external/datamapper/api/v1/NGDP_RPCH/ARG/AUS/BRA/CAN/CHN/FRA/DEU/IND/IDN/ITA/JPN/KOR/MEX/RUS/SAU/ZAF/TUR/GBR/USA",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 121723
    },
    "wb_MS.MIL.XPND.GD.ZS": {
     "url": "https://api.worldbank.org/v2/country/ARG;AUS;BRA;CAN;CHN;FRA;DEU;IND;IDN;ITA;JPN;KOR;MEX;RUS;SAU;ZAF;TUR;GBR;USA/indicator/MS.MIL.XPND.GD.ZS?format=json&per_page=5000&date=2000:2030",
-    "retrieved_at": "2026-10-07T06:06:21+00:00",
+    "retrieved_at": "2026-10-07T06:42:26+00:00",
     "bytes": 111403
    }
   }
  },
  "history": [
+  {
+   "generated_at": "2026-10-07T06:42:26+00:00",
+   "checks_total": 486,
+   "checks_passed": 478,
+   "checks_warn": 6,
+   "checks_failed": 2,
+   "metrics_total": 40,
+   "metrics_off_track": 26,
+   "metrics_watch": 2,
+   "metrics_on_track": 4,
+   "metrics_rated": 32,
+   "sources": {
+    "rba_g1": {
+     "url": "https://www.rba.gov.au/statistics/tables/csv/g1-data.csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 39905,
+     "published": "30-Jul-2026"
+    },
+    "abs_cpi_allgroups": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,CPI/1.10001.10.50.Q?startPeriod=2020-Q1&format=csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 1547
+    },
+    "abs_cpi_monthly": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,CPI/1+3.10001.10.50.M?startPeriod=2024-01&format=csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 2632
+    },
+    "abs_cpi_groups": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,CPI/1.40055+115528+115522+115498+20001+115486+115493+40081+10001.10.50.Q?startPeriod=2003-Q1&format=csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 47105
+    },
+    "abs_wpi": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,WPI/1.THRPEB.1+2+7.TOT.10.AUS.Q?startPeriod=2003-Q1&format=csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 16930
+    },
+    "rba_h4": {
+     "url": "https://www.rba.gov.au/statistics/tables/csv/h4-data.csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 19176,
+     "published": "20-Aug-2026"
+    },
+    "rba_f6": {
+     "url": "https://www.rba.gov.au/statistics/tables/csv/f6-data.csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 37668,
+     "published": "07-Sep-2026"
+    },
+    "rba_f1.1": {
+     "url": "https://www.rba.gov.au/statistics/tables/csv/f1.1-data.csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 43862,
+     "published": "01-Oct-2026"
+    },
+    "rba_a2": {
+     "url": "https://www.rba.gov.au/statistics/tables/csv/a2-data.csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 5280,
+     "published": "29-Sep-2026"
+    },
+    "rba_h3": {
+     "url": "https://www.rba.gov.au/statistics/tables/csv/h3-data.csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 28790,
+     "published": "01-Oct-2026"
+    },
+    "rba_h5": {
+     "url": "https://www.rba.gov.au/statistics/tables/csv/h5-data.csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 73080,
+     "published": "25-Sep-2026"
+    },
+    "abs_lf_ur": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,LF/M13.3.1599.20.AUS.M?startPeriod=2025-01&format=csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 1400
+    },
+    "abs_labour_account": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,LABOUR_ACCT_Q/M12+M13+M14.AUS..20.Q?startPeriod=2003-Q1&format=csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 399170
+    },
+    "abs_ana": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,ANA_AGG/M1.GPM+GPM_PCA.20.AUS.Q?startPeriod=2003-Q1&format=csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 11488
+    },
+    "rba_h1": {
+     "url": "https://www.rba.gov.au/statistics/tables/csv/h1-data.csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 29336,
+     "published": "03-Sep-2026"
+    },
+    "rba_h2": {
+     "url": "https://www.rba.gov.au/statistics/tables/csv/h2-data.csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 45273,
+     "published": "03-Sep-2026"
+    },
+    "abs_erp": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,ERP_COMP_Q/10.AUS.Q?startPeriod=2003-Q1&format=csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 5284
+    },
+    "abs_building": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,BUILDING_ACTIVITY/M6+M7.AUS.CUR.1.9.100.10.Q?startPeriod=2003-Q1&format=csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 14438
+    },
+    "abs_dwell_price": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,RES_DWELL_ST/5.AUS.Q?startPeriod=2003-Q1&format=csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 3398
+    },
+    "abs_nom": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,ERP_COMP_Q/9+10.AUS.Q?startPeriod=2003-Q2&format=csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 9998
+    },
+    "abs_building_comp": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,BUILDING_ACTIVITY/M7.AUS.CUR.1.9.100.10.Q?startPeriod=2021-Q1&format=csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 1821
+    },
+    "abs_5206020_page": {
+     "url": "https://www.abs.gov.au/statistics/economy/national-accounts/australian-national-accounts-national-income-expenditure-and-product/latest-release",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 540770
+    },
+    "abs_5206020": {
+     "url": "https://www.abs.gov.au/statistics/economy/national-accounts/australian-national-accounts-national-income-expenditure-and-product/jun-2026/5206020_Household_Income.xlsx",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 270125
+    },
+    "abs_erp_long": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,ERP_COMP_Q/10.AUS.Q?startPeriod=2001-Q1&format=csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 5732
+    },
+    "abs_building_comp_long": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,BUILDING_ACTIVITY/M7.AUS.CUR.1.9.100.10.Q?startPeriod=2001-Q1&format=csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 7901
+    },
+    "abs_cpi_rents": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,CPI/1.115522.10.50.Q?startPeriod=2003-Q1&format=csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 5372
+    },
+    "abs_cpi_fuel_q": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,CPI/1.40081+10001.10.50.Q?startPeriod=2003-Q1&format=csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 10450
+    },
+    "abs_cpi_fuel_m": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,CPI/1.40081.10.50.M?startPeriod=2023-01&format=csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 2561
+    },
+    "abs_dwell_price_long": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,RES_DWELL_ST/5.AUS.Q?startPeriod=2011-Q1&format=csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 3398
+    },
+    "abs_awe_ft": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,AWE/2.1.3.7.TOT.10.AUS.S?startPeriod=2011&format=csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 1914
+    },
+    "budget_bp1_bs11": {
+     "url": "https://budget.gov.au/content/bp1/download/bp1_bs-11.docx",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 338294
+    },
+    "abs_nndi_pc": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,ANA_AGG/M1.NNDI_PCA.20.AUS.Q?startPeriod=1959-Q1&format=csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 13417
+    },
+    "abs_lf_emp": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,LF/M3.3.1599.20.AUS.M?startPeriod=1978-02&format=csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 38758
+    },
+    "abs_lf_part_sex": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,LF/M12.1+2.1599.20.AUS.M?startPeriod=1978-02&format=csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 75794
+    },
+    "abs_awe_ote_sex": {
+     "url": "https://data.api.abs.gov.au/rest/data/ABS,AWE/3.1.1+2.7.TOT.10.AUS.S?startPeriod=1994&format=csv",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 7481
+    },
+    "aofm_eofy": {
+     "url": "https://www.aofm.gov.au/sites/default/files/2025-06-06/portfolio_aggregate_-_executive_summary_-_dealt.xlsx",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 31718
+    },
+    "imf_PCPIPCH": {
+     "url": "https://www.imf.org/external/datamapper/api/v1/PCPIPCH/ARG/AUS/BRA/CAN/CHN/FRA/DEU/IND/IDN/ITA/JPN/KOR/MEX/RUS/SAU/ZAF/TUR/GBR/USA",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 120999
+    },
+    "imf_LUR": {
+     "url": "https://www.imf.org/external/datamapper/api/v1/LUR/ARG/AUS/BRA/CAN/CHN/FRA/DEU/IND/IDN/ITA/JPN/KOR/MEX/RUS/SAU/ZAF/TUR/GBR/USA",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 58066
+    },
+    "imf_GGXWDG_NGDP": {
+     "url": "https://www.imf.org/external/datamapper/api/v1/GGXWDG_NGDP/ARG/AUS/BRA/CAN/CHN/FRA/DEU/IND/IDN/ITA/JPN/KOR/MEX/RUS/SAU/ZAF/TUR/GBR/USA",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 98046
+    },
+    "imf_GGXCNL_NGDP": {
+     "url": "https://www.imf.org/external/datamapper/api/v1/GGXCNL_NGDP/ARG/AUS/BRA/CAN/CHN/FRA/DEU/IND/IDN/ITA/JPN/KOR/MEX/RUS/SAU/ZAF/TUR/GBR/USA",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 104901
+    },
+    "imf_G_X_G01_GDP_PT": {
+     "url": "https://www.imf.org/external/datamapper/api/v1/G_X_G01_GDP_PT/ARG/AUS/BRA/CAN/CHN/FRA/DEU/IND/IDN/ITA/JPN/KOR/MEX/RUS/SAU/ZAF/TUR/GBR/USA",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 184133
+    },
+    "imf_PPPPC": {
+     "url": "https://www.imf.org/external/datamapper/api/v1/PPPPC/ARG/AUS/BRA/CAN/CHN/FRA/DEU/IND/IDN/ITA/JPN/KOR/MEX/RUS/SAU/ZAF/TUR/GBR/USA",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 179847
+    },
+    "imf_NGDP_RPCH": {
+     "url": "https://www.imf.org/external/datamapper/api/v1/NGDP_RPCH/ARG/AUS/BRA/CAN/CHN/FRA/DEU/IND/IDN/ITA/JPN/KOR/MEX/RUS/SAU/ZAF/TUR/GBR/USA",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 121723
+    },
+    "wb_MS.MIL.XPND.GD.ZS": {
+     "url": "https://api.worldbank.org/v2/country/ARG;AUS;BRA;CAN;CHN;FRA;DEU;IND;IDN;ITA;JPN;KOR;MEX;RUS;SAU;ZAF;TUR;GBR;USA/indicator/MS.MIL.XPND.GD.ZS?format=json&per_page=5000&date=2000:2030",
+     "retrieved_at": "2026-10-07T06:42:26+00:00",
+     "bytes": 111403
+    }
+   }
+  },
   {
    "generated_at": "2026-10-07T06:06:21+00:00",
    "checks_total": 486,

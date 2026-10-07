@@ -1532,7 +1532,7 @@ def employment():
             "Employment counts anyone who worked at least 1 hour in the survey week, full-time or part-time. Population growth adds to it, so see the unemployment rate alongside.",
         ],
         "chart": {"kind": "line", "unit": "", "decimals": 2,
-                  "series": [{"name": "Employed people, millions (seasonally adjusted)", "role": "primary", "points": rnd(since(emp, HIST), 3)}]},
+                  "series": [{"name": "Employed people, millions (seasonally adjusted)", "role": "primary", "points": rnd(emp, 3)}]},
         "sources": [src_abs("LF", ["Employed total, persons, seasonally adjusted"])],
         "method": "ABS Labour Force survey, employed persons aged 15 and over, seasonally adjusted, monthly.",
     }
@@ -1570,8 +1570,8 @@ def womens_participation():
             "The participation rate counts people who have a job or are actively looking for one, as a share of everyone aged 15 and over.",
         ],
         "chart": {"kind": "line", "unit": "%", "decimals": 1,
-                  "series": [{"name": "Women, participation rate (seasonally adjusted)", "role": "primary", "points": rnd(since(women, HIST), 2)},
-                             {"name": "Men, participation rate (seasonally adjusted)", "role": "muted", "points": rnd(since(men, HIST), 2)}]},
+                  "series": [{"name": "Women, participation rate (seasonally adjusted)", "role": "primary", "points": rnd(women, 2)},
+                             {"name": "Men, participation rate (seasonally adjusted)", "role": "muted", "points": rnd(men, 2)}]},
         "sources": [src_abs("LF", ["Participation rate, females and males, seasonally adjusted"])],
         "method": "ABS Labour Force survey, participation rate by sex, aged 15 and over, seasonally adjusted, monthly.",
     }
@@ -1609,7 +1609,7 @@ def gender_pay_gap():
             "This compares average ordinary pay for full-time adults. It is not a comparison of men and women doing the same job, which equal pay law already requires.",
         ],
         "chart": {"kind": "line", "unit": "%", "decimals": 1,
-                  "series": [{"name": "Gender pay gap, full-time adult ordinary earnings", "role": "primary", "points": since(gap, HIST)}]},
+                  "series": [{"name": "Gender pay gap, full-time adult ordinary earnings", "role": "primary", "points": gap}]},
         "sources": [src_abs("AWE", ["Full-time adult average weekly ordinary time earnings, males and females, all sectors, original"])],
         "method": "(Male earnings − female earnings) ÷ male earnings, using ABS full-time adult average weekly ordinary time earnings. This is the measure the Workplace Gender Equality Agency uses for the national gap. Surveyed in May and November.",
     }
