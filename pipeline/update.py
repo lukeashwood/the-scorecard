@@ -1506,6 +1506,115 @@ def living_standards_decades():
 
 # --------------------------------------------------------------------------- manual (hand-verified) metrics
 
+@metric
+def employment():
+    mid = "employment"
+    emp = abs_group(abs_api("LF", "M3.3.1599.20.AUS.M", "1978-02", "abs_lf_emp"), "MEASURE")["M3"]
+    emp = [[d, v / 1000] for d, v in emp]                      # thousands -> millions
+    d, v = latest(emp)
+    check_fresh(mid, d, "M")
+    check_range(mid, "employed persons (millions)", v, 10, 20)
+    b = at(emp, BASE_M)[1]
+    yr = at(emp, f"{int(d[:4]) - 1}{d[4:]}")[1]
+    added = (v - b) * 1000                                     # thousands of people
+    return {
+        "id": mid, "section": "jobs", "title": "People in work",
+        "question": "How many more Australians have a job than when the government took office?",
+        "headline": {"value": round(v, 2), "unit": "", "decimals": 2, "suffix": "m", "period": label(d, "M"),
+                     "caption": "people employed, seasonally adjusted"},
+        "benchmark": {"label": "When government took office (May 2022)", "text": f"{fmt(b, 2)} million"},
+        "baseline": {"label": "May 2022", "value": round(b, 2), "unit": ""},
+        "status": status_of(v < b),
+        "status_rule": "Off track if fewer people are employed than in May 2022.",
+        "context": [
+            f"{fmt(abs(added) / 1000, 2) + ' million' if abs(added) >= 1000 else fmt(abs(added), 0) + ' thousand'} {'more' if added >= 0 else 'fewer'} people were employed in {label(d, 'M')} than in May 2022.",
+            f"Over the past year employment {'rose' if v >= yr else 'fell'} by {fmt(abs(v - yr) * 1000, 0)} thousand.",
+            "Employment counts anyone who worked at least 1 hour in the survey week, full-time or part-time. Population growth adds to it, so see the unemployment rate alongside.",
+        ],
+        "chart": {"kind": "line", "unit": "", "decimals": 2,
+                  "series": [{"name": "Employed people, millions (seasonally adjusted)", "role": "primary", "points": rnd(since(emp, HIST), 3)}]},
+        "sources": [src_abs("LF", ["Employed total, persons, seasonally adjusted"])],
+        "method": "ABS Labour Force survey, employed persons aged 15 and over, seasonally adjusted, monthly.",
+    }
+
+
+@metric
+def womens_participation():
+    mid = "womens_participation"
+    rows = abs_api("LF", "M12.1+2.1599.20.AUS.M", "1978-02", "abs_lf_part_sex")
+    by = {}
+    for r in rows:
+        if r["OBS_VALUE"] == "":
+            continue
+        by.setdefault(r["SEX"], []).append((parse_period(r["TIME_PERIOD"]), float(r["OBS_VALUE"])))
+    women, men = sorted(by["2"]), sorted(by["1"])
+    d, v = latest(women)
+    check_fresh(mid, d, "M")
+    check_range(mid, "female participation rate", v, 40, 80)
+    b = at(women, BASE_M)[1]
+    prev_high = max(p[1] for p in women[:-1])
+    rec = v >= prev_high
+    return {
+        "id": mid, "section": "jobs", "title": "Women in the workforce",
+        "question": "Are more women working or looking for work than when the government took office?",
+        "headline": {"value": round(v, 1), "unit": "%", "decimals": 1, "period": label(d, "M"),
+                     "caption": "of women aged 15 and over are working or looking for work"},
+        "benchmark": {"label": "When government took office (May 2022)", "text": f"{fmt(b)}%"},
+        "baseline": {"label": "May 2022", "value": round(b, 1), "unit": "%"},
+        "status": status_of(v < b),
+        "status_rule": "Off track if the female participation rate is lower than in May 2022.",
+        "context": [
+            f"The female participation rate was {fmt(v)}% in {label(d, 'M')}, against {fmt(b)}% in May 2022."
+            + (" It is the highest on record (the series starts in 1978)." if rec else f" The record high is {fmt(prev_high)}%."),
+            f"For men the rate was {fmt(latest(men)[1])}%, against {fmt(at(men, BASE_M)[1])}% in May 2022.",
+            "The participation rate counts people who have a job or are actively looking for one, as a share of everyone aged 15 and over.",
+        ],
+        "chart": {"kind": "line", "unit": "%", "decimals": 1,
+                  "series": [{"name": "Women, participation rate (seasonally adjusted)", "role": "primary", "points": rnd(since(women, HIST), 2)},
+                             {"name": "Men, participation rate (seasonally adjusted)", "role": "muted", "points": rnd(since(men, HIST), 2)}]},
+        "sources": [src_abs("LF", ["Participation rate, females and males, seasonally adjusted"])],
+        "method": "ABS Labour Force survey, participation rate by sex, aged 15 and over, seasonally adjusted, monthly.",
+    }
+
+
+@metric
+def gender_pay_gap():
+    mid = "gender_pay_gap"
+    rows = abs_api("AWE", "3.1.1+2.7.TOT.10.AUS.S", "1994", "abs_awe_ote_sex")
+    by = {}
+    for r in rows:
+        if r["OBS_VALUE"] == "":
+            continue
+        y, s = r["TIME_PERIOD"].split("-S")
+        by.setdefault(r["SEX"], {})[month_end(int(y), 5 if s == "1" else 11)] = float(r["OBS_VALUE"])
+    ks = sorted(set(by["1"]) & set(by["2"]))
+    gap = [[k, round((by["1"][k] - by["2"][k]) / by["1"][k] * 100, 2)] for k in ks]
+    d, v = latest(gap)
+    check_fresh(mid, d, "Q_LAG", max_age=420)
+    check_range(mid, "gender pay gap (%)", v, 0, 30)
+    b = at(gap, BASE_M)[1]
+    low = min(p[1] for p in gap[:-1])
+    return {
+        "id": mid, "section": "jobs", "title": "Gender pay gap",
+        "question": "Has the gap between men's and women's full-time pay narrowed?",
+        "headline": {"value": round(v, 1), "unit": "%", "decimals": 1, "period": label(d, "M"),
+                     "caption": "less, on average, for women working full-time than for men"},
+        "benchmark": {"label": "May 2022", "text": f"{fmt(b)}%"},
+        "baseline": {"label": "May 2022", "value": round(b, 1), "unit": "%"},
+        "status": status_of(v > b),
+        "status_rule": "Off track if the gap is wider than in May 2022.",
+        "context": [
+            f"Women working full-time earned on average {fmt(v)}% less than men in {label(d, 'M')}: ${fmt(by['2'][d], 2)} a week against ${fmt(by['1'][d], 2)}.",
+            f"In May 2022 the gap was {fmt(b)}%." + (f" The latest figure is the lowest since the series began in {gap[0][0][:4]}." if v <= low else ""),
+            "This compares average ordinary pay for full-time adults. It is not a comparison of men and women doing the same job, which equal pay law already requires.",
+        ],
+        "chart": {"kind": "line", "unit": "%", "decimals": 1,
+                  "series": [{"name": "Gender pay gap, full-time adult ordinary earnings", "role": "primary", "points": since(gap, HIST)}]},
+        "sources": [src_abs("AWE", ["Full-time adult average weekly ordinary time earnings, males and females, all sectors, original"])],
+        "method": "(Male earnings − female earnings) ÷ male earnings, using ABS full-time adult average weekly ordinary time earnings. This is the measure the Workplace Gender Equality Agency uses for the national gap. Surveyed in May and November.",
+    }
+
+
 def load_manual():
     path = os.path.join(DATA_DIR, "manual.json")
     if not os.path.exists(path):
@@ -1988,6 +2097,18 @@ def main():
 
 # Plain-English explainers shown behind each metric's (i) icon.
 EXPLAINERS = {
+    "employment": {
+        "what": "The number of people in Australia with a job, full-time or part-time, from the ABS monthly Labour Force survey.",
+        "why": "Jobs are how most households earn their income. Growth in employment shows whether the economy is making room for a growing population.",
+    },
+    "womens_participation": {
+        "what": "The share of women aged 15 and over who have a job or are actively looking for one.",
+        "why": "More women in paid work lifts household incomes and the economy's capacity. Child care costs, paid parental leave and flexible work all affect it.",
+    },
+    "gender_pay_gap": {
+        "what": "How much less women working full-time earn on average than men working full-time, as a share of men's pay. It uses ordinary pay, before overtime.",
+        "why": "It is the standard national measure of the gap, used by the Workplace Gender Equality Agency. It reflects which jobs and industries men and women work in, as well as pay rates.",
+    },
     "household_payments": {
         "what": "The share of all household income, before tax, that goes on interest on home loans, and the share that goes on income tax. The ABS measures both in the national accounts every quarter, back to 1959.",
         "why": "Mortgage interest and income tax are the 2 biggest calls on household income before anything is spent. When either share rises, there is less left for everything else.",
@@ -2089,8 +2210,8 @@ EXPLAINERS = {
 SECTIONS = [
     {"id": "cost", "title": "Cost of living", "blurb": "What families pay, and whether pay packets have kept up."},
     {"id": "energy", "title": "Energy", "blurb": "Power bills and the promises made about them."},
-    {"id": "housing", "title": "Housing", "blurb": "Building targets, prices and mortgage pain."},
-    {"id": "jobs", "title": "Jobs, business & productivity", "blurb": "Who is hiring, who is going broke, and whether we're getting more productive."},
+    {"id": "housing", "title": "Housing", "blurb": "Building targets, prices and mortgage costs."},
+    {"id": "jobs", "title": "Jobs, business & productivity", "blurb": "Jobs, pay, business closures and productivity."},
     {"id": "living", "title": "Living standards", "blurb": "Growth that matters: per person, after inflation."},
     {"id": "budget", "title": "Budget, debt & the size of government", "blurb": "Spending, debt, interest and the bureaucracy."},
     {"id": "population", "title": "Population", "blurb": "Migration and pressure on homes and services."},

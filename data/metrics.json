@@ -1,15 +1,15 @@
 {
  "summary": {
-  "generated_at": "2026-10-07T04:36:23+00:00",
-  "checks_total": 480,
-  "checks_passed": 472,
+  "generated_at": "2026-10-07T06:06:21+00:00",
+  "checks_total": 486,
+  "checks_passed": 478,
   "checks_warn": 6,
   "checks_failed": 2,
-  "metrics_total": 37,
+  "metrics_total": 40,
   "metrics_off_track": 26,
   "metrics_watch": 2,
-  "metrics_on_track": 1,
-  "metrics_rated": 29
+  "metrics_on_track": 4,
+  "metrics_rated": 32
  },
  "sworn_in": "2022-05-23",
  "sections": [
@@ -26,12 +26,12 @@
   {
    "id": "housing",
    "title": "Housing",
-   "blurb": "Building targets, prices and mortgage pain."
+   "blurb": "Building targets, prices and mortgage costs."
   },
   {
    "id": "jobs",
    "title": "Jobs, business & productivity",
-   "blurb": "Who is hiring, who is going broke, and whether we're getting more productive."
+   "blurb": "Jobs, pay, business closures and productivity."
   },
   {
    "id": "living",
@@ -811,7 +811,7 @@
      "series": [
       "All groups CPI, weighted average of eight capital cities: monthly annual % change (headline) and index (cross-check); quarterly index (cross-check)"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     },
     {
@@ -825,13 +825,13 @@
       "GCPIAG"
      ],
      "published": "30-Jul-2026",
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     }
    ],
    "method": "Headline: the ABS monthly Consumer Price Index, percentage change from the same month a year earlier (all groups, eight capitals). History: year-ended quarterly CPI inflation from RBA Table G1, which extends back decades. The cumulative change compares the latest quarterly CPI index with the June quarter 2022.",
    "automated": true,
-   "updated_at": "2026-10-07T04:36:23+00:00",
+   "updated_at": "2026-10-07T06:06:21+00:00",
    "explainer": {
     "what": "Inflation is how fast prices are rising across a typical basket of goods and services: food, rent, petrol, power, insurance and more. The ABS measures it with the Consumer Price Index (CPI), and this figure compares prices with the same quarter a year earlier.",
     "why": "When inflation runs above wage growth, household budgets shrink. The Reserve Bank aims to keep inflation between 2% and 3% on average. Inflation above that band usually means higher interest rates."
@@ -955,7 +955,7 @@
       "Petrol & fuel (index 40081), eight capital cities, original",
       "All prices (CPI) (index 10001), eight capital cities, original"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     },
     {
@@ -966,13 +966,13 @@
      "series": [
       "Total hourly rates of pay excluding bonuses; private and public; all industries; original"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     }
    ],
    "method": "Percentage change in each ABS CPI expenditure-class index and the Wage Price Index between the June quarter 2022 and the latest quarter available for all series.",
    "automated": true,
-   "updated_at": "2026-10-07T04:36:23+00:00",
+   "updated_at": "2026-10-07T06:06:21+00:00",
    "explainer": {
     "what": "This compares how much the prices of everyday essentials have risen since mid-2022 with how much wages have risen. Wages are measured by the ABS Wage Price Index, which tracks pay for the same jobs over time.",
     "why": "If the things you must buy rise faster than your pay, you are worse off even if your pay rose. It shows where the squeeze on households is coming from."
@@ -2145,7 +2145,7 @@
      "series": [
       "Total hourly rates of pay excluding bonuses; private sector, public sector and all sectors; all industries; original"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     },
     {
@@ -2156,7 +2156,7 @@
      "series": [
       "All groups CPI index, eight capitals"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     },
     {
@@ -2170,7 +2170,7 @@
       "GWPIPUBYP"
      ],
      "published": "20-Aug-2026",
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     },
     {
@@ -2182,7 +2182,7 @@
       "GCPIAGYP"
      ],
      "published": "30-Jul-2026",
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     },
     {
@@ -2196,7 +2196,7 @@
    ],
    "method": "ABS Wage Price Index (by sector) divided by the Consumer Price Index, rebased so the June quarter 2022 = 100. A value below 100 means pay buys less than it did then. Year-ended wage growth by sector from RBA Table H4.",
    "automated": true,
-   "updated_at": "2026-10-07T04:36:23+00:00",
+   "updated_at": "2026-10-07T06:06:21+00:00",
    "explainer": {
     "what": "'Real' wages are wages adjusted for inflation: what your pay can actually buy. We divide the Wage Price Index by the Consumer Price Index and set mid-2022 to 100. Below 100 means pay buys less than it did then. Private-sector and public-sector workers are shown separately.",
     "why": "A pay rise is only a real gain if it beats inflation. The sector split shows whether workers in private business have fared differently from government employees."
@@ -3750,13 +3750,13 @@
       "Property income payable: interest on dwellings",
       "Secondary income payable: income tax"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     }
    ],
    "method": "ABS household income account, seasonally adjusted, quarterly. Interest payable on dwellings and income tax payable, each divided by total household gross income. Averages across all households, with and without a mortgage.",
    "automated": true,
-   "updated_at": "2026-10-07T04:36:23+00:00",
+   "updated_at": "2026-10-07T06:06:21+00:00",
    "explainer": {
     "what": "The share of all household income, before tax, that goes on interest on home loans, and the share that goes on income tax. The ABS measures both in the national accounts every quarter, back to 1959.",
     "why": "Mortgage interest and income tax are the 2 biggest calls on household income before anything is spent. When either share rises, there is less left for everything else."
@@ -4546,13 +4546,13 @@
      "series": [
       "Automotive fuel (index 40081) and All groups (10001), eight capital cities, quarterly and monthly, original"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     }
    ],
    "method": "ABS CPI automotive fuel index. Headline: latest month against the same month a year earlier (monthly CPI). Chart: quarterly index rebased to June quarter 2022 = 100, beside all groups CPI.",
    "automated": true,
-   "updated_at": "2026-10-07T04:36:23+00:00",
+   "updated_at": "2026-10-07T06:06:21+00:00",
    "explainer": {
     "what": "Petrol and diesel prices as measured in the Consumer Price Index. The headline compares the latest month with the same month a year earlier.",
     "why": "Fuel is a large weekly cost for most households and businesses, and it feeds into the price of almost everything that is transported."
@@ -5596,7 +5596,7 @@
       "Electricity (index 40055), eight capitals",
       "All groups CPI (index 10001)"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     },
     {
@@ -5618,7 +5618,7 @@
    ],
    "method": "ABS CPI electricity index and all-groups index, each rebased so the June quarter 2022 = 100.",
    "automated": true,
-   "updated_at": "2026-10-07T04:36:23+00:00",
+   "updated_at": "2026-10-07T06:06:21+00:00",
    "explainer": {
     "what": "The change in household electricity prices recorded in the Consumer Price Index since the June quarter 2022, shown next to overall inflation. The ABS counts government bill rebates as a price reduction while they are paid.",
     "why": "Power bills hit every household and business. Before the 2022 election, lower power bills were a central promise."
@@ -8092,7 +8092,7 @@
       "FLRHOOVA"
      ],
      "published": "07-Sep-2026",
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     },
     {
@@ -8104,13 +8104,13 @@
       "FIRMMCRT"
      ],
      "published": "01-Oct-2026",
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     }
    ],
    "method": "Standard amortisation formula applied to a $600,000 30-year principal-and-interest loan, using the RBA's average rate on outstanding owner-occupier variable loans in May 2022 and the latest month.",
    "automated": true,
-   "updated_at": "2026-10-07T04:36:23+00:00",
+   "updated_at": "2026-10-07T06:06:21+00:00",
    "explainer": {
     "what": "The average interest rate on existing variable home loans for owner-occupiers (RBA data), and what that means in monthly repayments on a typical $600,000, 30-year loan compared with May 2022.",
     "why": "About a third of Australian households are paying off a mortgage. Higher repayments take money directly out of their budgets."
@@ -8531,7 +8531,7 @@
       "FIRMMCRT"
      ],
      "published": "01-Oct-2026",
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     },
     {
@@ -8544,13 +8544,13 @@
       "ARBAMPCNCRT"
      ],
      "published": "29-Sep-2026",
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     }
    ],
    "method": "Every cash rate target decision published in RBA Table A2 after 23 May 2022, cross-checked against the monthly cash rate target in Table F1.1.",
    "automated": true,
-   "updated_at": "2026-10-07T04:36:23+00:00",
+   "updated_at": "2026-10-07T06:06:21+00:00",
    "explainer": {
     "what": "The cash rate is the Reserve Bank's official interest rate. Banks base their lending rates on it. This counts every decision to raise or cut it since the government was sworn in on 23 May 2022.",
     "why": "The RBA is independent, but it raises rates when inflation is too high, and government spending affects inflation. At current rates, each 0.25-point rise adds about $100 a month to repayments on a $600,000 loan."
@@ -9101,7 +9101,7 @@
      "series": [
       "Dwelling units completed, new residential, all sectors, Australia, original"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     },
     {
@@ -9122,7 +9122,7 @@
    ],
    "method": "Sum of ABS new residential dwelling completions (original series) from the September quarter 2024 (the Accord began 1 July 2024) to the latest quarter, compared with 1.2 million ÷ 20 quarters = 60,000 per quarter.",
    "automated": true,
-   "updated_at": "2026-10-07T04:36:23+00:00",
+   "updated_at": "2026-10-07T06:06:21+00:00",
    "explainer": {
     "what": "Under the National Housing Accord, federal and state governments committed to 1.2 million new homes in the five years from 1 July 2024. That is 60,000 a quarter. We add up ABS new dwelling completions since then.",
     "why": "It is the government's own target. Falling behind means rents and prices stay under pressure, especially while population growth is strong."
@@ -9611,7 +9611,7 @@
      "series": [
       "Mean price of residential dwellings, Australia"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     },
     {
@@ -9622,13 +9622,13 @@
      "series": [
       "Wage Price Index, all sectors"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     }
    ],
    "method": "ABS Total Value of Dwellings: mean price of residential dwellings (total value of dwelling stock ÷ number of dwellings). Compared with the Wage Price Index over the same period.",
    "automated": true,
-   "updated_at": "2026-10-07T04:36:23+00:00",
+   "updated_at": "2026-10-07T06:06:21+00:00",
    "explainer": {
     "what": "The ABS calculates the average price of a residential dwelling by dividing the total value of all homes by the number of homes. We compare its growth since mid-2022 with wage growth.",
     "why": "When home prices grow faster than wages, saving a deposit and paying off a mortgage takes longer. Home ownership moves out of reach for younger Australians."
@@ -10079,7 +10079,7 @@
      "series": [
       "Estimated resident population, Australia"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     },
     {
@@ -10090,13 +10090,13 @@
      "series": [
       "Dwelling units completed, new residential, all sectors, Australia, original"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     }
    ],
    "method": "Change in ABS estimated resident population over the latest 4 quarters, divided by the number of new dwellings completed over the same 4 quarters.",
    "automated": true,
-   "updated_at": "2026-10-07T04:36:23+00:00",
+   "updated_at": "2026-10-07T06:06:21+00:00",
    "explainer": {
     "what": "How much Australia's population grew over the past year, divided by the number of new homes finished in the same year.",
     "why": "The average household has about 2.5 people. When population grows by more than that for every new home, the shortage of homes gets worse and rents and prices tend to rise."
@@ -10885,7 +10885,7 @@
      "series": [
       "Rents (index 115522), weighted average of eight capital cities, original"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     },
     {
@@ -10896,13 +10896,13 @@
      "series": [
       "Total hourly rates of pay excluding bonuses, all sectors, original"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     }
    ],
    "method": "ABS CPI rents index and Wage Price Index, both rebased to June quarter 2022 = 100.",
    "automated": true,
-   "updated_at": "2026-10-07T04:36:23+00:00",
+   "updated_at": "2026-10-07T06:06:21+00:00",
    "explainer": {
     "what": "Rents from the Consumer Price Index and pay from the Wage Price Index, both set to 100 in the June quarter 2022, so you can see which has risen faster since.",
     "why": "Rent is the biggest regular cost for about a third of households. When rents rise faster than pay, renters have less left for everything else."
@@ -11078,7 +11078,7 @@
      "series": [
       "Mean price of residential dwellings, Australia"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     },
     {
@@ -11089,13 +11089,13 @@
      "series": [
       "Full-time adult average weekly total earnings, persons, all sectors, original"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     }
    ],
    "method": "ABS mean price of residential dwellings divided by ABS full-time adult average weekly total earnings × 52. Earnings are surveyed in May and November and matched with the June and December quarter prices.",
    "automated": true,
-   "updated_at": "2026-10-07T04:36:23+00:00",
+   "updated_at": "2026-10-07T06:06:21+00:00",
    "explainer": {
     "what": "The average value of a home in Australia divided by average full-time annual pay before tax. The answer is how many years of full pay the average home costs.",
     "why": "It is a simple test of how far homes have moved out of reach of people who rely on wages to buy one."
@@ -12814,7 +12814,7 @@
       "GLFSUPSA"
      ],
      "published": "25-Sep-2026",
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     },
     {
@@ -12825,13 +12825,13 @@
      "series": [
       "Unemployment rate, persons, seasonally adjusted (independent cross-check)"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     }
    ],
    "method": "Seasonally adjusted unemployment rate from the ABS Labour Force survey (via RBA Table H5), cross-checked against the ABS Data API.",
    "automated": true,
-   "updated_at": "2026-10-07T04:36:23+00:00",
+   "updated_at": "2026-10-07T06:06:21+00:00",
    "explainer": {
     "what": "The share of people in the labour force (working or actively looking for work) who do not have a job, from the ABS Labour Force Survey of about 50,000 people each month. Seasonally adjusted.",
     "why": "It is the most-watched measure of whether the economy is providing enough work. It doesn't show underemployment (people who want more hours) or what kind of jobs are being created."
@@ -13666,13 +13666,13 @@
      "series": [
       "Filled jobs – public sector (M14), private sector (M13) and total (M12); all industries; seasonally adjusted"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     }
    ],
    "method": "ABS Labour Account filled jobs by institutional sector (public = all levels of government and public corporations), seasonally adjusted. Growth measured from the June quarter 2022.",
    "automated": true,
-   "updated_at": "2026-10-07T04:36:23+00:00",
+   "updated_at": "2026-10-07T06:06:21+00:00",
    "explainer": {
     "what": "The ABS Labour Account counts filled jobs and classifies each employer as public sector (federal, state and local government and government-owned businesses) or private sector. This compares how fast each has grown since mid-2022.",
     "why": "Private businesses fund the tax base. If government employment grows faster than private employment, more of the economy depends on taxpayers."
@@ -13829,7 +13829,7 @@
      "series": [
       "Filled jobs (M12) by ANZSIC industry division, seasonally adjusted, quarterly"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     },
     {
@@ -13842,7 +13842,7 @@
    ],
    "method": "Change in ABS Labour Account filled jobs in each of the 19 ANZSIC industry divisions between the June quarter 2022 and the latest quarter. 'Non-market' = Health Care & Social Assistance + Education & Training + Public Administration & Safety. (The ABS ceased the Labour Force, Detailed industry tables in April 2026; the Labour Account is the continuing official quarterly source.)",
    "automated": true,
-   "updated_at": "2026-10-07T04:36:23+00:00",
+   "updated_at": "2026-10-07T06:06:21+00:00",
    "explainer": {
     "what": "Change in filled jobs in each of the 19 major industries since mid-2022. Health care & social assistance (which includes NDIS and aged care), education, and public administration are highlighted. Economists call these the 'non-market' sector because they are mostly paid for by government.",
     "why": "Headline job numbers can look strong even when growth relies on government-funded programs rather than a thriving private economy. This shows where the jobs are actually coming from."
@@ -14462,7 +14462,7 @@
       "GNFPROSQP"
      ],
      "published": "20-Aug-2026",
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     },
     {
@@ -14476,7 +14476,7 @@
    ],
    "method": "ABS national accounts non-farm GDP per hour worked (RBA Table H4). Annualised growth rates are compound averages between the quarters shown.",
    "automated": true,
-   "updated_at": "2026-10-07T04:36:23+00:00",
+   "updated_at": "2026-10-07T06:06:21+00:00",
    "explainer": {
     "what": "Labour productivity is how much the economy produces for each hour worked, measured here for the non-farm economy in the ABS national accounts. We compare average annual growth since mid-2022 with the 2000–2019 average.",
     "why": "Productivity is the only lasting way to raise wages and living standards. The Productivity Commission and RBA have both warned that weak productivity growth holds back real incomes."
@@ -14484,9 +14484,3646 @@
    "promise": null
   },
   {
+   "id": "employment",
+   "section": "jobs",
+   "title": "People in work",
+   "question": "How many more Australians have a job than when the government took office?",
+   "headline": {
+    "value": 14.84,
+    "unit": "",
+    "decimals": 2,
+    "suffix": "m",
+    "period": "August 2026",
+    "caption": "people employed, seasonally adjusted"
+   },
+   "benchmark": {
+    "label": "When government took office (May 2022)",
+    "text": "13.49 million"
+   },
+   "baseline": {
+    "label": "May 2022",
+    "value": 13.49,
+    "unit": ""
+   },
+   "status": "pass",
+   "status_rule": "Off track if fewer people are employed than in May 2022.",
+   "context": [
+    "1.35 million more people were employed in August 2026 than in May 2022.",
+    "Over the past year employment rose by 238 thousand.",
+    "Employment counts anyone who worked at least 1 hour in the survey week, full-time or part-time. Population growth adds to it, so see the unemployment rate alongside."
+   ],
+   "chart": {
+    "kind": "line",
+    "unit": "",
+    "decimals": 2,
+    "series": [
+     {
+      "name": "Employed people, millions (seasonally adjusted)",
+      "role": "primary",
+      "points": [
+       [
+        "2004-01-31",
+        9.46
+       ],
+       [
+        "2004-02-29",
+        9.465
+       ],
+       [
+        "2004-03-31",
+        9.499
+       ],
+       [
+        "2004-04-30",
+        9.508
+       ],
+       [
+        "2004-05-31",
+        9.524
+       ],
+       [
+        "2004-06-30",
+        9.529
+       ],
+       [
+        "2004-07-31",
+        9.538
+       ],
+       [
+        "2004-08-31",
+        9.535
+       ],
+       [
+        "2004-09-30",
+        9.591
+       ],
+       [
+        "2004-10-31",
+        9.645
+       ],
+       [
+        "2004-11-30",
+        9.683
+       ],
+       [
+        "2004-12-31",
+        9.692
+       ],
+       [
+        "2005-01-31",
+        9.745
+       ],
+       [
+        "2005-02-28",
+        9.775
+       ],
+       [
+        "2005-03-31",
+        9.816
+       ],
+       [
+        "2005-04-30",
+        9.855
+       ],
+       [
+        "2005-05-31",
+        9.839
+       ],
+       [
+        "2005-06-30",
+        9.885
+       ],
+       [
+        "2005-07-31",
+        9.9
+       ],
+       [
+        "2005-08-31",
+        9.944
+       ],
+       [
+        "2005-09-30",
+        9.928
+       ],
+       [
+        "2005-10-31",
+        9.933
+       ],
+       [
+        "2005-11-30",
+        9.942
+       ],
+       [
+        "2005-12-31",
+        9.957
+       ],
+       [
+        "2006-01-31",
+        9.958
+       ],
+       [
+        "2006-02-28",
+        9.993
+       ],
+       [
+        "2006-03-31",
+        10.034
+       ],
+       [
+        "2006-04-30",
+        10.041
+       ],
+       [
+        "2006-05-31",
+        10.069
+       ],
+       [
+        "2006-06-30",
+        10.109
+       ],
+       [
+        "2006-07-31",
+        10.161
+       ],
+       [
+        "2006-08-31",
+        10.179
+       ],
+       [
+        "2006-09-30",
+        10.223
+       ],
+       [
+        "2006-10-31",
+        10.195
+       ],
+       [
+        "2006-11-30",
+        10.229
+       ],
+       [
+        "2006-12-31",
+        10.282
+       ],
+       [
+        "2007-01-31",
+        10.28
+       ],
+       [
+        "2007-02-28",
+        10.308
+       ],
+       [
+        "2007-03-31",
+        10.337
+       ],
+       [
+        "2007-04-30",
+        10.366
+       ],
+       [
+        "2007-05-31",
+        10.401
+       ],
+       [
+        "2007-06-30",
+        10.424
+       ],
+       [
+        "2007-07-31",
+        10.447
+       ],
+       [
+        "2007-08-31",
+        10.484
+       ],
+       [
+        "2007-09-30",
+        10.513
+       ],
+       [
+        "2007-10-31",
+        10.504
+       ],
+       [
+        "2007-11-30",
+        10.561
+       ],
+       [
+        "2007-12-31",
+        10.582
+       ],
+       [
+        "2008-01-31",
+        10.609
+       ],
+       [
+        "2008-02-29",
+        10.649
+       ],
+       [
+        "2008-03-31",
+        10.67
+       ],
+       [
+        "2008-04-30",
+        10.708
+       ],
+       [
+        "2008-05-31",
+        10.68
+       ],
+       [
+        "2008-06-30",
+        10.733
+       ],
+       [
+        "2008-07-31",
+        10.751
+       ],
+       [
+        "2008-08-31",
+        10.793
+       ],
+       [
+        "2008-09-30",
+        10.778
+       ],
+       [
+        "2008-10-31",
+        10.787
+       ],
+       [
+        "2008-11-30",
+        10.781
+       ],
+       [
+        "2008-12-31",
+        10.789
+       ],
+       [
+        "2009-01-31",
+        10.791
+       ],
+       [
+        "2009-02-28",
+        10.805
+       ],
+       [
+        "2009-03-31",
+        10.77
+       ],
+       [
+        "2009-04-30",
+        10.794
+       ],
+       [
+        "2009-05-31",
+        10.772
+       ],
+       [
+        "2009-06-30",
+        10.755
+       ],
+       [
+        "2009-07-31",
+        10.799
+       ],
+       [
+        "2009-08-31",
+        10.789
+       ],
+       [
+        "2009-09-30",
+        10.81
+       ],
+       [
+        "2009-10-31",
+        10.82
+       ],
+       [
+        "2009-11-30",
+        10.85
+       ],
+       [
+        "2009-12-31",
+        10.887
+       ],
+       [
+        "2010-01-31",
+        10.937
+       ],
+       [
+        "2010-02-28",
+        10.92
+       ],
+       [
+        "2010-03-31",
+        10.925
+       ],
+       [
+        "2010-04-30",
+        10.937
+       ],
+       [
+        "2010-05-31",
+        10.938
+       ],
+       [
+        "2010-06-30",
+        10.993
+       ],
+       [
+        "2010-07-31",
+        11.019
+       ],
+       [
+        "2010-08-31",
+        11.061
+       ],
+       [
+        "2010-09-30",
+        11.087
+       ],
+       [
+        "2010-10-31",
+        11.104
+       ],
+       [
+        "2010-11-30",
+        11.163
+       ],
+       [
+        "2010-12-31",
+        11.169
+       ],
+       [
+        "2011-01-31",
+        11.202
+       ],
+       [
+        "2011-02-28",
+        11.176
+       ],
+       [
+        "2011-03-31",
+        11.215
+       ],
+       [
+        "2011-04-30",
+        11.182
+       ],
+       [
+        "2011-05-31",
+        11.172
+       ],
+       [
+        "2011-06-30",
+        11.205
+       ],
+       [
+        "2011-07-31",
+        11.209
+       ],
+       [
+        "2011-08-31",
+        11.219
+       ],
+       [
+        "2011-09-30",
+        11.246
+       ],
+       [
+        "2011-10-31",
+        11.249
+       ],
+       [
+        "2011-11-30",
+        11.252
+       ],
+       [
+        "2011-12-31",
+        11.231
+       ],
+       [
+        "2012-01-31",
+        11.308
+       ],
+       [
+        "2012-02-29",
+        11.272
+       ],
+       [
+        "2012-03-31",
+        11.333
+       ],
+       [
+        "2012-04-30",
+        11.321
+       ],
+       [
+        "2012-05-31",
+        11.364
+       ],
+       [
+        "2012-06-30",
+        11.338
+       ],
+       [
+        "2012-07-31",
+        11.348
+       ],
+       [
+        "2012-08-31",
+        11.361
+       ],
+       [
+        "2012-09-30",
+        11.39
+       ],
+       [
+        "2012-10-31",
+        11.391
+       ],
+       [
+        "2012-11-30",
+        11.385
+       ],
+       [
+        "2012-12-31",
+        11.396
+       ],
+       [
+        "2013-01-31",
+        11.47
+       ],
+       [
+        "2013-02-28",
+        11.468
+       ],
+       [
+        "2013-03-31",
+        11.435
+       ],
+       [
+        "2013-04-30",
+        11.467
+       ],
+       [
+        "2013-05-31",
+        11.457
+       ],
+       [
+        "2013-06-30",
+        11.47
+       ],
+       [
+        "2013-07-31",
+        11.457
+       ],
+       [
+        "2013-08-31",
+        11.46
+       ],
+       [
+        "2013-09-30",
+        11.474
+       ],
+       [
+        "2013-10-31",
+        11.47
+       ],
+       [
+        "2013-11-30",
+        11.449
+       ],
+       [
+        "2013-12-31",
+        11.419
+       ],
+       [
+        "2014-01-31",
+        11.453
+       ],
+       [
+        "2014-02-28",
+        11.478
+       ],
+       [
+        "2014-03-31",
+        11.532
+       ],
+       [
+        "2014-04-30",
+        11.537
+       ],
+       [
+        "2014-05-31",
+        11.512
+       ],
+       [
+        "2014-06-30",
+        11.528
+       ],
+       [
+        "2014-07-31",
+        11.545
+       ],
+       [
+        "2014-08-31",
+        11.548
+       ],
+       [
+        "2014-09-30",
+        11.546
+       ],
+       [
+        "2014-10-31",
+        11.542
+       ],
+       [
+        "2014-11-30",
+        11.542
+       ],
+       [
+        "2014-12-31",
+        11.598
+       ],
+       [
+        "2015-01-31",
+        11.608
+       ],
+       [
+        "2015-02-28",
+        11.673
+       ],
+       [
+        "2015-03-31",
+        11.693
+       ],
+       [
+        "2015-04-30",
+        11.691
+       ],
+       [
+        "2015-05-31",
+        11.733
+       ],
+       [
+        "2015-06-30",
+        11.727
+       ],
+       [
+        "2015-07-31",
+        11.76
+       ],
+       [
+        "2015-08-31",
+        11.763
+       ],
+       [
+        "2015-09-30",
+        11.783
+       ],
+       [
+        "2015-10-31",
+        11.86
+       ],
+       [
+        "2015-11-30",
+        11.893
+       ],
+       [
+        "2015-12-31",
+        11.908
+       ],
+       [
+        "2016-01-31",
+        11.912
+       ],
+       [
+        "2016-02-29",
+        11.926
+       ],
+       [
+        "2016-03-31",
+        11.941
+       ],
+       [
+        "2016-04-30",
+        11.947
+       ],
+       [
+        "2016-05-31",
+        11.941
+       ],
+       [
+        "2016-06-30",
+        11.962
+       ],
+       [
+        "2016-07-31",
+        11.996
+       ],
+       [
+        "2016-08-31",
+        11.954
+       ],
+       [
+        "2016-09-30",
+        11.942
+       ],
+       [
+        "2016-10-31",
+        11.961
+       ],
+       [
+        "2016-11-30",
+        11.987
+       ],
+       [
+        "2016-12-31",
+        12.017
+       ],
+       [
+        "2017-01-31",
+        12.039
+       ],
+       [
+        "2017-02-28",
+        12.015
+       ],
+       [
+        "2017-03-31",
+        12.075
+       ],
+       [
+        "2017-04-30",
+        12.132
+       ],
+       [
+        "2017-05-31",
+        12.164
+       ],
+       [
+        "2017-06-30",
+        12.197
+       ],
+       [
+        "2017-07-31",
+        12.232
+       ],
+       [
+        "2017-08-31",
+        12.281
+       ],
+       [
+        "2017-09-30",
+        12.321
+       ],
+       [
+        "2017-10-31",
+        12.325
+       ],
+       [
+        "2017-11-30",
+        12.368
+       ],
+       [
+        "2017-12-31",
+        12.398
+       ],
+       [
+        "2018-01-31",
+        12.437
+       ],
+       [
+        "2018-02-28",
+        12.421
+       ],
+       [
+        "2018-03-31",
+        12.442
+       ],
+       [
+        "2018-04-30",
+        12.46
+       ],
+       [
+        "2018-05-31",
+        12.452
+       ],
+       [
+        "2018-06-30",
+        12.521
+       ],
+       [
+        "2018-07-31",
+        12.522
+       ],
+       [
+        "2018-08-31",
+        12.585
+       ],
+       [
+        "2018-09-30",
+        12.601
+       ],
+       [
+        "2018-10-31",
+        12.624
+       ],
+       [
+        "2018-11-30",
+        12.644
+       ],
+       [
+        "2018-12-31",
+        12.67
+       ],
+       [
+        "2019-01-31",
+        12.714
+       ],
+       [
+        "2019-02-28",
+        12.724
+       ],
+       [
+        "2019-03-31",
+        12.748
+       ],
+       [
+        "2019-04-30",
+        12.785
+       ],
+       [
+        "2019-05-31",
+        12.791
+       ],
+       [
+        "2019-06-30",
+        12.804
+       ],
+       [
+        "2019-07-31",
+        12.837
+       ],
+       [
+        "2019-08-31",
+        12.882
+       ],
+       [
+        "2019-09-30",
+        12.903
+       ],
+       [
+        "2019-10-31",
+        12.853
+       ],
+       [
+        "2019-11-30",
+        12.874
+       ],
+       [
+        "2019-12-31",
+        12.923
+       ],
+       [
+        "2020-01-31",
+        12.93
+       ],
+       [
+        "2020-02-29",
+        12.93
+       ],
+       [
+        "2020-03-31",
+        12.925
+       ],
+       [
+        "2020-04-30",
+        12.346
+       ],
+       [
+        "2020-05-31",
+        12.051
+       ],
+       [
+        "2020-06-30",
+        12.279
+       ],
+       [
+        "2020-07-31",
+        12.416
+       ],
+       [
+        "2020-08-31",
+        12.552
+       ],
+       [
+        "2020-09-30",
+        12.52
+       ],
+       [
+        "2020-10-31",
+        12.658
+       ],
+       [
+        "2020-11-30",
+        12.741
+       ],
+       [
+        "2020-12-31",
+        12.797
+       ],
+       [
+        "2021-01-31",
+        12.84
+       ],
+       [
+        "2021-02-28",
+        12.892
+       ],
+       [
+        "2021-03-31",
+        12.952
+       ],
+       [
+        "2021-04-30",
+        12.947
+       ],
+       [
+        "2021-05-31",
+        13.038
+       ],
+       [
+        "2021-06-30",
+        13.058
+       ],
+       [
+        "2021-07-31",
+        13.085
+       ],
+       [
+        "2021-08-31",
+        12.952
+       ],
+       [
+        "2021-09-30",
+        12.828
+       ],
+       [
+        "2021-10-31",
+        12.778
+       ],
+       [
+        "2021-11-30",
+        13.143
+       ],
+       [
+        "2021-12-31",
+        13.226
+       ],
+       [
+        "2022-01-31",
+        13.291
+       ],
+       [
+        "2022-02-28",
+        13.365
+       ],
+       [
+        "2022-03-31",
+        13.387
+       ],
+       [
+        "2022-04-30",
+        13.449
+       ],
+       [
+        "2022-05-31",
+        13.488
+       ],
+       [
+        "2022-06-30",
+        13.581
+       ],
+       [
+        "2022-07-31",
+        13.593
+       ],
+       [
+        "2022-08-31",
+        13.665
+       ],
+       [
+        "2022-09-30",
+        13.675
+       ],
+       [
+        "2022-10-31",
+        13.713
+       ],
+       [
+        "2022-11-30",
+        13.78
+       ],
+       [
+        "2022-12-31",
+        13.778
+       ],
+       [
+        "2023-01-31",
+        13.799
+       ],
+       [
+        "2023-02-28",
+        13.838
+       ],
+       [
+        "2023-03-31",
+        13.928
+       ],
+       [
+        "2023-04-30",
+        13.929
+       ],
+       [
+        "2023-05-31",
+        14.017
+       ],
+       [
+        "2023-06-30",
+        14.026
+       ],
+       [
+        "2023-07-31",
+        14.029
+       ],
+       [
+        "2023-08-31",
+        14.101
+       ],
+       [
+        "2023-09-30",
+        14.097
+       ],
+       [
+        "2023-10-31",
+        14.152
+       ],
+       [
+        "2023-11-30",
+        14.199
+       ],
+       [
+        "2023-12-31",
+        14.146
+       ],
+       [
+        "2024-01-31",
+        14.144
+       ],
+       [
+        "2024-02-29",
+        14.25
+       ],
+       [
+        "2024-03-31",
+        14.228
+       ],
+       [
+        "2024-04-30",
+        14.267
+       ],
+       [
+        "2024-05-31",
+        14.295
+       ],
+       [
+        "2024-06-30",
+        14.319
+       ],
+       [
+        "2024-07-31",
+        14.379
+       ],
+       [
+        "2024-08-31",
+        14.409
+       ],
+       [
+        "2024-09-30",
+        14.449
+       ],
+       [
+        "2024-10-31",
+        14.446
+       ],
+       [
+        "2024-11-30",
+        14.463
+       ],
+       [
+        "2024-12-31",
+        14.511
+       ],
+       [
+        "2025-01-31",
+        14.542
+       ],
+       [
+        "2025-02-28",
+        14.465
+       ],
+       [
+        "2025-03-31",
+        14.498
+       ],
+       [
+        "2025-04-30",
+        14.604
+       ],
+       [
+        "2025-05-31",
+        14.594
+       ],
+       [
+        "2025-06-30",
+        14.568
+       ],
+       [
+        "2025-07-31",
+        14.615
+       ],
+       [
+        "2025-08-31",
+        14.598
+       ],
+       [
+        "2025-09-30",
+        14.611
+       ],
+       [
+        "2025-10-31",
+        14.643
+       ],
+       [
+        "2025-11-30",
+        14.602
+       ],
+       [
+        "2025-12-31",
+        14.66
+       ],
+       [
+        "2026-01-31",
+        14.694
+       ],
+       [
+        "2026-02-28",
+        14.716
+       ],
+       [
+        "2026-03-31",
+        14.736
+       ],
+       [
+        "2026-04-30",
+        14.699
+       ],
+       [
+        "2026-05-31",
+        14.735
+       ],
+       [
+        "2026-06-30",
+        14.813
+       ],
+       [
+        "2026-07-31",
+        14.797
+       ],
+       [
+        "2026-08-31",
+        14.837
+       ]
+      ]
+     }
+    ]
+   },
+   "sources": [
+    {
+     "publisher": "Australian Bureau of Statistics",
+     "title": "Labour Force, Australia",
+     "url": "https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia/latest-release",
+     "data_url": "https://data.api.abs.gov.au/rest/data/ABS,LF",
+     "series": [
+      "Employed total, persons, seasonally adjusted"
+     ],
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
+     "automated": true
+    }
+   ],
+   "method": "ABS Labour Force survey, employed persons aged 15 and over, seasonally adjusted, monthly.",
+   "automated": true,
+   "updated_at": "2026-10-07T06:06:21+00:00",
+   "explainer": {
+    "what": "The number of people in Australia with a job, full-time or part-time, from the ABS monthly Labour Force survey.",
+    "why": "Jobs are how most households earn their income. Growth in employment shows whether the economy is making room for a growing population."
+   }
+  },
+  {
+   "id": "womens_participation",
+   "section": "jobs",
+   "title": "Women in the workforce",
+   "question": "Are more women working or looking for work than when the government took office?",
+   "headline": {
+    "value": 63.3,
+    "unit": "%",
+    "decimals": 1,
+    "period": "August 2026",
+    "caption": "of women aged 15 and over are working or looking for work"
+   },
+   "benchmark": {
+    "label": "When government took office (May 2022)",
+    "text": "62.1%"
+   },
+   "baseline": {
+    "label": "May 2022",
+    "value": 62.1,
+    "unit": "%"
+   },
+   "status": "pass",
+   "status_rule": "Off track if the female participation rate is lower than in May 2022.",
+   "context": [
+    "The female participation rate was 63.3% in August 2026, against 62.1% in May 2022. The record high is 63.5%.",
+    "For men the rate was 71.0%, against 70.8% in May 2022.",
+    "The participation rate counts people who have a job or are actively looking for one, as a share of everyone aged 15 and over."
+   ],
+   "chart": {
+    "kind": "line",
+    "unit": "%",
+    "decimals": 1,
+    "series": [
+     {
+      "name": "Women, participation rate (seasonally adjusted)",
+      "role": "primary",
+      "points": [
+       [
+        "2004-01-31",
+        55.3
+       ],
+       [
+        "2004-02-29",
+        55.35
+       ],
+       [
+        "2004-03-31",
+        55.5
+       ],
+       [
+        "2004-04-30",
+        55.52
+       ],
+       [
+        "2004-05-31",
+        55.45
+       ],
+       [
+        "2004-06-30",
+        55.47
+       ],
+       [
+        "2004-07-31",
+        55.68
+       ],
+       [
+        "2004-08-31",
+        55.72
+       ],
+       [
+        "2004-09-30",
+        55.73
+       ],
+       [
+        "2004-10-31",
+        56.04
+       ],
+       [
+        "2004-11-30",
+        56.19
+       ],
+       [
+        "2004-12-31",
+        56.21
+       ],
+       [
+        "2005-01-31",
+        56.46
+       ],
+       [
+        "2005-02-28",
+        56.66
+       ],
+       [
+        "2005-03-31",
+        56.94
+       ],
+       [
+        "2005-04-30",
+        56.93
+       ],
+       [
+        "2005-05-31",
+        56.83
+       ],
+       [
+        "2005-06-30",
+        56.98
+       ],
+       [
+        "2005-07-31",
+        57.14
+       ],
+       [
+        "2005-08-31",
+        57.11
+       ],
+       [
+        "2005-09-30",
+        57.06
+       ],
+       [
+        "2005-10-31",
+        57.14
+       ],
+       [
+        "2005-11-30",
+        57.0
+       ],
+       [
+        "2005-12-31",
+        57.14
+       ],
+       [
+        "2006-01-31",
+        57.18
+       ],
+       [
+        "2006-02-28",
+        57.12
+       ],
+       [
+        "2006-03-31",
+        57.11
+       ],
+       [
+        "2006-04-30",
+        57.29
+       ],
+       [
+        "2006-05-31",
+        57.45
+       ],
+       [
+        "2006-06-30",
+        57.6
+       ],
+       [
+        "2006-07-31",
+        57.66
+       ],
+       [
+        "2006-08-31",
+        57.76
+       ],
+       [
+        "2006-09-30",
+        57.89
+       ],
+       [
+        "2006-10-31",
+        57.48
+       ],
+       [
+        "2006-11-30",
+        57.66
+       ],
+       [
+        "2006-12-31",
+        57.96
+       ],
+       [
+        "2007-01-31",
+        57.81
+       ],
+       [
+        "2007-02-28",
+        57.97
+       ],
+       [
+        "2007-03-31",
+        57.79
+       ],
+       [
+        "2007-04-30",
+        57.83
+       ],
+       [
+        "2007-05-31",
+        57.92
+       ],
+       [
+        "2007-06-30",
+        57.87
+       ],
+       [
+        "2007-07-31",
+        58.0
+       ],
+       [
+        "2007-08-31",
+        58.14
+       ],
+       [
+        "2007-09-30",
+        58.31
+       ],
+       [
+        "2007-10-31",
+        58.33
+       ],
+       [
+        "2007-11-30",
+        58.48
+       ],
+       [
+        "2007-12-31",
+        58.39
+       ],
+       [
+        "2008-01-31",
+        58.43
+       ],
+       [
+        "2008-02-29",
+        58.37
+       ],
+       [
+        "2008-03-31",
+        58.36
+       ],
+       [
+        "2008-04-30",
+        58.82
+       ],
+       [
+        "2008-05-31",
+        58.45
+       ],
+       [
+        "2008-06-30",
+        58.52
+       ],
+       [
+        "2008-07-31",
+        58.8
+       ],
+       [
+        "2008-08-31",
+        58.68
+       ],
+       [
+        "2008-09-30",
+        58.51
+       ],
+       [
+        "2008-10-31",
+        58.55
+       ],
+       [
+        "2008-11-30",
+        58.61
+       ],
+       [
+        "2008-12-31",
+        58.5
+       ],
+       [
+        "2009-01-31",
+        58.77
+       ],
+       [
+        "2009-02-28",
+        59.19
+       ],
+       [
+        "2009-03-31",
+        59.08
+       ],
+       [
+        "2009-04-30",
+        58.93
+       ],
+       [
+        "2009-05-31",
+        58.9
+       ],
+       [
+        "2009-06-30",
+        58.73
+       ],
+       [
+        "2009-07-31",
+        58.72
+       ],
+       [
+        "2009-08-31",
+        58.51
+       ],
+       [
+        "2009-09-30",
+        58.5
+       ],
+       [
+        "2009-10-31",
+        58.52
+       ],
+       [
+        "2009-11-30",
+        58.61
+       ],
+       [
+        "2009-12-31",
+        58.59
+       ],
+       [
+        "2010-01-31",
+        58.57
+       ],
+       [
+        "2010-02-28",
+        58.3
+       ],
+       [
+        "2010-03-31",
+        58.42
+       ],
+       [
+        "2010-04-30",
+        58.42
+       ],
+       [
+        "2010-05-31",
+        58.26
+       ],
+       [
+        "2010-06-30",
+        58.45
+       ],
+       [
+        "2010-07-31",
+        58.73
+       ],
+       [
+        "2010-08-31",
+        58.7
+       ],
+       [
+        "2010-09-30",
+        58.67
+       ],
+       [
+        "2010-10-31",
+        58.93
+       ],
+       [
+        "2010-11-30",
+        59.13
+       ],
+       [
+        "2010-12-31",
+        58.84
+       ],
+       [
+        "2011-01-31",
+        58.93
+       ],
+       [
+        "2011-02-28",
+        58.68
+       ],
+       [
+        "2011-03-31",
+        59.05
+       ],
+       [
+        "2011-04-30",
+        58.74
+       ],
+       [
+        "2011-05-31",
+        58.73
+       ],
+       [
+        "2011-06-30",
+        58.91
+       ],
+       [
+        "2011-07-31",
+        58.97
+       ],
+       [
+        "2011-08-31",
+        58.96
+       ],
+       [
+        "2011-09-30",
+        59.08
+       ],
+       [
+        "2011-10-31",
+        58.93
+       ],
+       [
+        "2011-11-30",
+        58.86
+       ],
+       [
+        "2011-12-31",
+        58.6
+       ],
+       [
+        "2012-01-31",
+        58.69
+       ],
+       [
+        "2012-02-29",
+        58.61
+       ],
+       [
+        "2012-03-31",
+        59.1
+       ],
+       [
+        "2012-04-30",
+        58.61
+       ],
+       [
+        "2012-05-31",
+        59.12
+       ],
+       [
+        "2012-06-30",
+        58.77
+       ],
+       [
+        "2012-07-31",
+        58.8
+       ],
+       [
+        "2012-08-31",
+        58.62
+       ],
+       [
+        "2012-09-30",
+        59.01
+       ],
+       [
+        "2012-10-31",
+        58.79
+       ],
+       [
+        "2012-11-30",
+        58.6
+       ],
+       [
+        "2012-12-31",
+        58.56
+       ],
+       [
+        "2013-01-31",
+        58.87
+       ],
+       [
+        "2013-02-28",
+        58.93
+       ],
+       [
+        "2013-03-31",
+        58.82
+       ],
+       [
+        "2013-04-30",
+        58.98
+       ],
+       [
+        "2013-05-31",
+        58.68
+       ],
+       [
+        "2013-06-30",
+        58.73
+       ],
+       [
+        "2013-07-31",
+        58.66
+       ],
+       [
+        "2013-08-31",
+        58.72
+       ],
+       [
+        "2013-09-30",
+        58.68
+       ],
+       [
+        "2013-10-31",
+        58.65
+       ],
+       [
+        "2013-11-30",
+        58.41
+       ],
+       [
+        "2013-12-31",
+        58.22
+       ],
+       [
+        "2014-01-31",
+        58.51
+       ],
+       [
+        "2014-02-28",
+        58.58
+       ],
+       [
+        "2014-03-31",
+        58.77
+       ],
+       [
+        "2014-04-30",
+        58.52
+       ],
+       [
+        "2014-05-31",
+        58.63
+       ],
+       [
+        "2014-06-30",
+        58.65
+       ],
+       [
+        "2014-07-31",
+        58.73
+       ],
+       [
+        "2014-08-31",
+        58.61
+       ],
+       [
+        "2014-09-30",
+        58.77
+       ],
+       [
+        "2014-10-31",
+        58.65
+       ],
+       [
+        "2014-11-30",
+        58.2
+       ],
+       [
+        "2014-12-31",
+        58.62
+       ],
+       [
+        "2015-01-31",
+        58.63
+       ],
+       [
+        "2015-02-28",
+        58.79
+       ],
+       [
+        "2015-03-31",
+        58.66
+       ],
+       [
+        "2015-04-30",
+        58.72
+       ],
+       [
+        "2015-05-31",
+        58.87
+       ],
+       [
+        "2015-06-30",
+        58.93
+       ],
+       [
+        "2015-07-31",
+        59.33
+       ],
+       [
+        "2015-08-31",
+        59.11
+       ],
+       [
+        "2015-09-30",
+        59.22
+       ],
+       [
+        "2015-10-31",
+        59.41
+       ],
+       [
+        "2015-11-30",
+        59.7
+       ],
+       [
+        "2015-12-31",
+        59.55
+       ],
+       [
+        "2016-01-31",
+        59.42
+       ],
+       [
+        "2016-02-29",
+        59.44
+       ],
+       [
+        "2016-03-31",
+        59.32
+       ],
+       [
+        "2016-04-30",
+        59.45
+       ],
+       [
+        "2016-05-31",
+        59.27
+       ],
+       [
+        "2016-06-30",
+        59.55
+       ],
+       [
+        "2016-07-31",
+        59.5
+       ],
+       [
+        "2016-08-31",
+        59.05
+       ],
+       [
+        "2016-09-30",
+        59.08
+       ],
+       [
+        "2016-10-31",
+        58.98
+       ],
+       [
+        "2016-11-30",
+        59.23
+       ],
+       [
+        "2016-12-31",
+        59.28
+       ],
+       [
+        "2017-01-31",
+        59.39
+       ],
+       [
+        "2017-02-28",
+        59.14
+       ],
+       [
+        "2017-03-31",
+        59.5
+       ],
+       [
+        "2017-04-30",
+        59.42
+       ],
+       [
+        "2017-05-31",
+        59.58
+       ],
+       [
+        "2017-06-30",
+        59.86
+       ],
+       [
+        "2017-07-31",
+        59.8
+       ],
+       [
+        "2017-08-31",
+        60.06
+       ],
+       [
+        "2017-09-30",
+        60.22
+       ],
+       [
+        "2017-10-31",
+        60.18
+       ],
+       [
+        "2017-11-30",
+        60.36
+       ],
+       [
+        "2017-12-31",
+        60.61
+       ],
+       [
+        "2018-01-31",
+        60.53
+       ],
+       [
+        "2018-02-28",
+        60.48
+       ],
+       [
+        "2018-03-31",
+        60.53
+       ],
+       [
+        "2018-04-30",
+        60.44
+       ],
+       [
+        "2018-05-31",
+        60.19
+       ],
+       [
+        "2018-06-30",
+        60.42
+       ],
+       [
+        "2018-07-31",
+        60.18
+       ],
+       [
+        "2018-08-31",
+        60.37
+       ],
+       [
+        "2018-09-30",
+        60.31
+       ],
+       [
+        "2018-10-31",
+        60.35
+       ],
+       [
+        "2018-11-30",
+        60.49
+       ],
+       [
+        "2018-12-31",
+        60.44
+       ],
+       [
+        "2019-01-31",
+        60.69
+       ],
+       [
+        "2019-02-28",
+        60.58
+       ],
+       [
+        "2019-03-31",
+        60.6
+       ],
+       [
+        "2019-04-30",
+        60.98
+       ],
+       [
+        "2019-05-31",
+        60.57
+       ],
+       [
+        "2019-06-30",
+        60.77
+       ],
+       [
+        "2019-07-31",
+        60.92
+       ],
+       [
+        "2019-08-31",
+        61.07
+       ],
+       [
+        "2019-09-30",
+        61.21
+       ],
+       [
+        "2019-10-31",
+        61.04
+       ],
+       [
+        "2019-11-30",
+        61.05
+       ],
+       [
+        "2019-12-31",
+        61.05
+       ],
+       [
+        "2020-01-31",
+        61.44
+       ],
+       [
+        "2020-02-29",
+        61.09
+       ],
+       [
+        "2020-03-31",
+        61.02
+       ],
+       [
+        "2020-04-30",
+        58.38
+       ],
+       [
+        "2020-05-31",
+        57.24
+       ],
+       [
+        "2020-06-30",
+        58.94
+       ],
+       [
+        "2020-07-31",
+        59.72
+       ],
+       [
+        "2020-08-31",
+        60.06
+       ],
+       [
+        "2020-09-30",
+        60.0
+       ],
+       [
+        "2020-10-31",
+        60.62
+       ],
+       [
+        "2020-11-30",
+        61.19
+       ],
+       [
+        "2020-12-31",
+        61.15
+       ],
+       [
+        "2021-01-31",
+        61.02
+       ],
+       [
+        "2021-02-28",
+        61.13
+       ],
+       [
+        "2021-03-31",
+        61.46
+       ],
+       [
+        "2021-04-30",
+        61.12
+       ],
+       [
+        "2021-05-31",
+        61.45
+       ],
+       [
+        "2021-06-30",
+        61.32
+       ],
+       [
+        "2021-07-31",
+        61.29
+       ],
+       [
+        "2021-08-31",
+        60.45
+       ],
+       [
+        "2021-09-30",
+        59.94
+       ],
+       [
+        "2021-10-31",
+        59.84
+       ],
+       [
+        "2021-11-30",
+        61.63
+       ],
+       [
+        "2021-12-31",
+        61.49
+       ],
+       [
+        "2022-01-31",
+        62.02
+       ],
+       [
+        "2022-02-28",
+        62.08
+       ],
+       [
+        "2022-03-31",
+        61.94
+       ],
+       [
+        "2022-04-30",
+        62.1
+       ],
+       [
+        "2022-05-31",
+        62.1
+       ],
+       [
+        "2022-06-30",
+        62.41
+       ],
+       [
+        "2022-07-31",
+        62.24
+       ],
+       [
+        "2022-08-31",
+        62.46
+       ],
+       [
+        "2022-09-30",
+        62.26
+       ],
+       [
+        "2022-10-31",
+        62.31
+       ],
+       [
+        "2022-11-30",
+        62.65
+       ],
+       [
+        "2022-12-31",
+        62.37
+       ],
+       [
+        "2023-01-31",
+        62.23
+       ],
+       [
+        "2023-02-28",
+        62.14
+       ],
+       [
+        "2023-03-31",
+        62.59
+       ],
+       [
+        "2023-04-30",
+        62.45
+       ],
+       [
+        "2023-05-31",
+        62.78
+       ],
+       [
+        "2023-06-30",
+        62.57
+       ],
+       [
+        "2023-07-31",
+        62.44
+       ],
+       [
+        "2023-08-31",
+        62.57
+       ],
+       [
+        "2023-09-30",
+        62.69
+       ],
+       [
+        "2023-10-31",
+        62.93
+       ],
+       [
+        "2023-11-30",
+        63.08
+       ],
+       [
+        "2023-12-31",
+        62.77
+       ],
+       [
+        "2024-01-31",
+        62.64
+       ],
+       [
+        "2024-02-29",
+        62.75
+       ],
+       [
+        "2024-03-31",
+        62.51
+       ],
+       [
+        "2024-04-30",
+        62.81
+       ],
+       [
+        "2024-05-31",
+        62.66
+       ],
+       [
+        "2024-06-30",
+        62.83
+       ],
+       [
+        "2024-07-31",
+        63.1
+       ],
+       [
+        "2024-08-31",
+        63.09
+       ],
+       [
+        "2024-09-30",
+        63.04
+       ],
+       [
+        "2024-10-31",
+        62.99
+       ],
+       [
+        "2024-11-30",
+        62.9
+       ],
+       [
+        "2024-12-31",
+        62.84
+       ],
+       [
+        "2025-01-31",
+        63.34
+       ],
+       [
+        "2025-02-28",
+        62.7
+       ],
+       [
+        "2025-03-31",
+        62.68
+       ],
+       [
+        "2025-04-30",
+        63.42
+       ],
+       [
+        "2025-05-31",
+        63.37
+       ],
+       [
+        "2025-06-30",
+        63.13
+       ],
+       [
+        "2025-07-31",
+        63.47
+       ],
+       [
+        "2025-08-31",
+        63.19
+       ],
+       [
+        "2025-09-30",
+        63.19
+       ],
+       [
+        "2025-10-31",
+        63.04
+       ],
+       [
+        "2025-11-30",
+        62.99
+       ],
+       [
+        "2025-12-31",
+        62.88
+       ],
+       [
+        "2026-01-31",
+        62.92
+       ],
+       [
+        "2026-02-28",
+        63.01
+       ],
+       [
+        "2026-03-31",
+        62.92
+       ],
+       [
+        "2026-04-30",
+        62.74
+       ],
+       [
+        "2026-05-31",
+        62.89
+       ],
+       [
+        "2026-06-30",
+        63.29
+       ],
+       [
+        "2026-07-31",
+        63.17
+       ],
+       [
+        "2026-08-31",
+        63.26
+       ]
+      ]
+     },
+     {
+      "name": "Men, participation rate (seasonally adjusted)",
+      "role": "muted",
+      "points": [
+       [
+        "2004-01-31",
+        71.55
+       ],
+       [
+        "2004-02-29",
+        71.54
+       ],
+       [
+        "2004-03-31",
+        71.39
+       ],
+       [
+        "2004-04-30",
+        71.49
+       ],
+       [
+        "2004-05-31",
+        71.43
+       ],
+       [
+        "2004-06-30",
+        71.55
+       ],
+       [
+        "2004-07-31",
+        71.42
+       ],
+       [
+        "2004-08-31",
+        71.15
+       ],
+       [
+        "2004-09-30",
+        71.55
+       ],
+       [
+        "2004-10-31",
+        71.46
+       ],
+       [
+        "2004-11-30",
+        71.71
+       ],
+       [
+        "2004-12-31",
+        71.53
+       ],
+       [
+        "2005-01-31",
+        71.78
+       ],
+       [
+        "2005-02-28",
+        71.77
+       ],
+       [
+        "2005-03-31",
+        71.94
+       ],
+       [
+        "2005-04-30",
+        72.28
+       ],
+       [
+        "2005-05-31",
+        72.02
+       ],
+       [
+        "2005-06-30",
+        72.15
+       ],
+       [
+        "2005-07-31",
+        72.03
+       ],
+       [
+        "2005-08-31",
+        72.38
+       ],
+       [
+        "2005-09-30",
+        72.19
+       ],
+       [
+        "2005-10-31",
+        72.02
+       ],
+       [
+        "2005-11-30",
+        72.01
+       ],
+       [
+        "2005-12-31",
+        72.08
+       ],
+       [
+        "2006-01-31",
+        71.95
+       ],
+       [
+        "2006-02-28",
+        72.17
+       ],
+       [
+        "2006-03-31",
+        72.17
+       ],
+       [
+        "2006-04-30",
+        72.09
+       ],
+       [
+        "2006-05-31",
+        71.93
+       ],
+       [
+        "2006-06-30",
+        72.18
+       ],
+       [
+        "2006-07-31",
+        72.37
+       ],
+       [
+        "2006-08-31",
+        72.37
+       ],
+       [
+        "2006-09-30",
+        72.52
+       ],
+       [
+        "2006-10-31",
+        72.11
+       ],
+       [
+        "2006-11-30",
+        72.22
+       ],
+       [
+        "2006-12-31",
+        72.45
+       ],
+       [
+        "2007-01-31",
+        72.29
+       ],
+       [
+        "2007-02-28",
+        72.33
+       ],
+       [
+        "2007-03-31",
+        72.37
+       ],
+       [
+        "2007-04-30",
+        72.41
+       ],
+       [
+        "2007-05-31",
+        72.4
+       ],
+       [
+        "2007-06-30",
+        72.62
+       ],
+       [
+        "2007-07-31",
+        72.47
+       ],
+       [
+        "2007-08-31",
+        72.65
+       ],
+       [
+        "2007-09-30",
+        72.51
+       ],
+       [
+        "2007-10-31",
+        72.31
+       ],
+       [
+        "2007-11-30",
+        72.81
+       ],
+       [
+        "2007-12-31",
+        72.77
+       ],
+       [
+        "2008-01-31",
+        72.64
+       ],
+       [
+        "2008-02-29",
+        72.57
+       ],
+       [
+        "2008-03-31",
+        72.63
+       ],
+       [
+        "2008-04-30",
+        72.71
+       ],
+       [
+        "2008-05-31",
+        72.5
+       ],
+       [
+        "2008-06-30",
+        72.83
+       ],
+       [
+        "2008-07-31",
+        72.51
+       ],
+       [
+        "2008-08-31",
+        72.56
+       ],
+       [
+        "2008-09-30",
+        72.67
+       ],
+       [
+        "2008-10-31",
+        72.51
+       ],
+       [
+        "2008-11-30",
+        72.36
+       ],
+       [
+        "2008-12-31",
+        72.48
+       ],
+       [
+        "2009-01-31",
+        72.42
+       ],
+       [
+        "2009-02-28",
+        72.43
+       ],
+       [
+        "2009-03-31",
+        72.41
+       ],
+       [
+        "2009-04-30",
+        72.38
+       ],
+       [
+        "2009-05-31",
+        72.37
+       ],
+       [
+        "2009-06-30",
+        72.21
+       ],
+       [
+        "2009-07-31",
+        72.28
+       ],
+       [
+        "2009-08-31",
+        72.21
+       ],
+       [
+        "2009-09-30",
+        72.2
+       ],
+       [
+        "2009-10-31",
+        72.08
+       ],
+       [
+        "2009-11-30",
+        72.11
+       ],
+       [
+        "2009-12-31",
+        72.31
+       ],
+       [
+        "2010-01-31",
+        72.4
+       ],
+       [
+        "2010-02-28",
+        72.31
+       ],
+       [
+        "2010-03-31",
+        72.2
+       ],
+       [
+        "2010-04-30",
+        72.3
+       ],
+       [
+        "2010-05-31",
+        71.96
+       ],
+       [
+        "2010-06-30",
+        72.15
+       ],
+       [
+        "2010-07-31",
+        72.22
+       ],
+       [
+        "2010-08-31",
+        72.24
+       ],
+       [
+        "2010-09-30",
+        72.47
+       ],
+       [
+        "2010-10-31",
+        72.58
+       ],
+       [
+        "2010-11-30",
+        72.67
+       ],
+       [
+        "2010-12-31",
+        72.55
+       ],
+       [
+        "2011-01-31",
+        72.83
+       ],
+       [
+        "2011-02-28",
+        72.53
+       ],
+       [
+        "2011-03-31",
+        72.35
+       ],
+       [
+        "2011-04-30",
+        72.16
+       ],
+       [
+        "2011-05-31",
+        71.97
+       ],
+       [
+        "2011-06-30",
+        71.89
+       ],
+       [
+        "2011-07-31",
+        71.96
+       ],
+       [
+        "2011-08-31",
+        72.16
+       ],
+       [
+        "2011-09-30",
+        72.13
+       ],
+       [
+        "2011-10-31",
+        72.08
+       ],
+       [
+        "2011-11-30",
+        72.04
+       ],
+       [
+        "2011-12-31",
+        71.82
+       ],
+       [
+        "2012-01-31",
+        72.18
+       ],
+       [
+        "2012-02-29",
+        71.8
+       ],
+       [
+        "2012-03-31",
+        71.77
+       ],
+       [
+        "2012-04-30",
+        71.69
+       ],
+       [
+        "2012-05-31",
+        71.76
+       ],
+       [
+        "2012-06-30",
+        71.58
+       ],
+       [
+        "2012-07-31",
+        71.49
+       ],
+       [
+        "2012-08-31",
+        71.59
+       ],
+       [
+        "2012-09-30",
+        71.8
+       ],
+       [
+        "2012-10-31",
+        71.75
+       ],
+       [
+        "2012-11-30",
+        71.48
+       ],
+       [
+        "2012-12-31",
+        71.72
+       ],
+       [
+        "2013-01-31",
+        71.98
+       ],
+       [
+        "2013-02-28",
+        71.69
+       ],
+       [
+        "2013-03-31",
+        71.54
+       ],
+       [
+        "2013-04-30",
+        71.49
+       ],
+       [
+        "2013-05-31",
+        71.55
+       ],
+       [
+        "2013-06-30",
+        71.6
+       ],
+       [
+        "2013-07-31",
+        71.26
+       ],
+       [
+        "2013-08-31",
+        71.32
+       ],
+       [
+        "2013-09-30",
+        71.18
+       ],
+       [
+        "2013-10-31",
+        71.21
+       ],
+       [
+        "2013-11-30",
+        71.04
+       ],
+       [
+        "2013-12-31",
+        70.91
+       ],
+       [
+        "2014-01-31",
+        70.84
+       ],
+       [
+        "2014-02-28",
+        70.73
+       ],
+       [
+        "2014-03-31",
+        70.93
+       ],
+       [
+        "2014-04-30",
+        71.03
+       ],
+       [
+        "2014-05-31",
+        70.68
+       ],
+       [
+        "2014-06-30",
+        70.87
+       ],
+       [
+        "2014-07-31",
+        70.99
+       ],
+       [
+        "2014-08-31",
+        70.9
+       ],
+       [
+        "2014-09-30",
+        70.73
+       ],
+       [
+        "2014-10-31",
+        70.84
+       ],
+       [
+        "2014-11-30",
+        71.07
+       ],
+       [
+        "2014-12-31",
+        70.86
+       ],
+       [
+        "2015-01-31",
+        71.1
+       ],
+       [
+        "2015-02-28",
+        71.2
+       ],
+       [
+        "2015-03-31",
+        71.28
+       ],
+       [
+        "2015-04-30",
+        71.09
+       ],
+       [
+        "2015-05-31",
+        71.02
+       ],
+       [
+        "2015-06-30",
+        70.86
+       ],
+       [
+        "2015-07-31",
+        71.03
+       ],
+       [
+        "2015-08-31",
+        70.9
+       ],
+       [
+        "2015-09-30",
+        70.94
+       ],
+       [
+        "2015-10-31",
+        71.1
+       ],
+       [
+        "2015-11-30",
+        70.93
+       ],
+       [
+        "2015-12-31",
+        70.94
+       ],
+       [
+        "2016-01-31",
+        71.33
+       ],
+       [
+        "2016-02-29",
+        70.75
+       ],
+       [
+        "2016-03-31",
+        70.77
+       ],
+       [
+        "2016-04-30",
+        70.55
+       ],
+       [
+        "2016-05-31",
+        70.62
+       ],
+       [
+        "2016-06-30",
+        70.38
+       ],
+       [
+        "2016-07-31",
+        70.59
+       ],
+       [
+        "2016-08-31",
+        70.32
+       ],
+       [
+        "2016-09-30",
+        70.0
+       ],
+       [
+        "2016-10-31",
+        70.05
+       ],
+       [
+        "2016-11-30",
+        70.16
+       ],
+       [
+        "2016-12-31",
+        70.38
+       ],
+       [
+        "2017-01-31",
+        70.04
+       ],
+       [
+        "2017-02-28",
+        70.08
+       ],
+       [
+        "2017-03-31",
+        70.06
+       ],
+       [
+        "2017-04-30",
+        70.29
+       ],
+       [
+        "2017-05-31",
+        70.23
+       ],
+       [
+        "2017-06-30",
+        70.25
+       ],
+       [
+        "2017-07-31",
+        70.49
+       ],
+       [
+        "2017-08-31",
+        70.46
+       ],
+       [
+        "2017-09-30",
+        70.45
+       ],
+       [
+        "2017-10-31",
+        70.31
+       ],
+       [
+        "2017-11-30",
+        70.53
+       ],
+       [
+        "2017-12-31",
+        70.68
+       ],
+       [
+        "2018-01-31",
+        70.82
+       ],
+       [
+        "2018-02-28",
+        70.54
+       ],
+       [
+        "2018-03-31",
+        70.4
+       ],
+       [
+        "2018-04-30",
+        70.55
+       ],
+       [
+        "2018-05-31",
+        70.41
+       ],
+       [
+        "2018-06-30",
+        70.64
+       ],
+       [
+        "2018-07-31",
+        70.63
+       ],
+       [
+        "2018-08-31",
+        70.83
+       ],
+       [
+        "2018-09-30",
+        70.54
+       ],
+       [
+        "2018-10-31",
+        70.56
+       ],
+       [
+        "2018-11-30",
+        70.63
+       ],
+       [
+        "2018-12-31",
+        70.67
+       ],
+       [
+        "2019-01-31",
+        70.69
+       ],
+       [
+        "2019-02-28",
+        70.61
+       ],
+       [
+        "2019-03-31",
+        70.73
+       ],
+       [
+        "2019-04-30",
+        70.78
+       ],
+       [
+        "2019-05-31",
+        71.11
+       ],
+       [
+        "2019-06-30",
+        71.0
+       ],
+       [
+        "2019-07-31",
+        71.01
+       ],
+       [
+        "2019-08-31",
+        71.1
+       ],
+       [
+        "2019-09-30",
+        70.92
+       ],
+       [
+        "2019-10-31",
+        70.52
+       ],
+       [
+        "2019-11-30",
+        70.38
+       ],
+       [
+        "2019-12-31",
+        70.55
+       ],
+       [
+        "2020-01-31",
+        70.3
+       ],
+       [
+        "2020-02-29",
+        70.26
+       ],
+       [
+        "2020-03-31",
+        70.2
+       ],
+       [
+        "2020-04-30",
+        68.41
+       ],
+       [
+        "2020-05-31",
+        67.41
+       ],
+       [
+        "2020-06-30",
+        68.61
+       ],
+       [
+        "2020-07-31",
+        69.28
+       ],
+       [
+        "2020-08-31",
+        69.45
+       ],
+       [
+        "2020-09-30",
+        69.38
+       ],
+       [
+        "2020-10-31",
+        70.21
+       ],
+       [
+        "2020-11-30",
+        70.3
+       ],
+       [
+        "2020-12-31",
+        70.55
+       ],
+       [
+        "2021-01-31",
+        70.69
+       ],
+       [
+        "2021-02-28",
+        70.47
+       ],
+       [
+        "2021-03-31",
+        70.47
+       ],
+       [
+        "2021-04-30",
+        70.41
+       ],
+       [
+        "2021-05-31",
+        70.43
+       ],
+       [
+        "2021-06-30",
+        70.6
+       ],
+       [
+        "2021-07-31",
+        70.43
+       ],
+       [
+        "2021-08-31",
+        69.67
+       ],
+       [
+        "2021-09-30",
+        69.06
+       ],
+       [
+        "2021-10-31",
+        69.25
+       ],
+       [
+        "2021-11-30",
+        70.16
+       ],
+       [
+        "2021-12-31",
+        70.42
+       ],
+       [
+        "2022-01-31",
+        70.19
+       ],
+       [
+        "2022-02-28",
+        70.4
+       ],
+       [
+        "2022-03-31",
+        70.42
+       ],
+       [
+        "2022-04-30",
+        70.48
+       ],
+       [
+        "2022-05-31",
+        70.78
+       ],
+       [
+        "2022-06-30",
+        70.72
+       ],
+       [
+        "2022-07-31",
+        70.47
+       ],
+       [
+        "2022-08-31",
+        70.73
+       ],
+       [
+        "2022-09-30",
+        70.83
+       ],
+       [
+        "2022-10-31",
+        70.62
+       ],
+       [
+        "2022-11-30",
+        70.74
+       ],
+       [
+        "2022-12-31",
+        70.7
+       ],
+       [
+        "2023-01-31",
+        70.85
+       ],
+       [
+        "2023-02-28",
+        70.86
+       ],
+       [
+        "2023-03-31",
+        70.85
+       ],
+       [
+        "2023-04-30",
+        70.87
+       ],
+       [
+        "2023-05-31",
+        70.93
+       ],
+       [
+        "2023-06-30",
+        70.84
+       ],
+       [
+        "2023-07-31",
+        70.94
+       ],
+       [
+        "2023-08-31",
+        71.07
+       ],
+       [
+        "2023-09-30",
+        70.4
+       ],
+       [
+        "2023-10-31",
+        70.75
+       ],
+       [
+        "2023-11-30",
+        71.01
+       ],
+       [
+        "2023-12-31",
+        70.66
+       ],
+       [
+        "2024-01-31",
+        70.6
+       ],
+       [
+        "2024-02-29",
+        70.7
+       ],
+       [
+        "2024-03-31",
+        70.66
+       ],
+       [
+        "2024-04-30",
+        70.81
+       ],
+       [
+        "2024-05-31",
+        70.98
+       ],
+       [
+        "2024-06-30",
+        70.91
+       ],
+       [
+        "2024-07-31",
+        71.22
+       ],
+       [
+        "2024-08-31",
+        71.15
+       ],
+       [
+        "2024-09-30",
+        71.23
+       ],
+       [
+        "2024-10-31",
+        71.19
+       ],
+       [
+        "2024-11-30",
+        71.03
+       ],
+       [
+        "2024-12-31",
+        71.46
+       ],
+       [
+        "2025-01-31",
+        71.15
+       ],
+       [
+        "2025-02-28",
+        70.74
+       ],
+       [
+        "2025-03-31",
+        70.81
+       ],
+       [
+        "2025-04-30",
+        70.85
+       ],
+       [
+        "2025-05-31",
+        70.73
+       ],
+       [
+        "2025-06-30",
+        70.92
+       ],
+       [
+        "2025-07-31",
+        70.68
+       ],
+       [
+        "2025-08-31",
+        70.54
+       ],
+       [
+        "2025-09-30",
+        70.74
+       ],
+       [
+        "2025-10-31",
+        70.88
+       ],
+       [
+        "2025-11-30",
+        70.37
+       ],
+       [
+        "2025-12-31",
+        70.57
+       ],
+       [
+        "2026-01-31",
+        70.55
+       ],
+       [
+        "2026-02-28",
+        70.72
+       ],
+       [
+        "2026-03-31",
+        70.73
+       ],
+       [
+        "2026-04-30",
+        70.74
+       ],
+       [
+        "2026-05-31",
+        70.62
+       ],
+       [
+        "2026-06-30",
+        70.86
+       ],
+       [
+        "2026-07-31",
+        70.69
+       ],
+       [
+        "2026-08-31",
+        70.98
+       ]
+      ]
+     }
+    ]
+   },
+   "sources": [
+    {
+     "publisher": "Australian Bureau of Statistics",
+     "title": "Labour Force, Australia",
+     "url": "https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia/latest-release",
+     "data_url": "https://data.api.abs.gov.au/rest/data/ABS,LF",
+     "series": [
+      "Participation rate, females and males, seasonally adjusted"
+     ],
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
+     "automated": true
+    }
+   ],
+   "method": "ABS Labour Force survey, participation rate by sex, aged 15 and over, seasonally adjusted, monthly.",
+   "automated": true,
+   "updated_at": "2026-10-07T06:06:21+00:00",
+   "explainer": {
+    "what": "The share of women aged 15 and over who have a job or are actively looking for one.",
+    "why": "More women in paid work lifts household incomes and the economy's capacity. Child care costs, paid parental leave and flexible work all affect it."
+   }
+  },
+  {
+   "id": "gender_pay_gap",
+   "section": "jobs",
+   "title": "Gender pay gap",
+   "question": "Has the gap between men's and women's full-time pay narrowed?",
+   "headline": {
+    "value": 11.3,
+    "unit": "%",
+    "decimals": 1,
+    "period": "May 2026",
+    "caption": "less, on average, for women working full-time than for men"
+   },
+   "benchmark": {
+    "label": "May 2022",
+    "text": "14.1%"
+   },
+   "baseline": {
+    "label": "May 2022",
+    "value": 14.1,
+    "unit": "%"
+   },
+   "status": "pass",
+   "status_rule": "Off track if the gap is wider than in May 2022.",
+   "context": [
+    "Women working full-time earned on average 11.3% less than men in May 2026: $1,934.50 a week against $2,181.00.",
+    "In May 2022 the gap was 14.1%. The latest figure is the lowest since the series began in 1994.",
+    "This compares average ordinary pay for full-time adults. It is not a comparison of men and women doing the same job, which equal pay law already requires."
+   ],
+   "chart": {
+    "kind": "line",
+    "unit": "%",
+    "decimals": 1,
+    "series": [
+     {
+      "name": "Gender pay gap, full-time adult ordinary earnings",
+      "role": "primary",
+      "points": [
+       [
+        "2004-05-31",
+        15.22
+       ],
+       [
+        "2004-11-30",
+        15.13
+       ],
+       [
+        "2005-05-31",
+        14.99
+       ],
+       [
+        "2005-11-30",
+        14.95
+       ],
+       [
+        "2006-05-31",
+        15.2
+       ],
+       [
+        "2006-11-30",
+        16.32
+       ],
+       [
+        "2007-05-31",
+        16.13
+       ],
+       [
+        "2007-11-30",
+        15.47
+       ],
+       [
+        "2008-05-31",
+        15.84
+       ],
+       [
+        "2008-11-30",
+        16.39
+       ],
+       [
+        "2009-05-31",
+        16.88
+       ],
+       [
+        "2009-11-30",
+        17.53
+       ],
+       [
+        "2010-05-31",
+        17.23
+       ],
+       [
+        "2010-11-30",
+        16.94
+       ],
+       [
+        "2011-05-31",
+        17.71
+       ],
+       [
+        "2011-11-30",
+        17.33
+       ],
+       [
+        "2012-05-31",
+        17.59
+       ],
+       [
+        "2012-11-30",
+        17.54
+       ],
+       [
+        "2013-05-31",
+        17.53
+       ],
+       [
+        "2013-11-30",
+        17.07
+       ],
+       [
+        "2014-05-31",
+        18.33
+       ],
+       [
+        "2014-11-30",
+        18.57
+       ],
+       [
+        "2015-05-31",
+        17.86
+       ],
+       [
+        "2015-11-30",
+        17.21
+       ],
+       [
+        "2016-05-31",
+        16.2
+       ],
+       [
+        "2016-11-30",
+        16.03
+       ],
+       [
+        "2017-05-31",
+        15.31
+       ],
+       [
+        "2017-11-30",
+        15.27
+       ],
+       [
+        "2018-05-31",
+        14.53
+       ],
+       [
+        "2018-11-30",
+        14.15
+       ],
+       [
+        "2019-05-31",
+        14.02
+       ],
+       [
+        "2019-11-30",
+        13.85
+       ],
+       [
+        "2020-05-31",
+        14.0
+       ],
+       [
+        "2020-11-30",
+        13.42
+       ],
+       [
+        "2021-05-31",
+        14.24
+       ],
+       [
+        "2021-11-30",
+        13.83
+       ],
+       [
+        "2022-05-31",
+        14.09
+       ],
+       [
+        "2022-11-30",
+        13.29
+       ],
+       [
+        "2023-05-31",
+        13.02
+       ],
+       [
+        "2023-11-30",
+        12.0
+       ],
+       [
+        "2024-05-31",
+        11.49
+       ],
+       [
+        "2024-11-30",
+        11.88
+       ],
+       [
+        "2025-05-31",
+        11.5
+       ],
+       [
+        "2025-11-30",
+        11.51
+       ],
+       [
+        "2026-05-31",
+        11.3
+       ]
+      ]
+     }
+    ]
+   },
+   "sources": [
+    {
+     "publisher": "Australian Bureau of Statistics",
+     "title": "Average Weekly Earnings, Australia",
+     "url": "https://www.abs.gov.au/statistics/labour/earnings-and-working-conditions/average-weekly-earnings-australia/latest-release",
+     "data_url": "https://data.api.abs.gov.au/rest/data/ABS,AWE",
+     "series": [
+      "Full-time adult average weekly ordinary time earnings, males and females, all sectors, original"
+     ],
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
+     "automated": true
+    }
+   ],
+   "method": "(Male earnings − female earnings) ÷ male earnings, using ABS full-time adult average weekly ordinary time earnings. This is the measure the Workplace Gender Equality Agency uses for the national gap. Surveyed in May and November.",
+   "automated": true,
+   "updated_at": "2026-10-07T06:06:21+00:00",
+   "explainer": {
+    "what": "How much less women working full-time earn on average than men working full-time, as a share of men's pay. It uses ordinary pay, before overtime.",
+    "why": "It is the standard national measure of the gap, used by the Workplace Gender Equality Agency. It reflects which jobs and industries men and women work in, as well as pay rates."
+   }
+  },
+  {
    "id": "insolvencies",
    "section": "jobs",
-   "title": "Business collapses",
+   "title": "Company insolvencies",
    "question": "Are more businesses going under?",
    "headline": {
     "value": 14722,
@@ -16027,14 +19664,14 @@
       "GICWMICS"
      ],
      "published": "01-Oct-2026",
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true,
      "note": "Index compiled by Westpac Banking Corporation and the Melbourne Institute; republished by the RBA in Table H3."
     }
    ],
    "method": "Westpac–Melbourne Institute Index of Consumer Sentiment, seasonally adjusted, as republished in RBA Table H3. An index above 100 means more consumers are optimistic than pessimistic.",
    "automated": true,
-   "updated_at": "2026-10-07T04:36:23+00:00",
+   "updated_at": "2026-10-07T06:06:21+00:00",
    "explainer": {
     "what": "The Westpac–Melbourne Institute survey asks around 1,200 Australian adults each month how they feel about their family finances and the economy. 100 means optimists and pessimists are evenly balanced. Below 100 means pessimists outnumber optimists.",
     "why": "Confidence shapes spending, hiring and investment. A long run below 100 is a clear sign that households feel worse off."
@@ -17210,7 +20847,7 @@
       "Gross domestic product: chain volume measures, seasonally adjusted (GPM)",
       "GDP per capita: chain volume measures, seasonally adjusted (GPM_PCA)"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     },
     {
@@ -17223,7 +20860,7 @@
       "GGDPCVGDPY"
      ],
      "published": "03-Sep-2026",
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     },
     {
@@ -17237,7 +20874,7 @@
    ],
    "method": "Real (chain volume) GDP and real GDP per capita, seasonally adjusted, from the ABS national accounts key aggregates, each rebased so the June quarter 2022 equals 100. Year-ended growth calculated from these levels is cross-checked against the rates the RBA publishes in Table H1.",
    "automated": true,
-   "updated_at": "2026-10-07T04:36:23+00:00",
+   "updated_at": "2026-10-07T06:06:21+00:00",
    "explainer": {
     "what": "Gross domestic product (the total value of everything the economy produces), adjusted for inflation and divided by the population. This figure is the change over the past year.",
     "why": "Total GDP can grow just because the population grows. GDP per person shows whether the economy is growing for each Australian. When it falls for two quarters in a row, it is often called a 'per capita recession'."
@@ -17845,7 +21482,7 @@
       "GGDPICHRDI"
      ],
      "published": "03-Sep-2026",
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     },
     {
@@ -17856,13 +21493,13 @@
      "series": [
       "Estimated resident population, Australia"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     }
    ],
    "method": "Real household disposable income ($m, chain volume, seasonally adjusted; RBA Table H2) divided by ABS estimated resident population, annualised (×4) and rebased to June quarter 2022 = 100. Limited to the latest quarter for which both series are available.",
    "automated": true,
-   "updated_at": "2026-10-07T04:36:23+00:00",
+   "updated_at": "2026-10-07T06:06:21+00:00",
    "explainer": {
     "what": "Real household disposable income is the income households have left after income tax and interest payments, adjusted for inflation. We divide it by the population and set mid-2022 to 100.",
     "why": "It is one of the most complete measures of whether the average person is better or worse off, because it includes the effects of tax, interest rates and prices."
@@ -17938,13 +21575,13 @@
      "series": [
       "Real net national disposable income per capita, chain volume, seasonally adjusted"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     }
    ],
    "method": "Year-on-year growth in ABS real net national disposable income per capita (chain volume, seasonally adjusted, quarterly), averaged over each calendar decade. The 1970s average starts in the year the series begins.",
    "automated": true,
-   "updated_at": "2026-10-07T04:36:23+00:00",
+   "updated_at": "2026-10-07T06:06:21+00:00",
    "explainer": {
     "what": "The average yearly growth in real national income per person in each decade since the 1970s. Real means after inflation; per person means it allows for population growth.",
     "why": "It puts the current period in a long view. Faster growth means each person's share of the nation's income rises faster."
@@ -18528,13 +22165,13 @@
       "GGDPECCVPDS"
      ],
      "published": "03-Sep-2026",
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     }
    ],
    "method": "Public final demand as a share of real output, ABS national accounts via RBA Table H2.",
    "automated": true,
-   "updated_at": "2026-10-07T04:36:23+00:00",
+   "updated_at": "2026-10-07T06:06:21+00:00",
    "explainer": {
     "what": "Public demand is spending and investment by federal, state and local governments (such as salaries, services, infrastructure and defence) as a share of total economic output, from the ABS national accounts.",
     "why": "When government takes up a bigger share of the economy, it can crowd out private investment and add to inflation. We compare it with the two decades before COVID."
@@ -18833,13 +22470,13 @@
      "series": [
       "Taxation receipts, per cent of GDP, 1970-71 onwards"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     }
    ],
    "method": "Australian Government general government sector taxation receipts as a share of nominal GDP, from the historical tables in the latest Budget. Years marked as estimates in the Budget are shown as estimates.",
    "automated": true,
-   "updated_at": "2026-10-07T04:36:23+00:00",
+   "updated_at": "2026-10-07T06:06:21+00:00",
    "explainer": {
     "what": "All tax collected by the Commonwealth (income tax, company tax, GST and the rest) as a share of the whole economy, from the historical tables published with each Budget.",
     "why": "It shows how much of the economy passes through the federal government in tax. Bracket creep, rising company profits and policy decisions all move it."
@@ -19140,7 +22777,7 @@
      "series": [
       "Total AUD/Non-AUD LIABILITY, face value at 30 June"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     }
    ],
@@ -20946,7 +24583,7 @@
      "series": [
       "Estimated resident population, Australia, June 2022 and June 2025 (benchmark computed automatically)"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     }
    ],
@@ -21692,7 +25329,7 @@
       "Net overseas migration, Australia, quarterly",
       "Estimated resident population"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     },
     {
@@ -21703,7 +25340,7 @@
      "series": [
       "Dwelling units completed, new residential, all sectors, original"
      ],
-     "retrieved_at": "2026-10-07T04:36:23+00:00",
+     "retrieved_at": "2026-10-07T06:06:21+00:00",
      "automated": true
     },
     {
@@ -21731,7 +25368,7 @@
    ],
    "method": "Sum of the latest four quarters of ABS net overseas migration. Pre-COVID benchmark is the average of financial-year totals 2009–10 to 2018–19. Population growth is the change in estimated resident population over the same 12 months.",
    "automated": true,
-   "updated_at": "2026-10-07T04:36:23+00:00",
+   "updated_at": "2026-10-07T06:06:21+00:00",
    "explainer": {
     "what": "Net overseas migration is the number of people arriving to live in Australia (for at least 12 of the next 16 months), minus residents leaving on the same basis. It includes students, workers and permanent migrants. ABS data, summed over the latest 12 months.",
     "why": "Migration drives population growth, which adds to demand for housing, roads, hospitals and schools. We compare it with the pre-COVID average and with how many homes are being built."

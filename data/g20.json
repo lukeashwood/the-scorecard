@@ -20,7 +20,7 @@
   "GBR": "United Kingdom",
   "USA": "United States"
  },
- "generated_at": "2026-10-07T04:36:23+00:00",
+ "generated_at": "2026-10-07T06:06:21+00:00",
  "indicators": {
   "inflation": {
    "title": "Inflation, average consumer prices",
@@ -2040,7 +2040,7 @@
     "publisher": "International Monetary Fund",
     "url": "https://www.imf.org/external/datamapper/PCPIPCH@WEO/OEMDC/ADVEC/WEOWORLD",
     "data_url": "https://www.imf.org/external/datamapper/api/v1/PCPIPCH/ARG/AUS/BRA/CAN/CHN/FRA/DEU/IND/IDN/ITA/JPN/KOR/MEX/RUS/SAU/ZAF/TUR/GBR/USA",
-    "retrieved_at": "2026-10-07T04:36:23+00:00"
+    "retrieved_at": "2026-10-07T06:06:21+00:00"
    }
   },
   "unemployment": {
@@ -3929,7 +3929,7 @@
     "publisher": "International Monetary Fund",
     "url": "https://www.imf.org/external/datamapper/LUR@WEO/OEMDC/ADVEC/WEOWORLD",
     "data_url": "https://www.imf.org/external/datamapper/api/v1/LUR/ARG/AUS/BRA/CAN/CHN/FRA/DEU/IND/IDN/ITA/JPN/KOR/MEX/RUS/SAU/ZAF/TUR/GBR/USA",
-    "retrieved_at": "2026-10-07T04:36:23+00:00"
+    "retrieved_at": "2026-10-07T06:06:21+00:00"
    }
   },
   "gov_debt": {
@@ -5958,7 +5958,7 @@
     "publisher": "International Monetary Fund",
     "url": "https://www.imf.org/external/datamapper/GGXWDG_NGDP@WEO/OEMDC/ADVEC/WEOWORLD",
     "data_url": "https://www.imf.org/external/datamapper/api/v1/GGXWDG_NGDP/ARG/AUS/BRA/CAN/CHN/FRA/DEU/IND/IDN/ITA/JPN/KOR/MEX/RUS/SAU/ZAF/TUR/GBR/USA",
-    "retrieved_at": "2026-10-07T04:36:23+00:00"
+    "retrieved_at": "2026-10-07T06:06:21+00:00"
    }
   },
   "gov_balance": {
@@ -7983,7 +7983,7 @@
     "publisher": "International Monetary Fund",
     "url": "https://www.imf.org/external/datamapper/GGXCNL_NGDP@WEO/OEMDC/ADVEC/WEOWORLD",
     "data_url": "https://www.imf.org/external/datamapper/api/v1/GGXCNL_NGDP/ARG/AUS/BRA/CAN/CHN/FRA/DEU/IND/IDN/ITA/JPN/KOR/MEX/RUS/SAU/ZAF/TUR/GBR/USA",
-    "retrieved_at": "2026-10-07T04:36:23+00:00"
+    "retrieved_at": "2026-10-07T06:06:21+00:00"
    }
   },
   "gov_spending": {
@@ -10009,7 +10009,7 @@
     "publisher": "International Monetary Fund",
     "url": "https://www.imf.org/external/datamapper/G_X_G01_GDP_PT@WEO/OEMDC/ADVEC/WEOWORLD",
     "data_url": "https://www.imf.org/external/datamapper/api/v1/G_X_G01_GDP_PT/ARG/AUS/BRA/CAN/CHN/FRA/DEU/IND/IDN/ITA/JPN/KOR/MEX/RUS/SAU/ZAF/TUR/GBR/USA",
-    "retrieved_at": "2026-10-07T04:36:23+00:00"
+    "retrieved_at": "2026-10-07T06:06:21+00:00"
    }
   },
   "gdp_pc": {
@@ -12043,7 +12043,7 @@
     "publisher": "International Monetary Fund",
     "url": "https://www.imf.org/external/datamapper/PPPPC@WEO/OEMDC/ADVEC/WEOWORLD",
     "data_url": "https://www.imf.org/external/datamapper/api/v1/PPPPC/ARG/AUS/BRA/CAN/CHN/FRA/DEU/IND/IDN/ITA/JPN/KOR/MEX/RUS/SAU/ZAF/TUR/GBR/USA",
-    "retrieved_at": "2026-10-07T04:36:23+00:00"
+    "retrieved_at": "2026-10-07T06:06:21+00:00"
    }
   },
   "growth": {
@@ -14077,7 +14077,7 @@
     "publisher": "International Monetary Fund",
     "url": "https://www.imf.org/external/datamapper/NGDP_RPCH@WEO/OEMDC/ADVEC/WEOWORLD",
     "data_url": "https://www.imf.org/external/datamapper/api/v1/NGDP_RPCH/ARG/AUS/BRA/CAN/CHN/FRA/DEU/IND/IDN/ITA/JPN/KOR/MEX/RUS/SAU/ZAF/TUR/GBR/USA",
-    "retrieved_at": "2026-10-07T04:36:23+00:00"
+    "retrieved_at": "2026-10-07T06:06:21+00:00"
    }
   },
   "defence": {
@@ -16034,7 +16034,7 @@
     "publisher": "World Bank (SIPRI data)",
     "url": "https://data.worldbank.org/indicator/MS.MIL.XPND.GD.ZS",
     "data_url": "https://api.worldbank.org/v2/country/ARG;AUS;BRA;CAN;CHN;FRA;DEU;IND;IDN;ITA;JPN;KOR;MEX;RUS;SAU;ZAF;TUR;GBR;USA/indicator/MS.MIL.XPND.GD.ZS?format=json&per_page=5000&date=2000:2030",
-    "retrieved_at": "2026-10-07T04:36:23+00:00"
+    "retrieved_at": "2026-10-07T06:06:21+00:00"
    }
   }
  }
