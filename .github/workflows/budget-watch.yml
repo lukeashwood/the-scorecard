@@ -1,0 +1,44 @@
+name: New Budget reminder
+
+# Checks budget.gov.au once a day. When a new Federal Budget is published, it opens an
+# issue on this repository (GitHub emails the owner) and marks the run as failed (GitHub
+# emails that too), as a reminder to check the tax take chart and other Budget figures.
+# After updating, change .github/budget-year.txt to the new Budget year, e.g. 2027-28.
+
+on:
+  schedule:
+    - cron: '30 21 * * *'   # 7:30am Brisbane time, every day
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compare the Budget year on budget.gov.au with the one on file
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          known=$(tr -d '[:space:]' < .github/budget-year.txt)
+          title=$(curl -sL -m 30 -A 'Mozilla/5.0' https://budget.gov.au/content/bp1/index.htm | grep -o '<title>[^<]*</title>' || true)
+          live=$(echo "$title" | sed 's/&ndash;/-/g; s/–/-/g' | grep -oE '20[0-9]{2}-[0-9]{2}' | head -1 || true)
+          echo "On file: $known   Live: ${live:-unknown}"
+          if [ -z "$live" ]; then echo "::warning::Could not read the Budget year from budget.gov.au today."; exit 0; fi
+          if [ "$live" = "$known" ]; then echo "No new Budget yet."; exit 0; fi
+          name="New Federal Budget published ($live): update Gov Score"
+          if ! gh issue list --state open --search "$name in:title" --json number --jq '.[].number' | grep -q .; then
+            gh issue create --assignee "${{ github.repository_owner }}" --title "$name" --body "The $live Federal Budget is now on budget.gov.au.
+
+          Things to check on Gov Score:
+          - Tax take chart: confirm the figures read correctly from Budget Paper 1, Statement 11 (https://budget.gov.au/content/bp1/index.htm).
+          - Budget balance, gross debt and spending: confirm the new estimates have come through.
+          - Build your own Budget page: update the starting figures.
+
+          When done, change .github/budget-year.txt to $live and close this issue."
+          fi
+          echo "::error::New Federal Budget ($live) published. Gov Score needs updating."
+          exit 1
