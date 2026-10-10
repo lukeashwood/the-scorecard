@@ -1,10 +1,10 @@
 {
  "summary": {
-  "generated_at": "2026-10-09T09:36:48+00:00",
+  "generated_at": "2026-10-10T08:58:40+00:00",
   "checks_total": 487,
-  "checks_passed": 433,
-  "checks_warn": 40,
-  "checks_failed": 14,
+  "checks_passed": 439,
+  "checks_warn": 39,
+  "checks_failed": 9,
   "metrics_total": 40,
   "metrics_off_track": 26,
   "metrics_watch": 2,
@@ -811,7 +811,7 @@
      "series": [
       "All groups CPI, weighted average of eight capital cities: monthly annual % change (headline) and index (cross-check); quarterly index (cross-check)"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     },
     {
@@ -825,13 +825,13 @@
       "GCPIAG"
      ],
      "published": "30-Jul-2026",
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     }
    ],
    "method": "Headline: the ABS monthly Consumer Price Index, percentage change from the same month a year earlier (all groups, eight capitals). History: year-ended quarterly CPI inflation from RBA Table G1, which extends back decades. The cumulative change compares the latest quarterly CPI index with the June quarter 2022.",
    "automated": true,
-   "updated_at": "2026-10-09T09:36:48+00:00",
+   "updated_at": "2026-10-10T08:58:40+00:00",
    "explainer": {
     "what": "Inflation is how fast prices are rising across a typical basket of goods and services: food, rent, petrol, power, insurance and more. The ABS measures it with the Consumer Price Index (CPI), and this figure compares prices with the same quarter a year earlier.",
     "why": "When inflation runs above wage growth, household budgets shrink. The Reserve Bank aims to keep inflation between 2% and 3% on average. Inflation above that band usually means higher interest rates."
@@ -955,7 +955,7 @@
       "Petrol & fuel (index 40081), eight capital cities, original",
       "All prices (CPI) (index 10001), eight capital cities, original"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     },
     {
@@ -966,13 +966,13 @@
      "series": [
       "Total hourly rates of pay excluding bonuses; private and public; all industries; original"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     }
    ],
    "method": "Percentage change in each ABS CPI expenditure-class index and the Wage Price Index between the June quarter 2022 and the latest quarter available for all series.",
    "automated": true,
-   "updated_at": "2026-10-09T09:36:48+00:00",
+   "updated_at": "2026-10-10T08:58:40+00:00",
    "explainer": {
     "what": "This compares how much the prices of everyday essentials have risen since mid-2022 with how much wages have risen. Wages are measured by the ABS Wage Price Index, which tracks pay for the same jobs over time.",
     "why": "If the things you must buy rise faster than your pay, you are worse off even if your pay rose. It shows where the squeeze on households is coming from."
@@ -2145,7 +2145,7 @@
      "series": [
       "Total hourly rates of pay excluding bonuses; private sector, public sector and all sectors; all industries; original"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     },
     {
@@ -2156,7 +2156,7 @@
      "series": [
       "All groups CPI index, eight capitals"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     },
     {
@@ -2170,7 +2170,7 @@
       "GWPIPUBYP"
      ],
      "published": "20-Aug-2026",
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     },
     {
@@ -2182,7 +2182,7 @@
       "GCPIAGYP"
      ],
      "published": "30-Jul-2026",
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     },
     {
@@ -2196,7 +2196,7 @@
    ],
    "method": "ABS Wage Price Index (by sector) divided by the Consumer Price Index, rebased so the June quarter 2022 = 100. A value below 100 means pay buys less than it did then. Year-ended wage growth by sector from RBA Table H4.",
    "automated": true,
-   "updated_at": "2026-10-09T09:36:48+00:00",
+   "updated_at": "2026-10-10T08:58:40+00:00",
    "explainer": {
     "what": "'Real' wages are wages adjusted for inflation: what your pay can actually buy. We divide the Wage Price Index by the Consumer Price Index and set mid-2022 to 100. Below 100 means pay buys less than it did then. Private-sector and public-sector workers are shown separately.",
     "why": "A pay rise is only a real gain if it beats inflation. The sector split shows whether workers in private business have fared differently from government employees."
@@ -3750,13 +3750,13 @@
       "Property income payable: interest on dwellings",
       "Secondary income payable: income tax"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     }
    ],
    "method": "ABS household income account, seasonally adjusted, quarterly. Interest payable on dwellings and income tax payable, each divided by total household gross income. Averages across all households, with and without a mortgage.",
    "automated": true,
-   "updated_at": "2026-10-09T09:36:48+00:00",
+   "updated_at": "2026-10-10T08:58:40+00:00",
    "explainer": {
     "what": "The share of all household income, before tax, that goes on interest on home loans, and the share that goes on income tax. The ABS measures both in the national accounts every quarter, back to 1959.",
     "why": "Mortgage interest and income tax are the 2 biggest calls on household income before anything is spent. When either share rises, there is less left for everything else."
@@ -4546,13 +4546,13 @@
      "series": [
       "Automotive fuel (index 40081) and All groups (10001), eight capital cities, quarterly and monthly, original"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     }
    ],
    "method": "ABS CPI automotive fuel index. Headline: latest month against the same month a year earlier (monthly CPI). Chart: quarterly index rebased to June quarter 2022 = 100, beside all groups CPI.",
    "automated": true,
-   "updated_at": "2026-10-09T09:36:48+00:00",
+   "updated_at": "2026-10-10T08:58:40+00:00",
    "explainer": {
     "what": "Petrol and diesel prices as measured in the Consumer Price Index. The headline compares the latest month with the same month a year earlier.",
     "why": "Fuel is a large weekly cost for most households and businesses, and it feeds into the price of almost everything that is transported."
@@ -5596,7 +5596,7 @@
       "Electricity (index 40055), eight capitals",
       "All groups CPI (index 10001)"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     },
     {
@@ -5618,7 +5618,7 @@
    ],
    "method": "ABS CPI electricity index and all-groups index, each rebased so the June quarter 2022 = 100.",
    "automated": true,
-   "updated_at": "2026-10-09T09:36:48+00:00",
+   "updated_at": "2026-10-10T08:58:40+00:00",
    "explainer": {
     "what": "The change in household electricity prices recorded in the Consumer Price Index since the June quarter 2022, shown next to overall inflation. The ABS counts government bill rebates as a price reduction while they are paid.",
     "why": "Power bills hit every household and business. Before the 2022 election, lower power bills were a central promise."
@@ -8100,7 +8100,7 @@
       "FLRHOOVA"
      ],
      "published": "08-Oct-2026",
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     },
     {
@@ -8112,13 +8112,13 @@
       "FIRMMCRT"
      ],
      "published": "01-Oct-2026",
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     }
    ],
    "method": "Standard amortisation formula applied to a $600,000 30-year principal-and-interest loan, using the RBA's average rate on outstanding owner-occupier variable loans in May 2022 and the latest month.",
    "automated": true,
-   "updated_at": "2026-10-09T09:36:48+00:00",
+   "updated_at": "2026-10-10T08:58:40+00:00",
    "explainer": {
     "what": "The average interest rate on existing variable home loans for owner-occupiers (RBA data), and what that means in monthly repayments on a typical $600,000, 30-year loan compared with May 2022.",
     "why": "About a third of Australian households are paying off a mortgage. Higher repayments take money directly out of their budgets."
@@ -8270,7 +8270,7 @@
         4.6
        ],
        [
-        "2026-10-09",
+        "2026-10-10",
         4.6
        ]
       ]
@@ -8522,7 +8522,7 @@
         4.6
        ],
        [
-        "2026-10-09",
+        "2026-10-10",
         4.6
        ]
       ]
@@ -8539,7 +8539,7 @@
       "FIRMMCRT"
      ],
      "published": "01-Oct-2026",
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     },
     {
@@ -8552,13 +8552,13 @@
       "ARBAMPCNCRT"
      ],
      "published": "29-Sep-2026",
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     }
    ],
    "method": "Every cash rate target decision published in RBA Table A2 after 23 May 2022, cross-checked against the monthly cash rate target in Table F1.1.",
    "automated": true,
-   "updated_at": "2026-10-09T09:36:48+00:00",
+   "updated_at": "2026-10-10T08:58:40+00:00",
    "explainer": {
     "what": "The cash rate is the Reserve Bank's official interest rate. Banks base their lending rates on it. This counts every decision to raise or cut it since the government was sworn in on 23 May 2022.",
     "why": "The RBA is independent, but it raises rates when inflation is too high, and government spending affects inflation. At current rates, each 0.25-point rise adds about $100 a month to repayments on a $600,000 loan."
@@ -9109,7 +9109,7 @@
      "series": [
       "Dwelling units completed, new residential, all sectors, Australia, original"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     },
     {
@@ -9130,7 +9130,7 @@
    ],
    "method": "Sum of ABS new residential dwelling completions (original series) from the September quarter 2024 (the Accord began 1 July 2024) to the latest quarter, compared with 1.2 million ÷ 20 quarters = 60,000 per quarter.",
    "automated": true,
-   "updated_at": "2026-10-09T09:36:48+00:00",
+   "updated_at": "2026-10-10T08:58:40+00:00",
    "explainer": {
     "what": "Under the National Housing Accord, federal and state governments committed to 1.2 million new homes in the five years from 1 July 2024. That is 60,000 a quarter. We add up ABS new dwelling completions since then.",
     "why": "It is the government's own target. Falling behind means rents and prices stay under pressure, especially while population growth is strong."
@@ -9619,7 +9619,7 @@
      "series": [
       "Mean price of residential dwellings, Australia"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     },
     {
@@ -9630,13 +9630,13 @@
      "series": [
       "Wage Price Index, all sectors"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     }
    ],
    "method": "ABS Total Value of Dwellings: mean price of residential dwellings (total value of dwelling stock ÷ number of dwellings). Compared with the Wage Price Index over the same period.",
    "automated": true,
-   "updated_at": "2026-10-09T09:36:48+00:00",
+   "updated_at": "2026-10-10T08:58:40+00:00",
    "explainer": {
     "what": "The ABS calculates the average price of a residential dwelling by dividing the total value of all homes by the number of homes. We compare its growth since mid-2022 with wage growth.",
     "why": "When home prices grow faster than wages, saving a deposit and paying off a mortgage takes longer. Home ownership moves out of reach for younger Australians."
@@ -10087,7 +10087,7 @@
      "series": [
       "Estimated resident population, Australia"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     },
     {
@@ -10098,13 +10098,13 @@
      "series": [
       "Dwelling units completed, new residential, all sectors, Australia, original"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     }
    ],
    "method": "Change in ABS estimated resident population over the latest 4 quarters, divided by the number of new dwellings completed over the same 4 quarters.",
    "automated": true,
-   "updated_at": "2026-10-09T09:36:48+00:00",
+   "updated_at": "2026-10-10T08:58:40+00:00",
    "explainer": {
     "what": "How much Australia's population grew over the past year, divided by the number of new homes finished in the same year.",
     "why": "The average household has about 2.5 people. When population grows by more than that for every new home, the shortage of homes gets worse and rents and prices tend to rise."
@@ -10893,7 +10893,7 @@
      "series": [
       "Rents (index 115522), weighted average of eight capital cities, original"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     },
     {
@@ -10904,13 +10904,13 @@
      "series": [
       "Total hourly rates of pay excluding bonuses, all sectors, original"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     }
    ],
    "method": "ABS CPI rents index and Wage Price Index, both rebased to June quarter 2022 = 100.",
    "automated": true,
-   "updated_at": "2026-10-09T09:36:48+00:00",
+   "updated_at": "2026-10-10T08:58:40+00:00",
    "explainer": {
     "what": "Rents from the Consumer Price Index and pay from the Wage Price Index, both set to 100 in the June quarter 2022, so you can see which has risen faster since.",
     "why": "Rent is the biggest regular cost for about a third of households. When rents rise faster than pay, renters have less left for everything else."
@@ -11086,7 +11086,7 @@
      "series": [
       "Mean price of residential dwellings, Australia"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     },
     {
@@ -11097,13 +11097,13 @@
      "series": [
       "Full-time adult average weekly total earnings, persons, all sectors, original"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     }
    ],
    "method": "ABS mean price of residential dwellings divided by ABS full-time adult average weekly total earnings × 52. Earnings are surveyed in May and November and matched with the June and December quarter prices.",
    "automated": true,
-   "updated_at": "2026-10-09T09:36:48+00:00",
+   "updated_at": "2026-10-10T08:58:40+00:00",
    "explainer": {
     "what": "The average value of a home in Australia divided by average full-time annual pay before tax. The answer is how many years of full pay the average home costs.",
     "why": "It is a simple test of how far homes have moved out of reach of people who rely on wages to buy one."
@@ -12822,7 +12822,7 @@
       "GLFSUPSA"
      ],
      "published": "25-Sep-2026",
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     },
     {
@@ -12833,13 +12833,13 @@
      "series": [
       "Unemployment rate, persons, seasonally adjusted (independent cross-check)"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     }
    ],
    "method": "Seasonally adjusted unemployment rate from the ABS Labour Force survey (via RBA Table H5), cross-checked against the ABS Data API.",
    "automated": true,
-   "updated_at": "2026-10-09T09:36:48+00:00",
+   "updated_at": "2026-10-10T08:58:40+00:00",
    "explainer": {
     "what": "The share of people in the labour force (working or actively looking for work) who do not have a job, from the ABS Labour Force Survey of about 50,000 people each month. Seasonally adjusted.",
     "why": "It is the most-watched measure of whether the economy is providing enough work. It doesn't show underemployment (people who want more hours) or what kind of jobs are being created."
@@ -13674,13 +13674,13 @@
      "series": [
       "Filled jobs – public sector (M14), private sector (M13) and total (M12); all industries; seasonally adjusted"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     }
    ],
    "method": "ABS Labour Account filled jobs by institutional sector (public = all levels of government and public corporations), seasonally adjusted. Growth measured from the June quarter 2022.",
    "automated": true,
-   "updated_at": "2026-10-09T09:36:48+00:00",
+   "updated_at": "2026-10-10T08:58:40+00:00",
    "explainer": {
     "what": "The ABS Labour Account counts filled jobs and classifies each employer as public sector (federal, state and local government and government-owned businesses) or private sector. This compares how fast each has grown since mid-2022.",
     "why": "Private businesses fund the tax base. If government employment grows faster than private employment, more of the economy depends on taxpayers."
@@ -13837,7 +13837,7 @@
      "series": [
       "Filled jobs (M12) by ANZSIC industry division, seasonally adjusted, quarterly"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     },
     {
@@ -13850,7 +13850,7 @@
    ],
    "method": "Change in ABS Labour Account filled jobs in each of the 19 ANZSIC industry divisions between the June quarter 2022 and the latest quarter. 'Non-market' = Health Care & Social Assistance + Education & Training + Public Administration & Safety. (The ABS ceased the Labour Force, Detailed industry tables in April 2026; the Labour Account is the continuing official quarterly source.)",
    "automated": true,
-   "updated_at": "2026-10-09T09:36:48+00:00",
+   "updated_at": "2026-10-10T08:58:40+00:00",
    "explainer": {
     "what": "Change in filled jobs in each of the 19 major industries since mid-2022. Health care & social assistance (which includes NDIS and aged care), education, and public administration are highlighted. Economists call these the 'non-market' sector because they are mostly paid for by government.",
     "why": "Headline job numbers can look strong even when growth relies on government-funded programs rather than a thriving private economy. This shows where the jobs are actually coming from."
@@ -14470,7 +14470,7 @@
       "GNFPROSQP"
      ],
      "published": "20-Aug-2026",
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     },
     {
@@ -14484,7 +14484,7 @@
    ],
    "method": "ABS national accounts non-farm GDP per hour worked (RBA Table H4). Annualised growth rates are compound averages between the quarters shown.",
    "automated": true,
-   "updated_at": "2026-10-09T09:36:48+00:00",
+   "updated_at": "2026-10-10T08:58:40+00:00",
    "explainer": {
     "what": "Labour productivity is how much the economy produces for each hour worked, measured here for the non-farm economy in the ABS national accounts. We compare average annual growth since mid-2022 with the 2000–2019 average.",
     "why": "Productivity is the only lasting way to raise wages and living standards. The Productivity Commission and RBA have both warned that weak productivity growth holds back real incomes."
@@ -16874,13 +16874,13 @@
      "series": [
       "Employed total, persons, seasonally adjusted"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     }
    ],
    "method": "ABS Labour Force survey, employed persons aged 15 and over, seasonally adjusted, monthly.",
    "automated": true,
-   "updated_at": "2026-10-09T09:36:48+00:00",
+   "updated_at": "2026-10-10T08:58:40+00:00",
    "explainer": {
     "what": "The number of people in Australia with a job, full-time or part-time, from the ABS monthly Labour Force survey.",
     "why": "Jobs are how most households earn their income. Growth in employment shows whether the economy is making room for a growing population."
@@ -21606,13 +21606,13 @@
      "series": [
       "Participation rate, females and males, seasonally adjusted"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     }
    ],
    "method": "ABS Labour Force survey, participation rate by sex, aged 15 and over, seasonally adjusted, monthly.",
    "automated": true,
-   "updated_at": "2026-10-09T09:36:48+00:00",
+   "updated_at": "2026-10-10T08:58:40+00:00",
    "explainer": {
     "what": "The share of women aged 15 and over who have a job or are actively looking for one.",
     "why": "More women in paid work lifts household incomes and the economy's capacity. Child care costs, paid parental leave and flexible work all affect it."
@@ -21924,13 +21924,13 @@
      "series": [
       "Full-time adult average weekly ordinary time earnings, males and females, all sectors, original"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     }
    ],
    "method": "(Male earnings − female earnings) ÷ male earnings, using ABS full-time adult average weekly ordinary time earnings. This is the measure the Workplace Gender Equality Agency uses for the national gap. Surveyed in May and November.",
    "automated": true,
-   "updated_at": "2026-10-09T09:36:48+00:00",
+   "updated_at": "2026-10-10T08:58:40+00:00",
    "explainer": {
     "what": "How much less women working full-time earn on average than men working full-time, as a share of men's pay. It uses ordinary pay, before overtime.",
     "why": "It is the standard national measure of the gap, used by the Workplace Gender Equality Agency. It reflects which jobs and industries men and women work in, as well as pay rates."
@@ -23480,14 +23480,14 @@
       "GICWMICS"
      ],
      "published": "01-Oct-2026",
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true,
      "note": "Index compiled by Westpac Banking Corporation and the Melbourne Institute; republished by the RBA in Table H3."
     }
    ],
    "method": "Westpac–Melbourne Institute Index of Consumer Sentiment, seasonally adjusted, as republished in RBA Table H3. An index above 100 means more consumers are optimistic than pessimistic.",
    "automated": true,
-   "updated_at": "2026-10-09T09:36:48+00:00",
+   "updated_at": "2026-10-10T08:58:40+00:00",
    "explainer": {
     "what": "The Westpac–Melbourne Institute survey asks around 1,200 Australian adults each month how they feel about their family finances and the economy. 100 means optimists and pessimists are evenly balanced. Below 100 means pessimists outnumber optimists.",
     "why": "Confidence shapes spending, hiring and investment. A long run below 100 is a clear sign that households feel worse off."
@@ -24663,7 +24663,7 @@
       "Gross domestic product: chain volume measures, seasonally adjusted (GPM)",
       "GDP per capita: chain volume measures, seasonally adjusted (GPM_PCA)"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     },
     {
@@ -24676,7 +24676,7 @@
       "GGDPCVGDPY"
      ],
      "published": "03-Sep-2026",
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     },
     {
@@ -24690,7 +24690,7 @@
    ],
    "method": "Real (chain volume) GDP and real GDP per capita, seasonally adjusted, from the ABS national accounts key aggregates, each rebased so the June quarter 2022 equals 100. Year-ended growth calculated from these levels is cross-checked against the rates the RBA publishes in Table H1.",
    "automated": true,
-   "updated_at": "2026-10-09T09:36:48+00:00",
+   "updated_at": "2026-10-10T08:58:40+00:00",
    "explainer": {
     "what": "Gross domestic product (the total value of everything the economy produces), adjusted for inflation and divided by the population. This figure is the change over the past year.",
     "why": "Total GDP can grow just because the population grows. GDP per person shows whether the economy is growing for each Australian. When it falls for two quarters in a row, it is often called a 'per capita recession'."
@@ -25298,7 +25298,7 @@
       "GGDPICHRDI"
      ],
      "published": "03-Sep-2026",
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     },
     {
@@ -25309,13 +25309,13 @@
      "series": [
       "Estimated resident population, Australia"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     }
    ],
    "method": "Real household disposable income ($m, chain volume, seasonally adjusted; RBA Table H2) divided by ABS estimated resident population, annualised (×4) and rebased to June quarter 2022 = 100. Limited to the latest quarter for which both series are available.",
    "automated": true,
-   "updated_at": "2026-10-09T09:36:48+00:00",
+   "updated_at": "2026-10-10T08:58:40+00:00",
    "explainer": {
     "what": "Real household disposable income is the income households have left after income tax and interest payments, adjusted for inflation. We divide it by the population and set mid-2022 to 100.",
     "why": "It is one of the most complete measures of whether the average person is better or worse off, because it includes the effects of tax, interest rates and prices."
@@ -25391,13 +25391,13 @@
      "series": [
       "Real net national disposable income per capita, chain volume, seasonally adjusted"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     }
    ],
    "method": "Year-on-year growth in ABS real net national disposable income per capita (chain volume, seasonally adjusted, quarterly), averaged over each calendar decade. The 1970s average starts in the year the series begins.",
    "automated": true,
-   "updated_at": "2026-10-09T09:36:48+00:00",
+   "updated_at": "2026-10-10T08:58:40+00:00",
    "explainer": {
     "what": "The average yearly growth in real national income per person in each decade since the 1970s. Real means after inflation; per person means it allows for population growth.",
     "why": "It puts the current period in a long view. Faster growth means each person's share of the nation's income rises faster."
@@ -25981,13 +25981,13 @@
       "GGDPECCVPDS"
      ],
      "published": "03-Sep-2026",
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     }
    ],
    "method": "Public final demand as a share of real output, ABS national accounts via RBA Table H2.",
    "automated": true,
-   "updated_at": "2026-10-09T09:36:48+00:00",
+   "updated_at": "2026-10-10T08:58:40+00:00",
    "explainer": {
     "what": "Public demand is spending and investment by federal, state and local governments (such as salaries, services, infrastructure and defence) as a share of total economic output, from the ABS national accounts.",
     "why": "When government takes up a bigger share of the economy, it can crowd out private investment and add to inflation. We compare it with the two decades before COVID."
@@ -26286,13 +26286,13 @@
      "series": [
       "Taxation receipts, per cent of GDP, 1970-71 onwards"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     }
    ],
    "method": "Australian Government general government sector taxation receipts as a share of nominal GDP, from the historical tables in the latest Budget. Years marked as estimates in the Budget are shown as estimates.",
    "automated": true,
-   "updated_at": "2026-10-09T09:36:48+00:00",
+   "updated_at": "2026-10-10T08:58:40+00:00",
    "explainer": {
     "what": "All tax collected by the Commonwealth (income tax, company tax, GST and the rest) as a share of the whole economy, from the historical tables published with each Budget.",
     "why": "It shows how much of the economy passes through the federal government in tax. Bracket creep, rising company profits and policy decisions all move it."
@@ -28399,7 +28399,7 @@
      "series": [
       "Estimated resident population, Australia, June 2022 and June 2025 (benchmark computed automatically)"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     }
    ],
@@ -29145,7 +29145,7 @@
       "Net overseas migration, Australia, quarterly",
       "Estimated resident population"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     },
     {
@@ -29156,7 +29156,7 @@
      "series": [
       "Dwelling units completed, new residential, all sectors, original"
      ],
-     "retrieved_at": "2026-10-09T09:36:48+00:00",
+     "retrieved_at": "2026-10-10T08:58:40+00:00",
      "automated": true
     },
     {
@@ -29184,7 +29184,7 @@
    ],
    "method": "Sum of the latest four quarters of ABS net overseas migration. Pre-COVID benchmark is the average of financial-year totals 2009–10 to 2018–19. Population growth is the change in estimated resident population over the same 12 months.",
    "automated": true,
-   "updated_at": "2026-10-09T09:36:48+00:00",
+   "updated_at": "2026-10-10T08:58:40+00:00",
    "explainer": {
     "what": "Net overseas migration is the number of people arriving to live in Australia (for at least 12 of the next 16 months), minus residents leaving on the same basis. It includes students, workers and permanent migrants. ABS data, summed over the latest 12 months.",
     "why": "Migration drives population growth, which adds to demand for housing, roads, hospitals and schools. We compare it with the pre-COVID average and with how many homes are being built."
