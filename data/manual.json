@@ -2262,22 +2262,23 @@
    "title": "Power bills: the $275 promise",
    "question": "Did household power bills fall by $275 as promised?",
    "headline": {
-    "value": 387,
+    "value": 453,
     "unit": "$",
     "decimals": 0,
     "signed": true,
-    "period": "2022–23 → 2026–27",
-    "caption": "a year: rise in the default power price for a typical NSW household (Ausgrid)"
+    "period": "2022–23 → 2025–26",
+    "caption": "a year: rise in the default power price for a typical NSW household (Ausgrid) by the 2025 deadline"
    },
    "benchmark": {
     "label": "Promise",
     "text": "$275 a year lower by 2025"
    },
    "status": "fail",
-   "status_rule": "Off track if the regulated default electricity offer in each benchmark region is higher, not $275 lower, than when the promise was made.",
+   "status_rule": "Not met if the regulated default electricity offer in force at the 31 December 2025 deadline (2025–26) was not at least $275 a year lower than in 2022–23 in every benchmark region.",
    "context": [
-    "Default Market Offer, 2022–23 to 2026–27: NSW (Ausgrid) $1,512 → $1,899; South-East Queensland (Energex) $1,620 → $1,988; South Australia $1,840 → $2,334.",
-    "Victorian Default Offer: $1,403 → $1,591 over the same period.",
+    "Default Market Offer, 2022–23 to 2025–26 (the offer in force at the 31 December 2025 deadline): NSW (Ausgrid) $1,512 → $1,965; South-East Queensland (Energex) $1,620 → $2,143; South Australia $1,840 → $2,301.",
+    "Victorian Default Offer: $1,403 → $1,675 over the same period.",
+    "Since the deadline, the 2026–27 offers are NSW $1,899, South-East Queensland $1,988, South Australia $2,334 and Victoria $1,591. They were set after the deadline, so they do not change the verdict; they are shown so readers can see where bills went next.",
     "The default offers are price caps on standing offers set by regulators for a typical household. Many households are on cheaper market offers, and the caps don't include government rebates."
    ],
    "promise": {
@@ -2290,23 +2291,23 @@
     "decimals": 0,
     "bars": [
      {
+      "name": "South-East Qld (Energex)",
+      "value": 523,
+      "role": "accent"
+     },
+     {
       "name": "South Australia (SA Power Networks)",
-      "value": 494,
+      "value": 461,
       "role": "accent"
      },
      {
       "name": "NSW (Ausgrid)",
-      "value": 387,
-      "role": "accent"
-     },
-     {
-      "name": "South-East Qld (Energex)",
-      "value": 368,
+      "value": 453,
       "role": "accent"
      },
      {
       "name": "Victoria (Victorian Default Offer)",
-      "value": 188,
+      "value": 272,
       "role": "accent"
      },
      {
@@ -2315,50 +2316,64 @@
       "role": "primary"
      }
     ],
-    "note": "Change in annual default electricity offer, 2022–23 to 2026–27 ($ a year, incl. GST), compared with the promised $275 cut."
+    "note": "Change in annual default electricity offer, 2022–23 to 2025–26, the offer in force at the 31 December 2025 deadline ($ a year, incl. GST), compared with the promised $275 cut."
    },
    "sources": [
+    {
+     "publisher": "Australian Energy Regulator",
+     "title": "Default Market Offer prices 2025–26: final determination",
+     "url": "https://www.aer.gov.au/system/files/2025-05/AER%20-%20Final%20determination%20-%20Default%20market%20offer%20prices%202025%E2%80%9326%20-%2026%20May%202025_0.pdf",
+     "published": "2025-05-26",
+     "accessed": "2026-10-19"
+    },
+    {
+     "publisher": "Essential Services Commission (Vic)",
+     "title": "Victorian Default Offer 2025–26: final decision",
+     "url": "https://www.esc.vic.gov.au/sites/default/files/documents/Victorian%20Default%20Offer%202025%E2%80%9326%20Final%20Decision%20Paper.pdf",
+     "published": "2025-05-26",
+     "accessed": "2026-10-19"
+    },
     {
      "publisher": "Australian Energy Regulator",
      "title": "Default Market Offer prices 2026–27: final determination",
      "url": "https://www.aer.gov.au/system/files/2026-05/AER%20-%20Final%20determination%20-%20Default%20market%20offer%202026%E2%80%9327.pdf",
      "published": "2026-05-26",
-     "accessed": "2026-09-14"
+     "accessed": "2026-10-19"
     },
     {
      "publisher": "Australian Energy Regulator",
      "title": "Default Market Offer price determination 2022–23: final determination",
      "url": "https://www.aer.gov.au/system/files/AER%20-%20Default%20Market%20Offer-%20Price%20determination%202022-23%20-%20Final%20Determination%20-%2026%20May%202022.pdf",
      "published": "2022-05-26",
-     "accessed": "2026-09-14"
+     "accessed": "2026-10-19"
     },
     {
      "publisher": "Essential Services Commission (Vic)",
      "title": "Victorian Default Offer 2026–27: final decision",
      "url": "https://www.esc.vic.gov.au/sites/default/files/documents/Victorian%20Default%20Offer%202026%E2%80%9327%20Final%20Decision%20Paper.pdf",
      "published": "2026-05-20",
-     "accessed": "2026-09-14"
+     "accessed": "2026-10-19"
     },
     {
      "publisher": "Essential Services Commission (Vic)",
      "title": "Victorian Default Offer 2022–23: final decision",
      "url": "https://www.esc.vic.gov.au/sites/default/files/documents/Victorian%20Default%20Offer%202022-23%20-%20Final%20decision_0.pdf",
-     "accessed": "2026-09-14"
+     "accessed": "2026-10-19"
     },
     {
      "publisher": "ABC News (RMIT ABC Fact Check)",
      "title": "Promise check: cut power bills by $275",
      "url": "https://www.abc.net.au/news/2023-05-19/promise-check-cut-power-bills-by-275-dollars/101791146",
      "published": "2023-05-19",
-     "accessed": "2026-09-14"
+     "accessed": "2026-10-19"
     }
    ],
-   "method": "Annual bill at benchmark usage for residential customers on a flat tariff without controlled load (GST inclusive), from the regulators' final determinations. Change = 2026–27 minus 2022–23.",
+   "method": "Annual bill at benchmark usage for residential customers on a flat tariff without controlled load (GST inclusive), from the regulators' final determinations. The promise fell due in 2025, so the comparison is 2025–26 minus 2022–23: the 2025–26 offers applied from 1 July 2025 and were the prices in force at the 31 December 2025 deadline. The later 2026–27 offers are listed for context only.",
    "explainer": {
     "what": "Each year energy regulators set a 'default offer', a maximum price for households on standard electricity contracts, based on typical usage in each region. It is the most consistent official yardstick for what a typical power bill costs.",
     "why": "Before the 2022 election, Labor promised its energy plan would cut household power bills by $275 a year by 2025. The regulators' own numbers show whether that happened."
    },
-   "verified_on": "2026-09-14",
+   "verified_on": "2026-10-19",
    "recheck_by": "2027-06-01"
   },
   {
