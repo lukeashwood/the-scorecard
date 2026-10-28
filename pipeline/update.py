@@ -1847,9 +1847,13 @@ WB_PAGE = "https://data.worldbank.org/indicator/{ind}"
 # Which site measures each comparison belongs to, and what it compares. "better": which direction is generally
 # preferred, or "none" where that is a matter of opinion. Only like-for-like official series are used.
 G20_INDICATORS = {
-    "inflation": {"src": "imf", "ind": "PCPIPCH", "title": "Inflation, average consumer prices", "unit": "%", "decimals": 1,
-                  "better": "lower", "measures": ["inflation"],
-                  "note": "Annual average change in consumer prices. IMF World Economic Outlook; the latest years include IMF estimates for some countries."},
+    # Monthly: the latest annual inflation rate for each country (same measure as the site's headline), so the G20 view
+    # matches the figure at the top of the page rather than a calendar-year average.
+    "inflation": {"src": "imf_cpi", "ind": "CPI", "title": "Inflation rate (annual, latest month)", "unit": "%", "decimals": 1,
+                  "better": "lower", "measures": ["inflation"], "freq": "M",
+                  "note": "Consumer prices compared with the same month a year earlier: the headline inflation rate each country reports. "
+                          "Countries publish on different days, so each is shown at its latest month. IMF consumer price data; "
+                          "Australia from the ABS monthly CPI (the monthly CPI indicator before April 2025)."},
     "unemployment": {"src": "imf", "ind": "LUR", "title": "Unemployment rate", "unit": "%", "decimals": 1, "better": "lower",
                      "measures": ["unemployment"],
                      "note": "Share of the labour force out of work. National definitions differ a little between countries. IMF World Economic Outlook."},
@@ -1880,6 +1884,47 @@ def _imf(ind):
     return {c: sorted((int(y), float(v)) for y, v in vals.get(c, {}).items() if v is not None) for c in G20}
 
 
+IMF_CPI_URL = ("https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/CPI/+/" + ",".join(G20) +
+               ".CPI._T.YOY_PCH_PA_PT.M?c%5BTIME_PERIOD%5D=ge:2004-01&c%5BTYPE_OF_TRANSFORMATION%5D=YOY_PCH_PA_PT"
+               "&c%5BCOICOP_1999%5D=_T&c%5BINDEX_TYPE%5D=CPI&c%5BFREQUENCY%5D=M&dimensionAtObservation=AllDimensions")
+IMF_CPI_PAGE = "https://data.imf.org/en/datasets/IMF.STA:CPI"
+
+
+def _imf_cpi():
+    """Monthly year-on-year consumer price inflation for the G20 from the IMF's CPI dataset. Periods are YYYYMM integers.
+    Australia is taken from the ABS instead (the IMF's Australian monthly series only starts in April 2025, and using the
+    ABS keeps the G20 figure identical to the site's headline)."""
+    body = json.loads(fetch(IMF_CPI_URL, "imf_cpi_monthly", ua=UA_API).decode("utf-8"))
+    data = body["data"]
+    dims = {x["id"]: [v.get("value", v.get("id")) for v in x["values"]]
+            for x in data["structures"][0]["dimensions"]["observation"]}
+    out = {c: [] for c in G20}
+    for key, obs in data["dataSets"][0]["observations"].items():
+        i = [int(x) for x in key.split(":")]
+        if obs[0] is None:
+            continue
+        if (dims["INDEX_TYPE"][i[1]], dims["COICOP_1999"][i[2]], dims["TYPE_OF_TRANSFORMATION"][i[3]],
+                dims["FREQUENCY"][i[4]]) != ("CPI", "_T", "YOY_PCH_PA_PT", "M"):
+            continue
+        c = dims["COUNTRY"][i[0]]
+        m = re.fullmatch(r"(\d{4})-M(\d{2})", dims["TIME_PERIOD"][i[5]])
+        if c in out and m:
+            out[c].append((int(m[1]) * 100 + int(m[2]), float(obs[0])))
+    # Australia: ABS monthly CPI indicator (Sep 2018 to Mar 2025), then the complete monthly CPI (Apr 2025 on).
+    aus = []
+    for flow, start, key in (("CPI_M", "2018-01", "abs_cpi_indicator_yoy"), ("CPI", "2025-04", "abs_cpi_monthly_yoy")):
+        rows = abs_api(flow, "3.10001.10.50.M", start, key)
+        for r in rows:
+            m = re.fullmatch(r"(\d{4})-(\d{2})", r["TIME_PERIOD"].strip())
+            if m and r["OBS_VALUE"] != "":
+                p = int(m[1]) * 100 + int(m[2])
+                if flow == "CPI" or p < 202504:
+                    aus.append((p, float(r["OBS_VALUE"])))
+    if aus:
+        out["AUS"] = aus
+    return {c: sorted(set(v)) for c, v in out.items()}
+
+
 def _wb(ind):
     body = json.loads(fetch(WB_URL.format(ind=ind), f"wb_{ind}").decode("utf-8"))
     rows = body[1] if isinstance(body, list) and len(body) > 1 and body[1] else []
@@ -1898,25 +1943,47 @@ def g20_block(prev):
     this_year = NOW.year
     for key, spec in G20_INDICATORS.items():
         try:
-            series = _imf(spec["ind"]) if spec["src"] == "imf" else _wb(spec["ind"])
+            src = spec["src"]
+            series = {"imf": lambda: _imf(spec["ind"]), "wb": lambda: _wb(spec["ind"]), "imf_cpi": _imf_cpi}[src]()
             if not series.get("AUS"):
                 raise RuntimeError("no Australian figure")
             have = sum(1 for c in G20 if series[c])
             if have < 12:
                 raise RuntimeError(f"only {have} of {len(G20)} countries")
-            # Latest year shown: last full calendar year (the IMF also publishes forecasts, which are left out),
-            # stepped back until at least three quarters of the countries have a figure.
-            latest_year = this_year - 1
-            while latest_year > 2000 and sum(1 for c in G20 if any(y == latest_year for y, _ in series[c])) < 15:
-                latest_year -= 1
-            pts = {c: [[y, round(v, 3)] for y, v in series[c] if 2000 <= y <= latest_year] for c in G20 if series[c]}
-            url = (IMF_PAGE if spec["src"] == "imf" else WB_PAGE).format(ind=spec["ind"])
-            out["indicators"][key] = {k: spec[k] for k in ("title", "unit", "decimals", "better", "measures", "note")} | {
+            if spec.get("freq") == "M":
+                # Monthly: every country is shown at its own latest month (they publish on different days). Figures older
+                # than 6 months are dropped so a stale series cannot sit in the ranking as if it were current.
+                newest = max(p for c in G20 for p, _ in series[c])
+                cutoff = newest - 6 if newest % 100 > 6 else newest - 100 + 6
+                stale = [c for c in G20 if series[c] and series[c][-1][0] < cutoff]
+                for c in stale:
+                    series[c] = []
+                if not series["AUS"]:
+                    raise RuntimeError("Australian figure is more than 6 months old")
+                if not -5 <= series["AUS"][-1][1] <= 20:
+                    raise RuntimeError(f"Australian figure {series['AUS'][-1][1]} is outside the plausible range")
+                latest_year = newest
+                pts = {c: [[p, round(v, 3)] for p, v in series[c] if p >= 200401] for c in G20 if series[c]}
+                extra = {"freq": "M", "before": 202204, "latest_window": 6}
+                url, data_url, publisher = IMF_CPI_PAGE, IMF_CPI_URL, "International Monetary Fund; Australian Bureau of Statistics"
+                detail = f"{len(pts)} countries, newest month {newest // 100}-{newest % 100:02d}" + (f", stale: {', '.join(stale)}" if stale else "")
+            else:
+                # Latest year shown: last full calendar year (the IMF also publishes forecasts, which are left out),
+                # stepped back until at least three quarters of the countries have a figure.
+                latest_year = this_year - 1
+                while latest_year > 2000 and sum(1 for c in G20 if any(y == latest_year for y, _ in series[c])) < 15:
+                    latest_year -= 1
+                pts = {c: [[y, round(v, 3)] for y, v in series[c] if 2000 <= y <= latest_year] for c in G20 if series[c]}
+                extra = {}
+                url = (IMF_PAGE if src == "imf" else WB_PAGE).format(ind=spec["ind"])
+                data_url = (IMF_URL if src == "imf" else WB_URL).format(ind=spec["ind"])
+                publisher = "International Monetary Fund" if src == "imf" else "World Bank (SIPRI data)"
+                detail = f"{have} countries, latest year {latest_year}"
+            out["indicators"][key] = {k: spec[k] for k in ("title", "unit", "decimals", "better", "measures", "note")} | extra | {
                 "latest_year": latest_year, "points": pts,
-                "source": {"publisher": "International Monetary Fund" if spec["src"] == "imf" else "World Bank (SIPRI data)",
-                           "url": url, "data_url": (IMF_URL if spec["src"] == "imf" else WB_URL).format(ind=spec["ind"]),
+                "source": {"publisher": publisher, "url": url, "data_url": data_url,
                            "retrieved_at": NOW.isoformat(timespec="seconds")}}
-            log_check("g20", f"{key}: G20 comparison", "pass", f"{have} countries, latest year {latest_year}")
+            log_check("g20", f"{key}: G20 comparison", "pass", detail)
         except Exception as e:  # noqa: BLE001
             if key in old:
                 out["indicators"][key] = old[key]
