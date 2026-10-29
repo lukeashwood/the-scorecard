@@ -20,7 +20,7 @@
   "GBR": "United Kingdom",
   "USA": "United States"
  },
- "generated_at": "2026-10-28T05:07:05+00:00",
+ "generated_at": "2026-10-29T08:53:53+00:00",
  "indicators": {
   "inflation": {
    "title": "Inflation rate (annual, latest month)",
@@ -10672,6 +10672,10 @@
      [
       202608,
       1.963
+     ],
+     [
+      202609,
+      2.232
      ]
     ],
     "KOR": [
@@ -19423,7 +19427,7 @@
     "publisher": "International Monetary Fund; Australian Bureau of Statistics",
     "url": "https://data.imf.org/en/datasets/IMF.STA:CPI",
     "data_url": "https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/CPI/+/ARG,AUS,BRA,CAN,CHN,FRA,DEU,IND,IDN,ITA,JPN,KOR,MEX,RUS,SAU,ZAF,TUR,GBR,USA.CPI._T.YOY_PCH_PA_PT.M?c%5BTIME_PERIOD%5D=ge:2004-01&c%5BTYPE_OF_TRANSFORMATION%5D=YOY_PCH_PA_PT&c%5BCOICOP_1999%5D=_T&c%5BINDEX_TYPE%5D=CPI&c%5BFREQUENCY%5D=M&dimensionAtObservation=AllDimensions",
-    "retrieved_at": "2026-10-28T05:07:05+00:00"
+    "retrieved_at": "2026-10-29T08:53:53+00:00"
    }
   },
   "unemployment": {
@@ -21316,7 +21320,7 @@
     "publisher": "International Monetary Fund",
     "url": "https://www.imf.org/external/datamapper/LUR@WEO/OEMDC/ADVEC/WEOWORLD",
     "data_url": "https://www.imf.org/external/datamapper/api/v1/LUR/ARG/AUS/BRA/CAN/CHN/FRA/DEU/IND/IDN/ITA/JPN/KOR/MEX/RUS/SAU/ZAF/TUR/GBR/USA",
-    "retrieved_at": "2026-10-28T05:07:05+00:00"
+    "retrieved_at": "2026-10-29T08:53:53+00:00"
    }
   },
   "gov_debt": {
@@ -23297,7 +23301,7 @@
     "publisher": "International Monetary Fund",
     "url": "https://www.imf.org/external/datamapper/GGXWDG_NGDP@WEO/OEMDC/ADVEC/WEOWORLD",
     "data_url": "https://www.imf.org/external/datamapper/api/v1/GGXWDG_NGDP/ARG/AUS/BRA/CAN/CHN/FRA/DEU/IND/IDN/ITA/JPN/KOR/MEX/RUS/SAU/ZAF/TUR/GBR/USA",
-    "retrieved_at": "2026-10-28T05:07:05+00:00"
+    "retrieved_at": "2026-10-29T08:53:53+00:00"
    }
   },
   "gov_balance": {
@@ -25274,7 +25278,7 @@
     "publisher": "International Monetary Fund",
     "url": "https://www.imf.org/external/datamapper/GGXCNL_NGDP@WEO/OEMDC/ADVEC/WEOWORLD",
     "data_url": "https://www.imf.org/external/datamapper/api/v1/GGXCNL_NGDP/ARG/AUS/BRA/CAN/CHN/FRA/DEU/IND/IDN/ITA/JPN/KOR/MEX/RUS/SAU/ZAF/TUR/GBR/USA",
-    "retrieved_at": "2026-10-28T05:07:05+00:00"
+    "retrieved_at": "2026-10-29T08:53:53+00:00"
    }
   },
   "gov_spending": {
@@ -27252,7 +27256,7 @@
     "publisher": "International Monetary Fund",
     "url": "https://www.imf.org/external/datamapper/G_X_G01_GDP_PT@WEO/OEMDC/ADVEC/WEOWORLD",
     "data_url": "https://www.imf.org/external/datamapper/api/v1/G_X_G01_GDP_PT/ARG/AUS/BRA/CAN/CHN/FRA/DEU/IND/IDN/ITA/JPN/KOR/MEX/RUS/SAU/ZAF/TUR/GBR/USA",
-    "retrieved_at": "2026-10-28T05:07:05+00:00"
+    "retrieved_at": "2026-10-29T08:53:53+00:00"
    }
   },
   "gdp_pc": {
@@ -29286,7 +29290,7 @@
     "publisher": "International Monetary Fund",
     "url": "https://www.imf.org/external/datamapper/PPPPC@WEO/OEMDC/ADVEC/WEOWORLD",
     "data_url": "https://www.imf.org/external/datamapper/api/v1/PPPPC/ARG/AUS/BRA/CAN/CHN/FRA/DEU/IND/IDN/ITA/JPN/KOR/MEX/RUS/SAU/ZAF/TUR/GBR/USA",
-    "retrieved_at": "2026-10-28T05:07:05+00:00"
+    "retrieved_at": "2026-10-29T08:53:53+00:00"
    }
   },
   "growth": {
@@ -31320,7 +31324,7 @@
     "publisher": "International Monetary Fund",
     "url": "https://www.imf.org/external/datamapper/NGDP_RPCH@WEO/OEMDC/ADVEC/WEOWORLD",
     "data_url": "https://www.imf.org/external/datamapper/api/v1/NGDP_RPCH/ARG/AUS/BRA/CAN/CHN/FRA/DEU/IND/IDN/ITA/JPN/KOR/MEX/RUS/SAU/ZAF/TUR/GBR/USA",
-    "retrieved_at": "2026-10-28T05:07:05+00:00"
+    "retrieved_at": "2026-10-29T08:53:53+00:00"
    }
   },
   "defence": {
@@ -33353,7 +33357,7 @@
     "publisher": "World Bank (SIPRI data)",
     "url": "https://data.worldbank.org/indicator/MS.MIL.XPND.GD.ZS",
     "data_url": "https://api.worldbank.org/v2/country/ARG;AUS;BRA;CAN;CHN;FRA;DEU;IND;IDN;ITA;JPN;KOR;MEX;RUS;SAU;ZAF;TUR;GBR;USA/indicator/MS.MIL.XPND.GD.ZS?format=json&per_page=5000&date=2000:2030",
-    "retrieved_at": "2026-10-28T05:07:05+00:00"
+    "retrieved_at": "2026-10-29T08:53:53+00:00"
    }
   }
  }
