@@ -722,6 +722,58 @@ def interest_rates():
     }
 
 
+def rises_per_year(dec):
+    """Count of cash rate rises in each calendar year from the RBA's decision list [(date, change, new_rate), ...]."""
+    out = {}
+    for d, chg, _ in dec:
+        y = int(d[:4])
+        out[y] = out.get(y, 0) + (1 if chg > 0 else 0)
+    return out
+
+
+@metric
+def rate_rises():
+    mid = "rate_rises"
+    dec, pub = rba_decisions()
+    first_year = int(dec[0][0][:4])
+    this_year = NOW.year
+    by_year = rises_per_year(dec)
+    cuts_by_year = {}
+    for d, chg, _ in dec:
+        cuts_by_year[int(d[:4])] = cuts_by_year.get(int(d[:4]), 0) + (1 if chg < 0 else 0)
+    # One bar per calendar year, zeros included: a year with no rises is part of the record. The current year is dated
+    # at the latest decision (never later than the data run), so it reads as "so far", not as a finished year.
+    this_date = max(dec[-1][0], f"{this_year}-01-01")
+    pts = [[f"{y}-12-31" if y < this_year else this_date, by_year.get(y, 0)] for y in range(first_year, this_year + 1)]
+    this = by_year.get(this_year, 0)
+    check_range(mid, "cash rate rises this year", this, 0, 12)
+    since = [x for x in dec if x[0] > SWORN_IN and x[1] > 0]
+    pre_2022 = sum(1 for d, chg, _ in dec if d[:4] == "2022" and d <= SWORN_IN and chg > 0)
+    busiest = max(by_year.items(), key=lambda kv: (kv[1], -kv[0]))
+    years_with_none = sum(1 for y in range(first_year, this_year) if by_year.get(y, 0) == 0)
+    return {
+        "id": mid, "section": "housing", "title": "Interest rate rises per year",
+        "question": "How often has the Reserve Bank raised interest rates each year?",
+        "headline": {"value": this, "unit": "", "decimals": 0, "period": f"{this_year} so far (to {dt.date.fromisoformat(dec[-1][0]).strftime('%-d %b %Y')})",
+                     "caption": f"cash rate rises this year, versus {cuts_by_year.get(this_year, 0)} cuts"},
+        "benchmark": {"label": "Most rises in a year since 1990", "text": f"{busiest[1]} ({busiest[0]})"},
+        "status": "info",
+        "status_rule": "Shown for context, with no verdict. The Reserve Bank sets the cash rate independently.",
+        "context": [
+            "Rises by year under this government: " + "; ".join(f"{y}: {by_year.get(y, 0)}" for y in range(2022, this_year + 1)) + f" (so far). {len(since)} in total since 23 May 2022."
+            + (f" {pre_2022} of the 2022 rises came before the government was sworn in." if pre_2022 else ""),
+            f"The busiest year on record is {busiest[0]}, with {busiest[1]} rises. In {years_with_none} of the {this_year - first_year} full years since {first_year} there were no rises at all.",
+            "A rise is counted each time the Reserve Bank board lifts the cash rate target, whatever the size of the move. Cuts are not subtracted.",
+        ],
+        "chart": {"kind": "bar", "unit": "rises", "decimals": 0, "freq": "y",
+                  "series": [{"name": "Cash rate rises in the year", "role": "primary", "points": pts}]},
+        "sources": [{"publisher": "Reserve Bank of Australia", "title": "Statistical Table A2 – Changes in Monetary Policy and Administered Rates",
+                     "url": "https://www.rba.gov.au/statistics/cash-rate/", "data_url": "https://www.rba.gov.au/statistics/tables/csv/a2-data.csv",
+                     "series": ["ARBAMPCCCR", "ARBAMPCNCRT"], "published": pub, "retrieved_at": NOW.isoformat(timespec="seconds"), "automated": True}],
+        "method": "Every cash rate target decision in RBA Table A2 since January 1990, counted by calendar year. A decision counts as a rise when the change is positive, regardless of its size. The current year counts rises to the latest decision.",
+    }
+
+
 @metric
 def consumer_confidence():
     mid = "consumer_confidence"
@@ -1872,6 +1924,11 @@ G20_INDICATORS = {
     "growth": {"src": "imf", "ind": "NGDP_RPCH", "title": "Real GDP growth", "unit": "%", "decimals": 1, "better": "higher",
                "measures": ["gdp_per_capita", "productivity"],
                "note": "Annual change in real (inflation-adjusted) GDP. IMF World Economic Outlook."},
+    "rate_rises": {"src": "bis", "ind": "WS_CBPOL", "title": "Interest rate rises in the year", "unit": "rises", "decimals": 0,
+                   "better": "none", "measures": ["rate_rises", "interest_rates"], "partial": True,
+                   "note": "How many times each country's central bank raised its main policy rate in the year, counted from the daily "
+                           "policy rate series the Bank for International Settlements compiles from central banks. France, Germany and "
+                           "Italy share the European Central Bank's rate. The current year counts rises so far. Australia from RBA Table A2."},
     "defence": {"src": "wb", "ind": "MS.MIL.XPND.GD.ZS", "title": "Military spending, % of GDP", "unit": "%", "decimals": 2,
                 "better": "none", "measures": ["defence_spending"],
                 "note": "SIPRI military expenditure as a share of GDP, published by the World Bank. SIPRI's definition is broader than the Defence budget line."},
@@ -1925,6 +1982,50 @@ def _imf_cpi():
     return {c: sorted(set(v)) for c, v in out.items()}
 
 
+BIS_AREAS = {"ARG": "AR", "AUS": "AU", "BRA": "BR", "CAN": "CA", "CHN": "CN", "FRA": "XM", "DEU": "XM", "IND": "IN", "IDN": "ID",
+             "ITA": "XM", "JPN": "JP", "KOR": "KR", "MEX": "MX", "RUS": "RU", "SAU": "SA", "ZAF": "ZA", "TUR": "TR", "GBR": "GB", "USA": "US"}
+BIS_URL = ("https://stats.bis.org/api/v1/data/WS_CBPOL/D." + "+".join(sorted(set(BIS_AREAS.values()))) +
+           "/all?format=csv&startPeriod=1990-01-01&detail=dataonly")
+BIS_PAGE = "https://data.bis.org/topics/CBPOL"
+
+
+def _bis_rate_rises():
+    """Policy rate rises per calendar year for the G20, from the BIS daily central bank policy rate series. A rise is
+    counted each time the rate is higher than on the previous day with a published figure. Australia comes from RBA
+    Table A2 instead, so the G20 figure is the same count as the site's own measure. Years a country's series does not
+    cover to the end are left out, and so is the current year for any series that has stopped updating."""
+    raw = fetch(BIS_URL, "bis_cbpol").decode("utf-8-sig", errors="replace")
+    daily = {}
+    for r in csv.DictReader(io.StringIO(raw)):
+        v = r.get("OBS_VALUE", "")
+        if not v or v.lower() == "nan":
+            continue
+        daily.setdefault(r["REF_AREA"], []).append((r["TIME_PERIOD"], float(v)))
+    newest = max((s[-1][0] for s in daily.values() if s), default="")
+    newest_d = dt.date.fromisoformat(newest)
+    out = {c: [] for c in G20}
+    for c, area in BIS_AREAS.items():
+        s = sorted(daily.get(area, []))
+        if len(s) < 2:
+            continue
+        rises = {}
+        for (_, v0), (d1, v1) in zip(s, s[1:]):
+            if v1 > v0 + 1e-9:
+                rises[int(d1[:4])] = rises.get(int(d1[:4]), 0) + 1
+        last = dt.date.fromisoformat(s[-1][0])
+        current_ok = (newest_d - last).days <= 45
+        for y in range(int(s[0][0][:4]) + 1, NOW.year + 1):
+            if y < NOW.year and last < dt.date(y, 12, 20):
+                continue
+            if y == NOW.year and not current_ok:
+                continue
+            out[c].append((y, float(rises.get(y, 0))))
+    dec, _ = rba_decisions()
+    by_year = rises_per_year(dec)
+    out["AUS"] = [(y, float(by_year.get(y, 0))) for y in range(int(dec[0][0][:4]), NOW.year + 1)]
+    return out
+
+
 def _wb(ind):
     body = json.loads(fetch(WB_URL.format(ind=ind), f"wb_{ind}").decode("utf-8"))
     rows = body[1] if isinstance(body, list) and len(body) > 1 and body[1] else []
@@ -1944,7 +2045,7 @@ def g20_block(prev):
     for key, spec in G20_INDICATORS.items():
         try:
             src = spec["src"]
-            series = {"imf": lambda: _imf(spec["ind"]), "wb": lambda: _wb(spec["ind"]), "imf_cpi": _imf_cpi}[src]()
+            series = {"imf": lambda: _imf(spec["ind"]), "wb": lambda: _wb(spec["ind"]), "imf_cpi": _imf_cpi, "bis": _bis_rate_rises}[src]()
             if not series.get("AUS"):
                 raise RuntimeError("no Australian figure")
             have = sum(1 for c in G20 if series[c])
@@ -1969,15 +2070,19 @@ def g20_block(prev):
                 detail = f"{len(pts)} countries, newest month {newest // 100}-{newest % 100:02d}" + (f", stale: {', '.join(stale)}" if stale else "")
             else:
                 # Latest year shown: last full calendar year (the IMF also publishes forecasts, which are left out),
-                # stepped back until at least three quarters of the countries have a figure.
-                latest_year = this_year - 1
+                # stepped back until at least three quarters of the countries have a figure. Counts of events ("partial")
+                # can show the current year so far instead.
+                latest_year = this_year if spec.get("partial") else this_year - 1
                 while latest_year > 2000 and sum(1 for c in G20 if any(y == latest_year for y, _ in series[c])) < 15:
                     latest_year -= 1
                 pts = {c: [[y, round(v, 3)] for y, v in series[c] if 2000 <= y <= latest_year] for c in G20 if series[c]}
-                extra = {}
-                url = (IMF_PAGE if src == "imf" else WB_PAGE).format(ind=spec["ind"])
-                data_url = (IMF_URL if src == "imf" else WB_URL).format(ind=spec["ind"])
-                publisher = "International Monetary Fund" if src == "imf" else "World Bank (SIPRI data)"
+                extra = {"partial": True} if spec.get("partial") and latest_year == this_year else {}
+                if src == "bis":
+                    url, data_url, publisher = BIS_PAGE, BIS_URL, "Bank for International Settlements; Reserve Bank of Australia"
+                else:
+                    url = (IMF_PAGE if src == "imf" else WB_PAGE).format(ind=spec["ind"])
+                    data_url = (IMF_URL if src == "imf" else WB_URL).format(ind=spec["ind"])
+                    publisher = "International Monetary Fund" if src == "imf" else "World Bank (SIPRI data)"
                 detail = f"{have} countries, latest year {latest_year}"
             out["indicators"][key] = {k: spec[k] for k in ("title", "unit", "decimals", "better", "measures", "note")} | extra | {
                 "latest_year": latest_year, "points": pts,
@@ -2227,6 +2332,10 @@ EXPLAINERS = {
     "interest_rates": {
         "what": "The cash rate is the Reserve Bank's official interest rate. Banks base their lending rates on it. This counts every decision to raise or cut it since the government was sworn in on 23 May 2022.",
         "why": "The RBA is independent, but it raises rates when inflation is too high, and government spending affects inflation. At current rates, each 0.25-point rise adds about $100 a month to repayments on a $600,000 loan.",
+    },
+    "rate_rises": {
+        "what": "A count of how many times the Reserve Bank raised its cash rate in each calendar year since 1990, whatever the size of each move. The G20 view counts the same thing for other countries' central banks.",
+        "why": "Each rise flows into mortgage and business loan rates within weeks. Counting the rises shows how hard and how often the brakes were applied in a year, which a percentage alone does not.",
     },
     "consumer_confidence": {
         "what": "The Westpac–Melbourne Institute survey asks around 1,200 Australian adults each month how they feel about their family finances and the economy. 100 means optimists and pessimists are evenly balanced. Below 100 means pessimists outnumber optimists.",
