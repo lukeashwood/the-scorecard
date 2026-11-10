@@ -1060,6 +1060,54 @@ def government_size():
 
 
 @metric
+def demand_growth():
+    """Private vs public demand: year-ended growth of each, from RBA Table H2 (ABS national accounts)."""
+    mid = "demand_growth"
+    dfd = dict(rba_series("h2", "GGDPECCVDD", mid))      # domestic final demand, $m chain volume
+    pub = dict(rba_series("h2", "GGDPECCVPD", mid))      # public final demand, $m chain volume
+    pub_g = rba_series("h2", "GGDPECCVPDY", mid)         # public demand, year-ended growth (%)
+    # Private final demand = domestic final demand less public final demand (household consumption, dwelling and business investment and the rest of private demand).
+    priv = {d: dfd[d] - pub[d] for d in dfd if d in pub}
+    priv_g = []
+    for d in sorted(priv):
+        prior = f"{int(d[:4]) - 1}{d[4:]}"
+        if prior in priv and priv[prior]:
+            priv_g.append((d, (priv[d] / priv[prior] - 1) * 100))
+    d, pv = latest(priv_g)
+    check_fresh(mid, d, "Q")
+    check_range(mid, "private demand growth", pv, -15, 20)
+    gv = at(pub_g, d)[1]
+    check_range(mid, "public demand growth", gv, -15, 20)
+    # Sanity check on the inputs: published domestic demand growth should match growth recomputed from its level.
+    dfd_g = rba_series("h2", "GGDPECCVDDY", mid)
+    check_cross(mid, "domestic demand growth", at(dfd_g, d)[1],
+                (dfd[d] / dfd[f"{int(d[:4]) - 1}{d[4:]}"] - 1) * 100, 0.15, "RBA H2 published", "recomputed from levels")
+    b = at(priv_g, BASE_Q)[1]
+    start = "2000-01-01"
+    return {
+        "id": mid, "section": "budget", "title": "Private vs public demand",
+        "question": "Is public spending growing faster than spending by households and businesses?",
+        "headline": {"value": round(pv, 1), "unit": "%", "decimals": 1, "period": label(d, "Q"),
+                     "caption": "year-ended growth in private demand"},
+        "benchmark": {"label": "Public demand, same period", "text": f"{fmt(gv)}%"},
+        "baseline": {"label": "June quarter 2022", "value": round(b, 1), "unit": "%"},
+        "status": "info",
+        "status_rule": "Shown for context, with no verdict. How fast each part of the economy should grow is not a promise the government made.",
+        "context": [
+            f"In the year to the {label(d, 'Q')}, private demand grew {fmt(pv)}% and public demand grew {fmt(gv)}%.",
+            f"In the year to the June quarter 2022, private demand grew {fmt(b)}% and public demand grew {fmt(at(pub_g, BASE_Q)[1])}%.",
+            "Private demand is household spending plus private investment in homes and business. Public demand is spending and investment by federal, state and local governments together.",
+        ],
+        "chart": {"kind": "line", "unit": "%", "decimals": 1,
+                  "series": [{"name": "Private demand, year-ended growth", "role": "primary", "points": rnd(since(priv_g, start), 1)},
+                             {"name": "Public demand, year-ended growth", "role": "accent", "points": rnd(since(pub_g, start), 1)}],
+                  "ref": [{"value": 0, "label": "No growth"}]},
+        "sources": [src_rba("h2", ["GGDPECCVDD", "GGDPECCVPD", "GGDPECCVPDY"])],
+        "method": "Private final demand is domestic final demand less public final demand (both $ million, chain volume, seasonally adjusted; ABS national accounts via RBA Table H2). Both series are shown as growth on the same quarter a year earlier. Chain volume figures are not strictly additive, so the private figure is an approximation.",
+    }
+
+
+@metric
 def housing_accord():
     mid = "housing_accord"
     rows = abs_api("BUILDING_ACTIVITY", "M6+M7.AUS.CUR.1.9.100.10.Q", HIST_Q, "abs_building")
@@ -2259,6 +2307,10 @@ EXPLAINERS = {
     "government_size": {
         "what": "Public demand is spending and investment by federal, state and local governments (such as salaries, services, infrastructure and defence) as a share of total economic output, from the ABS national accounts.",
         "why": "When government takes up a bigger share of the economy, it can crowd out private investment and add to inflation. We compare it with the two decades before COVID.",
+    },
+    "demand_growth": {
+        "what": "Private demand is what households and businesses spend and invest, including new homes. Public demand is spending and investment by federal, state and local governments. Both come from the ABS national accounts and are shown as growth on a year earlier.",
+        "why": "When public demand grows faster than private demand, government takes a bigger share of the economy. The Reserve Bank watches both when judging whether demand is running ahead of what the economy can supply.",
     },
     "housing_accord": {
         "what": "Under the National Housing Accord, federal and state governments committed to 1.2 million new homes in the five years from 1 July 2024. That is 60,000 a quarter. We add up ABS new dwelling completions since then.",
