@@ -1061,49 +1061,49 @@ def government_size():
 
 @metric
 def demand_growth():
-    """Private vs public demand: year-ended growth of each, from RBA Table H2 (ABS national accounts)."""
+    """Private vs public demand: each one's contribution to year-ended GDP growth, from RBA Tables H1 and H2 (ABS national accounts)."""
     mid = "demand_growth"
     dfd = dict(rba_series("h2", "GGDPECCVDD", mid))      # domestic final demand, $m chain volume
     pub = dict(rba_series("h2", "GGDPECCVPD", mid))      # public final demand, $m chain volume
-    pub_g = rba_series("h2", "GGDPECCVPDY", mid)         # public demand, year-ended growth (%)
+    gdp = dict(rba_series("h1", "GGDPCVGDP", mid))       # real GDP, $m chain volume
     # Private final demand = domestic final demand less public final demand (household consumption, dwelling and business investment and the rest of private demand).
     priv = {d: dfd[d] - pub[d] for d in dfd if d in pub}
-    priv_g = []
-    for d in sorted(priv):
-        prior = f"{int(d[:4]) - 1}{d[4:]}"
-        if prior in priv and priv[prior]:
-            priv_g.append((d, (priv[d] / priv[prior] - 1) * 100))
-    d, pv = latest(priv_g)
+    prev = lambda d: f"{int(d[:4]) - 1}{d[4:]}"
+    # Contribution to GDP growth, in percentage points: the change over the year divided by GDP a year earlier.
+    def contrib(level):
+        return [(d, (level[d] - level[prev(d)]) / gdp[prev(d)] * 100)
+                for d in sorted(level) if prev(d) in level and prev(d) in gdp and d in gdp]
+    priv_c, pub_c = contrib(priv), contrib(pub)
+    d, pv = latest(priv_c)
     check_fresh(mid, d, "Q")
-    check_range(mid, "private demand growth", pv, -15, 20)
-    gv = at(pub_g, d)[1]
-    check_range(mid, "public demand growth", gv, -15, 20)
-    # Sanity check on the inputs: published domestic demand growth should match growth recomputed from its level.
-    dfd_g = rba_series("h2", "GGDPECCVDDY", mid)
-    check_cross(mid, "domestic demand growth", at(dfd_g, d)[1],
-                (dfd[d] / dfd[f"{int(d[:4]) - 1}{d[4:]}"] - 1) * 100, 0.15, "RBA H2 published", "recomputed from levels")
-    b = at(priv_g, BASE_Q)[1]
+    gv = at(pub_c, d)[1]
+    check_range(mid, "private demand contribution", pv, -15, 15)
+    check_range(mid, "public demand contribution", gv, -5, 5)
+    # Sanity check on the inputs: published GDP growth should match growth recomputed from the GDP level.
+    check_cross(mid, "year-ended GDP growth", at(rba_series("h1", "GGDPCVGDPY", mid), d)[1],
+                (gdp[d] / gdp[prev(d)] - 1) * 100, 0.15, "RBA H1 published", "recomputed from levels")
+    b = at(priv_c, BASE_Q)[1]; bg = at(pub_c, BASE_Q)[1]
     start = "2000-01-01"
     return {
         "id": mid, "section": "budget", "title": "Private vs public demand",
-        "question": "Is public spending growing faster than spending by households and businesses?",
+        "question": "How much of the economy's growth comes from public spending, and how much from households and businesses?",
         "headline": {"value": round(pv, 1), "unit": "%", "decimals": 1, "period": label(d, "Q"),
-                     "caption": "year-ended growth in private demand"},
-        "benchmark": {"label": "Public demand, same period", "text": f"{fmt(gv)}%"},
+                     "caption": "percentage points of GDP growth from private demand"},
+        "benchmark": {"label": "Public demand, same period", "text": f"{fmt(gv)} percentage points"},
         "baseline": {"label": "June quarter 2022", "value": round(b, 1), "unit": "%"},
         "status": "info",
-        "status_rule": "Shown for context, with no verdict. How fast each part of the economy should grow is not a promise the government made.",
+        "status_rule": "Shown for context, with no verdict. How much each part of the economy should contribute is not a promise the government made.",
         "context": [
-            f"In the year to the {label(d, 'Q')}, private demand grew {fmt(pv)}% and public demand grew {fmt(gv)}%.",
-            f"In the year to the June quarter 2022, private demand grew {fmt(b)}% and public demand grew {fmt(at(pub_g, BASE_Q)[1])}%.",
-            "Private demand is household spending plus private investment in homes and business. Public demand is spending and investment by federal, state and local governments together.",
+            f"In the year to the {label(d, 'Q')}, private demand added {fmt(pv)} percentage points to GDP growth and public demand added {fmt(gv)}.",
+            f"In the year to the June quarter 2022, private demand added {fmt(b)} and public demand added {fmt(bg)}.",
+            "Private demand is household spending plus private investment in homes and business. Public demand is spending and investment by federal, state and local governments together. Inventories and net exports make up the rest of GDP growth.",
         ],
         "chart": {"kind": "line", "unit": "%", "decimals": 1,
-                  "series": [{"name": "Private demand, year-ended growth", "role": "primary", "points": rnd(since(priv_g, start), 1)},
-                             {"name": "Public demand, year-ended growth", "role": "accent", "points": rnd(since(pub_g, start), 1)}],
-                  "ref": [{"value": 0, "label": "No growth"}]},
-        "sources": [src_rba("h2", ["GGDPECCVDD", "GGDPECCVPD", "GGDPECCVPDY"])],
-        "method": "Private final demand is domestic final demand less public final demand (both $ million, chain volume, seasonally adjusted; ABS national accounts via RBA Table H2). Both series are shown as growth on the same quarter a year earlier. Chain volume figures are not strictly additive, so the private figure is an approximation.",
+                  "series": [{"name": "Private demand, contribution to GDP growth (percentage points)", "role": "primary", "points": rnd(since(priv_c, start), 1)},
+                             {"name": "Public demand, contribution to GDP growth (percentage points)", "role": "accent", "points": rnd(since(pub_c, start), 1)}],
+                  "ref": [{"value": 0, "label": "No contribution"}]},
+        "sources": [src_rba("h2", ["GGDPECCVDD", "GGDPECCVPD"]), src_rba("h1", ["GGDPCVGDP", "GGDPCVGDPY"])],
+        "method": "Private final demand is domestic final demand less public final demand (both $ million, chain volume, seasonally adjusted; ABS national accounts via RBA Table H2). Each one's contribution is its change over the year divided by real GDP a year earlier (RBA Table H1), in percentage points. Chain volume figures are not strictly additive, so the contributions are close approximations of the ABS's own.",
     }
 
 
@@ -2309,7 +2309,7 @@ EXPLAINERS = {
         "why": "When government takes up a bigger share of the economy, it can crowd out private investment and add to inflation. We compare it with the two decades before COVID.",
     },
     "demand_growth": {
-        "what": "Private demand is what households and businesses spend and invest, including new homes. Public demand is spending and investment by federal, state and local governments. Both come from the ABS national accounts and are shown as growth on a year earlier.",
+        "what": "Private demand is what households and businesses spend and invest, including new homes. Public demand is spending and investment by federal, state and local governments. Each is shown as the number of percentage points it added to GDP growth over the past year, from the ABS national accounts.",
         "why": "When public demand grows faster than private demand, government takes a bigger share of the economy. The Reserve Bank watches both when judging whether demand is running ahead of what the economy can supply.",
     },
     "housing_accord": {
