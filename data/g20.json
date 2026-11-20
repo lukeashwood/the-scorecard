@@ -20,7 +20,7 @@
   "GBR": "United Kingdom",
   "USA": "United States"
  },
- "generated_at": "2026-11-19T10:44:14+00:00",
+ "generated_at": "2026-11-20T10:27:34+00:00",
  "indicators": {
   "inflation": {
    "title": "Inflation rate (annual, latest month)",
@@ -19463,7 +19463,7 @@
     "publisher": "International Monetary Fund; Australian Bureau of Statistics",
     "url": "https://data.imf.org/en/datasets/IMF.STA:CPI",
     "data_url": "https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/CPI/+/ARG,AUS,BRA,CAN,CHN,FRA,DEU,IND,IDN,ITA,JPN,KOR,MEX,RUS,SAU,ZAF,TUR,GBR,USA.CPI._T.YOY_PCH_PA_PT.M?c%5BTIME_PERIOD%5D=ge:2004-01&c%5BTYPE_OF_TRANSFORMATION%5D=YOY_PCH_PA_PT&c%5BCOICOP_1999%5D=_T&c%5BINDEX_TYPE%5D=CPI&c%5BFREQUENCY%5D=M&dimensionAtObservation=AllDimensions",
-    "retrieved_at": "2026-11-19T10:44:14+00:00"
+    "retrieved_at": "2026-11-20T10:27:34+00:00"
    }
   },
   "unemployment": {
@@ -33393,7 +33393,7 @@
     "publisher": "World Bank (SIPRI data)",
     "url": "https://data.worldbank.org/indicator/MS.MIL.XPND.GD.ZS",
     "data_url": "https://api.worldbank.org/v2/country/ARG;AUS;BRA;CAN;CHN;FRA;DEU;IND;IDN;ITA;JPN;KOR;MEX;RUS;SAU;ZAF;TUR;GBR;USA/indicator/MS.MIL.XPND.GD.ZS?format=json&per_page=5000&date=2000:2030",
-    "retrieved_at": "2026-11-19T10:44:14+00:00"
+    "retrieved_at": "2026-11-20T10:27:34+00:00"
    }
   }
  }
